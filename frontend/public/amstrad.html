@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Amstrad CPC</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    #game { width: 100%; height: 100%; }
+    .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+           color: #ccc; font-family: sans-serif; font-size: 14px; text-align: center; padding: 12px; }
+  </style>
+</head>
+<body>
+  <div class="msg" id="msg">불러오는 중…</div>
+  <div id="game"></div>
+  <script>
+    /* resume suspended AudioContext on first gesture (autoplay policy) */
+    (function () {
+      var ctxs = [];
+      ["AudioContext", "webkitAudioContext"].forEach(function (n) {
+        var Orig = window[n]; if (!Orig) return;
+        function W(o) { var c = o ? new Orig(o) : new Orig(); ctxs.push(c); return c; }
+        W.prototype = Orig.prototype; window[n] = W;
+      });
+      function unlock() {
+        ctxs.forEach(function (c) { try { if (c.state === "suspended") c.resume(); } catch (e) {} });
+      }
+      ["pointerdown", "touchend", "mousedown", "keydown", "click"].forEach(function (ev) {
+        window.addEventListener(ev, unlock, true);
+      });
+    })();
+
+    var msg = document.getElementById("msg");
+    var romId = new URLSearchParams(location.search).get("rom");
+
+    // Virtual-pad input from the parent overlay → EmulatorJS via simulateInput.
+    // RetroPad indices: B=0, Select=2, Start=3, Up=4, Down=5, Left=6, Right=7, A=8.
+    var IDX = { up: 4, down: 5, left: 6, right: 7, a: 8, b: 0, start: 3, select: 2 };
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || d.type !== "ejs-input" || !(d.btn in IDX)) return;
+      try {
+        window.EJS_emulator.gameManager.simulateInput(0, IDX[d.btn], d.down ? 1 : 0);
+      } catch (err) { /* not started yet */ }
+    });
+
+    // EmulatorJS 4.2.3 has no Amstrad entry, so the cap32 fallback inherits a CD-core
+    // extension list and wraps our .dsk in a MODE1/2352 .cue caprice can't mount. We
+    // hijack its cue generator and emit an .m3u disk playlist instead — the canonical
+    // way a libretro disk core mounts a floppy into drive A.
+    function patchCueToM3u() {
+      var tries = 0;
+      var iv = setInterval(function () {
+        var gm = window.EJS_emulator && window.EJS_emulator.gameManager;
+        if (gm && typeof gm.createCueFile === "function" && !gm.__m3uPatched) {
+          gm.__m3uPatched = true;
+          gm.createCueFile = function (files) {
+            try {
+              var disks = files.filter(function (f) { return /\.dsk$/i.test(f); });
+              if (!disks.length) disks = files.slice();
+              this.FS.writeFile("/game.m3u", disks.join("\n") + "\n");
+              return "game.m3u";
+            } catch (err) { return null; }
+          };
+          clearInterval(iv);
+        }
+        if (++tries > 3000) clearInterval(iv);   // ~30s safety net
+      }, 5);
+    }
+
+    if (!romId) { msg.textContent = "ROM이 지정되지 않았습니다."; }
+    else {
+      // Fetch the ROM bytes ourselves so we can give EmulatorJS a proper ".dsk"
+      // filename (Caprice32 detects disks by extension) from a local blob URL.
+      fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(function (blob) {
+          window.EJS_player = "#game";
+          window.EJS_core = "cap32";                 // Caprice32 (Amstrad CPC). NOTE:
+          // EmulatorJS 4.2.3 has no "amstrad" alias, so pass the core name directly
+          // — getCore() falls back to it and loads cores/cap32-*-wasm.data.
+          window.EJS_pathtodata = "/emulatorjs/data/";   // self-hosted, no external CDN
+          window.EJS_gameUrl = URL.createObjectURL(blob);
+          window.EJS_gameName = "game.dsk";          // ext so cap32 mounts it as a disk
+          window.EJS_startOnLoaded = true;
+          window.EJS_disableDatabases = true;        // no external game-info DB calls
+          // cap32 core options: auto-type RUN"DISC so games launch straight away
+          // instead of dropping the user at the BASIC "Ready" prompt.
+          // NOTE: EmulatorJS only honours EJS_defaultOptions when localStorage is
+          // disabled — otherwise a fresh load writes an empty core-options file and
+          // ignores them, so cap32 boots with autorun off. Disable it here.
+          window.EJS_disableLocalStorage = true;
+          window.EJS_defaultOptions = { cap32_autorun: "enabled" };
+          window.EJS_volume = 0.5;
+          window.EJS_onGameStart = function () { if (msg) msg.remove(); };
+
+          // EmulatorJS 4.2.3 has no Amstrad entry, so the cap32 fallback is treated as
+          // a CD core: it wraps our .dsk in a MODE1/2352 .cue that caprice misreads
+          // (drive A stays empty → "disc missing"), and feeding the raw .dsk crashes
+          // RetroArch's load path. The canonical way to mount a floppy in a libretro
+          // disk core is an .m3u playlist of .dsk files — so we hijack EmulatorJS's
+          // cue generation and emit an m3u pointing at the disk instead.
+          patchCueToM3u();
+
+          var s = document.createElement("script");
+          s.src = "/emulatorjs/data/loader.js";
+          s.onerror = function () { msg.textContent = "EmulatorJS 로드 실패"; };
+          document.body.appendChild(s);
+        })
+        .catch(function (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; });
+    }
+  </script>
+</body>
+</html>

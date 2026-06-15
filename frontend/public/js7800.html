@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>JS7800</title>
+  <style>
+    /* !important: js7800's bundled site CSS injects body{margin:5em} + #content
+       {margin-top:4.5em} AFTER this <style>, which shoved the game down. Kill it. */
+    html, body { margin: 0 !important; height: 100%; background: #000; overflow: hidden; }
+    /* hide the site chrome (header + cart-select UI), keep only the emulator */
+    .header, .controls, .drop__div { display: none !important; }
+    #content { width: 100%; height: 100%; margin: 0 !important; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    /* js7800 uses a FIXED scale off-fullscreen (won't fit the iframe) → force its
+       containers + canvas to fill the width and center vertically (letterbox). */
+    /* Fill the iframe: stretch the canvas to the screen area (like the app's other
+       cores), keeping js7800's control bar pinned at the bottom. */
+    #js7800__target { width: 100%; height: 100%; display: flex; flex-direction: column; }
+    #js7800__target > div { flex: 1 1 auto; min-height: 0; width: 100% !important; margin: 0 !important;
+                            display: flex; flex-direction: column; }
+    #js7800__target .js7800__inner-container { flex: 1 1 auto; min-height: 0; width: 100% !important; margin: 0 !important; }
+    #js7800__target canvas {
+      /* fit the WHOLE frame (no right-edge cut), keep aspect, never overflow width */
+      height: 100% !important; width: auto !important;
+      max-width: 100% !important; max-height: 100% !important;
+      object-fit: contain; image-rendering: pixelated;
+      display: block !important; margin: 0 auto !important;
+    }
+    #js7800__target .js7800__controls { flex: 0 0 auto; }
+    .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+           color: #ccc; font: 14px sans-serif; text-align: center; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <div class="msg" id="msg">불러오는 중…</div>
+
+  <!-- DOM that site.init() expects (mirrors the deploy index.html) -->
+  <div class="header"><span class="header__label"></span></div>
+  <div id="content">
+    <div class="drop__div"></div>
+    <div id="js7800__target"></div>
+    <div class="controls">
+      <div class="cartselect"><select id="cartselect__select"></select></div>
+      <div id="select-local-file"></div>
+      <div id="select-remote-file"></div>
+    </div>
+  </div>
+
+  <script>
+    /* autoplay policy: resume the (suspended) audio context on the first gesture */
+    (function () {
+      var ctxs = [];
+      ["AudioContext", "webkitAudioContext"].forEach(function (n) {
+        var Orig = window[n]; if (!Orig) return;
+        function W(o) { var c = o ? new Orig(o) : new Orig(); ctxs.push(c); return c; }
+        W.prototype = Orig.prototype; window[n] = W;
+      });
+      function unlock() {
+        ctxs.forEach(function (c) {
+          try {
+            if (c.state === "suspended") c.resume();
+            var s = c.createBufferSource(); s.buffer = c.createBuffer(1, 1, 22050);
+            s.connect(c.destination); s.start(0);
+          } catch (e) {}
+        });
+      }
+      ["pointerdown", "touchend", "mousedown", "keydown", "click"].forEach(function (ev) { window.addEventListener(ev, unlock, true); });
+    })();
+
+    var msgEl = document.getElementById("msg");
+    function msg(t) { if (msgEl) msgEl.textContent = t; }
+    window.alert = function () {};                       // suppress js7800's dialogs
+    // Emscripten: resolve bupboop.wasm next to its .js (we host both in /js7800/).
+    window.Module = { locateFile: function (f) { return "/js7800/" + f; } };
+
+    // Virtual-pad input from the parent → synthetic key events. js7800 reads
+    // document.onkeydown's event.keyCode, so we dispatch with keyCode overridden.
+    // Fire BOTH player 1 (arrows + Z/X) and player 2 (J/L/I/K + N/M) — some 7800
+    // games put the player on controller 2 (e.g. Ballblazer responds to J/L/I/K).
+    var KMAP = {
+      up: [38, 73], down: [40, 75], left: [37, 74], right: [39, 76],
+      a: [90, 78], b: [88, 77]
+    };
+    function synthKey(code, down) {
+      var e = new KeyboardEvent(down ? "keydown" : "keyup", { bubbles: true, cancelable: true });
+      Object.defineProperty(e, "keyCode", { value: code });
+      Object.defineProperty(e, "which", { value: code });
+      document.dispatchEvent(e);
+    }
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || d.type !== "js7800-input" || !KMAP[d.btn]) return;
+      KMAP[d.btn].forEach(function (code) { synthKey(code, !!d.down); });
+    });
+
+    var romId = new URLSearchParams(location.search).get("rom");
+    if (!romId) { msg("ROM이 지정되지 않았습니다."); }
+    else {
+      loadScript("/js7800/js7800.min.js", function () {
+        loadScript("/js7800/site.min.js", function () {
+          loadScript("/js7800/bupboop.js", start);
+        });
+      });
+    }
+
+    function loadScript(src, cb) {
+      var s = document.createElement("script");
+      s.src = src; s.onload = cb;
+      s.onerror = function () { msg("로드 실패: " + src); };
+      document.head.appendChild(s);
+    }
+
+    function start() {
+      var loadFromUrl = null;
+      // site.init fires "siteInit" with the loadFromUrl(url) ROM loader — capture it.
+      try {
+        js7800.Events.addListener(new js7800.Events.Listener("siteInit", function (e) {
+          loadFromUrl = e.loadFromUrl;
+        }));
+      } catch (e) {}
+      try { site.init(js7800); } catch (e) { msg("init 실패: " + e.message); return; }
+
+      var url = "/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom";
+      var tries = 150;
+      (function go() {
+        var ready = window.Module && (window.Module.calledRun || window.Module.asm);
+        if (loadFromUrl && ready) {
+          try {
+            loadFromUrl(url, false);
+            if (msgEl) msgEl.remove();
+            // js7800 fits its canvas on 'resize' — nudge it a few times so it fills
+            // the iframe instead of rendering small with a black gap above.
+            [150, 500, 1000, 2000].forEach(function (t) {
+              setTimeout(function () { window.dispatchEvent(new Event("resize")); }, t);
+            });
+          } catch (e) { msg("실행 실패: " + e.message); }
+          return;
+        }
+        if (tries-- > 0) setTimeout(go, 150);
+        else msg("js7800 준비 실패 (lfu=" + !!loadFromUrl + " mod=" + !!ready + ")");
+      })();
+    }
+  </script>
+</body>
+</html>

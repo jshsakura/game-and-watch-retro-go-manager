@@ -1,0 +1,1019 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<gameList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <game>
+        <path>./gnw/gnw_ball.zip</path>
+        <name>볼 (Ball)</name>
+        <desc>"볼"은 1980년 4월 28일에 닌텐도에서 출시한 최초의 "Game &amp; Watch" 핸드헬드 게임이다. 이 게임은 닌텐도의 전설적인 "Game &amp; Watch" 시리즈의 첫 번째 타이틀로, 시리즈의 첫 번째로 등장한 게임이다. "볼"은 그 당시 전자 게임의 발전을 상징하는 중요한 작품으로, 아케이드 기계나 콘솔 게임이 아닌 휴대용 장치에서 전자 게임을 즐길 수 있는 새로운 경험을 제공했다.
+게임은 매우 간단한 게임플레이를 제공하는데, 플레이어는 두 개의 패들을 좌우로 움직여 공을 튕겨내는 방식으로 게임을 진행한다. 목표는 공을 떨어뜨리지 않고 계속해서 튕겨내는 것이다. 게임의 난이도는 점차 증가하며, 공의 속도나 수가 증가하여 플레이어의 반사 신경과 손끝의 민첩성을 시험하게 된다. "볼"은 당시로서는 혁신적인 게임 방식과 함께, 간단하면서도 중독성 있는 게임플레이를 제공해 많은 인기를 끌었다.
+"볼"은 닌텐도가 처음으로 선보인 "실버 시리즈"의 일환으로 출시되었으며, 이 시리즈는 나중에 더욱 발전하여 유명한 "골드 시리즈"로 이어졌다. "게임 &amp; 워치" 시리즈는 모바일 게임의 선구자 역할을 하며, 이후 다양한 장르의 게임을 담은 휴대용 기기의 시대를 열었다. "볼"은 그 자체로도 게임 역사에서 중요한 의미를 갖고 있으며, "게임 &amp; 워치" 시리즈가 게임 산업에 끼친 영향을 이해하는 데 필수적인 작품이다.
+게임과 함께 등장한 LCD 스크린은 당시로서는 획기적인 기술로, 간단한 애니메이션과 그래픽을 표현할 수 있었고, 이후 닌텐도의 여러 게임 기기 개발에 큰 영향을 미쳤다. 이 게임은 단순히 재미있는 오락을 넘어서, 휴대용 게임 시스템의 발전 가능성을 보여주었고, 현대의 게임 기기들이 이끌어 온 전자 오락의 흐름에 중요한 기여를 했다.
+"볼"은 그 자체로 '게임과 휴대성의 만남'을 상징하는 작품으로, 게임 역사에서 중요한 전환점을 찍은 의미 있는 게임이다.</desc>
+        <releasedate>19800428T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <image>./media/image/gnw/gnw_ball.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_ball.png</thumbnail>
+        <video>./media/video/gnw/gnw_ball.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_ball.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_bfightn.zip</path>
+        <name>벌룬 파이트 (Balloon Fight) (New Wide Screen)</name>
+        <desc>"벌룬 파이트"는 우주적 영웅이 되어 악당인 올리암 레푸스라는 괴물의 악행을 끝내기 위해 싸우는 게임이다. 이 게임의 독특한 점은 주인공이 제트팩 대신 환경 친화적인 방법으로 기동력을 확보하는데, 바로 풍선을 이용한다는 점이다. 게임의 목표는 다양한 풍선을 모으고, 그 풍선들이 지니고 있는 지도 조각을 모아서 악당의 은신처를 찾아가는 것이다. 풍선 하나하나가 중요한 단서를 제공하며, 풍선을 모으는 과정에서 점차 어려운 난이도의 도전이 펼쳐진다. 
+게임에서 중요한 점은 바로 "스파크"라는 위험한 장애물이다. 25번째 풍선을 획득한 후, 게임의 보스는 "스파크"라는 별 모양의 적을 보내 플레이어에게 위협을 가한다. 이 스파크는 접촉하면 게임 오버가 되기 때문에, 플레이어는 이를 피하며 풍선을 계속 모아야 한다. 게임은 기본적인 풍선 모으기와 장애물 피하기의 반복적인 패턴을 기반으로 진행되지만, 점차 난이도가 상승하면서 플레이어의 반사 신경과 전략적 사고를 시험하게 된다.
+"벌룬 파이트"는 그 당시 게임의 물리적 한계 내에서 다양한 동작을 구현해낸 점에서 혁신적이었다. 특히 LCD 화면을 사용하여 캐릭터의 움직임과 풍선의 물리적 특성을 세밀하게 표현하면서, 게임의 몰입감을 높였다. 또한, 게임은 단순한 그래픽에도 불구하고 그 자체로 매력적인 비주얼과 중독성 있는 게임 플레이로, 많은 팬들에게 사랑을 받았다. 
+이 게임은 "Game &amp; Watch" 시리즈의 중요한 작품으로, 휴대용 게임기에서 액션과 어드벤처 요소를 결합한 첫 번째 시도였다. 나아가 "벌룬 파이트"는 그 자체로도 현대적인 액션 게임들이 가질 수 있는 기본적인 요소들을 제시한 게임으로, 게임 디자인의 발전에 중요한 기여를 했다.</desc>
+        <releasedate>19880308T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_bfightn.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_bfightn.png</thumbnail>
+        <video>./media/video/gnw/gnw_bfightn.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_bfightn.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_bfight.zip</path>
+        <name>벌룬 파이트 (Balloon Fight) (Crystal Screen)</name>
+        <desc>"벌룬 파이트"는 주인공이 환경 친화적인 방법인 풍선을 이용해 우주를 떠도는 악당인 올리암 레푸스의 악행을 막는 이야기를 담고 있다. 이 게임에서 주인공은 제트팩 대신 풍선을 타고 하늘을 나는 독특한 히어로로 등장한다. 게임을 진행하면서 플레이어는 풍선을 모아 그 속에 숨겨진 지도 조각을 찾아가야 하며, 이 지도는 결국 악당의 은신처로 향하는 길을 밝혀준다.
+게임의 중요한 특징은 25번째 풍선을 획득한 이후 나타나는 "스파크"라는 장애물이다. 보스는 이 스파크를 보내며 플레이어를 위협한다. 스파크는 접촉할 경우 게임 오버를 초래하므로, 플레이어는 이를 피하고 계속해서 풍선을 모으며 지도 조각을 완성해야 한다. 게임은 단순하면서도 점차 난이도가 상승하는 구조로, 빠른 반사 신경과 정확한 조작이 요구된다.
+이 게임은 "Game &amp; Watch" 시리즈의 일환으로, 크리스탈 스크린을 이용해 풍선의 움직임과 캐릭터의 액션을 세밀하게 표현할 수 있었다. LCD 화면의 한계를 뛰어넘는 다양한 그래픽적 기법들이 사용되어 게임의 몰입감을 더해줬다. 또한, 당시에는 혁신적인 기술이었으며, 휴대용 게임기의 가능성을 여는 중요한 전환점이 되었다.
+"벌룬 파이트"는 "Game &amp; Watch" 시리즈의 핵심적인 작품으로, 게임 디자인에서 액션과 어드벤처 요소를 잘 결합한 예시로 평가받는다. 이 게임은 간단한 구조 속에서도 높은 중독성을 자랑하며, 후속 게임들의 발전에 큰 영향을 미쳤다. 풍선이라는 독특한 이동 수단과 점점 어려워지는 난이도는 플레이어들에게 도전의식을 불러일으키며, 지금까지도 그 가치와 의의를 인정받고 있다.</desc>
+        <releasedate>19880308T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_bfight.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_bfight.png</thumbnail>
+        <video>./media/video/gnw/gnw_bfight.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_bfight.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_bjack.zip</path>
+        <name>블랙잭 (Black Jack)</name>
+        <desc>"블랙잭"은 LCD 화면에서 즐길 수 있는 간단한 블랙잭 카드 게임이다. 이 게임은 기존의 "Game &amp; Watch" 시리즈와는 확연히 다른 형식을 띤다. 기본적인 규칙은 블랙잭 카드 게임과 동일하게, 플레이어가 가진 카드의 총합이 21에 가까워지도록 카드를 받으며 게임을 진행하는 것이다. 카드의 숫자 합이 21을 초과하면 게임에서 패하게 되며, 21에 딱 맞거나 그에 가까운 값을 만들면 승리하게 된다. 
+"블랙잭"은 그 자체로도 독특한 특징을 가지고 있다. 그동안 "Game &amp; Watch" 시리즈는 주로 액션 게임이나 퍼즐 게임을 중심으로 구성되었지만, "블랙잭"은 카드 게임이라는 차별화된 장르를 다룬 첫 번째 작품이다. 이 게임은 기본적인 카드 배분과 선택적인 행동이 결합되어 플레이어에게 전략적인 사고를 요구한다. 또한, LCD 화면을 이용한 카드와 숫자의 시각적 표현은 당시로서는 새로운 방식으로, 게임의 몰입감을 높였다.
+"블랙잭"은 일본에서 마지막으로 출시된 "Game &amp; Watch" 비디오 게임으로, 그 이후의 "Game &amp; Watch" 게임들은 일본 외의 다른 나라에서만 출시되었다. 이 점에서 "블랙잭"은 시리즈의 중요한 전환점을 의미하며, 일본 내에서의 "Game &amp; Watch" 게임의 마무리를 알리는 작품으로 역사적인 의의를 갖는다. 또한, "블랙잭"은 그 이후 카드 게임 장르를 디지털 환경에서 어떻게 변형시킬 수 있는지에 대한 가능성을 열어준 작품으로, 게임 디자인에 있어 중요한 한 걸음을 내디뎠다.
+이 게임은 간단한 규칙과 직관적인 플레이 방식을 제공하며, 빠르게 즐길 수 있어 휴대용 게임기로서의 장점을 잘 살렸다. "블랙잭"은 "Game &amp; Watch" 시리즈에서 가장 다른 성격을 가진 게임 중 하나로, 그 자체로도 큰 의미와 가치를 지닌 작품이다.</desc>
+        <releasedate>19850215T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Casino / Cards-Casino</genre>
+        <genreid>3584</genreid>
+        <image>./media/image/gnw/gnw_bjack.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_bjack.png</thumbnail>
+        <video>./media/video/gnw/gnw_bjack.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_bjack.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_bsweep.zip</path>
+        <name>폭탄 제거반 (Bomb Sweeper)</name>
+        <desc>"폭탄 제거반"은 플레이어가 폭탄을 제거하는 역할을 맡은 게임으로, 마스크를 쓴 폭탄 전문가인 다이너마이트 잭이 하수구에 여러 폭탄을 설치해 놓은 상황을 배경으로 한다. 플레이어는 존 솔버라는 캐릭터를 조종하여 하수구 깊은 곳으로 내려가 폭탄을 모두 해체해야 한다. 게임의 목적은 제한된 시간 내에 폭탄을 찾고 해체하는 것이다.
+게임은 D패드를 사용하여 존 솔버를 조작하며, 벽 속에 숨겨진 폭탄을 찾아야 한다. 폭탄을 찾고 해체하면 화면이 클리어되고, 남은 시간에 따라 보너스를 받게 된다. 이때, 게임의 주요 장애물은 벽이다. 벽은 플레이어가 이를 피해 지나가거나, 벽을 밀어서 길을 만드는 방식으로 넘을 수 있다. 단, 벽을 밀 때는 길을 막고 있는 장애물이 없을 경우에만 가능하므로, 벽을 밀어 가는 것이 전략적으로 중요한 요소가 된다.
+게임은 여러 레벨로 구성되어 있으며, 일부 레벨은 속도와 반사 신경을 요구하는 반면, 다른 레벨은 논리와 지능을 테스트하는 퍼즐적인 성격을 띤다. 각 레벨을 클리어하면서 점차적으로 게임의 난이도는 상승하며, 다양한 도전과제가 제공된다. 이 게임은 단순한 액션 요소 외에도 퍼즐적인 측면을 결합하여, 플레이어에게 전략적 사고와 빠른 반응 능력을 동시에 요구한다.
+"폭탄 제거반"은 "Game &amp; Watch" 시리즈에서 또 다른 혁신적인 게임으로, 게임의 난이도와 플레이 방식이 다양하게 구성되어 있어 재미와 도전성을 높였다. 다양한 전략을 통해 장애물을 피하고 폭탄을 해체하는 과정은 "Game &amp; Watch" 시리즈의 전형적인 액션과 퍼즐 요소를 잘 결합한 예로 평가받는다. 이 게임은 또한, 당시로서는 획기적인 LCD 화면을 이용한 그래픽으로, 각종 장애물과 캐릭터의 움직임을 표현하면서 시각적인 몰입감을 더했다.</desc>
+        <releasedate>19870601T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Puzzle</genre>
+        <genreid>2816</genreid>
+        <image>./media/image/gnw/gnw_bsweep.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_bsweep.png</thumbnail>
+        <video>./media/video/gnw/gnw_bsweep.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_bsweep.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_boxing.zip</path>
+        <name>복싱 (Boxing / Punch Out)</name>
+        <desc>"복싱"은 두 캐릭터가 서로 대결하는 간단하면서도 흥미로운 액션 게임이다. 게임에서 플레이어는 오른쪽 캐릭터를 조종하며, 왼쪽에 있는 상대와 복싱 경기를 펼친다. 화면 상단에는 각 캐릭터의 상태가 표시되며, 각 캐릭터는 최대 5개의 체력 바를 가지고 있다. 게임의 시작에서 상대는 종종 플레이어보다 적은 체력을 가지고 있으며, 게임을 진행하면서 이 체력을 다 채우거나 상대를 넉백시킬 수 있다.
+게임의 주요 목표는 상대를 한 번의 공격으로 쓰러뜨리는 것이다. 상대를 첫 번째로 쓰러뜨리면 그가 왼쪽으로 밀려나고, 잠시 후 다시 일어나서 경기를 계속한다. 이때, 플레이어는 이전에 체력을 잃은 경우 잃었던 체력을 회복하게 된다. 만약 플레이어가 상대에게 쓰러진다면, 플레이어는 화면 오른쪽으로 밀려나고 다시 일어나 경기를 계속하게 된다. 이 과정을 반복하면서 점차 난이도가 상승하고, 더 강한 상대가 등장한다.
+"복싱"은 그 당시의 게임에서 액션과 리듬의 결합을 잘 보여주는 예시로, 빠르게 반응하고 공격을 피하는 능력을 요구한다. 단순한 조작 방식으로 플레이어가 쉽게 게임에 몰입할 수 있도록 설계되어 있으며, 반사 신경과 전략을 동시에 테스트하는 특징이 있다. 이 게임은 "Game &amp; Watch" 시리즈의 전형적인 액션 게임으로, 각 캐릭터의 움직임과 공격이 LCD 화면을 통해 명확하게 표현되었다.
+"복싱"은 또한, "Game &amp; Watch" 시리즈에서 중요한 전환점을 나타낸 작품으로 평가받을 수 있다. 간단하면서도 중독성 있는 게임플레이 덕분에 많은 인기를 끌었으며, 후속 작품들에 큰 영향을 미쳤다. 이러한 게임은 이후 다양한 장르의 액션 게임들이 등장하는 데 영향을 주었고, 현대적인 게임 디자인의 기초를 마련하는 데 중요한 역할을 했다.</desc>
+        <releasedate>19840731T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>2</players>
+        <genre>Sports / Boxing-Sports</genre>
+        <genreid>1540</genreid>
+        <image>./media/image/gnw/gnw_boxing.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_boxing.png</thumbnail>
+        <video>./media/video/gnw/gnw_boxing.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_boxing.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_chef.zip</path>
+        <name>셰프 (Chef)</name>
+        <desc>"셰프"는 플레이어가 주방에서 음식이 바닥에 떨어지지 않도록 주의해야 하는 게임이다. 게임에서 플레이어는 셰프 역할을 맡아, 음식이 떨어지지 않도록 바구니에 담아야 한다. 주방의 주인공인 셰프는 음식이 바닥에 떨어지지 않도록 신속하게 움직여야 하며, 주어진 시간 동안 계속해서 음식을 받아야 한다.
+하지만 게임을 더 어렵게 만드는 요소들이 있다. 게임 내에서 쥐는 주기적으로 튀어나와 음식을 훔쳐가려 하고, 고양이는 때때로 셰프를 방해하여 게임의 진행을 어렵게 만든다. 이처럼 플레이어는 음식을 받는 동시에 쥐와 고양이의 방해를 피해야 하며, 음식이 바닥에 떨어지지 않도록 집중해야 한다. 만약 음식을 떨어뜨리면 점수가 감소하게 된다.
+"셰프"는 간단하면서도 중독성 있는 게임으로, 빠른 반사 신경과 손끝의 민첩성을 시험하는 게임이다. 각 레벨을 클리어할수록 난이도가 점차 상승하며, 쥐와 고양이의 방해도 더욱 거세지기 때문에, 플레이어는 전략적으로 빠르게 움직이고 장애물을 피하면서 음식을 계속해서 받는 능력을 키워야 한다. 
+"셰프"는 "Game &amp; Watch" 시리즈의 대표적인 액션 게임으로, 당시의 휴대용 게임기에서 가능한 범위 내에서 최대한의 재미와 몰입감을 제공했다. 게임의 간단한 설정과 직관적인 조작법은 누구나 쉽게 접근할 수 있도록 하였으며, 동시에 점차 어려워지는 난이도와 장애물들은 게임에 대한 도전의식을 불러일으켰다.</desc>
+        <releasedate>19810908T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_chef.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_chef.png</thumbnail>
+        <video>./media/video/gnw/gnw_chef.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_chef.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_climbern.zip</path>
+        <name>클라이머 (Climber) (New Wide Screen)</name>
+        <desc>"클라이머 (New Wide Screen)"는 기존 "클라이머"의 게임 플레이를 기반으로 하여, 보다 넓은 화면 비율을 제공하는 "Game &amp; Watch"의 개선된 버전이다. 이 버전은 가로로 확장된 화면을 사용하여, 더 넓은 시야와 함께 게임을 플레이할 수 있는 점이 가장 큰 특징이다. 화면이 넓어짐에 따라 클라이머가 이동하는 경로와 장애물을 한 번에 더 잘 파악할 수 있어, 게임을 더욱 몰입감 있게 즐길 수 있다.
+게임의 기본적인 내용은 동일하다. 플레이어는 어린 클라이머가 되어, Lord Meiji의 가르침을 받아 Block Mountain의 정상에 도달해야 한다. 게임 중 클라이머는 블록맨, 하늘을 나는 아이롬, 가시식물 등 다양한 적과 장애물을 피하며 점프를 통해 플랫폼을 넘는 여정을 이어간다. 각 레벨마다 새로운 도전이 기다리고 있으며, 플레이어는 빠른 반사 신경과 전략적인 움직임을 요구받는다.
+"클라이머 (New Wide Screen)"는 5개의 레벨로 구성되어 있으며, 첫 4개의 레벨을 클리어하면 보너스 게임이 진행된다. 보너스 게임에서는 클라이머가 Hentori라는 보너스 새를 잡을 기회를 얻고, 5번째 레벨에서는 드래고로라는 용을 처치하기 위해 타이밍을 맞춰 검을 잡아야 한다. 
+넓어진 화면 덕분에 게임의 진행 상황을 한눈에 더 잘 파악할 수 있어, 더 빠르고 효율적으로 장애물을 피하고 적들과 싸우는 것이 가능하다. 또한, "New Wide Screen" 버전은 게임 내 액션의 몰입감을 더욱 강화하며, 당시 기술로 구현 가능한 최고의 액션 게임 중 하나로 여겨졌다.</desc>
+        <releasedate>19880308T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action-Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_climbern.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_climbern.png</thumbnail>
+        <video>./media/video/gnw/gnw_climbern.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_climbern.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_climber.zip</path>
+        <name>클라이머 (Climber) (Crystal)</name>
+        <desc>"클라이머"는 주인공인 클라이머라는 어린이가 Lord Meiji의 가르침을 받아 Block Mountain의 정상에 도달하려는 모험을 담고 있는 게임이다. 플레이어는 클라이머가 되어 다양한 장애물과 적들을 피하며 산을 오르는 여정을 시작한다. 이 게임은 플랫폼을 뛰어넘는 점프와 장애물 피하기의 액션이 핵심이며, 각 레벨마다 점차적으로 난이도가 상승한다.
+게임에서의 주요 적은 세 가지로 나뉜다. 첫 번째는 블록맨(Blockmen)으로, 이들은 걷는 적이며, 갭에 도달하면 블록 형태로 변하여 장애물로 작용한다. 두 번째는 아이롬(Eyerom)이라는 새로, 하늘을 날며 클라이머의 진행을 방해한다. 세 번째는 가시식물로, 클라이머가 지나가는 길에 방해가 되는 장애물이다. 이러한 다양한 적들과 장애물들이 클라이머의 여정을 어렵게 만든다.
+게임은 5개의 레벨로 구성된 세트로 이루어져 있으며, 첫 4개 레벨을 클리어하면 보너스 게임이 진행된다. 보너스 게임에서 클라이머는 Hentori라는 보너스 새를 잡기 위해 두 번의 기회로 점프를 시도해야 한다. 다섯 번째 레벨에서는 클라이머가 드래고로(Dragalo)라는 용을 처치하기 위해 타이밍에 맞춰 검을 잡고 용을 찔러야 한다. 이 보스 레벨은 게임의 클라이맥스를 장식하며, 클라이머의 모든 능력을 시험하게 된다.
+"클라이머"는 단순한 액션 게임에 퍼즐적인 요소와 타이밍을 결합한 게임으로, 빠른 반응 능력과 전략적 사고를 요구한다. 각 레벨마다 점점 더 도전적인 장애물과 적들이 등장하여 플레이어에게 지속적으로 긴장감을 제공하며, 보너스 게임은 추가적인 보상을 통해 재미를 더한다. "Game &amp; Watch" 시리즈의 일환으로, 이 게임은 당시 기술로 구현 가능한 최고의 액션 게임 중 하나로, 휴대용 게임기에서의 액션 게임의 가능성을 확장한 작품으로 평가된다.</desc>
+        <releasedate>19880308T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action-Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_climber.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_climber.png</thumbnail>
+        <video>./media/video/gnw/gnw_climber.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_climber.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_cgrab.zip</path>
+        <name>크랩 그랩 (Crab Grab)</name>
+        <desc>"크랩 그랩"은 1984년에 출시된 슈퍼 컬러 "Game &amp; Watch" 비디오 게임으로, 게임의 목표는 다가오는 게들을 밀쳐내어 캐릭터가 게에게 물리지 않도록 하는 것이다. 게임의 규칙은 간단하지만, 점점 더 많은 게들이 다가와 플레이어에게 도전적인 게임 플레이를 제공한다.
+게임은 총 네 개의 색깔이 다른 컬럼으로 나뉘어 있으며, 각 컬럼은 왼쪽부터 차례대로 보라색, 초록색, 주황색, 파란색이다. 게들은 화면의 상단에서 떨어지기 시작하며, 플레이어는 좌우로 움직이며 게들을 밀어내야 한다. 만약 게가 캐릭터를 집으면 점수가 감소하고, 세 마리의 게가 캐릭터를 물면 게임 오버가 된다. 이 게임의 특징은 계속해서 게들이 더 많이 다가오는 점에서 점차적으로 난이도가 상승한다는 것이다. 플레이어는 빠른 반응과 정확한 타이밍으로 게들을 밀쳐내야 하며, 이에 따라 게임의 속도와 긴장감이 계속해서 증가한다.
+"크랩 그랩"은 두 가지 슈퍼 컬러 게임 중 하나로, 다른 하나는 "스핏볼 스파키"였다. 이 두 게임은 "Game &amp; Watch" 시리즈에서 색깔을 활용한 최초의 게임들로, 당시로서는 매우 혁신적인 시도였다. "크랩 그랩"은 단순하면서도 중독성 있는 게임 플레이로, 빠른 속도와 반사 신경을 필요로 하는 게임으로 많은 사랑을 받았다. 또한, 슈퍼 컬러 기능을 활용하여 화면에 더 많은 색감을 제공해 시각적인 즐거움도 더했다.</desc>
+        <releasedate>19840221T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Casual Game</genre>
+        <genreid>2304</genreid>
+        <image>./media/image/gnw/gnw_cgrab.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_cgrab.png</thumbnail>
+        <video>./media/video/gnw/gnw_cgrab.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_cgrab.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkong3.zip</path>
+        <name>동키콩 3 (Donkey Kong 3)</name>
+        <desc>"동키콩 3"는 아케이드 버전과 유사한 방식으로 진행되는 "Game &amp; Watch" 시리즈의 게임으로, 플레이어는 스탠리라는 캐릭터를 조종하여 동키콩과 벌들의 공격을 막아야 한다. 게임의 설정은 동키콩이 스탠리의 온실에 침입하면서 시작된다. 하지만 이번에는 동키콩과 스탠리 모두 스프레이를 장비하고 있어, 서로의 스프레이를 사용해 벌들이 서로 쏘도록 유도하는 방식으로 게임이 진행된다.
+게임은 기본적으로 두 캐릭터가 스프레이를 사용하여 벌들을 밀어내는 방식으로 진행된다. 동키콩은 온실의 상단에서 벌들을 보내고, 스탠리는 스프레이를 사용해 벌들을 밀쳐내며 그들이 서로 공격하도록 유도한다. 벌들이 서로 쏘도록 만든 후에는 벌들이 더 이상 위협이 되지 않게 되며, 이 과정을 반복하여 점수를 얻는다. 게임의 목표는 동키콩이 보내는 벌들을 모두 처리하는 것이다.
+"동키콩 3"는 "Game &amp; Watch" 시리즈의 특징인 간단한 게임 시스템과, 액션과 전략을 결합한 독특한 플레이 방식이 특징이다. 벌들이 서로 쏘는 장면을 만들기 위해서는 정확한 타이밍과 스프레이의 사용 전략이 필요하다. 게임은 점점 더 많은 벌들이 등장하면서 난이도가 올라가며, 플레이어는 빠른 반응과 신속한 전략을 요구받는다.
+이 게임은 "동키콩" 시리즈의 일부로, 아케이드 게임의 인기를 기반으로 만들어졌으며, 휴대용 게임기에서 동키콩의 매력을 즐길 수 있게 해주었다. 또한, 기존의 "Game &amp; Watch" 시리즈와 비교해 더 복잡하고 전략적인 요소를 도입하여, 플레이어에게 새로운 재미를 선사한 작품으로 기억된다.</desc>
+        <releasedate>19840801T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>2</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_dkong3.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkong3.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkong3.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkong3.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkcirc.zip</path>
+        <name>동키콩 서커스 (Donkey Kong Circus)</name>
+        <desc>"동키콩 서커스"는 동키콩이 파인애플을 juggling하며 배럴 위에서 균형을 맞추는 재미있는 게임이다. Panorama Screen 버전으로 출시된 미키 마우스와 거의 흡사한 구조를 가지고 있다. 이 게임에서 플레이어는 동키콩이 던지는 파인애플을 받아야 하며, 이때 파인애플이 바닥에 떨어지거나 동키콩이 불꽃에 닿으면 목숨을 잃게 된다. 주어진 목표는 가능한 한 많은 파인애플을 잡고 던져 점수를 얻는 것이다.
+게임은 동키콩이 배럴 위에서 균형을 잡고 파인애플을 juggling하는 형태로 진행되며, 플레이어는 파인애플이 떨어지지 않도록 받는 역할을 맡는다. 파인애플을 받으면 동키콩이 자동으로 그것을 던지며, 이 던진 파인애플은 다시 받기 위해 이동해야 한다. 불꽃은 피해야 할 장애물로, 만약 동키콩이 불꽃에 닿으면 목숨을 하나 잃게 된다. 파인애플을 놓치거나 불꽃에 닿으면 목숨을 잃게 되며, 3번의 실수로 게임이 끝난다.
+게임의 점수는 동키콩이 잡고 던진 각 파인애플마다 1점씩 얻을 수 있다. 최대 점수는 999점까지 표시된다. 또한, 300점에 도달하면 팬파레가 울리며, 그동안의 실수가 모두 취소된다. 만약 300점에 도달했을 때 실수가 없으면 "기회 타임(Chance-Time)"이 시작된다. 이 시간 동안에는 파인애플을 잡을 때마다 2점이 부여되며, 실수를 하기 전까지 계속해서 높은 점수를 얻을 수 있다.
+"동키콩 서커스"는 동키콩 캐릭터와 그 특유의 유머가 잘 녹아 있는 게임으로, 빠른 반사 신경과 타이밍이 중요한 게임이다. 게임을 진행하면서 점차적으로 난이도가 올라가며, 높은 점수를 목표로 플레이어는 계속해서 집중해야 한다. "Game &amp; Watch" 시리즈의 다른 게임들과 마찬가지로 단순한 규칙과 직관적인 조작으로 누구나 쉽게 접근할 수 있지만, 점차적으로 게임의 난이도가 올라가면서 플레이어는 도전적인 경험을 하게 된다.</desc>
+        <releasedate>19840906T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_dkcirc.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkcirc.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkcirc.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkcirc.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkhockey.zip</path>
+        <name>동키콩 하키 (Donkey Kong Hockey)</name>
+        <desc>"동키콩 하키"는 아이스 링크에서 마리오와 동키콩이 벌이는 하키 게임을 다룬 "Game &amp; Watch" 시리즈의 게임이다. 이 게임의 목표는 상대방의 골대에 하키 퍽을 넣는 것이며, 각 캐릭터는 자신의 골대를 지키면서 가능한 많은 퍽을 상대방 골로 넣어야 한다. 플레이어는 제한된 움직임을 통해 퍽의 속도를 조절할 수 있으며, 전략적으로 퍽을 조종하여 상대방을 이겨야 한다.
+게임은 "Game A"와 "Game B" 모드로 나누어져 있다. "Game A"에서는 플레이어가 CPU와 대결하게 되며, 컴퓨터의 난이도에 맞춰 게임을 진행할 수 있다. "Game B"는 두 명의 플레이어가 서로 대결하는 모드로, 친구나 가족과 함께 경쟁하는 재미를 제공한다. 게임의 목표는 상대방의 골에 10점을 먼저 넣은 플레이어가 승리하는 것이다.
+게임 중에는 심판이 퍽을 막거나, 얼음 링크 위에 미스터리한 "크레이지 스팟(Crazy Spots)"이 등장해 퍽의 경로를 변경시킬 수 있다. 이러한 요소들은 게임의 예측 불가능성을 더하고, 게임에 더 많은 긴장감을 더해준다. 각 퍽의 속도와 방향을 조절하며 상대의 골을 향해 공격을 시도하는 것이 이 게임의 핵심적인 전략이다.
+"동키콩 하키"는 단순하지만 중독성 있는 게임으로, 빠른 반응과 전략적인 플레이가 요구된다. 하키와 같은 스포츠를 간단한 디지털 화면에서 즐길 수 있게 해주는 이 게임은 "Game &amp; Watch" 시리즈의 또 다른 재미있는 작품으로, 여러 명이 함께 즐길 수 있어 그 즐거움을 배가시킨다.</desc>
+        <releasedate>19841113T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>2</players>
+        <genre>Sports / Hockey-Sports</genre>
+        <genreid>1538</genreid>
+        <image>./media/image/gnw/gnw_dkhockey.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkhockey.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkhockey.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkhockey.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkong2.zip</path>
+        <name>동키콩 2 (Donkey Kong II)</name>
+        <desc>동키콩 2는 Game &amp; Watch 시리즈의 게임 중 하나로, 유명한 동키콩 이야기의 후속작이다. 동키콩에서 처음 선보였지만, 동키콩 주니어에서 사라졌던 십자키를 다시 채택하였다. 이 게임에서 동키콩 주니어는 아버지인 동키콩을 구하기 위해 여러 가지 장애물을 피하며 도전하는 주인공이 된다. 동키콩이 마리오에 의해 포로로 잡히고, 주니어는 자물쇠를 풀 열쇠를 던지며 아버지를 구하려 한다.
+게임의 진행은 플랫포머 스타일로, 주니어는 화면을 오르내리며 장애물들을 피하고 열쇠를 던져 자물쇠를 풀어야 한다. 스파크와 스냅조는 주니어의 길을 막고, 이를 피하기 위해 플레이어는 주니어를 점프시키고, 열쇠를 정확한 위치로 던져야 한다. 열쇠는 자물쇠를 풀기 위해 반드시 위로 던져야 하며, 자물쇠가 열리면 게임이 진행된다.
+게임의 핵심은 점프와 열쇠 던지기에 있으며, 플러스 버튼을 사용하여 체인 위에서 자물쇠를 열 수 있다. 게임 화면이 단순해 보이지만, 다양한 장애물들이 등장하여 점점 더 난이도가 상승한다. 이 게임은 동키콩 2가 가진 독특한 점프와 던지기 메커니즘이 플레이어에게 도전과 재미를 선사한다.
+Game &amp; Watch 시리즈의 일환으로, 동키콩 2는 전작의 특징을 계승하면서도 더욱 발전된 게임 디자인을 보여주며, 동키콩 주니어라는 새로운 캐릭터의 등장으로 신선한 경험을 제공한다. 이 게임은 게임의 단순한 조작법과 도전적인 목표로 많은 팬들에게 사랑을 받았고, 휴대용 전자 게임의 역사를 이끈 중요한 작품이다. Game &amp; Watch 시리즈에서 이 게임은 간단하면서도 깊이 있는 게임 플레이를 통해 오락을 넘어서 도전 정신과 전략적 사고를 요구하는 게임으로 자리잡았다.</desc>
+        <releasedate>19830307T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_dkong2.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkong2.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkong2.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkong2.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkjr.zip</path>
+        <name>동키콩 주니어 (Donkey Kong Jr) (New Wide Screen)</name>
+        <desc>"동키콩 주니어 (New Wide Screen)"는 Game &amp; Watch 시리즈의 다섯 번째 라인업인 New Wide Screen 시리즈에 속하는 첫 번째 게임이다. 전작인 동키콩에서 채택된 십자키를 제거하고 4방향 버튼으로 다시 회귀되었다. 이 시리즈는 더 화려하고 아동 친화적인 디자인을 특징으로 하며, 이전 모델들과의 차이점은 가격이 더 저렴하고 새로운 외관 디자인을 채택한 점이다. 동키콩 주니어는 "패미컴 게임 'Donkey Kong Jr.'"의 직접적인 이식작이라고 할 수 있다.
+게임의 목표는 동키콩 주니어를 조작하여 마리오에게 포로로 잡힌 아버지 동키콩을 구하는 것이다. 주니어는 덩굴을 타고 점프하며, 코코넛을 떨어뜨려 함정을 해제하고, 새를 피해야 한다. 결국 자물쇠를 여는 열쇠를 확보하는 것이 최종 목표이다. 게임 A와 B는 주니어가 덩굴에 매달려 있는 시간에서만 차이가 나며, 각각의 난이도에 따라 도전 과제가 달라진다. 게임 A와 B를 동시에 누르면 최고 점수가 화면에 표시된다. 이는 이후 Game &amp; Watch 시리즈의 거의 모든 게임에서 등장하는 기능으로, 게임의 점수를 기록하고 도전 정신을 자극하는 요소가 된다.
+"동키콩 주니어 (New Wide Screen)"는 전체적으로 단순한 조작과 귀여운 그래픽, 도전적인 목표로 많은 Game &amp; Watch 팬들에게 사랑받았다. 더 넓어진 화면과 함께 주니어의 모험을 다양한 방식으로 즐길 수 있는 이 게임은, 시리즈의 중요한 전환점을 나타낸다.</desc>
+        <releasedate>19821026T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_dkjr.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkjr.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkjr.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkjr.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkjrp.zip</path>
+        <name>동키콩 주니어 (Donkey Kong Jr.) (Panorama Screen)</name>
+        <desc>"동키콩 주니어 (Panorama Screen)"는 동키콩 주니어의 또 다른 버전으로, 이 버전은 Panorama Screen 모델에서 제공되는 게임이다. Panorama Screen 시리즈는 뉴 와이드 스크린 모델과는 달리 전체적인 화면 비율과 디자인에서 차별화를 꾀했다. 동키콩 주니어의 기본적인 스토리라인은 동일하지만, 게임 내에서 동키콩을 구하는 방법과 게임 플레이 방식에서 중요한 차이가 있다.
+이 게임에서 주니어는 새로 등장하는 우산과 풍선을 사용해 점프하거나 높이 올라간다. 코코넛을 떨어뜨려 새들을 처치하고, 각 자물쇠를 열기 위한 열쇠를 모은 뒤 자물쇠를 열고 아버지 동키콩을 구하는 것이 목표다. 각 자물쇠를 열 때마다 주니어는 다시 시작 지점으로 돌아가서 열쇠를 다시 확보해야 하며, 세 번의 실수가 발생하면 게임이 종료된다.
+Panorama Screen 모델에서는 점수를 얻는 방식이 다소 다르다. 우산이나 풍선으로 점프할 때는 1점을 얻고, 새를 코코넛으로 처치하면 2에서 10점 사이의 점수를 얻는다. 자물쇠를 열 때마다 10점을 얻으며, 모든 자물쇠를 열면 10점의 추가 보너스가 주어진다. 게임 중 300점에 도달하면 팬페어가 울리며, 남은 실수가 모두 초기화된다. 실수가 없으면 CHANCE TIME에 돌입해 점수 배가 기능이 활성화된다. 최대 999점을 기록할 수 있으며, 이 점수에 도달하면 게임이 자동으로 리셋되어 속도가 빨라지며 다시 시작된다.
+</desc>
+        <releasedate>19831007T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_dkjrp.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkjrp.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkjrp.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkjrp.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_dkong.zip</path>
+        <name>동키콩 (Donkey Kong)</name>
+        <desc>"동키콩"은 Game &amp; Watch 시리즈 중 가장 많이 팔린 게임으로, 약 800만 장의 판매고를 올린 전설적인 게임이다. 십자키가 처음 사용된 게임기로서 이후 오늘날까지 수많은 게임기 컨트롤러의 원형이 된다. 이 게임은 마리오가 주인공으로 등장하여, 동키콩에 의해 납치된 여자친구를 구하기 위한 모험을 그린다. 동키콩은 마리오가 건물 위로 올라가는 길을 방해하기 위해 통을 던지며, 플레이어는 마리오를 조작하여 이러한 장애물들을 피하면서 여자친구를 구해야 한다.
+게임은 총 4개의 레벨로 나뉘며, 각 레벨은 홀수와 짝수 레벨로 구분된다. 홀수 레벨에서는 동키콩이 마리오를 향해 통을 던지며 도전을 시작한다. 마리오는 통을 피하고 건물의 꼭대기로 올라가야 한다. 이때, 통에 맞지 않도록 점프하거나 피하면서 장애물을 피해야 한다. 짝수 레벨에서는 마리오가 건물의 기둥 위를 걸어가며 철물(리벳)을 모두 제거해야 한다. 철물이 제거되면 동키콩이 있던 자리가 무너지고 마리오는 더 높은 층으로 올라갈 수 있다. 그러나 이때 파이어볼이 주변을 떠다니며, 마리오가 파이어볼에 닿지 않도록 조심해야 한다.
+동키콩에서 중요한 요소는 마리오의 이동 범위이다. 마리오는 기둥 위에서 왼쪽이나 오른쪽으로 너무 많이 움직이면 떨어지게 되므로, 기둥 위를 적절히 이동해야 한다. 특히, "두 번째 기둥의 왼쪽 사다리는 '안전 지대'"로, 통이 던져지지 않으며 잠시 숨을 돌릴 수 있는 장소가 된다. 또한, 전기 철망은 마리오가 지나갈 수 없으므로, 이를 피하면서 게임을 진행해야 한다.
+이 게임은 게임앤와치 시리즈의 초기 작품 중 하나로, 당시 아케이드 게임의 흥행을 이끌었던 중요한 타이틀이다. 동키콩은 단순하면서도 도전적인 게임 메커니즘 덕분에 그 당시 게임 시장에서 큰 인기를 끌었으며, 이후 마리오라는 캐릭터의 인기를 기반으로 닌텐도의 대표적인 캐릭터가 되었다. 게임앤와치라는 휴대용 전자 게임의 첫 번째 전성기를 이끈 이 게임은 그 당시 많은 이들에게 게임의 매력을 알려주었으며, 플랫포머 장르의 원조로 평가받는다.</desc>
+        <releasedate>19820603T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <image>./media/image/gnw/gnw_dkong.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_dkong.png</thumbnail>
+        <video>./media/video/gnw/gnw_dkong.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_dkong.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_egg.zip</path>
+        <name>에그 (Egg)</name>
+        <desc>"에그"는 Game &amp; Watch 시리즈의 독특하고 재미있는 게임으로, 닭이 알을 낳고, 플레이어는 늑대를 조작하여 이 알들을 모자에 받는 방식으로 진행된다. 이 게임은 사실 미키 마우스와 동일한 게임이지만, 미키 마우스 정식 라이센스를 받지 못한 국가 위주로 판매하기 위해 캐릭터 디자인만 변경된 게임이다. 게임의 목표는 늑대가 알을 떨어뜨리지 않도록 하면서 가능한 한 많은 알을 받는 것이다. 알을 놓치면 1점이 깎이게 되며, 알을 놓친 횟수가 3번이 되면 게임이 종료된다.
+게임에서는 수탉이 5초마다 나타나고 사라진다. 만약 수탉이 나타날 때 알이 떨어지면, 미스가 반만 적용된다. 이때 미스 마크가 반짝이면서 표시된다. 이러한 추가적인 요소는 게임을 더욱 도전적으로 만들어, 알을 놓치는 것에 대한 부담감을 더한다. 알을 받으면 1점을 얻을 수 있으며, 점수가 200점과 500점에 도달하면 팬페어가 울리고, 남은 미스가 모두 초기화되는 특수 기능이 활성화된다.
+게임의 진행은 점점 더 빠르고 어려워지며, 늑대는 점점 더 많은 알을 받으며 주의 깊게 조작해야 한다. 이 게임은 단순한 조작에도 불구하고 빠른 반응 속도와 집중력을 요구하는 게임으로, 도전적인 목표와 재미있는 게임 플레이로 많은 Game &amp; Watch 팬들에게 사랑을 받았다.</desc>
+        <releasedate>19811009T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Casual Game</genre>
+        <genreid>2304</genreid>
+        <image>./media/image/gnw/gnw_egg.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_egg.png</thumbnail>
+        <video>./media/video/gnw/gnw_egg.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_egg.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_fires.zip</path>
+        <name>화재 (Fire) (Silver)</name>
+        <desc>"화재"는 Game &amp; Watch 시리즈의 초기 작품으로, 소방관이 되어 화재에서 뛰어내린 사람들을 구하는 게임이다. 화재라는 설정에서, 사람들이 불타는 건물에서 뛰어내리면, 아래에서 두 명의 구조자가 넷을 들고 있어 이들을 받는 방식이다. 게임의 목표는 점프하는 사람들을 받는 것이며, 세 번의 바운스를 통해 이들을 구급차로 튕겨 보내는 것이 최종 목표이다.
+게임은 사람이 뛰어내릴 때마다 소리로 알림을 제공하며, 여러 명이 공중에 떠 있을 때, 혹은 사람이 넷에 닿았을 때에도 소리가 난다. 이 소리 효과는 게임 진행에서 중요한 요소로 작용한다. 만약 사람을 실수로 놓치면, 목숨을 잃게 되며, 세 번의 실수로 게임이 종료된다. 게임의 단순하면서도 긴박감 넘치는 조작은 빠른 반응 속도를 요구한다.
+"화재"는 그 당시 게임의 설계와 기계적인 요소가 잘 결합된 게임으로, 도전적인 타이밍과 집중력을 요구하는 게임이다. 이 게임은 소리 효과가 중요한 역할을 하며, 각 이벤트를 직관적으로 알려준다. 그만큼 소리가 게임을 진행하는 데 있어 중요한 단서가 된다.</desc>
+        <releasedate>19800731T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_fires.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_fires.png</thumbnail>
+        <video>./media/video/gnw/gnw_fires.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_fires.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_fire.zip</path>
+        <name>화재 (Fire) (Wide Screen)</name>
+        <desc>"화재 (Fire) (Wide Screen)"는 화재 Silver 버전과 기본적인 게임 규칙은 동일하지만, 화면의 크기와 디자인에서 중요한 차이점이 있다. 이 버전은 와이드 스크린 모델에서 제공되며, 게임의 그래픽과 화면 배치가 더 넓고 깔끔하게 디자인되었다. 게임은 여전히 사람들이 불타는 건물에서 뛰어내리면, 구조자들이 넷을 이용해 그들을 받는 방식으로 진행된다.
+게임 진행 방식은 Silver 버전과 동일하게, 사람들은 세 번의 바운스 후 구급차로 튕겨져 보내지며, 사람을 놓치면 목숨이 하나 줄어든다. 하지만 Wide Screen 모델에서는 화면이 더 넓고 정보 표시가 더 잘 보이게 되며, 게임의 시각적 요소가 더 강조된다. 또한, 게임의 속도나 난이도에서 조금 더 디테일한 차이가 있을 수 있다.
+두 게임 모두 소리 효과는 중요한 역할을 하며, 사람들이 떨어지거나 넷에 닿을 때 발생하는 소리가 게임 진행의 단서가 된다. 다만 Wide Screen 모델은 화면의 크기와 해상도가 개선되어 더 세밀한 조작과 반응을 가능하게 한다.</desc>
+        <releasedate>19800731T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_fire.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_fire.png</thumbnail>
+        <video>./media/video/gnw/gnw_fire.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_fire.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_fireatk.zip</path>
+        <name>파이어 어택 (Fire Attack)</name>
+        <desc>"파이어 어택 (Fire Attack)"은 Game &amp; Watch의 액션 게임으로, 남북 전쟁 시대의 군 장교가 되어 요새를 방어하는 역할을 맡는다. 이 게임에서 플레이어는 원주민들이 던지는 불타는 횃불로부터 요새를 지키기 위해 싸운다. 목표는 횃불을 받아내어 요새의 불을 끄고, 공격을 방어하는 것이다.
+게임의 주요 전개는 매우 단순하면서도 긴박하다. 원주민들이 두 명씩 등장하여 횃불을 던지고, 플레이어는 이들을 막기 위해 횃불을 받아내야 한다. 횃불은 점차 빨라지며, 그 양도 점차 증가한다. 군 장교는 양쪽에서 나타나는 횃불을 피하거나 받아서 요새의 불을 끄는 방식으로 진행된다. 횃불을 놓치거나 불을 끄지 못하면 목숨을 잃게 된다.
+게임은 단순하지만 긴박한 속도로 진행되며, 반응 속도와 정확성이 중요하다. 게임에서 원주민들이 던지는 횃불은 예측하기 어려운 방식으로 던져지기 때문에, 플레이어는 빠르게 반응해야 하며 요새를 지키는 데 집중해야 한다. 횃불을 정확히 받는 것이 가장 중요한 목표이다.
+파이어 어택은 액션성과 긴장감을 바탕으로 한 게임으로, 당시 Game &amp; Watch 시리즈에서 액션 장르의 중요한 대표작으로 자리잡았다. 이 게임은 단순하지만 몰입감이 강한 게임플레이를 제공하며, 빠른 손놀림과 집중력을 요구하는 특성을 가지고 있다.</desc>
+        <releasedate>19820326T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_fireatk.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_fireatk.png</thumbnail>
+        <video>./media/video/gnw/gnw_fireatk.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_fireatk.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_flagman.zip</path>
+        <name>플래그맨 (Flagman)</name>
+        <desc>"플래그맨"은 기억력과 반사 신경을 테스트하는 Game &amp; Watch 게임으로, 두 가지 게임 모드가 존재한다. 이 게임은 플래그맨이 제시하는 신호에 맞춰 플래그를 올리는 방식으로 진행된다.
+게임에는 Game A 모드와 Game B 모드가 있으며, 각 모드의 규칙은 약간 다르다. Game A 모드에서는 플래그맨이 지정한 순서대로 플래그를 올려야 하며, 이 과정은 시간 제한 내에 이루어져야 한다. 반면, Game B 모드에서는 숫자가 표시된 플래그를 하나씩 올려야 한다. 이때는 주어진 숫자에 맞춰 플래그를 정확히 올리는 것이 중요하다.
+두 모드에서 공통적인 규칙은 세 개의 생명이 주어지고, 잘못된 버튼을 누르면 생명이 하나 줄어든다는 점이다. 게임이 진행될수록 플래그의 순서나 숫자가 점점 더 복잡해지며, 난이도가 상승한다. 결국 세 번의 실수를 하면 게임이 종료된다.
+플래그맨은 간단한 조작에도 불구하고 기억력과 반응 속도를 시험하는 게임으로, 반복적인 게임 진행 속에서 점차 더 많은 도전적인 상황이 펼쳐진다. 이 게임은 단순한 규칙과 빠르게 진행되는 템포 덕분에 빠른 속도로 몰입할 수 있으며, 기억력과 집중력을 길러주는 재미있는 게임이다. Game &amp; Watch 시리즈에서 중독성 있는 퍼즐 게임으로 자리잡은 이 게임은, 당시 게임의 몰입감을 보여주는 좋은 예시가 된다.</desc>
+        <releasedate>19800605T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_flagman.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_flagman.png</thumbnail>
+        <video>./media/video/gnw/gnw_flagman.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_flagman.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_gcliff.zip</path>
+        <name>골드 클리프 (Gold Cliff)</name>
+        <desc>"골드 클리프"는 Game &amp; Watch 시리즈 중 하나로, 고고학자가 되어 보물을 찾아 여러 단계의 던전을 탐험하는 액션 어드벤처 게임이다. 게임의 목표는 사라지는 플랫폼 위에서 점프하며, 적을 피하고, 잠금 장치의 열쇠를 찾아 상위 레벨로 올라가는 것이다. 이 과정에서 정확한 타이밍과 플랫폼의 변화를 잘 예측하며 진행해야 한다.
+게임은 24개의 세계와 144개의 레벨로 구성되어 있으며, 점점 더 어려운 적과 장애물들이 등장한다. 초반에는 비교적 단순한 플랫폼 점프와 적을 피하는 방식이지만, 레벨이 올라갈수록 더 복잡해지고 도전적인 요소가 많아진다. 특히, 각 세계의 마지막 레벨에서는 신전의 수호자와의 전투가 기다리고 있으며, 이를 물리치고 나서야 다음 단계로 진행할 수 있다. 수호자는 플레이어에게 상당히 도전적인 상대가 되어 게임의 긴장감을 더한다.
+골드 클리프의 특징 중 하나는 "계속하기" 기능이 처음으로 추가된 Game &amp; Watch 게임이라는 점이다. 이를 통해 플레이어는 게임을 중단한 후 나중에 다시 시작할 수 있어, 긴 레벨을 한 번에 클리어하지 않고 여러 번 나누어 진행할 수 있다. 이 기능은 게임의 반복성과 몰입도를 높이는 데 중요한 역할을 했다.
+골드 클리프는 정확한 타이밍과 모험적인 요소가 결합된 게임으로, 게임의 난이도가 점차 올라가며, 도전적인 보물 탐험을 즐길 수 있다. Game &amp; Watch 시리즈의 첫 "계속하기" 옵션이 도입되어, 유저 경험에 변화를 주었고, 이를 통해 게임의 재미와 도전성이 더욱 강화되었다.</desc>
+        <releasedate>19881019T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_gcliff.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_gcliff.png</thumbnail>
+        <video>./media/video/gnw/gnw_gcliff.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_gcliff.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_ghouse.zip</path>
+        <name>그린 하우스 (Green House)</name>
+        <desc>"그린 하우스"는 Game &amp; Watch 시리즈의 액션 게임으로, 플레이어는 정원사인 스탠리가 되어 온실을 지키는 역할을 맡는다. 게임의 목표는 식물들을 보호하기 위해 다양한 해충들을 처치하는 것이다. 스탠리는 "살충제" 버튼을 눌러 거미와 애벌레를 쏴서 꽃들을 지켜야 한다.
+게임은 해충들이 위쪽과 아래쪽에서 동시에 접근하는 구조로 이루어져 있다. 거미는 위에서 떨어지며, 애벌레와 벌레는 아래쪽에서 다가오는데, 이를 정확히 처치해야만 꽃을 지킬 수 있다. 해충들은 시간에 따라 점점 더 빨라지고 강해지며, 플레이어는 빠른 반응과 정확한 타이밍으로 이를 처리해야 한다. 각 꽃이 세 번 공격을 받으면 게임이 종료된다.
+그린 하우스는 단순한 조작에도 불구하고 긴장감이 넘치는 게임으로, 각 레벨이 진행될수록 해충들의 수와 속도가 점점 더 많아져 난이도가 증가한다. 또한, 살충제를 효과적으로 사용하는 것이 중요한 전략적 요소로, 한정된 시간 내에 정확히 발사해야 한다.
+이 게임은 Game &amp; Watch 시리즈 중에서 액션과 전략을 결합한 독특한 게임으로, 빠른 반응 속도와 집중력을 요구한다. 게임은 중독성 강한 목표를 가지고 있어, 한번 시작하면 계속해서 점수를 올리며 최고 기록을 도전하게 된다.</desc>
+        <releasedate>19821206T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_ghouse.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_ghouse.png</thumbnail>
+        <video>./media/video/gnw/gnw_ghouse.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_ghouse.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_helmet.zip</path>
+        <name>헬멧 (Helmet)</name>
+        <desc>"헬멧"은 Game &amp; Watch 시리즈의 액션 게임으로, 플레이어는 도구를 던지는 적들의 공격을 피하며 집과 집 사이를 안전하게 이동해야 한다. 게임의 목표는 한 집에서 다른 집으로 뛰어가는 것인데, 이때 떨어지는 도구들에 맞지 않도록 조심해야 한다.
+게임은 매우 단순하지만 반사 신경을 요구한다. 적들은 도구를 위에서 떨어뜨리며, 플레이어는 이를 피하면서 뛰어야 한다. 때때로 상대편 집의 문이 닫히기도 하여, 문이 열릴 때까지 주위를 뛰어다녀야 하는 상황이 발생한다. 문이 열리면 다시 집을 넘는 것이 가능해지며, 적들의 공격을 피하며 안전하게 이동해야 한다.
+이 게임은 빠르게 떨어지는 도구들과 문이 열리는 타이밍을 잘 맞춰 이동해야 하기 때문에 정확한 타이밍과 빠른 반응이 중요한 요소로 작용한다. 도구에 맞으면 목숨을 잃게 되고, 세 번의 실수로 게임이 끝난다.
+헬멧은 단순한 규칙에도 불구하고 빠른 속도와 긴장감을 자아내는 게임으로, 집중력과 타이밍을 시험하는 재미있는 도전이 된다. Game &amp; Watch 시리즈의 초창기 작품으로, 액션과 리듬을 결합한 특성 덕분에 플레이어는 계속해서 다음 단계를 도전하게 된다.</desc>
+        <releasedate>19810221T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_helmet.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_helmet.png</thumbnail>
+        <video>./media/video/gnw/gnw_helmet.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_helmet.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_judge.zip</path>
+        <name>저지 (Judge)</name>
+        <desc>"저지"는 Game &amp; Watch 시리즈의 반응 속도와 집중력을 테스트하는 게임으로, 두 명의 플레이어가 숫자 대결을 통해 빠른 판단과 타이밍을 겨룬다. 이 게임은 1인용과 2인용 모드를 제공하며, 두 캐릭터가 마주 보고 대결을 벌인다.
+게임의 기본 규칙은 매우 간단하다. 두 플레이어는 무작위로 표시되는 숫자(1부터 9까지)를 자신의 카드에 들어올릴 때까지 기다린다. 1인 모드에서는 자신의 숫자가 상대보다 크면 공격 버튼을 눌러 공격하고, 숫자가 작으면 회피 버튼을 눌러야 한다. 만약 상대가 회피하지 못하고 공격을 맞으면 플레이어는 점수를 얻게 된다.
+게임 B 모드에서는 두 명의 플레이어가 서로 대결을 벌인다. 이때는 자신의 차례에 맞춰 숫자를 들어올리며, 숫자가 더 클 때는 공격하고, 작을 때는 회피하는 방식이다. 상대의 반응을 예측하고 빠르게 판단을 내려야 하기 때문에 반사 신경과 순간적인 집중력이 중요한 게임이다.
+저지는 간단한 규칙에도 불구하고 긴장감 넘치는 대결을 만들어내며, 반응 속도와 집중력을 기를 수 있는 게임이다. 1인 모드와 2인 모드 모두 빠르게 판단하고 반응하는 능력을 테스트하며, Game &amp; Watch 시리즈에서 대전 게임의 재미를 제공하는 중요한 작품으로 자리잡았다.</desc>
+        <releasedate>19801004T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1-2</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_judge.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_judge.png</thumbnail>
+        <video>./media/video/gnw/gnw_judge.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_judge.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_lboat.zip</path>
+        <name>구명보트 (Lifeboat)</name>
+        <desc>"구명보트"는 Game &amp; Watch 시리즈의 액션 및 반사 신경을 요구하는 게임으로, 호화 여객선에서 화재가 발생하고 승객들이 바다로 뛰어내리는 상황을 다룬다. 플레이어는 구명 보트를 조정하여 승객들이 안전하게 구명 보트에 탑승하도록 도와야 한다.
+게임에서 각 구명 보트는 최대 4명까지 탑승할 수 있으며, 좌우 양쪽 해안에 승객들을 내려놓을 수 있는 기회가 있다. 구명 보트가 해안에 도달하면 자동으로 승객들이 내려진다. 1명당 1점이 부여되며, 승객을 구명 보트에 탑승시키고, 해안에 내려놓는 두 가지 과정에서 모두 점수를 얻을 수 있다.
+게임의 목표는 승객을 실어 나르는 것이며, 게임이 진행될수록 승객들이 점점 더 빠르게 떨어지기 때문에 정확한 타이밍과 빠른 반응 속도가 중요하다. 점수가 300점에 도달하면 팬파레가 울리고, 실수가 있을 경우 모든 실수가 취소된다. 만약 300점을 달성할 때 실수가 없다면 게임은 "기회 시간(Chance-Time)"으로 진입하며, 이후 모든 점수가 두 배로 주어진다. 이 때 2점이 부여되며, 실수를 할 때까지 계속해서 점수가 두 배로 주어진다. 게임의 최대 점수는 999점이며, 점수가 999점에 도달하면 게임이 초기화되며 더 빠른 속도로 다시 시작된다.
+구명보트는 단순한 규칙에도 불구하고 긴장감 넘치는 게임으로, 승객을 구하고 해안으로 내보내는 타이밍이 중요한 전략적 요소로 작용한다. 반사 신경과 집중력을 기를 수 있는 게임으로, 계속해서 점수를 쌓아가는 재미를 느낄 수 있다.</desc>
+        <releasedate>19831016T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_lboat.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_lboat.png</thumbnail>
+        <video>./media/video/gnw/gnw_lboat.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_lboat.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_lion.zip</path>
+        <name>라이언 (Lion)</name>
+        <desc>"라이언"은 Game &amp; Watch 시리즈의 액션과 반응 속도를 요구하는 게임으로, 동물원에서 사자가 탈출하려는 것을 막는 역할을 하게 된다. 플레이어는 두 명의 동물 보호자를 조작하여 사자가 탈출하지 못하도록 막는 것이 목표이다. 각 동물 보호자는 별도의 버튼을 사용하여 조작되며, 사자가 탈출하려는 방향에 맞춰 적절히 방어를 해야 한다.
+게임에서 사자들은 탈출을 시도하는데, 플레이어는 각각의 보호자를 적절한 위치에 배치하여 사자가 탈출하는 것을 막아야 한다. 사자는 때때로 교묘하게 플레이어를 속이려 하기도 하며, 이를 예측하여 반응하는 것이 중요하다. 사자가 탈출할 때마다 실패 애니메이션이 재생되며, 동물 보호자가 나무에 숨어서 도망가는 모습이 보여진다. 이때 실패가 한 번 기록된다.
+점수는 사자를 막을 때마다 1점씩 올라가며, 최대 점수는 999점이다. 게임이 계속될수록 사자들은 점점 더 교활하게 탈출을 시도하며, 반응 속도와 집중력이 중요한 역할을 한다. 게임은 세 번의 실수로 종료되며, 세 번의 실패가 기록되면 게임이 끝난다.
+라이언은 반사 신경과 예측 능력을 테스트하는 게임으로, 사자를 막는 타이밍을 맞추는 것이 중요한 요소다. 점차 어려워지는 상황 속에서 최고 점수를 도전하며 게임을 즐길 수 있다. Game &amp; Watch 시리즈의 긴장감 넘치는 도전적인 게임 중 하나로, 매번 다른 사자들의 움직임에 맞춰 반응해야 하는 재미를 제공한다.</desc>
+        <releasedate>19810101T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_lion.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_lion.png</thumbnail>
+        <video>./media/video/gnw/gnw_lion.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_lion.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_manholeg.zip</path>
+        <name>맨홀 (Manhole) (Gold)</name>
+        <desc>"맨홀"은 Game &amp; Watch 시리즈의 액션과 반사 신경을 요구하는 게임으로, 길을 건너는 사람들을 안전하게 돕는 역할을 맡은 플레이어가 도로 위에 있는 맨홀을 덮는 방식으로 게임이 진행된다. 게임은 두 개의 다른 높이/레벨에서 플레이되며, 플레이어는 단순한 판을 이용해 사람들을 안전하게 건널 수 있도록 돕는다.
+게임의 기본 목표는 사람들이 도로를 건널 때 맨홀을 덮어주는 것이다. 시간이 지나면서 사람들의 이동 속도와 횟수가 점점 더 빨라지고 많아져 게임의 난이도가 증가한다. 플레이어는 판을 빠르게 이동시켜 사람들을 안전하게 건널 수 있도록 해야 한다. 게임의 난이도는 사람들의 수와 속도가 증가하면서 점점 더 어려워진다.
+게임 A와 게임 B의 차이는 게임 B에서는 시작 시부터 더 많은 사람들이 도로를 건너며, 사람들의 속도와 빈도가 더 빨리 증가한다. 즉, 게임 B는 게임 A에 비해 시작부터 더 어려운 난이도를 제공한다.
+이 게임은 Game &amp; Watch 시리즈 중 첫 번째로 추가 생명 보너스 시스템을 도입한 게임이다. 200점 또는 500점을 달성할 때마다 특정 멜로디가 울리고, 그때마다 하나 이상의 실수가 용서되는 보너스를 받을 수 있다. 이를 통해 플레이어는 실수를 만회할 기회를 얻고, 더 높은 점수를 도전할 수 있는 기회를 가질 수 있다.
+맨홀은 빠른 반응과 집중력을 요구하며, 시간이 지날수록 난이도가 증가하는 점에서 반복적인 도전을 제공한다. 게임 B의 빠른 시작과 높은 난이도는 더 많은 도전과 재미를 제공하며, 점수와 보너스를 통해 실수를 만회하면서 높은 점수를 기록할 수 있다.</desc>
+        <releasedate>19810127T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_manholeg.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_manholeg.png</thumbnail>
+        <video>./media/video/gnw/gnw_manholeg.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_manholeg.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_manhole.zip</path>
+        <name>맨홀 (Manhole) (New Wide Screen)</name>
+        <desc>"맨홀(New Wide Screen)"은 Game &amp; Watch 시리즈에서 액션과 반사 신경을 요구하는 게임으로, 도로 위에서 사람들을 안전하게 건널 수 있도록 돕는 역할을 한다.  New Wide Screen 모델은 그림과 디스플레이가 개선되어 더 나은 게임 경험을 제공하며, 플레이어는 점점 더 어려워지는 도전을 즐길 수 있다. 이 게임은 두 개의 다른 높이/레벨에서 진행되며, 간단한 판을 사용해 맨홀을 덮어 사람들의 이동을 돕는다. 시간이 지나면서 사람들의 수와 속도가 증가하여, 점점 더 빠르게 도로를 건너는 사람들을 도와야 한다.
+게임의 목표는 사람들이 도로를 건널 때 맨홀을 덮어주는 것이다. 시간이 지날수록 사람들의 속도와 이동 빈도가 증가하며, 게임의 난이도가 점점 더 어려워진다. 게임 A와 게임 B의 차이점은 게임 B에서 시작 시부터 더 많은 사람들이 도로를 건너며, 속도와 빈도가 더 빠르게 증가한다. 즉, 게임 B는 게임 A에 비해 시작부터 높은 난이도를 제공한다.
+맨홀은 Game &amp; Watch 시리즈 중 첫 번째로 추가 생명 보너스 시스템을 도입한 게임이다. 200점 또는 500점을 달성할 때마다 특정 멜로디가 울리고, 이때마다 하나 이상의 실수가 용서된다. 이 기능을 통해 실수를 만회하며 더 높은 점수를 도전할 수 있게 된다.
+"맨홀 (New Wide Screen)"은 New Wide Screen 시리즈의 게임 중 하나로, 이전 모델들과 비교하여 더 넓고 선명한 화면을 제공한다. 이 모델은 더 빠른 속도와 더 많은 사람들이 도로를 건너는 난이도에서 도전적인 요소를 더한다.
+맨홀은 빠른 반응 속도와 정확한 타이밍이 중요한 게임으로, 실수를 만회할 수 있는 보너스 시스템 덕분에 계속해서 높은 점수를 목표로 도전하는 재미를 제공한다.</desc>
+        <releasedate>19810127T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_manhole.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_manhole.png</thumbnail>
+        <video>./media/video/gnw/gnw_manhole.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_manhole.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mario.zip</path>
+        <name>마리오 브라더스 (Mario Bros.)</name>
+        <desc>"마리오 브라더스"는 1983년 닌텐도에서 출시한 Game &amp; Watch 멀티스크린 시리즈 중 하나로, 기존의 점프 액션이 아닌 공장 노동을 테마로 한 색다른 게임이다. 이 게임에서 플레이어는 마리오와 그의 동생 루이지를 조작하여 병 공장에서 컨베이어 벨트를 통해 박스를 운반하는 작업을 수행하게 된다. 마리오의 동생이 루이지라는 이름으로 처음 등장한 게임이기도 하다.
+게임의 목표는 컨베이어 벨트를 따라 이동하는 상자들을 떨어뜨리지 않고 안전하게 트럭에 적재하는 것이다. 플레이어는 마리오와 루이지를 각각 조작하여 사다리를 오르내리며 상자를 주고받는다. 박스를 놓치면 공장장이 화를 내며 '미스'가 기록되며, 총 3번의 미스를 기록하면 게임 오버가 된다. 반대로 박스를 컨베이어 벨트에 올릴 때마다 1점이 추가되며, 8개의 상자가 트럭에 완전히 적재되면 10점을 획득할 수 있다.
+게임에는 보너스 요소도 존재한다. 점수가 300점에 도달하면 축하 음악이 울리면서 기존의 미스 기록이 모두 삭제된다. 만약 300점 도달 시 미스가 하나도 없다면 '찬스 타임'이 발동된다. 찬스 타임에서는 점수가 2배로 증가하며, 미스를 기록하기 전까지 지속된다. 최고 점수는 999점으로 표시된다.
+"마리오 브라더스"는 아케이드 버전과 동일한 제목을 가지고 있지만, 실제로는 전혀 다른 게임 플레이 방식을 가지고 있다. 아케이드 원작은 플랫폼 점프 액션이 강조된 반면, Game &amp; Watch 버전은 공장 노동을 소재로 한 퍼즐적 요소가 강한 게임이다. 또한, Game &amp; Watch의 듀얼 스크린 구조를 적극 활용하여, 마치 공장 내부에서 위아래로 움직이는 듯한 느낌을 주는 점이 특징이다.
+당시 Game &amp; Watch는 가정용 게임기로서 인기를 끌었으며, "마리오 브라더스" 또한 이러한 흐름 속에서 색다른 재미를 제공한 작품이다. 이후 이 게임은 닌텐도의 다양한 복각 시리즈와 컬렉션을 통해 다시 등장하였으며, 마리오와 루이지가 함께 등장하는 협력 게임의 원형 중 하나로 평가받고 있다.</desc>
+        <releasedate>19830314T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <rating>0.8</rating>
+        <image>./media/image/gnw/gnw_mario.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mario.png</thumbnail>
+        <video>./media/video/gnw/gnw_mario.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mario.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mariotj.zip</path>
+        <name>마리오 더 저글러 (Mario The Juggler)</name>
+        <desc>"마리오 더 저글러"는 1991년 10월 14일에 출시된 Game &amp; Watch 뉴 와이드 스크린(New Wide Screen) 시리즈의 마지막 작품으로, Game &amp; Watch 역사상 최종작이라는 중요한 의미를 가진 게임이다. 이 게임은 1980년에 출시된 "볼(Ball)"의 리메이크 버전으로, 기존의 무명의 저글러 대신 마리오가 등장하여 공을 저글링하는 방식으로 변화되었다.
+게임의 기본적인 목표는 공을 떨어뜨리지 않고 계속해서 받아내는 것이다. 마리오는 좌우로 손을 움직이며 공을 저글링해야 하며, 점점 공의 속도가 빨라지고 갯수가 늘어나면서 난이도가 증가한다. 플레이어는 타이밍을 정확히 맞춰야 하며, 공을 놓칠 경우 ‘미스’가 기록된다. 총 3번의 미스를 기록하면 게임이 종료된다.
+"마리오 더 저글러"는 Game &amp; Watch의 마지막 게임답게 닌텐도의 대표적인 마스코트인 마리오를 전면에 내세웠으며, "볼"과 같은 단순한 게임성을 유지하면서도 친숙한 마리오 테마를 적용하여 새로운 느낌을 더했다. 또한, Game &amp; Watch 시리즈의 역사를 되돌아보게 하는 작품으로도 평가받는다.
+이 게임이 출시된 1991년은 Game &amp; Watch의 전성기가 저물고, 휴대용 게임기의 주류가 게임보이(Game Boy)로 넘어가던 시기였다. 그럼에도 불구하고 "마리오 더 저글러"가 등장한 것은 Game &amp; Watch 시리즈의 유산을 기념하기 위한 의미도 있었다. 이 게임을 끝으로 닌텐도의 Game &amp; Watch 시리즈는 공식적으로 막을 내리게 되었으며, 이후 닌텐도는 게임보이와 슈퍼 패미컴 같은 보다 발전된 게임기로 중심을 이동하게 된다.
+이후 "마리오 더 저글러"는 닌텐도의 Game &amp; Watch 컬렉션이나 복각 제품을 통해 다시금 소개되기도 했으며, 원작 "볼"과 함께 클래식 Game &amp; Watch 게임의 대표작 중 하나로 여겨지고 있다. Game &amp; Watch의 마지막 작품이라는 역사적 가치와 더불어, 단순하지만 중독성 있는 게임 플레이로 인해 여전히 수집가와 레트로 게이머들에게 사랑받고 있다.</desc>
+        <releasedate>19911016T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <image>./media/image/gnw/gnw_mariotj.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mariotj.png</thumbnail>
+        <video>./media/video/gnw/gnw_mariotj.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mariotj.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mbaway.zip</path>
+        <name>마리오의 폭탄 작전 (Mario's Bombs Away)</name>
+        <desc>"마리오의 폭탄 작전"은 1983년 닌텐도에서 출시한 Game &amp; Watch 파노라마 스크린(Panorama Screen) 시리즈의 작품으로, 독특한 군사 테마를 가진 게임이다. 이 게임에서 마리오는 정글에서 적군과 싸우며 폭탄을 운반하는 임무를 수행한다. 이는 당시 Game &amp; Watch 시리즈 중에서도 드물게 전쟁을 배경으로 한 작품으로, 마리오가 단순한 배관공이 아닌 군사 작전의 일원으로 등장한다는 점에서 흥미로운 설정을 가진다.
+게임의 목표는 폭탄을 안전하게 적진으로 운반하여 다섯 개를 모두 배치하는 것이다. 마리오는 왼쪽에서 오른쪽으로 이동하며 폭탄을 전달하는 역할을 맡고 있으며, 오른쪽 끝에 도착하면 동료가 폭탄을 배치한다. 폭탄을 다섯 개 모두 배치하면 폭발이 일어나며 적군을 격퇴할 수 있다.
+그러나 적들은 마리오가 폭탄을 운반하는 동안 그것을 점화시키려 한다. 적들이 들고 있는 횃불에 의해 폭탄이 점화되면 모든 폭탄이 사라지고 처음부터 다시 시작해야 한다. 따라서 플레이어는 마리오의 움직임을 조절하며 적들의 불길을 피해 폭탄을 안전하게 전달해야 한다. 마리오가 폭탄을 떨어뜨리거나 불에 타게 되면 ‘미스’가 기록되며, 총 3번의 미스를 기록하면 게임이 종료된다.
+점수는 마리오가 앞으로 한 걸음 내딛을 때마다 1점, 폭탄을 놓을 때 5점, 다섯 번째 폭탄을 놓을 때 10점을 획득하는 방식으로 증가한다. 또한, 점수가 300점에 도달하면 축하 음악이 울리면서 기존의 미스 기록이 모두 초기화된다. 만약 300점에 도달할 때까지 미스를 하나도 기록하지 않았다면 ‘찬스 타임(Chance-Time)’이 발동되며, 이후 실수를 하기 전까지 모든 점수가 두 배로 계산된다. 최고 점수는 999점까지 기록되며, 이 점수에 도달하면 게임이 초기화되지만 속도가 더 빨라진 상태에서 다시 시작된다.
+"마리오의 폭탄 작전"은 당시 Game &amp; Watch의 혁신적인 기술이 적용된 파노라마 스크린 시리즈 중 하나로, 반투명한 LCD 스크린을 통해 색상이 있는 그래픽을 구현했다. 기존의 단색 화면과 달리 컬러감 있는 연출이 가능했으며, 이를 통해 정글과 불꽃 효과를 보다 생동감 있게 표현할 수 있었다.
+이 게임은 마리오 시리즈 중에서도 독특한 컨셉을 가진 작품으로 평가된다. 대부분의 마리오 게임이 코믹하고 친근한 분위기를 띠는 것과 달리, "마리오의 폭탄 작전"은 군사적 요소가 강하며 적군과의 전투라는 테마를 직접적으로 다루고 있다. 이는 당시 Game &amp; Watch가 다양한 시도를 했음을 보여주는 사례이며, 이후 닌텐도가 마리오 캐릭터를 보다 친근한 방향으로 정립하는 과정에서도 흥미로운 비교 대상이 된다.
+오늘날 "마리오의 폭탄 작전"은 희귀한 Game &amp; Watch 타이틀 중 하나로, 수집가들 사이에서 높은 가치를 지니고 있다. 또한, 마리오가 군사 작전에 참여하는 설정이 독특하여, 마리오 시리즈의 숨겨진 역사를 살펴볼 수 있는 흥미로운 작품으로 남아 있다.
+</desc>
+        <releasedate>19831110T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <image>./media/image/gnw/gnw_mbaway.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mbaway.png</thumbnail>
+        <video>./media/video/gnw/gnw_mbaway.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mbaway.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mariocm.zip</path>
+        <name>마리오의 시멘트 공장 (Mario's Cement Factory) (New Wide Screen)</name>
+        <desc>"마리오의 시멘트 공장 (New Wide Screen)"은 화면이 넓어진 새로운 버전으로, 기존의 아케이드 기기에서 제공되던 게임의 요소들을 확대하여 플레이어에게 더 넓은 시야를 제공한다. 이 버전에서 마리오는 시멘트 공장에서 일하는 노동자로서, 화면 상단에서 흘러 내려오는 시멘트를 두 개의 믹서로 안전하게 보내는 일을 맡고 있다. 시멘트는 직접 믹서로 흘러갈 수 없고, 먼저 네 개의 탱크를 거쳐야 한다. 플레이어는 각 탱크의 레버를 활성화하여 시멘트를 올바르게 분배해야 하며, 이를 위해 마리오는 여러 층을 오르내리는 엘리베이터를 타고 이동한다.
+특히 New Wide Screen 버전에서는 화면이 넓어져 한눈에 더 많은 정보와 장면을 볼 수 있다. 이를 통해 게임의 전반적인 흐름을 더욱 잘 파악할 수 있으며, 각 레버와 엘리베이터의 위치도 한층 더 잘 보인다. 그러나 게임의 본질적인 내용은 원작과 거의 동일하게, 시멘트를 안전하게 믹서로 보내는 것이 목표이다. 난이도는 게임 A와 B모드가 존재하며, B모드에서는 더욱 어려운 장애물이 등장해 도전감을 제공한다.
+</desc>
+        <releasedate>19830616T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_mariocm.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mariocm.png</thumbnail>
+        <video>./media/video/gnw/gnw_mariocm.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mariocm.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mariocmt.zip</path>
+        <name>마리오의 시멘트 공장 (Mario's Cement Factory) (Table Top)</name>
+        <desc>"마리오의 시멘트 공장 (Table Top)"은 New Wide Screen과 같은 기본적인 게임 구조를 유지하되, 화면 비율과 시각적 요소에서 차이를 보인다. 이 버전은 가로보다는 세로로 긴 화면을 제공하며, 이는 플레이어가 시멘트를 관리하는 방식에 영향을 미친다. 화면 크기가 제한적이기 때문에, 플레이어는 시멘트의 흐름을 더 빠르고 정확하게 관리해야 한다. 마리오는 각 탱크에 시멘트를 보내기 위해 여러 층을 오르내리는 엘리베이터를 타야 하며, 그 과정에서 빠른 판단과 정밀한 조작이 요구된다.
+Table Top 버전은 아케이드 기기에서 사용되던 전통적인 형태를 그대로 따르며, 게임 플레이 자체는 New Wide Screen과 매우 유사하다. 그러나 화면 비율이 다르기 때문에 제한된 공간에서 플레이해야 하며, 이는 게임의 몰입감과 난이도에 영향을 미친다. 좁은 화면에서의 조작은 더욱 세밀하게 해야 하며, 각 레버를 조작할 때마다 시멘트가 얼마나 남아 있는지, 엘리베이터의 위치 등을 잘 계산해야 한다. Table Top 버전은 좁은 화면 덕분에 플레이어가 더 집중해야 하며, 시멘트를 제대로 분배하지 않으면 곧바로 실패하게 된다. 이런 점에서 New Wide Screen과 비교했을 때 더 강한 집중력과 빠른 반응을 요구하는 게임이다.
+</desc>
+        <releasedate>19830616T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_mariocmt.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mariocmt.png</thumbnail>
+        <video>./media/video/gnw/gnw_mariocmt.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mariocmt.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mickdon.zip</path>
+        <name>미키와 도널드 (Mickey and Donald)</name>
+        <desc>"미키와 도널드"는 닌텐도의 유명한 멀티 스크린 시리즈에 속하는 세 번째 게임으로, 1989년에 발매되었다. 이 게임은 총 15개의 타이틀로 이루어진 멀티 스크린 시리즈 중 가장 큰 시리즈의 하나로, 두 명의 주인공인 미키와 도널드가 등장한다. 게임의 목표는 고층 빌딩에서 발생한 화재를 진압하는 것으로, 플레이어는 두 캐릭터를 동시에 조종하며 임무를 수행해야 한다. 게임의 화면은 두 개의 스크린으로 나누어져 있으며, 한 화면에서는 미키가 호스의 누수를 막기 위해 위아래로 이동하고, 다른 화면에서는 도널드가 좌우로 이동하여 불을 끄는 역할을 한다.
+미키는 호스를 통해 물을 공급하면서 발생하는 물의 누수를 막기 위해 위아래로 움직이며, 물이 원활히 공급되도록 해야 한다. 반면 도널드는 좌우로 이동하며 불길을 끄는 역할을 맡고 있다. 각 스크린은 서로 다른 행동을 요구하므로, 플레이어는 두 캐릭터를 동시에 조작하여 상황을 효율적으로 관리해야 한다. 이 과정에서 중요한 요소 중 하나는 구피가 잠들지 않도록 주의하는 것이다. 구피는 고층 건물의 한 층에서 지내고 있으며, 그가 잠들면 게임에 실패하게 된다. 따라서 플레이어는 불을 끄는 동시에 구피가 잠들지 않도록 관리해야 하므로 게임의 난이도가 높아진다.
+불을 모두 끄고 화재를 진압하면, 미니가 등장하여 미키에게 하트와 키스를 선물하며 게임이 마무리된다. 그러나 화재가 완전히 진압되지 않고 불길이 빌딩의 최상층에 도달하면 도널드의 꼬리가 불에 타오르며 게임이 끝난다. 이 게임은 빠른 반응 속도와 동시에 두 캐릭터를 조종하는 능력을 요구하며, 멀티 스크린 게임 특유의 독특한 게임플레이를 제공한다.
+미키와 도널드는 그 당시의 아케이드 게임 스타일을 바탕으로 한 흥미로운 구조와, 귀여운 캐릭터들 덕분에 큰 인기를 끌었다. 특히 멀티 스크린 시리즈의 특성상, 두 화면을 활용하여 더욱 복잡하고 다양한 액션을 요구하는 게임 플레이는 당시의 기술적 한계를 넘어서기 위한 닌텐도의 도전 정신을 엿볼 수 있다. 이 게임은 미키와 도널드라는 인기 캐릭터를 활용해, 게임의 재미와 감동을 동시에 제공하며, 멀티 스크린 게임이 가진 독특한 매력을 잘 보여준다.</desc>
+        <releasedate>19821112T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_mickdon.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mickdon.png</thumbnail>
+        <video>./media/video/gnw/gnw_mickdon.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mickdon.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mmousep.zip</path>
+        <name>미키 마우스 (Mickey Mouse) (Panorama Screen)</name>
+        <desc>"미키 마우스 (Panorama Screen)"는 미키 마우스가 서커스에서 막대기 곡예를 하며 공 위에서 균형을 잡는 모습을 담은 게임이다. 이 게임은 Panorama Screen 버전으로, 긴 화면을 통해 미키가 공 위에서 막대기를 잡는 액션을 보다 넓은 시야로 볼 수 있다. 플레이어는 미키를 좌우로 이동시키며, 떨어지는 막대기를 받아야 한다. 하지만 그 중에는 불붙은 횃불도 포함되어 있어, 이를 잘못 잡으면 실수로 간주된다. 게임의 목표는 막대기를 하나라도 놓치지 않고 모두 받는 것이며, 각 막대기를 받으면 1점이 주어진다.
+게임의 진행은 점차 난이도가 높아지며, 첫 번째 실수를 할 때마다 게임에 미스가 하나씩 쌓인다. 세 번째 미스를 할 때 게임이 종료된다. 그러나 300점에 도달하면 팬파레가 울리고, 그동안의 미스가 모두 취소된다. 또, 만약 300점 도달 시 미스가 없으면 특별한 "Chance-Time"이 시작되는데, 이 시간 동안은 잡는 막대기마다 두 배의 점수가 주어진다. 이는 게임의 흐름에 큰 변화를 주어 더 큰 도전감을 안겨준다. 미키 마우스가 막대기를 놓치거나 불붙은 횃불을 잡지 않도록 조심하며, 최종적으로 최대 점수 999점에 도달하는 것이 목표다. Panorama Screen 버전은 긴 화면을 활용하여 미키의 액션을 넓게 보여주며, 한층 더 몰입감 있는 게임을 제공한다.</desc>
+        <releasedate>19840101T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_mmousep.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mmousep.png</thumbnail>
+        <video>./media/video/gnw/gnw_mmousep.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mmousep.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_mmouse.zip</path>
+        <name>미키 마우스 (Mickey Mouse) (Wide Screen)</name>
+        <desc>"미키 마우스 (Wide Screen)"는 또 다른 버전의 미키 마우스 게임으로, Wide Screen 화면에서 진행된다. 이 버전에서는 미키가 닭이 낳은 알을 바구니로 받는 역할을 하며, 주어진 시간 안에 얼마나 많은 알을 받을 수 있는지가 중요하다. 플레이어는 미키를 좌우로 조작하며 떨어지는 알을 받아야 한다. 알을 떨어뜨리면 미스가 하나 쌓이고, 세 번째 미스를 할 때 게임이 종료된다. 여기서 독특한 점은 미니 마우스가 일정 시간 간격으로 나타나거나 사라지며, 미니 마우스가 나타날 때 알이 떨어지면 반 미스가 적용된다는 점이다. 이는 게임의 난이도를 높이는 요소로 작용하며, 미니 마우스가 알을 떨어뜨리는 타이밍을 잘 맞춰야 한다는 도전적 측면을 가진다.
+게임에서의 점수는 알을 하나 받을 때마다 1점이 부여되며, 200점과 500점에 도달할 때마다 팬파레가 울리고, 그동안 쌓인 미스가 모두 취소된다. 이 게임의 목표는 가능한 한 많은 알을 받아 최대 점수인 999점에 도달하는 것이다. 점수를 얻는 속도와 정확도를 높여가며 미니 마우스가 나타날 때 알을 놓치지 않는 것이 중요한 전략이다. Wide Screen 버전은 화면의 가로 비율을 활용하여 미키와 알의 이동을 넓은 시야에서 보며, 미니 마우스와의 상호작용으로 긴장감을 더한다.</desc>
+        <releasedate>19811009T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_mmouse.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_mmouse.png</thumbnail>
+        <video>./media/video/gnw/gnw_mmouse.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_mmouse.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_octopus.zip</path>
+        <name>문어 (Octopus)</name>
+        <desc>"문어"는 1981년에 발매된 게임으로, 바다 속에서 금을 획득하려는 탐험가들의 도전적인 여정을 그린 아케이드 게임이다. 이 게임에서 플레이어는 세 명의 탐험가를 조종하여, 문어가 기다리고 있는 배 난파선으로 들어가 금이 담긴 자루를 찾아야 한다. 그러나 탐험가들이 배에 접근하는 동안 문어의 공격을 피해야 한다. 문어는 거대한 촉수를 이용해 탐험가들에게 접근하며, 플레이어는 이를 피해 금을 수집해야 한다.
+게임의 기본적인 목표는 금을 가능한 많이 획득하는 것이다. 각 탐험가는 배를 돌아다니며 금 자루를 발견하고 이를 자신들의 장비로 챙겨야 한다. 하지만 문어는 탐험가들이 금을 가져가려 할 때마다 공격을 시도하며, 만약 문어의 촉수가 탐험가에게 닿으면 그 즉시 탐험가는 문어에게 붙잡히고 게임에서 제외된다. 플레이어는 세 명의 탐험가를 모두 안전하게 금을 회수하도록 인도해야 하며, 금을 챙기지 못하면 점수를 얻지 못한다. 게임의 진행은 매우 빠르고, 문어의 공격 패턴을 예측하며 탐험가들이 금을 효율적으로 획득하도록 돕는 것이 중요하다.
+Game B 모드에서는 문어의 속도와 공격 패턴이 더욱 빨라져 게임의 난이도가 크게 상승한다. 이로 인해 탐험가들은 문어의 공격을 더욱 빠르게 피해야 하며, 금을 획득하는 데 있어 더 높은 집중력과 빠른 반응이 요구된다. 기본적으로 Game A와 Game B의 차이는 속도와 난이도에 있으며, 후자의 모드에서는 더 큰 도전감을 제공한다. 문어의 위험을 피하고 금을 최대한 많이 수집하는 것이 핵심 목표인 이 게임은 당시 아케이드 게임에서 짜릿한 도전과 재미를 선사하며, 플레이어의 전략적 사고와 반응 속도를 시험한다.
+"문어 (Octopus)"는 그 당시의 아케이드 게임 특유의 긴장감을 잘 살린 작품으로, 문어라는 독특한 적을 설정하여 게임에 재미를 더했다. 또한, 각 레벨에서 점점 빨라지는 속도와 난이도는 플레이어에게 끊임없는 도전과 성취감을 제공한다. 게임의 심플한 설정에도 불구하고 높은 중독성과 도전적인 요소가 있어 많은 아케이드 팬들 사이에서 큰 인기를 끌었다.</desc>
+        <releasedate>19810716T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_octopus.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_octopus.png</thumbnail>
+        <video>./media/video/gnw/gnw_octopus.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_octopus.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_opanic.zip</path>
+        <name>오일 패닉 (Oil Panic)</name>
+        <desc>"오일 패닉"은 1982년에 발매된 아케이드 게임으로, 기름을 관리하는 재치 있는 게임플레이로 인기를 끌었다. Game &amp; Watch 최초의 멀티 스크린 시리즈이며 이는 훗날 닌텐도 DS의 모티브가 된다. 이 게임에서 플레이어는 상단 스크린에서 기름이 떨어지는 파이프 아래에 서서, 떨어지는 기름 방울을 바구니로 받으며 시작한다. 기름 방울은 한 번에 세 방울씩 떨어지며, 세 방울이 모이면 플레이어는 하단의 발코니로 달려가서 아래층의 다른 캐릭터에게 기름을 넘겨줘야 한다. 만약 기름을 제대로 넘기지 못하면, 기름이 무고한 주유소 손님에게 튀어 엉망이 되며 게임에 실수가 추가된다.
+게임의 주요 목표는 기름을 빠르고 정확하게 수집하여 넘기는 것이다. 하단의 캐릭터는 임의로 움직이며, 플레이어는 그가 기름을 받기 위해 이동하는 위치를 예측하고 그에 맞춰 기름을 넘겨야 한다. 기름을 넘기지 못하면, 손님들에게 기름이 떨어지고 실패가 기록된다. 주유소 손님들이 기름에 묻히는 것을 방지하려면, 두 캐릭터의 위치를 잘 확인하고, 주의 깊게 행동해야 한다. 기름을 넘기는 타이밍을 잘 맞추는 것이 중요하며, 그 타이밍을 놓치지 않도록 빠르게 반응해야 한다.
+Game A와 Game B는 사실상 동일한 방식으로 진행되지만, Game B에서는 속도가 빨라지고, 하단 캐릭터의 움직임이 불규칙해져 게임의 난이도가 급격히 상승한다. 또한, 하단에 등장하는 주유소 손님이 더 드물게 등장하여 예기치 않은 상황에서 더욱 신중하게 반응해야 한다. 이로 인해 Game B는 더 빠르고 까다로운 도전을 제공하며, 게임의 재미와 긴장감을 배가시킨다.
+오일 패닉은 단순히 기름을 관리하는 것만으로도 흥미로운 게임을 만들었고, 그 당시 아케이드 게임에서 볼 수 없었던 독특한 설정으로 플레이어들에게 큰 인기를 끌었다. 기름을 놓치지 않도록 관리하는 동시에, 하단 캐릭터와 주유소 손님의 동작을 예의주시해야 하는 점에서 큰 전략적 재미를 제공하며, 반응 속도와 판단력을 시험하는 게임이었다.</desc>
+        <releasedate>19820528T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_opanic.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_opanic.png</thumbnail>
+        <video>./media/video/gnw/gnw_opanic.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_opanic.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_pchute.zip</path>
+        <name>낙하산 (Parachute)</name>
+        <desc>"낙하산"은 1982년에 출시된 아케이드 게임으로, 하늘에서 낙하산을 타고 내려오는 스카이다이버들을 구하는 재미있는 게임이다. 와이드 스크린 (Wide Screen) 시리즈의 첫 제품으로 금색 본체에 빨간색 버튼 조합의 이러한 디자인은, 훗날 패미컴 디자인의 모티브가 된다. 게임의 배경은 상어가 득실거리는 바다 위에 떠 있는 구명 보트로, 플레이어는 구명 보트를 좌우로 조종하여 낙하산을 타고 내려오는 스카이다이버들을 받아야 한다. 스카이다이버는 바다로 떨어지기 전에 반드시 구명 보트에 의해 구출되어야 하며, 이를 놓치면 스카이다이버는 상어에게 잡아먹히게 된다.
+게임의 목표는 스카이다이버를 빠짐없이 받아서 최대한 많은 점수를 얻는 것이다. 각 스카이다이버를 구명 보트에 안전하게 받으면 1점이 부여된다. 구명 보트를 좌우로 조작하며, 빠르게 떨어지는 스카이다이버들을 놓치지 않도록 해야 한다. 만약 스카이다이버를 놓쳐서 바다로 떨어지게 되면 미스가 쌓인다. 세 번째 미스를 기록하면 게임은 종료된다. 플레이어는 최대한 스카이다이버들을 빠르게 잡아 높은 점수를 얻는 것이 목표다.
+게임의 진행 중에는 점수에 도달하면 보너스 점수가 적용되며, 200점 또는 500점에 도달하면, 그동안 쌓였던 미스가 팬파레와 함께 취소된다. 이를 통해 플레이어는 잠시나마 실수를 만회할 수 있는 기회를 얻으며, 게임은 계속 진행된다. 게임에서 표시되는 최대 점수는 999점이며, 계속해서 더 높은 점수를 향해 도전할 수 있다.
+"낙하산 (Parachute)"은 간단하면서도 매우 중독적인 게임으로, 빠르게 움직이는 낙하산을 타고 내려오는 스카이다이버들을 잡아야 하는 스릴 넘치는 게임플레이를 제공한다. 게임은 난이도가 점점 올라가면서 점수를 획득하고 미스를 최소화하는 전략적인 사고를 요구한다. 빠른 손놀림과 정확한 반응 속도가 중요한 이 게임은 당시 아케이드에서 큰 인기를 끌었으며, 상어라는 위험 요소도 긴장감을 더하는 특징이었다.</desc>
+        <releasedate>19810619T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_pchute.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_pchute.png</thumbnail>
+        <video>./media/video/gnw/gnw_pchute.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_pchute.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_pinball.zip</path>
+        <name>핀볼 (Pinball)</name>
+        <desc>"핀볼"은 1982년에 출시된 간단하지만 중독성 강한 아케이드 게임으로, 핀볼 기계의 기본적인 게임 방식을 그대로 옮긴 포터블 버전이다. 이 게임에서 플레이어는 두 개의 플리퍼를 조작하여 공을 튕기며, 공이 플리퍼 아래로 떨어지지 않도록 해야 한다. 목표는 공을 튕기면서 가능한 한 오랫동안 공이 화면 위에 머물게 하여 점수를 획득하는 것이다.
+게임은 기본적으로 공이 랜덤한 방향으로 튕기며, 범퍼에 닿을 때마다 점수를 얻는다. 범퍼는 공이 튕길 때마다 랜덤하게 반응하여 공의 방향을 바꾸며, 이 과정에서 점수가 축적된다. 공이 제대로 튕겨지지 않고 플리퍼 아래로 떨어지면 한 번의 미스가 발생한다. 공을 계속 튕기고 점수를 얻으려면 정확한 타이밍과 빠른 반응이 필요하다.
+이 게임은 간단한 컨셉을 바탕으로 이루어져 있지만, 공의 움직임이 예측 불가능한 부분이 있어, 플레이어는 항상 집중하고 반응해야 한다. 핀볼 기계의 범퍼와 플리퍼를 적절히 활용하여 공이 떨어지지 않도록 하는 것이 핵심이다. 게임은 정해진 시간 동안 진행되며, 더 많은 점수를 얻기 위해서는 공이 튕기도록 잘 조절해야 한다.
+"핀볼 (Pinball)"은 단순하면서도 반복적인 재미를 주는 게임으로, 빠른 반응 속도와 타이밍을 요구하는 요소가 특징이다. 이 게임은 핀볼 기계의 매력을 그대로 재현하면서, 아케이드 게임 특유의 도전적인 성격을 잘 살려낸 작품이다.</desc>
+        <releasedate>19831205T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Pinball</genre>
+        <genreid>1792</genreid>
+        <image>./media/image/gnw/gnw_pinball.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_pinball.png</thumbnail>
+        <video>./media/video/gnw/gnw_pinball.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_pinball.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_popeyep.zip</path>
+        <name>뽀빠이 (Popeye) (Panorama Screen) (Table Top)</name>
+        <desc>"뽀빠이"의 Panorama Screen 버전과 Table Top 버전은 1983년에 출시된 게임으로, 플레이어가 뽀빠이 선원이 되어 올리브 오일이 부두에서 던지는 물건을 받아야 하는 게임이다. 이 게임에서 올리브 오일은 다양한 물건들을 던지며, 뽀빠이는 그 물건들을 받아야 한다. 만약 물건을 놓치게 되면 그것이 바다로 떨어지고, 그때마다 반 미스가 기록된다. 이 미스는 게임에 중요한 영향을 미칠 수 있으므로, 물건을 놓치지 않도록 주의해야 한다.
+게임 진행 중, 블루토가 화면 왼쪽에서 나타나 뽀빠이를 때리려고 한다. 블루토의 공격을 피해야 하며, 만약 블루토의 주먹이 뽀빠이를 맞히면 뽀빠이는 바다로 떨어져 하나의 생명이 잃게 된다. 게임 B에서는 블루토가 화면 양쪽에서 나타나 공격을 시도하므로 더욱 어려워진다. 이로 인해 뽀빠이는 한쪽으로만 집중할 수 없게 되며, 두 방향에서 오는 공격을 동시에 피해야 한다.
+Panorama Screen 버전은 화면의 가로 비율을 활용하여, 넓은 시야로 게임을 제공하며, 물건을 받거나 블루토의 공격을 피하는 데 있어 더 많은 전략적 판단이 필요하다. 올리브 오일이 던지는 물건을 효율적으로 잡고, 블루토의 공격을 피하면서 게임을 진행하는 것은 큰 도전이다.</desc>
+        <releasedate>19810805T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_popeyep.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_popeyep.png</thumbnail>
+        <video>./media/video/gnw/gnw_popeyep.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_popeyep.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_popeye.zip</path>
+        <name>뽀빠이 (Popeye) (Wide Screen)</name>
+        <desc>"뽀빠이 (Wide Screen)"는 Panorama Screen 버전과 거의 동일한 게임 방식이지만, 화면의 세로 비율이 다르다. 이 버전에서도 올리브 오일이 던지는 물건을 받아야 하며, 물건을 놓치면 바다로 떨어져 반 미스가 기록된다. 또한, 블루토가 화면 왼쪽에서 나타나 뽀빠이를 공격하려고 시도하는 구조는 Wide Screen에서도 유지된다. 다만, Game B 모드에서는 블루토가 양쪽에서 동시에 나타나 공격을 시도한다. 이는 게임의 난이도를 높이는 요소로 작용하며, 두 방향에서 다가오는 위협을 동시에 처리해야 한다.
+Wide Screen 버전은 세로 화면을 채택하여, 좀 더 수직적인 시야를 제공한다. 그 결과 게임 내에서 물건을 받는 동작이나 블루토의 공격을 피하는 과정에서 다르게 느껴질 수 있다. Panorama Screen과 비교했을 때 화면의 구성이 달라 플레이어는 적응하는 데 시간이 필요할 수 있지만, 기본적인 게임 방식과 규칙은 동일하다. 이 버전도 물건을 최대한 많이 받아 점수를 올리고, 블루토의 공격을 피하면서 생명을 잃지 않도록 관리하는 전략이 중요하다.
+두 버전 모두 뽀빠이의 캐릭터와 올리브 오일, 블루토라는 익숙한 캐릭터들로 구성되어 있으며, 그들의 상호작용이 게임의 재미를 더한다. Panorama Screen과 Wide Screen의 차이는 화면의 비율과 게임의 시각적 느낌에 있지만, 게임의 기본적인 흐름은 두 버전 모두 유사하다.</desc>
+        <releasedate>19810805T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_popeye.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_popeye.png</thumbnail>
+        <video>./media/video/gnw/gnw_popeye.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_popeye.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_rshower.zip</path>
+        <name>소나기 (Rain Shower)</name>
+        <desc>"소나기"는 특이한 게임 플레이와 창의적인 아이디어로 눈에 띄는 게임이다. 게임은 주인공이 자신의 빨래를 마당에서 말리고 있는 상황에서 시작된다. 게임의 목표는 빨래가 비에 젖지 않도록 하는 것이다. 이를 위해 플레이어는 집의 두 층을 오가며 네 개의 끈을 왼쪽에서 오른쪽으로 당겨야 한다. 끈을 당기면 비가 내리는 것을 막을 수 있지만, 이를 적절히 타이밍에 맞춰서 반복적으로 수행해야 한다.
+매 100점마다 해가 떠서 잠시나마 평화로운 시간을 가질 수 있는 기회가 주어지는데, 이는 플레이어에게 잠시 숨을 돌릴 수 있는 시간을 제공한다. 그러나 게임이 진행됨에 따라 점점 더 어려워진다. 게임 B에서는 까마귀가 등장하여 끈을 반대 방향으로 당기기도 한다. 까마귀의 등장으로 인해 게임은 더욱 도전적이고 전략적인 요소가 강화된다. 게임은 빠른 반응 속도와 정확한 타이밍이 중요하다.
+이 게임은 단순히 빨래를 말리는 것처럼 보일 수 있지만, 그 이면에는 긴장감과 흥미로운 도전이 숨겨져 있다. 특히 시간이 지날수록 난이도가 올라가면서, 플레이어는 끊임없이 집중하고 대응해야 한다. 또한, 소나기 게임은 고전적인 아케이드 스타일의 게임으로, 당시 기술의 한계 속에서 단순하면서도 중독성 있는 게임 플레이를 제공했다. 이 게임은 그 당시의 게임 개발자들이 어떻게 제한된 기술로 창의적인 게임을 만들어냈는지를 잘 보여준다.</desc>
+        <releasedate>19831008T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_rshower.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_rshower.png</thumbnail>
+        <video>./media/video/gnw/gnw_rshower.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_rshower.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_sbuster.zip</path>
+        <name>세이프 버스터 (Safe Buster)</name>
+        <desc>"세이프 버스터"는 긴박감 넘치는 액션과 전략이 요구되는 게임으로, 플레이어는 은행의 지붕에서 폭탄을 던지는 도둑 윌리 봄버(Willy Bomber)를 막으려는 경비원 역할을 맡게 된다. 게임의 목표는 윌리 봄버가 던지는 폭탄을 막고, 안전하게 화면의 왼쪽으로 던져서 폭탄을 처리하는 것이다. 폭탄은 최대 3개까지 동시에 처리할 수 있으며, 이때 빠르고 정확한 조작이 필요하다.
+게임은 "Oil Panic"과 유사한 점이 많다. 즉, 화면에서 떨어지는 폭탄을 수거하고, 이를 화면의 한쪽 끝으로 옮기는 방식으로 진행된다. 폭탄을 왼쪽으로 던질수록 화면 왼쪽에 있는 횃불이 튕겨져서 위쪽 화면으로 올라가게 된다. 이 횃불이 윌리의 폭탄 상자에 닿으면, 큰 폭발이 일어나며 게임의 중요한 목표가 달성된다. 이는 점점 더 빠르고 복잡한 상황 속에서 플레이어의 반응속도와 전략적인 사고를 요구한다.
+게임 B에서는 난이도가 추가된다. 왼쪽 화면에 불규칙적으로 나타나는 커버가 폭탄을 던지지 못하게 방해하는데, 이로 인해 폭탄을 처리하는 시간이 더 제한적으로 되어 게임의 난이도가 급격히 상승한다. 이 커버는 플레이어에게 추가적인 도전을 제공하며, 폭탄을 빠르게 처리하고 위기 상황을 잘 헤쳐 나가야 한다.
+"세이프 버스터"는 고전적인 G&amp;W 게임들이 가지는 특유의 단순한 게임 플레이와 중독성 있는 매력을 잘 보여준다. 비록 간단한 구성의 게임이라 할지라도, 점점 더 어려워지는 난이도와 긴장감 넘치는 전개는 플레이어에게 지속적으로 도전의식을 불러일으킨다. 당시의 기술로 어떻게 다양한 게임 메커니즘을 창조할 수 있었는지를 보여주는 좋은 예이다.</desc>
+        <releasedate>19880101T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_sbuster.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_sbuster.png</thumbnail>
+        <video>./media/video/gnw/gnw_sbuster.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_sbuster.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_snoopyp.zip</path>
+        <name>스누피 (Snoopy) (Panorama Screen, Table Top)</name>
+        <desc>"스누피"는 고전적인 G&amp;W 게임 중 하나로, 팬들에게 친숙한 캐릭터인 스누피와 우드스톡이 등장하는 게임이다. Panorama Screen, Table Top 버전으로 각각 1983년에 발매 되었다. 이 게임에서 플레이어는 스누피 역할을 맡아, 피아노를 치고 있는 슈뢰더가 연주하는 동안 날아오는 음표를 처리해야 한다. 음표는 공중에서 우드스톡이 자고 있는 둥지로 떨어지려 하며, 이를 막기 위해 스누피는 좌우로 이동하며 망치를 사용해 음표를 내리쳐야 한다.
+게임의 목표는 음표가 우드스톡의 둥지에 도달하기 전에 이를 막는 것이다. 음표가 둥지에 도달하면 한 번의 미스가 발생하며, 세 번의 미스가 발생하면 게임이 종료된다. 점수는 내리친 음표마다 1점씩 증가하며, 게임이 진행될수록 점점 빠르게 날아오는 음표들을 처리해야 한다. 게임 A는 3개의 음표 라인이 등장하는 반면, 게임 B에서는 4개의 음표 라인이 추가되어 더욱 도전적이 된다.
+특히, 300점을 달성하면 음악이 연주되고, 그동안의 미스가 모두 취소된다. 300점을 넘기고 미스를 한 번도 하지 않으면 "Chance-Time"이 활성화되어 점수가 두 배로 증가하는 기회가 주어진다. 이 모드에서는 점수가 계속해서 증가하지만, 한 번의 실수만으로도 점수가 리셋될 수 있어 긴장감이 높아진다. 최대 점수는 999점이며, 이 점수에 도달하면 점수가 리셋되고, 게임은 더 빠른 속도로 다시 시작된다.
+"스누피"는 단순한 게임 플레이임에도 불구하고, 빠른 반응 속도와 정확한 타이밍이 중요한 요소로 작용하며, 중독성 있는 게임이 된다. 게임 내에서 음표를 정확하게 처리하며 점수를 쌓아가는 과정은 플레이어에게 만족감을 주며, 점점 더 어려워지는 속도와 난이도가 도전적이고 흥미롭다. 이 게임은 G&amp;W 시리즈가 가진 고전적인 매력을 잘 보여주며, 간단하지만 반복적인 게임의 재미를 느낄 수 있게 해준다.</desc>
+        <releasedate>19830830T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_snoopyp.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_snoopyp.png</thumbnail>
+        <video>./media/video/gnw/gnw_snoopyp.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_snoopyp.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_stennis.zip</path>
+        <name>스누피 테니스 (Snoopy Tennis)</name>
+        <desc>"스누피 테니스"는 스누피와 찰리 브라운이 테니스를 즐기는 재미있는 게임이다. 게임은 스누피가 나무를 타고 찰리 브라운의 서브를 받아야 하는 상황으로 시작된다. 그러나 게임에는 루시가 방해꾼으로 등장한다. 루시는 스누피가 공을 받는 순간, 공을 가로채어 자신이 반격하며 경기를 방해한다. 게임에서 중요한 점은, 공이 스누피의 얼굴 바로 앞에 있을 때 정확한 타이밍으로 버튼을 눌러야 한다는 것이다. 타이밍을 맞추지 못하면 스누피는 공을 놓치게 되고, 그 후 라켓이 원래 위치로 돌아올 때까지 움직일 수 없다.
+공을 놓쳤을 때는 깨진 병 소리와 함께 "CRASH" 마크가 화면에 나타나며, 스누피는 무죄인 척하며 가끔 자는 척을 한다. 찰리 브라운은 실망한 표정으로 라켓을 던지며 좌절한다. 찰리 브라운의 공을 성공적으로 받아내면 2점, 루시의 공을 받아내면 3점을 얻을 수 있다. 이 점수 시스템은 게임을 더욱 도전적으로 만들어주며, 플레이어는 빠른 반응과 정확한 타이밍을 요구받는다.
+게임에서는 보너스 점수 시스템이 있다. 200점, 500점, 1200점, 1500점 등 일정 점수에 도달하면 팬파레가 울리고, 지금까지의 미스가 모두 취소된다. 또한, 보너스 점수에 도달하고 미스가 없을 경우 "Chance Time"이 활성화되며, 이 시간 동안 점수가 두 배로 증가하고, 찰리 브라운의 공은 5점, 루시의 공은 6점이 된다. "Chance Time"은 50초에서 70초까지 지속되며, 점수가 깜박이는 효과가 있어 더욱 흥미진진하다.
+최대 점수는 9999점이며, 이 점수에 도달하면 게임이 계속해서 반복되지만 난이도가 점차 상승한다. "스누피 테니스"는 단순한 테니스 게임처럼 보이지만, 게임 내에서 발생하는 다양한 이벤트와 타이밍, 그리고 보너스 점수 시스템은 게임을 더욱 몰입감 있게 만든다. 게임은 스누피와 찰리 브라운, 루시라는 친숙한 캐릭터들 덕분에 어린 시절의 추억을 되살려 주며, 그와 동시에 도전적인 요소를 제공하여 긴장감 넘치는 재미를 선사한다.</desc>
+        <releasedate>19820428T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action-Sports / Tennis-Sports</genre>
+        <genreid>1538</genreid>
+        <image>./media/image/gnw/gnw_stennis.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_stennis.png</thumbnail>
+        <video>./media/video/gnw/gnw_stennis.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_stennis.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_ssparky.zip</path>
+        <name>스핏볼 스파키 (Spitball Sparky)</name>
+        <desc>"스핏볼 스파키"는 고전적인 아케이드 스타일의 게임으로, "Breakout"과 유사한 게임 플레이를 제공한다. 게임의 주인공은 작은 캐릭터 스파키로, 그는 트럼펫 모양의 입을 가지고 있어 공을 받아서 튕겨내는 방식으로 블록을 부수는 임무를 수행한다. 화면에 나타나는 블록들을 공으로 맞춰 파괴하는 것이 게임의 기본 목표이며, 공이 튕겨져 나가면 플레이어는 다시 공을 받기 위해 스파키를 좌우로 조작해야 한다.
+게임의 특징은, 플레이어가 공을 스파키의 입에 닿기 전에 공을 조종할 수 있다는 점이다. 이를 통해 공에 더 강하거나 약한 힘을 적용할 수 있어, 블록을 부수는 방식에 있어 더욱 전략적인 접근이 가능하다. 스파키의 입에서 공을 내보낼 때, 공의 방향과 세기를 정확히 조절하는 것이 중요하다. 점점 더 난이도가 높아지면서, 벽들이 움직이거나 블록의 개수가 증가하는 등 상황은 점점 더 복잡해진다.
+게임 B에서는 일부 블록이 깜박이며, 이 블록들은 두 번 맞춰야만 사라진다. 이는 게임을 더욱 도전적으로 만들어, 단순히 공을 튕겨내는 것 외에도 더 신경을 써야 할 요소가 추가된다. 다양한 종류의 블록과 움직이는 벽을 마주하며 공을 정확하게 조작하는 능력이 요구된다.
+"스핏볼 스파키"는 단순하면서도 중독성 있는 게임이다. 트럼펫 모양의 입을 통해 공을 다루는 독특한 방식은 기존의 아케이드 게임들과 차별화되며, 반복적인 플레이를 통해 점점 더 높아지는 난이도를 극복하는 재미를 선사한다. 이 게임은 단순히 블록을 부수는 것 이상의 전략적 사고를 요구하며, 작은 캐릭터가 펼치는 스릴 넘치는 액션이 매력적인 요소로 다가온다.
+</desc>
+        <releasedate>19840207T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action / Breakout games-Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_ssparky.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_ssparky.png</thumbnail>
+        <video>./media/video/gnw/gnw_ssparky.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_ssparky.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_squish.zip</path>
+        <name>스퀴시 (Squish)</name>
+        <desc>"스퀴시"는 "Devil World"와 유사한 게임으로, 독특한 게임 플레이와 도전적인 구조를 자랑한다. 이 게임에서 플레이어는 '그럼피'라는 캐릭터를 조작하는데, 화면 상단에서는 그럼피가 네 개의 버튼을 사용하여 벽을 원하는 방향으로 움직인다. 화면 하단에는 '지기'라는 캐릭터가 갇혀 있으며, 플레이어는 지기를 조종하여 벽 사이에 끼어 압사당하지 않도록 해야 한다.
+게임의 기본 목표는 벽이 움직일 때마다 지기가 안전한 곳으로 이동하도록 조정하는 것이다. 벽이 좁혀지면 지기가 그 사이에 끼지 않도록 빠르게 움직여야 하며, 타이밍이 중요하다. 벽의 움직임을 잘 조정하여 지기를 안전하게 지키는 것이 핵심이며, 빠른 반응 속도와 전략적인 벽 조작이 필요한 게임이다.
+게임 B에서는 추가적인 요소가 등장한다. 이번에는 4개의 "미로 벌레(Maze Bugs)"를 잡는 목표가 주어진다. 각 미로 벌레는 방의 각 구석에 위치하고 있으며, 지기가 이 벌레들을 잡아야 한다. 이를 위해 벽을 적절히 조정하여 벌레를 가두거나, 그들을 안전하게 잡을 수 있는 위치로 유도해야 한다. 이 추가적인 목표는 게임의 난이도를 높이며, 플레이어는 미로 벌레와 벽 사이에서 전략적인 사고를 해야 한다.
+"스퀴시"는 단순한 구조이지만, 점점 빠르게 변화하는 벽의 움직임과 미로 벌레의 등장으로 긴장감이 넘치는 게임이다. 이 게임은 빠른 판단력과 정확한 벽 조작 능력을 시험하며, G&amp;W 게임들 중에서 더욱 도전적인 요소를 제공한다. 벽을 움직이고, 지기를 안전하게 지키는 과정에서 전략적 사고와 반응 속도가 중요해지며, 각 스테이지가 진행될수록 더욱 복잡해지는 상황을 해결하는 재미가 있다.</desc>
+        <releasedate>19860417T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_squish.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_squish.png</thumbnail>
+        <video>./media/video/gnw/gnw_squish.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_squish.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_smb.zip</path>
+        <name>슈퍼 마리오 브라더스 (Super Mario Bros.) (Crystal Screen)</name>
+        <desc>"슈퍼 마리오 브라더스(Crystal Screen)"는 닌텐도의 대표적인 아케이드 게임 중 하나인 NES 슈퍼 마리오 브라더스를 게임 앤 와치 형태로 재구성한 작품이다. 이 게임은 1986년에 발매된 게임 앤 와치 시리즈의 일부로, 휴대용 LCD 화면에서 마리오와 루이지가 적들을 처치하고 공주를 구하는 이야기를 간략화하여 구현하였다.
+이 게임은 원작의 레벨 디자인과 캐릭터들을 그대로 재현하며, 각 화면은 Crystal Screen이라는 특수한 기술을 사용하여 더 선명하고 뚜렷한 이미지를 제공한다. 이는 게임 앤 와치 시리즈에서 사용된 일반적인 LCD 화면보다 훨씬 높은 해상도를 자랑하며, 화면에 나타나는 캐릭터들이 보다 선명하게 보이는 특징이 있다. 다만 이러한 변화는 실험적인 것이었어서 한정적으로만 판매되었고, 이후 New Wide Screen가 발매된다. 현재는 한정적인 수량만 남아있어, 매우 높은 수집 가치가 있다.
+게임의 목표는 마리오를 조작하여 장애을 피하면서 공주를 구하는 것이다. 다만, 게임 앤 와치 버전은 원작과 달리 한정된 화면 크기와 간단한 조작 방식으로 구성되어 있다.
+슈퍼 마리오 브라더스 (Crystal Screen) 버전은 그 당시 많은 게임 앤 와치 팬들에게 큰 인기를 끌었으며, 닌텐도의 아이콘인 마리오가 첫 등장한 타이틀로서 마리오 시리즈의 발전에 중요한 역할을 했다. 특히, 휴대용 게임기의 발전에 기여한 작품으로, 후속 게임기에 영향을 미쳤다. 이 게임은 단순히 오락적인 재미만을 제공한 것이 아니라, 게임의 하드웨어 및 인터페이스가 발전하는 중요한 기점이 되었다.
+그 후, 마리오는 다양한 콘솔과 장르에서 활약하며 게임의 역사에 중요한 캐릭터로 자리 잡았다. 게임 앤 와치 시리즈 내에서 슈퍼 마리오 브라더스는 이러한 캐릭터가 대중에 널리 알려지는 중요한 전환점이었다.</desc>
+        <releasedate>19860625T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_smb.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_smb.png</thumbnail>
+        <video>./media/video/gnw/gnw_smb.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_smb.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_smbn.zip</path>
+        <name>슈퍼 마리오 브라더스 (Super Mario Bros.) (New Wide Screen, YM-901)</name>
+        <desc>"슈퍼 마리오 브라더스(New Wide Screen, YM-901)"는 닌텐도의 대표적인 아케이드 게임 중 하나인 슈퍼 마리오 브라더스를 게임 앤 와치 형태로 재구성한 작품이다. 이 게임은 1986년에 발매된 게임 앤 와치 시리즈의 일부로, 휴대용 LCD 화면에서 마리오와 루이지가 적들을 처치하고 공주를 구하는 이야기를 간략화하여 구현하였다.  
+		New Wide Screen은 Crystal Screen보다 캐릭터 디자인이 조금 더 디테일해지며 원작의 마리오에 가까워 진 것이 특징이다. Crystal Screen 같은 투명한 LCD화면은 아니지만 화면도 더 커지고 컬러감 또한 개선되었다. 1987년에는 1만대 한정으로 YM-901이 일본에서만 출시되었다.
+게임의 목표는 마리오를 조작하여 장애을 피하면서 공주를 구하는 것이다. 다만, 게임 앤 와치 버전은 원작과 달리 한정된 화면 크기와 간단한 조작 방식으로 구성되어 있다.
+슈퍼 마리오 브라더스 (Crystal Screen) 버전은 그 당시 많은 게임 앤 와치 팬들에게 큰 인기를 끌었으며, 닌텐도의 아이콘인 마리오가 첫 등장한 타이틀로서 마리오 시리즈의 발전에 중요한 역할을 했다. 특히, 휴대용 게임기의 발전에 기여한 작품으로, 후속 게임기에 영향을 미쳤다. 이 게임은 단순히 오락적인 재미만을 제공한 것이 아니라, 게임의 하드웨어 및 인터페이스가 발전하는 중요한 기점이 되었다.
+그 후, 마리오는 다양한 콘솔과 장르에서 활약하며 게임의 역사에 중요한 캐릭터로 자리 잡았다. 게임 앤 와치 시리즈 내에서 슈퍼 마리오 브라더스는 이러한 캐릭터가 대중에 널리 알려지는 중요한 전환점이었다.</desc>
+        <releasedate>19880308T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Platform</genre>
+        <genreid>257</genreid>
+        <image>./media/image/gnw/gnw_smbn.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_smbn.png</thumbnail>
+        <video>./media/video/gnw/gnw_smbn.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_smbn.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_tfish.zip</path>
+        <name>열대어 (Tropical Fish)</name>
+        <desc>"열대어"는 1985년 7월 1일에 출시된 Game &amp; Watch의 Wide Screen 시리즈 게임 중 하나로, 플레이 방식이 기존에 출시된 Fire와 유사하다. 플레이어는 물고기를 한 수조에서 다른 수조로 안전하게 옮기는 역할을 맡으며, 이를 위해 물고기 그릇을 사용해야 한다.
+게임이 시작되면 화면 오른쪽의 수조에서 물고기가 튀어나온다. 플레이어는 이를 놓치지 않고 받아야 하며, 물고기는 일정 시간이 지나면 다시 그릇에서 튀어 올라 왼쪽으로 이동한다. 플레이어는 이 과정을 반복하여 물고기가 무사히 왼쪽 수조에 도착하도록 도와야 한다. 게임의 핵심은 물고기의 움직임을 예측하고, 타이밍을 맞춰 정확하게 받아내는 것이다. 만약 물고기를 받지 못하고 바닥에 떨어뜨리면, 고양이가 나타나 이를 낚아채 맛있는 간식으로 삼는다. 이 고양이는 Game &amp; Watch의 또 다른 게임인 Chef에 등장하는 고양이와 유사한 외형을 하고 있으며, 게임 내 알람 시계 아이콘으로도 등장한다.
+Tropical Fish는 단순하지만 빠른 반응 속도와 정확한 조작을 요구하는 게임이다. 난이도가 올라갈수록 물고기의 속도가 빨라지며, 플레이어는 더욱 집중해서 타이밍을 맞춰야 한다. 특히 후반부로 갈수록 여러 마리의 물고기가 동시에 움직이면서 긴박한 상황이 연출된다. 이런 점에서 Fire와 비슷한 구조를 가지고 있지만, 바닥에 떨어진 물고기가 단순히 사라지는 것이 아니라 고양이에게 잡아먹힌다는 점에서 차별점을 둔다.
+이 게임은 단순한 조작 방식 덕분에 누구나 쉽게 즐길 수 있지만, 고득점을 목표로 하면 상당한 연습이 필요하다. Game &amp; Watch 특유의 LCD 화면 특성상 물고기와 고양이의 움직임이 미리 정해진 패턴을 따르지만, 적절한 타이밍을 맞추는 것이 핵심 요소다. Tropical Fish는 Game &amp; Watch 후반기에 등장한 작품으로, 기존 인기 게임의 요소를 차용하면서도 새로운 분위기를 연출하는 데 성공한 작품이다.</desc>
+        <releasedate>19850701T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_tfish.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_tfish.png</thumbnail>
+        <video>./media/video/gnw/gnw_tfish.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_tfish.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_tbridge.zip</path>
+        <name>터틀 브리지 (Turtle Bridge)</name>
+        <desc>"터틀 브리지"는 1982년 2월 1일에 출시된 Game &amp; Watch의 Wide Screen 시리즈 게임 중 하나로, 관광객이 짐을 옮기기 위해 거북이 등을 밟고 호수를 건너는 게임이다. 플레이어는 관광객을 조작하여 왼쪽 강둑에서 오른쪽 강둑으로 이동하며, 도착하면 짐을 다른 관광객에게 건네고 다시 되돌아와야 한다.
+게임의 핵심 요소는 물속에서 떠오르는 물고기와 거북이의 행동이다. 거북이는 평소에는 떠 있지만, 물고기가 수면으로 올라오면 잠수를 시도하며, 이때 거북이 위에 올라탄 상태라면 플레이어는 물에 빠지게 된다. 한 번 빠질 때마다 '미스'가 기록되며, 세 번의 미스를 기록하면 게임이 종료된다.
+게임 A 모드에서는 초반에 화면 중앙에서 물고기가 나타나지 않지만, 플레이어가 중앙 지역에서 2분 이상 머무르면 물고기가 중앙에서도 나타나기 시작한다. 따라서 적절한 타이밍을 맞춰 빠르게 건너는 것이 중요하다. 한 번 짐을 건네줄 때마다 3점을 획득하며, 왼쪽 강둑으로 돌아올 때 추가 점수를 얻을 수 있다. 플레이어가 왕복하는 속도가 빠를수록 점수가 높아지며, 한 번의 왕복으로 최소 2점에서 최대 12점까지 획득할 수 있다.
+특정 점수(200점 또는 500점 단위)에 도달하면, '보너스 점수'가 주어진다. 이때 미스가 하나라도 있으면 모두 초기화되며, 특별한 효과음이 재생된다. 만약 보너스 점수를 받을 때 미스가 전혀 없는 상태라면, 게임은 일정 시간 동안 '찬스 타임'에 들어간다. 찬스 타임 동안에는 거북이가 움직이지 않고, 물고기도 등장하지 않기 때문에 위험 부담 없이 빠르게 점수를 올릴 수 있는 기회가 된다.
+최대 점수는 9,999점까지 기록되며, 플레이어는 이를 목표로 최대한 오랫동안 생존하며 점수를 쌓아야 한다. Turtle Bridge는 단순한 조작 방식 속에서도 거북이의 움직임을 예측하고, 물고기의 패턴을 파악하는 전략적인 요소가 필요한 게임이다. 또한 빠른 시간 내에 왕복하여 고득점을 노리는 스피드 러닝 요소도 포함되어 있어, 단순한 반복이 아닌 긴장감 넘치는 플레이를 제공한다. Game &amp; Watch 특유의 LCD 화면을 활용한 애니메이션 효과가 인상적이며, 타이밍과 반응 속도를 요구하는 점에서 당시 인기 있었던 아케이드 게임의 느낌도 담고 있다.</desc>
+        <releasedate>19820201T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action-Puzzle</genre>
+        <genreid>2816</genreid>
+        <image>./media/image/gnw/gnw_tbridge.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_tbridge.png</thumbnail>
+        <video>./media/video/gnw/gnw_tbridge.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_tbridge.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_vermin.zip</path>
+        <name>두더지 (Vermin)</name>
+        <desc>"두더지"은 1980년 7월 10일에 출시된 Game &amp; Watch의 Silver 시리즈 게임 중 하나로, 두더지가 정원을 파괴하지 못하도록 망치를 사용해 막아내는 게임이다. 플레이어는 좌우 버튼을 이용해 캐릭터를 이동시키며, 땅속에서 올라오는 두더지를 자동으로 내려치는 방식으로 점수를 얻는다. 이 게임은 나중에 등장하는 Whac-A-Mole 스타일의 두더지 잡기 게임과 유사한 구조를 가지고 있으며, 빠른 반응 속도가 요구되는 단순하지만 중독성 있는 플레이가 특징이다.
+게임이 시작되면 두더지가 천천히 땅에서 나오기 시작하지만, 점점 속도가 빨라지며 플레이어의 대응 속도를 시험하게 된다. 캐릭터가 이동하여 망치가 해당 구멍 위에 위치하면 자동으로 두더지를 내려쳐 점수를 획득할 수 있다. 하지만 두더지를 놓쳐서 땅 위로 올라오게 되면 미스가 기록된다. 세 번의 미스를 기록하면 게임이 종료되며, 처음부터 다시 시작해야 한다.
+이 게임의 설명서에서는 플레이어가 조작하는 캐릭터를 ‘퍼펫(인형)’이라고 설명하고 있다. 캐릭터는 좌우로만 이동할 수 있으며, 플레이어가 직접 공격 버튼을 누르지 않아도 망치가 자동으로 작동하는 것이 특징이다. 덕분에 Vermin은 조작이 직관적이며, 본능적으로 타이밍을 맞추는 것이 중요하게 작용하는 게임이다.
+난이도가 올라갈수록 두더지들이 더욱 빠른 속도로 등장하고, 플레이어는 순간적인 판단을 통해 어느 방향으로 이동해야 할지 빠르게 결정해야 한다. Game &amp; Watch 특유의 LCD 화면에서 단순하지만 깔끔한 애니메이션 효과가 가미되어 있으며, 한눈에 보기 쉬운 인터페이스 덕분에 누구나 쉽게 플레이할 수 있는 게임이다.
+Vermin은 단순한 게임 구조 속에서도 반응 속도와 집중력을 요구하는 게임으로, 당시 휴대용 게임기로서 상당한 인기를 끌었다. 이후에도 여러 차례 리메이크되었으며, 슈퍼 스매시브라더스 시리즈에서 Mr. Game &amp; Watch의 공격 기술 중 하나로 등장하는 등 Game &amp; Watch를 대표하는 게임 중 하나로 자리 잡았다.</desc>
+        <releasedate>19800710T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Casual Game</genre>
+        <genreid>2304</genreid>
+        <image>./media/image/gnw/gnw_vermin.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_vermin.png</thumbnail>
+        <video>./media/video/gnw/gnw_vermin.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_vermin.png</marquee>
+    </game>
+    <game>
+        <path>./gnw/gnw_zelda.zip</path>
+        <name>젤다 (Zelda)</name>
+        <desc>"젤다"는 1989년 8월 26일에 출시된 Game &amp; Watch의 Wide Screen 시리즈 게임 중 하나로, NES에서 성공을 거둔 The Legend of Zelda 시리즈의 첫 번째 게임을 바탕으로 한 작품이다. 이 게임에서 플레이어는 주인공 링크(Link)를 조종하며, 게임의 세계에서 8마리의 드래곤이 인간들과 평화를 거부하고 난동을 부리며, 공주 젤다를 납치한 상황을 해결하려 한다. 링크는 젤다를 구하기 위해 드래곤들을 처치하고 그녀를 구출하는 임무를 맡는다.
+게임의 주요 콘텐츠는 전투로 이루어져 있으며, 각 던전에서 링크는 여러 마리의 고블린들과 싸운다. 고블린을 처치하면 아이템이 떨어지기도 하고, 계단이 나타나 그 다음 방으로 진행할 수 있게 된다. 던전을 클리어하면 드래곤의 둥지에 도달할 수 있으며, 드래곤을 처치한 뒤 트라이포스의 조각을 얻는다. 이 과정은 총 8번 반복되며, 각 드래곤을 처치하고 트라이포스의 조각을 모두 모은 후, 링크는 완성된 트라이포스를 사용해 젤다를 구출하게 된다.
+Zelda는 게임의 핵심인 전투와 던전 탐험을 통해 점차 진행되는 구조를 가지고 있다. 플레이어는 링크를 조작하여 적들을 물리치고, 점점 더 강해지는 드래곤들과의 전투를 준비해야 한다. 던전마다 등장하는 다양한 적들과 아이템들은 플레이어에게 전략적 사고를 요구하며, 점점 어려워지는 난이도와 함께 전투의 긴장감을 높여준다. 게임 앤 와치 특유의 제한된 화면 크기에서 이러한 전투와 탐험이 간결하지만 흥미롭게 구현되어 있어, 당시로서는 혁신적인 경험을 제공했다.
+이 게임은 The Legend of Zelda 시리즈의 세계관을 접할 수 있는 작품으로, 이후의 시리즈들에 큰 영향을 미친다. Game &amp; Watch 시리즈 중에서는 스토리라인이 뚜렷하게 존재하는 드문 사례로, 스토리와 게임플레이를 유기적으로 결합한 점이 특징적이다. Zelda는 Game &amp; Watch의 전투 게임에서 스토리-driven 게임으로서의 가능성을 열어준 작품으로, 이후 비디오 게임 역사에서 중요한 위치를 차지하게 된다.</desc>
+        <releasedate>19890826T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <players>1</players>
+        <genre>Action</genre>
+        <genreid>256</genreid>
+        <image>./media/image/gnw/gnw_zelda.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw_zelda.png</thumbnail>
+        <video>./media/video/gnw/gnw_zelda.mp4</video>
+        <marquee>./media/marquee/gnw/gnw_zelda.png</marquee>
+    </game>
+	
+    <folder>
+        <path>./gnw</path>
+        <name>게임 &amp; 워치</name>
+        <desc>게임업계 선두주자 닌텐도의 그 첫 시작. 게임 &amp; 워치는 닌텐도가 1980년부터 1991년까지 제작한 휴대용 전자 게임기 시리즈이다. 개발자 요코이 군페이가 당시 휴대용 계산기를 보며 착안하여 제작하였으며, 단순하면서도 직관적인 게임 플레이로 큰 인기를 끌었다. 각 기기는 하나의 게임만 내장하고 있으며, 액정 화면과 간단한 버튼 조작 방식으로 구성되어 있다. 초기 모델은 LCD 화면과 버튼 몇 개만을 탑재하였으나, 이후 듀얼 스크린과 접이식 디자인을 적용한 모델도 출시되었다.
+게임 &amp; 워치는 ‘게임’과 ‘시계’ 기능을 결합한 것이 특징이다. 기본적으로 게임을 즐길 수 있을 뿐만 아니라, 디지털 시계와 알람 기능도 포함하고 있어 실용성을 더했다. 대표적인 타이틀로는 볼 (Ball), 오일 패닉 (Oil Panic), 동키콩 (Donkey Kong) 등이 있으며, 특히 동키콩은 최초로 십자키를 채용한 게임기이기도 하다.
+본체 디자인은 시대에 따라 변화하며, 실버 시리즈, 골드 시리즈, 와이드 스크린 시리즈, 멀티 스크린 시리즈, 크리스탈 스크린 시리즈 등 다양한 형태로 출시되었다. 일부 모델은 두 개의 화면을 탑재하여 향후 닌텐도 DS의 디자인에 영향을 주었다. 2020년, 닌텐도는 게임 &amp; 워치의 레트로 감성을 살린 ‘게임 &amp; 워치: 슈퍼 마리오 브라더스’와 ‘젤다의 전설’ 35주년 기념 모델을 출시하며 다시금 화제를 모았다.
+게임 &amp; 워치는 단순한 게임기 그 이상으로, 현대 휴대용 게임기의 원형을 제시한 중요한 기기로 평가된다.</desc>
+        <releasedate>19800428T000000</releasedate>
+        <developer>Nintendo</developer>
+        <publisher>Nintendo</publisher>
+        <image>./media/image/gnw/gnw.png</image>
+        <thumbnail>./media/thumbnail/gnw/gnw.png</thumbnail>
+        <video>./media/video/gnw/gnw.mp4</video>
+        <marquee>./media/marquee/gnw/gnw.png</marquee>
+    </folder>	
+</gameList>

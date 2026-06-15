@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Runtime data dir — library, db (+backups), recovery, tmp, name_map (never committed)
+backend/data/
+
+# Node / Vite
+node_modules/
+frontend/dist/
+*.log
+
+# Env
+.env
+.env.local
+
+# scratch reference uploads
+_refs/*
+!_refs/README.md

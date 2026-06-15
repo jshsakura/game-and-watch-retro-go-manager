@@ -1,0 +1,29 @@
+# Node
+frontend/node_modules
+frontend/dist
+
+# Python
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+.venv
+venv
+
+# Persistent data (mounted as a volume at runtime)
+backend/data/library
+backend/data/tmp
+backend/data/*.db
+
+# Dev / editor artefacts
+.git
+.gitignore
+*.md
+*.env
+.env*
+*.log
+
+# Test artefacts
+.pytest_cache
+htmlcov
+.coverage

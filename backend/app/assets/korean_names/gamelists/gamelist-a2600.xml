@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gameList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<game>
+		<path>./Adventure.zip</path>
+		<name>어드벤처</name>
+		<desc>판매순위 16위, 약 100만 장의 판매고를 기록한 아타리의 대표작. 용을 피해 성을 탐험하며 열쇠와 보물을 찾아 모험을 떠나는 최초의 액션 어드벤처 게임이다. 숨겨진 이스터에그를 최초로 포함한 게임으로도 유명하다. 제작자 워렌 로비넷이 자신의 이름을 숨겨둔 비밀 방을 발견하면 게임 역사상 최초의 이스터에그를 확인할 수 있다. 단순한 그래픽이지만 드래곤을 피해 다양한 성을 탐험하는 과정이 흥미진진하며, 게임 장르의 새로운 지평을 연 기념비적인 작품으로 평가받는다. 세 개의 성에는 각각 다른 색상의 열쇠와 보물이 숨겨져 있으며, 플레이어는 이를 찾아 다니며 퍼즐을 풀어나가야 한다. 특히 드래곤을 상대할 때는 직접적인 전투가 아닌 지형지물을 이용한 전략적 회피가 필요하다. 당시로서는 혁신적이었던 개방형 맵 구조와 비선형적 게임플레이는 후대의 수많은 어드벤처 게임에 영향을 미쳤다.</desc>
+		<rating>0.8</rating>
+		<releasedate>19800101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<image>./media/image/Adventure.png</image>
+		<thumbnail>./media/thumbnail/Adventure.png</thumbnail>
+		<marquee>./media/marquee/Adventure.png</marquee>
+		<video>./media/video/Adventure.mp4</video>
+	</game>
+	<game>
+		<path>./Asteroids.zip</path>
+		<name>아스테로이드</name>
+		<desc>판매순위 6위, 약 380만 장의 판매량을 기록한 대작. 우주 공간에서 날아오는 소행성을 파괴하며 점수를 얻는 고전 슈팅 게임이다. 아케이드의 인기작을 가정용으로 이식한 버전으로, 벡터 그래픽의 특성을 살린 독특한 시각적 효과가 특징이다. 우주선을 회전시키고 추진하는 물리적 움직임이 실제 관성의 느낌을 잘 구현하였으며, 초기 우주 슈팅 게임의 기준을 제시하였다. 게임이 진행될수록 소행성은 더 작은 조각으로 분리되어 화면을 가득 메우게 되며, 간혹 등장하는 UFO는 플레이어를 향해 정확한 조준 사격을 가한다. 제한된 탄약의 광선총과 워프 기능, 방어막 시스템을 전략적으로 활용해야 하는데, 특히 워프는 위험하지만 매우 유용한 탈출 수단이 된다. 2인 플레이 모드에서는 순차적으로 플레이하며 최고 점수를 겨루는 방식을 채택했다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Shoot'em Up</genre>
+		<players>1-2</players>
+		<hash>60DAE21E</hash>
+		<image>./media/image/Asteroids.png</image>
+		<thumbnail>./media/thumbnail/Asteroids.png</thumbnail>
+		<marquee>./media/marquee/Asteroids.png</marquee>
+		<video>./media/video/Asteroids.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Atlantis.zip</path>
+		<name>아틀란티스</name>
+		<desc>판매순위 21위, 약 100만 장의 판매량을 기록한 이매직의 인기작. 수중 도시 아틀란티스를 지키는 디펜스 슈팅 게임이다. 적의 공격으로부터 도시의 여러 기지를 보호해야 하는 게임으로, 세 개의 대포를 전략적으로 조작하여 적기를 격추해야 한다. 화려한 폭발 효과와 점진적으로 증가하는 난이도로 게임성을 인정받았다. 당시로서는 혁신적이었던 멀티플레이어 모드도 지원하였다. 게임의 특징적인 요소는 각각 다른 위치에 배치된 세 개의 방어 포대로, 플레이어는 적절한 타이밍에 알맞은 포대를 선택하여 대응해야 한다. 적군은 다양한 공격 패턴을 보이는데, 빠르게 이동하는 고르곤 함선부터 치명적인 폭격을 가하는 데스선까지 여러 종류가 등장한다. 게임의 긴장감은 남은 기지의 수와 연동되어 있어, 기지가 파괴될수록 더욱 불리한 상황에서 게임을 이어가야 한다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Imagic</developer>
+		<publisher>Imagic</publisher>
+		<genre>Shooter</genre>
+		<players>1-2</players>
+		<hash>F36E093D</hash>
+		<image>./media/image/Atlantis.png</image>
+		<thumbnail>./media/thumbnail/Atlantis.png</thumbnail>
+		<marquee>./media/marquee/Atlantis.png</marquee>
+		<video>./media/video/Atlantis.mp4</video>
+		<genreid>256</genreid>
+	</game>
+	<game>
+		<path>./Berzerk.zip</path>
+		<name>버저크</name>
+		<desc>판매순위 12위, 약 187만 장의 판매량을 달성한 인기 슈팅게임. 로봇이 가득한 미로를 탈출하는 아케이드 스타일의 액션 게임이다. 각 방마다 적대적인 로봇들이 플레이어를 레이저로 공격하며, 전기가 흐르는 벽을 피해야 한다. 특히 무자비한 스마일 로봇 이블 오토가 등장하면 긴장감이 최고조에 달한다. 당시로서는 혁신적이었던 음성 합성 기능으로 로봇들이 "인간을 파괴하라"와 같은 대사를 외쳐 공포감을 더했다. 게임의 난이도는 방을 이동할 때마다 점진적으로 상승하며, 로봇들의 움직임과 발사 속도가 빨라진다. 플레이어는 레이저를 발사하여 로봇들을 파괴할 수 있지만, 벽에 부딪히는 레이저를 피해야 하는 등 전략적인 플레이가 요구된다. 특히 이블 오토는 무적이며 접촉 시 즉사하므로, 등장 시에는 즉시 다음 방으로 도망쳐야 하는 독특한 게임 메커니즘을 가지고 있다.</desc>
+		<rating>0.9</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Stern</developer>
+		<publisher>Atari</publisher>
+		<genre>Shooter</genre>
+		<players>1-2</players>
+		<hash>3417B065</hash>
+		<image>./media/image/Berzerk.png</image>
+		<thumbnail>./media/thumbnail/Berzerk.png</thumbnail>
+		<marquee>./media/marquee/Berzerk.png</marquee>
+		<video>./media/video/Berzerk.mp4</video>
+		<genreid>256</genreid>
+	</game>
+	<game>
+		<path>./Breakout - Breakaway IV.zip</path>
+		<name>브레이크아웃</name>
+		<desc>판매순위 15위, 약 168만 장의 판매고를 기록한 아타리의 블록 깨기 게임. 패들을 좌우로 움직여 공을 튕겨내어 상단의 블록을 파괴하는 방식의 게임이다. 단순하지만 중독성 있는 게임플레이로 후에 수많은 아류작을 낳았다. 스티브 잡스와 스티브 워즈니악이 아타리에서 이 게임의 회로 설계를 단순화하는 작업에 참여했다는 일화로도 유명하다. 게임의 특징은 블록의 색상에 따라 다른 점수가 부여되며, 공의 속도가 점차 빨라지는 난이도 조절 시스템에 있다. 특히 상단의 빨간색 블록을 맞추면 높은 점수를 얻을 수 있지만, 그만큼 리스크도 크다. 패들의 크기는 고정되어 있으나, 맞추는 위치에 따라 공의 반사각이 달라지는 물리 시스템을 구현하여 전략적 플레이가 가능하다. 최대 4인까지 즐길 수 있는 멀티플레이어 모드도 제공된다.</desc>
+		<rating>0.6</rating>
+		<releasedate>19780101T000000</releasedate>
+		<developer>Sears</developer>
+		<publisher>Atari</publisher>
+		<genre>Action-Action / Breakout games</genre>
+		<players>1-4</players>
+		<hash>8EFC6003</hash>
+		<image>./media/image/Breakout - Breakaway IV.png</image>
+		<thumbnail>./media/thumbnail/Breakout - Breakaway IV.png</thumbnail>
+		<marquee>./media/marquee/Breakout - Breakaway IV.png</marquee>
+		<video>./media/video/Breakout - Breakaway IV.mp4</video>
+		<genreid>256</genreid>
+	</game>
+	<game>
+		<path>./CENTIPEDE.zip</path>
+		<name>센티피드</name>
+		<desc>판매순위 13위, 약 182만 장의 판매고를 기록한 아케이드 이식작. 화면 상단에서 지그재그로 내려오는 지네를 저지하는 고전 슈팅게임이다. 버섯 장애물을 피해가며 지네의 마디를 맞추면 둘로 나뉘어 더욱 빠르게 움직이는 독특한 게임성이 특징이다. 트랙볼 조작 방식의 아케이드와 달리 조이스틱으로 이식되었으나, 원작의 재미를 잘 살려냈다는 평가를 받았다. 게임의 난이도는 점진적으로 상승하여, 지네의 이동 속도가 빨라지고 독거미가 더 자주 등장하게 된다. 특히 버섯을 전략적으로 활용하는 것이 중요한데, 이는 지네의 이동 경로를 방해하는 동시에 플레이어의 방패 역할도 한다. 화면 하단의 제한된 공간에서 끊임없이 움직이는 적들을 상대하는 긴장감 넘치는 게임플레이로, 당시 아케이드 팬들에게 큰 사랑을 받았다. 독특한 점수 시스템과 보너스 스테이지도 게임의 재미요소를 더했다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Shooter / Space Invaders Like-Shooter</genre>
+		<players>1</players>
+		<hash>C0D4D038</hash>
+		<image>./media/image/CENTIPEDE.png</image>
+		<thumbnail>./media/thumbnail/CENTIPEDE.png</thumbnail>
+		<marquee>./media/marquee/CENTIPEDE.png</marquee>
+		<video>./media/video/CENTIPEDE.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Cosmic Ark.zip</path>
+		<name>코스믹 아크</name>
+		<desc>판매순위 23위, 약 100만 장의 판매고를 기록한 이매직의 우주 구출 게임. 외계 생명체를 구출하여 우주선에 태우는 독특한 설정의 슈팅게임이다. 적의 공격을 피해 행성 표면에서 생명체를 수집하고, 이를 모선으로 이송하는 2단계 미션 구조가 특징이다. 당시로서는 드물었던 스토리텔링 요소를 가미한 게임성으로 주목받았다. 게임은 크게 두 가지 페이즈로 구성되는데, 첫 번째는 우주 공간에서 적의 공격을 방어하는 것이고, 두 번째는 행성 표면에서 생명체를 포획하는 것이다. 각 단계마다 다른 전략이 필요하며, 특히 생명체 구조 시에는 신중한 타이밍 조절이 요구된다. 스테이지가 진행될수록 적의 공격 패턴이 복잡해지고, 구조해야 할 생명체의 수도 증가하여 난이도가 상승한다. 독특한 게임 컨셉과 완성도 높은 구현으로 당시 많은 호평을 받았다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Imagic</developer>
+		<publisher>Imagic</publisher>
+		<genre>Shooter</genre>
+		<players>1-2</players>
+		<hash>1A2B735F</hash>
+		<image>./media/image/Cosmic Ark.png</image>
+		<thumbnail>./media/thumbnail/Cosmic Ark.png</thumbnail>
+		<marquee>./media/marquee/Cosmic Ark.png</marquee>
+		<video>./media/video/Cosmic Ark.mp4</video>
+		<genreid>256</genreid>
+	</game>
+	<game>
+		<path>./Demon Attack.zip</path>
+		<name>데몬 어택</name>
+		<desc>판매순위 10위, 약 200만 장의 판매고를 기록한 이매직의 히트작. 층층이 다가오는 외계 생명체들을 퇴치하는 수직 슈팅게임이다. 독특한 적 디자인과 다채로운 공격 패턴, 화려한 색상 효과로 당시 가정용 게임의 한계를 뛰어넘는 비주얼을 선보였다. 게임이 진행될수록 적들의 공격 패턴이 복잡해지고 분열하는 등 다양한 변화를 보여준다. 특히 웨이브가 올라갈수록 적의 움직임이 예측불가능해지며, 분열되는 적을 처치하기 위한 정교한 조준이 요구된다. 플레이어는 제한된 방어막 시스템을 전략적으로 활용해야 하며, 높은 점수를 노리기 위해서는 연속 명중 보너스를 노려야 한다. 당시 아타리 2600의 기술적 한계 내에서 최대한의 시청각적 효과를 끌어낸 수작으로 평가받는다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Imagic</developer>
+		<publisher>Imagic</publisher>
+		<genre>Shooter-Shooter / Vertical</genre>
+		<players>1-2</players>
+		<hash>F74CC118</hash>
+		<image>./media/image/Demon Attack.png</image>
+		<thumbnail>./media/thumbnail/Demon Attack.png</thumbnail>
+		<marquee>./media/marquee/Demon Attack.png</marquee>
+		<video>./media/video/Demon Attack.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Donkey Kong.zip</path>
+		<name>동키콩</name>
+		<desc>판매순위 3위, 약 418만 장의 판매고를 기록한 닌텐도의 전설적인 게임. 거대 고릴라 동키콩이 납치한 여자친구를 구하기 위해 장애물을 극복하며 올라가는 플랫폼 게임이다. 아케이드의 인기작을 콜레코가 아타리용으로 이식했으며, 원작의 재미요소를 잘 살려냈다는 평가를 받았다. 각 스테이지는 서로 다른 구조와 장애물을 가지고 있어 다양한 도전을 제공한다. 구르는 통과 불꽃을 피해 정확한 타이밍에 점프해야 하며, 망치 아이템을 이용해 적을 제거할 수도 있다. 특히 마지막 스테이지에서 동키콩을 무찌르는 순간의 짜릿함은 많은 게이머들의 기억에 남았다. 단순하지만 치밀한 게임 디자인으로 플랫폼 게임의 기틀을 마련했다는 평가를 받는다.</desc>
+		<rating>0.6</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Coleco Industries</developer>
+		<publisher>CBS Electronics</publisher>
+		<genre>Platform</genre>
+		<players>1</players>
+		<hash>62326042</hash>
+		<image>./media/image/Donkey Kong.png</image>
+		<thumbnail>./media/thumbnail/Donkey Kong.png</thumbnail>
+		<marquee>./media/marquee/Donkey Kong.png</marquee>
+		<video>./media/video/Donkey Kong.mp4</video>
+		<genreid>257</genreid>
+	</game>
+	<game>
+		<path>./Freeway.zip</path>
+		<name>프리웨이</name>
+		<desc>판매순위 17위, 약 100만 장의 판매고를 기록한 액티비전의 독특한 게임. 닭을 조종하여 10차선 고속도로를 건너는 단순하지만 중독성 있는 게임플레이를 제공한다. 2분 30초 동안 가능한 한 많은 횟수를 건너는 것이 목표로, 차량의 속도와 패턴이 점점 복잡해지는 것이 특징이다. 각 차선마다 다른 속도로 움직이는 차량들을 피해 타이밍을 맞추는 것이 핵심 전략이다. 실수로 차에 치이면 닭이 날아가 다시 시작점으로 돌아가며, 시간 내에 더 많은 횟수를 기록하기 위해서는 정확한 판단력이 요구된다. 2인용 모드에서는 동시에 플레이가 가능하여 더욱 흥미진진한 경쟁을 즐길 수 있다. 단순한 규칙에도 불구하고 깊은 중독성으로 많은 사랑을 받은 게임이다.</desc>
+		<rating>0.65</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Action-Action / Racing</genre>
+		<players>1-2</players>
+		<hash>924143F8</hash>
+		<image>./media/image/Freeway.png</image>
+		<thumbnail>./media/thumbnail/Freeway.png</thumbnail>
+		<marquee>./media/marquee/Freeway.png</marquee>
+		<video>./media/video/Freeway.mp4</video>
+	</game>
+	<game>
+		<path>./Frogger.zip</path>
+		<name>프로거</name>
+		<desc>판매순위 5위, 약 400만 장의 판매고를 기록한 코나미의 인기작. 개구리를 조종해 위험한 도로와 강을 건너 안전한 곳으로 이동하는 액션 게임이다. 시간 제한 내에 다섯 마리의 개구리를 모두 안전하게 이동시켜야 하는데, 차량과 악어, 뱀 등 다양한 위험 요소를 피해야 한다. 게임이 진행될수록 차량과 장애물의 이동 속도가 빨라지고 패턴이 복잡해진다. 특히 강을 건널 때는 통나무와 악어의 등을 이용해야 하는데, 타이밍을 잘못 맞추면 물에 빠져 생명을 잃게 된다. 보너스 점수를 얻을 수 있는 파리나 추가 시간을 주는 아이템도 등장하여 전략적 재미를 더한다. 2인 플레이 모드에서는 번갈아가며 도전하여 높은 점수를 겨룰 수 있다. 단순하면서도 중독성 있는 게임성으로 아케이드게임의 황금기를 대표하는 작품이다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19830101T000000</releasedate>
+		<developer>Konami</developer>
+		<publisher>Parker Brothers</publisher>
+		<genre>Action-Action / Labyrinth</genre>
+		<players>1-2</players>
+		<hash>94883EB5</hash>
+		<image>./media/image/Frogger.png</image>
+		<thumbnail>./media/thumbnail/Frogger.png</thumbnail>
+		<marquee>./media/marquee/Frogger.png</marquee>
+		<video>./media/video/Frogger.mp4</video>
+		<genreid>258</genreid>
+	</game>
+	<game>
+		<path>./Kaboom!.zip</path>
+		<name>카붐!</name>
+		<desc>판매순위 18위, 약 100만 장의 판매고를 기록한 액티비전의 독특한 게임. 미친 폭탄광이 던지는 폭탄을 물통으로 받아내는 단순하지만 긴장감 넘치는 게임이다. 화면 위에서 폭탄광이 연속으로 투하하는 폭탄을 아래에서 좌우로 이동하며 받아내야 하는데, 폭탄을 놓치면 폭발하여 생명을 잃게 된다. 게임이 진행될수록 폭탄의 투하 속도가 빨라지고 불규칙적인 패턴으로 변화한다. 특히 상단의 폭탄광이 짓는 불길한 미소는 게임의 긴장감을 더한다. 연속으로 폭탄을 받아내면 점수가 기하급수적으로 증가하는 시스템을 도입하여 고득점에 대한 동기를 부여했다. 패들 컨트롤러를 사용하는 독특한 조작 방식으로도 유명하며, 2인 플레이 모드에서는 협력하여 더 높은 점수를 노릴 수 있다. 단순한 컨셉이지만 완벽한 실행력으로 많은 사랑을 받은 게임이다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Action-Action / Arcade</genre>
+		<players>1-2</players>
+		<hash>7DAAEEAD</hash>
+		<image>./media/image/Kaboom!.png</image>
+		<thumbnail>./media/thumbnail/Kaboom!.png</thumbnail>
+		<marquee>./media/marquee/Kaboom!.png</marquee>
+		<video>./media/video/Kaboom!.mp4</video>
+	</game>
+	<game>
+		<path>./Kaboom.zip</path>
+		<name>카붐!</name>
+		<desc>판매순위 18위, 약 100만 장의 판매고를 기록한 액티비전의 독특한 게임. 미친 폭탄광이 던지는 폭탄을 물통으로 받아내는 단순하지만 긴장감 넘치는 게임이다. 화면 위에서 폭탄광이 연속으로 투하하는 폭탄을 아래에서 좌우로 이동하며 받아내야 하는데, 폭탄을 놓치면 폭발하여 생명을 잃게 된다. 게임이 진행될수록 폭탄의 투하 속도가 빨라지고 불규칙적인 패턴으로 변화한다. 특히 상단의 폭탄광이 짓는 불길한 미소는 게임의 긴장감을 더한다. 연속으로 폭탄을 받아내면 점수가 기하급수적으로 증가하는 시스템을 도입하여 고득점에 대한 동기를 부여했다. 패들 컨트롤러를 사용하는 독특한 조작 방식으로도 유명하며, 2인 플레이 모드에서는 협력하여 더 높은 점수를 노릴 수 있다. 단순한 컨셉이지만 완벽한 실행력으로 많은 사랑을 받은 게임이다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Action-Action / Arcade</genre>
+		<players>1-2</players>
+		<hash>7DAAEEAD</hash>
+		<image>./media/image/Kaboom.png</image>
+		<thumbnail>./media/thumbnail/Kaboom.png</thumbnail>
+		<marquee>./media/marquee/Kaboom.png</marquee>
+		<video>./media/video/Kaboom.mp4</video>
+	</game>
+	<game>
+		<path>./Megamania.zip</path>
+		<name>메가매니아</name>
+		<desc>판매순위 24위, 약 100만 장의 판매고를 기록한 액티비전의 독창적인 슈팅게임. 햄버거, 쿠키, 다이아몬드 등 일상적인 물체들이 적으로 등장하는 독특한 설정이 특징이다. 일반적인 스페이스 슈팅게임의 외계인 대신 이러한 물체들을 적으로 설정하여 신선한 재미를 주었다. 각 스테이지마다 다른 종류의 적이 등장하며, 이들은 독특한 공격 패턴과 움직임을 보인다. 에너지 시스템을 도입하여 일정 시간 내에 적을 처치해야 하는 압박감을 더했으며, 정확한 조준과 빠른 판단력이 요구된다. 스테이지가 진행될수록 적의 이동 속도가 빨라지고 공격 패턴이 복잡해져 난이도가 상승한다. 2인 플레이 모드를 지원하여 번갈아가며 최고 점수에 도전할 수 있다. 독특한 컨셉과 완성도 높은 게임성으로 평단의 호평을 받았다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19820901T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Shooter / Space Invaders Like-Shooter</genre>
+		<players>1-2</players>
+		<hash>10AFBCA7</hash>
+		<image>./media/image/Megamania.png</image>
+		<thumbnail>./media/thumbnail/Megamania.png</thumbnail>
+		<marquee>./media/marquee/Megamania.png</marquee>
+		<video>./media/video/Megamania.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Ms. Pac-Man.zip</path>
+		<name>미즈 팩맨</name>
+		<desc>판매순위 9위, 약 231만 장의 판매고를 기록한 아타리의 성공작. 팩맨의 후속작으로, 원작의 게임성을 더욱 발전시켰다는 평가를 받는다. 미로를 돌아다니며 과일과 파워 펠릿을 먹고 유령들을 피하거나 사냥하는 기본 구조는 유지하되, 새로운 미로 디자인과 과일의 움직임, 더 다양한 패턴의 유령 AI를 도입했다. 특히 과일이 미로를 돌아다니며 추가 점수 획득의 기회를 제공하는 요소는 게임의 전략적 재미를 한층 높였다. 네 가지 서로 다른 미로가 번갈아 등장하며, 각 스테이지마다 유령들의 움직임이 더욱 교묘해진다. 파워 펠릿을 먹으면 유령들을 잡아먹을 수 있지만, 시간이 지날수록 그 효과가 빨리 사라지는 등 난이도 조절이 절묘하다. 원작 팩맨보다 기술적으로 발전된 그래픽과 사운드로 더욱 몰입감 있는 게임 경험을 제공한다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>General Computer</developer>
+		<publisher>Atari</publisher>
+		<genre>Action-Action / Labyrinth</genre>
+		<players>1</players>
+		<hash>E86E6E41</hash>
+		<image>./media/image/Ms. Pac-Man.png</image>
+		<thumbnail>./media/thumbnail/Ms. Pac-Man.png</thumbnail>
+		<marquee>./media/marquee/Ms. Pac-Man.png</marquee>
+		<video>./media/video/Ms. Pac-Man.mp4</video>
+		<genreid>258</genreid>
+	</game>
+	<game>
+		<path>./Ms Pac-Man.zip</path>
+		<name>미즈 팩맨</name>
+		<desc>판매순위 9위, 약 231만 장의 판매고를 기록한 아타리의 성공작. 팩맨의 후속작으로, 원작의 게임성을 더욱 발전시켰다는 평가를 받는다. 미로를 돌아다니며 과일과 파워 펠릿을 먹고 유령들을 피하거나 사냥하는 기본 구조는 유지하되, 새로운 미로 디자인과 과일의 움직임, 더 다양한 패턴의 유령 AI를 도입했다. 특히 과일이 미로를 돌아다니며 추가 점수 획득의 기회를 제공하는 요소는 게임의 전략적 재미를 한층 높였다. 네 가지 서로 다른 미로가 번갈아 등장하며, 각 스테이지마다 유령들의 움직임이 더욱 교묘해진다. 파워 펠릿을 먹으면 유령들을 잡아먹을 수 있지만, 시간이 지날수록 그 효과가 빨리 사라지는 등 난이도 조절이 절묘하다. 원작 팩맨보다 기술적으로 발전된 그래픽과 사운드로 더욱 몰입감 있는 게임 경험을 제공한다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>General Computer</developer>
+		<publisher>Atari</publisher>
+		<genre>Action-Action / Labyrinth</genre>
+		<players>1</players>
+		<hash>E86E6E41</hash>
+		<image>./media/image/Ms Pac-Man.png</image>
+		<thumbnail>./media/thumbnail/Ms Pac-Man.png</thumbnail>
+		<marquee>./media/marquee/Ms Pac-Man.png</marquee>
+		<video>./media/video/Ms Pac-Man.mp4</video>
+		<genreid>258</genreid>
+	</game>
+	<game>
+		<path>./Pac-Man.zip</path>
+		<name>팩맨</name>
+		<desc>판매순위 1위, 약 809만 장이라는 경이로운 판매고를 기록한 아타리의 메가히트작. 일본 남코의 전설적인 아케이드 게임을 가정용으로 이식한 버전이다. 노란색 주인공이 미로를 돌아다니며 모든 점을 먹고 유령들을 피하는 간단한 게임성이지만, 중독성 있는 플레이로 전 세계적 인기를 얻었다. 하지만 아타리 2600의 하드웨어 한계로 인해 원작의 그래픽과 사운드를 완벽하게 재현하지 못했다는 아쉬움이 있다. 특히 유령들의 깜빡임 현상과 단순화된 사운드는 많은 비판을 받았다. 그럼에도 불구하고 게임의 기본적인 재미요소는 잘 살려냈다는 평가를 받으며, 파워 펠릿을 먹어 유령들을 사냥하는 짜릿한 순간은 여전히 게이머들에게 즐거움을 선사했다. 아타리 2600 역사상 가장 많이 팔린 게임이라는 기록을 세웠다.</desc>
+		<rating>0.55</rating>
+		<releasedate>19820316T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Action-Action / Labyrinth</genre>
+		<players>1-2</players>
+		<hash>20B827B5</hash>
+		<image>./media/image/Pac-Man.png</image>
+		<thumbnail>./media/thumbnail/Pac-Man.png</thumbnail>
+		<marquee>./media/marquee/Pac-Man.png</marquee>
+		<video>./media/video/Pac-Man.mp4</video>
+		<genreid>258</genreid>
+	</game>
+	<game>
+		<path>./Pitfall!.zip</path>
+		<name>피트폴!</name>
+		<desc>판매순위 4위, 약 400만 장의 판매고를 달성한 액티비전의 대표작. 정글을 탐험하며 보물을 찾는 모험가 피트폴 해리의 여정을 그린 횡스크롤 플랫폼 게임이다. 악어가 득실대는 늪, 치명적인 전갈, 흔들리는 덩굴, 움직이는 통나무 등 다양한 장애물을 뛰어넘고 피하며 보물을 수집해야 한다. 20분이라는 제한 시간 내에 32개의 지하 통로를 탐험하며 가능한 한 많은 보물을 모으는 것이 목표다. 특히 각 장애물마다 독특한 타이밍과 패턴이 있어 정교한 조작이 요구되며, 지하 통로를 통해 앞뒤로 이동할 수 있는 비선형적 레벨 디자인도 게임의 재미를 더한다. 당시로서는 획기적이었던 애니메이션과 사운드로 높은 완성도를 자랑했으며, 현대 플랫폼 게임의 기틀을 마련했다는 평가를 받는다.</desc>
+		<rating>0.8</rating>
+		<releasedate>19820420T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Platform</genre>
+		<players>1</players>
+		<hash>5D5166C1</hash>
+		<image>./media/image/Pitfall!.png</image>
+		<thumbnail>./media/thumbnail/Pitfall!.png</thumbnail>
+		<marquee>./media/marquee/Pitfall!.png</marquee>
+		<video>./media/video/Pitfall!.mp4</video>
+		<genreid>257</genreid>
+	</game>
+	<game>
+		<path>./Pitfall.zip</path>
+		<name>피트폴!</name>
+		<desc>판매순위 4위, 약 400만 장의 판매고를 달성한 액티비전의 대표작. 정글을 탐험하며 보물을 찾는 모험가 피트폴 해리의 여정을 그린 횡스크롤 플랫폼 게임이다. 악어가 득실대는 늪, 치명적인 전갈, 흔들리는 덩굴, 움직이는 통나무 등 다양한 장애물을 뛰어넘고 피하며 보물을 수집해야 한다. 20분이라는 제한 시간 내에 32개의 지하 통로를 탐험하며 가능한 한 많은 보물을 모으는 것이 목표다. 특히 각 장애물마다 독특한 타이밍과 패턴이 있어 정교한 조작이 요구되며, 지하 통로를 통해 앞뒤로 이동할 수 있는 비선형적 레벨 디자인도 게임의 재미를 더한다. 당시로서는 획기적이었던 애니메이션과 사운드로 높은 완성도를 자랑했으며, 현대 플랫폼 게임의 기틀을 마련했다는 평가를 받는다.</desc>
+		<rating>0.8</rating>
+		<releasedate>19820420T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Platform</genre>
+		<players>1</players>
+		<hash>5D5166C1</hash>
+		<image>./media/image/Pitfall.png</image>
+		<thumbnail>./media/thumbnail/Pitfall.png</thumbnail>
+		<marquee>./media/marquee/Pitfall.png</marquee>
+		<video>./media/video/Pitfall.mp4</video>
+		<genreid>257</genreid>
+	</game>
+	<game>
+		<path>./Raiders of the Lost Ark.zip</path>
+		<name>레이더스 오브 더 로스트 아크</name>
+		<desc>판매순위 25위, 약 100만 장의 판매고를 기록한 아타리의 영화 기반 게임. 인디아나 존스의 모험을 재현한 액션 어드벤처 게임으로, 성배를 찾아 떠나는 여정을 담았다. 여러 방을 탐험하며 다양한 아이템을 수집하고 퍼즐을 해결해야 하는 고난도의 게임이다. 복잡한 게임 시스템으로 인해 처음 접하는 플레이어들에게는 다소 난해할 수 있으나, 일단 규칙을 이해하면 깊이 있는 게임플레이를 제공한다. 특히 당시로서는 혁신적이었던 인벤토리 시스템을 도입하여 아이템을 조합하고 활용하는 재미를 더했다. 영화의 분위기를 잘 살린 사운드와 그래픽으로 팬들의 호평을 받았으며, 워렌 로비넷이 어드벤처 게임에서 쌓은 경험을 살려 제작한 수작으로 평가받는다.</desc>
+		<rating>0.6</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<hash>9419D4C7</hash>
+		<image>./media/image/Raiders of the Lost Ark.png</image>
+		<thumbnail>./media/thumbnail/Raiders of the Lost Ark.png</thumbnail>
+		<marquee>./media/marquee/Raiders of the Lost Ark.png</marquee>
+		<video>./media/video/Raiders of the Lost Ark.mp4</video>
+		<genreid>512</genreid>
+	</game>
+	<game>
+		<path>./Space Invaders.zip</path>
+		<name>스페이스 인베이더</name>
+		<desc>판매순위 2위, 약 625만 장의 경이로운 판매량을 기록한 타이토의 전설적인 게임. 외계인의 공격을 막아내는 단순한 설정이지만, 아케이드게임의 황금기를 열었던 기념비적인 작품이다. 화면 상단에서 정형화된 대형으로 내려오는 외계인들을 향해 포탑으로 발사체를 쏘아 막아내는 게임이다. 적들이 쏘는 미사일을 피하기 위해 하단의 방어벽을 전략적으로 활용해야 하며, 게임이 진행될수록 외계인의 이동 속도가 빨라진다. 특히 화면 양쪽을 오가는 UFO를 맞추면 높은 보너스 점수를 얻을 수 있다. 독특한 사운드 효과와 점진적으로 빨라지는 게임 템포는 긴장감을 더한다. 2인 플레이를 지원하여 번갈아가며 최고 점수에 도전할 수 있으며, 아타리 2600으로 이식되면서 가정용 게임의 새로운 지평을 열었다는 평가를 받는다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19800101T000000</releasedate>
+		<developer>Taito</developer>
+		<publisher>Atari</publisher>
+		<genre>Shooter / Space Invaders Like-Shooter</genre>
+		<players>1-2</players>
+		<hash>B351F1C5</hash>
+		<image>./media/image/Space Invaders.png</image>
+		<thumbnail>./media/thumbnail/Space Invaders.png</thumbnail>
+		<marquee>./media/marquee/Space Invaders.png</marquee>
+		<video>./media/video/Space Invaders.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Star Wars - The Empire Strikes Back.zip</path>
+		<name>스타워즈: 제국의 역습</name>
+		<desc>판매순위 22위, 약 100만 장의 판매고를 기록한 파커 브라더스의 라이선스 게임. 영화의 유명한 호스(Hoth) 전투 장면을 재현한 슈팅 게임이다. AT-AT 워커를 향해 스노우 스피더를 조종하여 공격하는 1인칭 시점의 게임으로, 영화의 긴장감 넘치는 전투 신을 효과적으로 구현했다. 워커의 다리를 공격하거나 케이블을 감아 쓰러뜨리는 등 다양한 전략을 시도할 수 있으며, 워커의 공격을 피하면서 반격의 기회를 노려야 한다. 게임이 진행될수록 워커의 수가 증가하고 공격이 더욱 치열해져 난이도가 상승한다. 당시로서는 뛰어난 3D 효과와 사운드로 영화의 분위기를 잘 살렸다는 평가를 받았으며, 2인 플레이 모드도 지원하여 번갈아가며 최고 점수에 도전할 수 있다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Parker Brothers</developer>
+		<publisher>Parker Brothers</publisher>
+		<genre>Shooter-Shooter / Space</genre>
+		<players>1-2</players>
+		<hash>813957B9</hash>
+		<image>./media/image/Star Wars - The Empire Strikes Back.png</image>
+		<thumbnail>./media/thumbnail/Star Wars - The Empire Strikes Back.png</thumbnail>
+		<marquee>./media/marquee/Star Wars - The Empire Strikes Back.png</marquee>
+		<video>./media/video/Star Wars - The Empire Strikes Back.mp4</video>
+	</game>
+	<game>
+		<path>./Star Wars - Empire Strikes Back.zip</path>
+		<name>스타워즈: 제국의 역습</name>
+		<desc>판매순위 22위, 약 100만 장의 판매고를 기록한 파커 브라더스의 라이선스 게임. 영화의 유명한 호스(Hoth) 전투 장면을 재현한 슈팅 게임이다. AT-AT 워커를 향해 스노우 스피더를 조종하여 공격하는 1인칭 시점의 게임으로, 영화의 긴장감 넘치는 전투 신을 효과적으로 구현했다. 워커의 다리를 공격하거나 케이블을 감아 쓰러뜨리는 등 다양한 전략을 시도할 수 있으며, 워커의 공격을 피하면서 반격의 기회를 노려야 한다. 게임이 진행될수록 워커의 수가 증가하고 공격이 더욱 치열해져 난이도가 상승한다. 당시로서는 뛰어난 3D 효과와 사운드로 영화의 분위기를 잘 살렸다는 평가를 받았으며, 2인 플레이 모드도 지원하여 번갈아가며 최고 점수에 도전할 수 있다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Parker Brothers</developer>
+		<publisher>Parker Brothers</publisher>
+		<genre>Shooter-Shooter / Space</genre>
+		<players>1-2</players>
+		<hash>813957B9</hash>
+		<image>./media/image/Star Wars - Empire Strikes Back.png</image>
+		<thumbnail>./media/thumbnail/Star Wars - Empire Strikes Back.png</thumbnail>
+		<marquee>./media/marquee/Star Wars - Empire Strikes Back.png</marquee>
+		<video>./media/video/Star Wars - Empire Strikes Back.mp4</video>
+	</game>
+	<game>
+		<path>./Warlords.zip</path>
+		<name>워로드</name>
+		<desc>판매순위 14위, 약 179만 장의 판매고를 달성한 아타리의 독특한 액션 게임. 최대 4명이 동시에 즐길 수 있는 성벽 방어 게임으로, 각 플레이어는 자신의 영토를 지키며 다른 플레이어의 성벽을 공격해야 한다. 공을 튕겨내어 상대방의 성벽을 무너뜨리는 방식으로, 브레이크아웃의 게임성을 멀티플레이어 대전 형식으로 발전시켰다. 각 코너에 위치한 플레이어들은 방패를 움직여 공을 막거나 반사시킬 수 있으며, 성벽이 무너지면 탈락하게 된다. 드래곤이 불규칙하게 등장하여 게임에 변수를 더하고, 파워업 아이템을 획득하면 일시적으로 방패가 커지는 등의 전략적 요소도 포함되어 있다. 특히 4인 플레이 시의 혼전은 매우 흥미진진하며, 아타리 2600 시대의 파티 게임으로 큰 인기를 얻었다.</desc>
+		<rating>0.7</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Sears</publisher>
+		<genre>Action-Action / Arcade</genre>
+		<players>1-4</players>
+		<hash>328B38F3</hash>
+		<image>./media/image/Warlords.png</image>
+		<thumbnail>./media/thumbnail/Warlords.png</thumbnail>
+		<marquee>./media/marquee/Warlords.png</marquee>
+		<video>./media/video/Warlords.mp4</video>
+	</game>
+	<game>
+		<path>./Yars' Revenge.zip</path>
+		<name>야즈 리벤지</name>
+		<desc>판매순위 20위, 약 100만 장의 판매고를 기록한 아타리의 독창적인 슈팅게임. 야즈족이라는 외계 생명체가 되어 악의 세력 쿼티와 대결하는 독특한 설정의 게임이다. 화면 중앙의 에너지 배리어를 사이에 두고 쿼티와 대치하는 구도로, 배리어를 공격하여 틈을 만들거나 파편을 모아 쿼티를 공격해야 한다. 특히 '중립 지대'라 불리는 공간을 전략적으로 활용하는 것이 승리의 핵심이다. 게임이 진행될수록 쿼티의 공격 패턴이 더욱 복잡해지고 위험해진다. 독특한 게임 디자인과 화려한 시각 효과로 당시 아타리 2600의 기술적 한계를 뛰어넘었다는 평가를 받았으며, E.T.의 하워드 스콧 워쇼가 제작한 게임으로도 유명하다. 2인 플레이 모드를 지원하여 더욱 전략적인 대결이 가능하다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Shoot'em Up</genre>
+		<players>1-2</players>
+		<hash>C6680029</hash>
+		<image>./media/image/Yars' Revenge.png</image>
+		<thumbnail>./media/thumbnail/Yars' Revenge.png</thumbnail>
+		<marquee>./media/marquee/Yars' Revenge.png</marquee>
+		<video>./media/video/Yars' Revenge.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Yars Revenge.zip</path>
+		<name>야즈 리벤지</name>
+		<desc>판매순위 20위, 약 100만 장의 판매고를 기록한 아타리의 독창적인 슈팅게임. 야즈족이라는 외계 생명체가 되어 악의 세력 쿼티와 대결하는 독특한 설정의 게임이다. 화면 중앙의 에너지 배리어를 사이에 두고 쿼티와 대치하는 구도로, 배리어를 공격하여 틈을 만들거나 파편을 모아 쿼티를 공격해야 한다. 특히 '중립 지대'라 불리는 공간을 전략적으로 활용하는 것이 승리의 핵심이다. 게임이 진행될수록 쿼티의 공격 패턴이 더욱 복잡해지고 위험해진다. 독특한 게임 디자인과 화려한 시각 효과로 당시 아타리 2600의 기술적 한계를 뛰어넘었다는 평가를 받았으며, E.T.의 하워드 스콧 워쇼가 제작한 게임으로도 유명하다. 2인 플레이 모드를 지원하여 더욱 전략적인 대결이 가능하다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Shoot'em Up</genre>
+		<players>1-2</players>
+		<hash>C6680029</hash>
+		<image>./media/image/Yars Revenge.png</image>
+		<thumbnail>./media/thumbnail/Yars Revenge.png</thumbnail>
+		<marquee>./media/marquee/Yars Revenge.png</marquee>
+		<video>./media/video/Yars Revenge.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Yar's Revenge.zip</path>
+		<name>야즈 리벤지</name>
+		<desc>판매순위 20위, 약 100만 장의 판매고를 기록한 아타리의 독창적인 슈팅게임. 야즈족이라는 외계 생명체가 되어 악의 세력 쿼티와 대결하는 독특한 설정의 게임이다. 화면 중앙의 에너지 배리어를 사이에 두고 쿼티와 대치하는 구도로, 배리어를 공격하여 틈을 만들거나 파편을 모아 쿼티를 공격해야 한다. 특히 '중립 지대'라 불리는 공간을 전략적으로 활용하는 것이 승리의 핵심이다. 게임이 진행될수록 쿼티의 공격 패턴이 더욱 복잡해지고 위험해진다. 독특한 게임 디자인과 화려한 시각 효과로 당시 아타리 2600의 기술적 한계를 뛰어넘었다는 평가를 받았으며, E.T.의 하워드 스콧 워쇼가 제작한 게임으로도 유명하다. 2인 플레이 모드를 지원하여 더욱 전략적인 대결이 가능하다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Shoot'em Up</genre>
+		<players>1-2</players>
+		<hash>C6680029</hash>
+		<image>./media/image/Yar's Revenge.png</image>
+		<thumbnail>./media/thumbnail/Yar's Revenge.png</thumbnail>
+		<marquee>./media/marquee/Yar's Revenge.png</marquee>
+		<video>./media/video/Yar's Revenge.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./Laser Blast.zip</path>
+		<name>레이저 블라스트</name>
+		<desc>판매순위 17위, 약 100만 장의 판매고를 달성한 액티비전의 우주 슈팅게임. 전통적인 스페이스 슈팅게임과 달리 플레이어가 상단에 위치하여 아래를 향해 공격하는 독특한 시점을 채택했다. 적 기지에서 발사되는 미사일을 피해 적의 포대를 파괴하는 것이 주요 목표다. 게임의 특징은 파괴된 후에도 잠시 동안 적을 공격할 수 있는 '죽음의 광선' 시스템으로, 이를 활용한 전략적 플레이가 가능하다. 스테이지가 진행될수록 적의 공격이 더욱 치열해지며, 미사일의 발사 속도와 패턴이 복잡해진다. 특히 적 포대의 배치가 매번 달라져 긴장감을 유지할 수 있다. 시각적 효과와 사운드가 조화를 이루어 우주 전투의 분위기를 효과적으로 연출했다는 평가를 받았다.</desc>
+		<rating>0.5</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Shoot'em Up</genre>
+		<players>1</players>
+		<image>./media/image/Laser Blast.png</image>
+		<thumbnail>./media/thumbnail/Laser Blast.png</thumbnail>
+		<marquee>./media/marquee/Laser Blast.png</marquee>
+		<video>./media/video/Laser Blast.mp4</video>
+		<lastplayed>20241024T021129</lastplayed>
+	</game>
+	<game>
+		<path>./E.T. - The Extra-Terrestrial.zip</path>
+		<name>E.T. 엑스트라 테레스트리얼</name>
+		<desc>판매순위 8위, 약 274만 장이라는 높은 판매량을 기록했으나, 아타리 역사상 가장 악명 높은 실패작으로 기록된다. 스필버그의 영화를 게임화한 작품으로, E.T.가 지구를 떠나기 위한 부품을 수집하는 어드벤처 게임이다. 단 5주라는 촉박한 개발 기간으로 인해 완성도가 매우 낮았고, 알 수 없는 게임 규칙과 빈번한 버그로 악평을 받았다. 게임의 주요 미션은 전화를 걸기 위한 부품을 찾는 것이지만, 이를 수행하는 과정이 매우 불친절하고 난해하다. 특히 움푹 파인 구덩이에 자주 빠지는 문제와 에너지 고갈로 인한 잦은 게임오버는 플레이어들의 원성을 샀다. 대량 생산된 카트리지가 불량재고로 남아 뉴멕시코 사막에 매립되었다는 일화는 게임 산업의 유명한 이야기가 되었다.</desc>
+		<rating>0.1</rating>
+		<releasedate>19831202T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<image>./media/image/E.T. - The Extra-Terrestrial.png</image>
+		<thumbnail>./media/thumbnail/E.T. - The Extra-Terrestrial.png</thumbnail>
+		<marquee>./media/marquee/E.T. - The Extra-Terrestrial.png</marquee>
+		<video>./media/video/E.T. - The Extra-Terrestrial.mp4</video>
+		<lastplayed>20241024T021140</lastplayed>
+	</game>
+	<game>
+		<path>./ET - The Extra-Terrestrial.zip</path>
+		<name>E.T. 엑스트라 테레스트리얼</name>
+		<desc>판매순위 8위, 약 274만 장이라는 높은 판매량을 기록했으나, 아타리 역사상 가장 악명 높은 실패작으로 기록된다. 스필버그의 영화를 게임화한 작품으로, E.T.가 지구를 떠나기 위한 부품을 수집하는 어드벤처 게임이다. 단 5주라는 촉박한 개발 기간으로 인해 완성도가 매우 낮았고, 알 수 없는 게임 규칙과 빈번한 버그로 악평을 받았다. 게임의 주요 미션은 전화를 걸기 위한 부품을 찾는 것이지만, 이를 수행하는 과정이 매우 불친절하고 난해하다. 특히 움푹 파인 구덩이에 자주 빠지는 문제와 에너지 고갈로 인한 잦은 게임오버는 플레이어들의 원성을 샀다. 대량 생산된 카트리지가 불량재고로 남아 뉴멕시코 사막에 매립되었다는 일화는 게임 산업의 유명한 이야기가 되었다.</desc>
+		<rating>0.1</rating>
+		<releasedate>19831202T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<image>./media/image/ET - The Extra-Terrestrial.png</image>
+		<thumbnail>./media/thumbnail/ET - The Extra-Terrestrial.png</thumbnail>
+		<marquee>./media/marquee/ET - The Extra-Terrestrial.png</marquee>
+		<video>./media/video/ET - The Extra-Terrestrial.mp4</video>
+		<lastplayed>20241024T021140</lastplayed>
+	</game>
+	<game>
+		<path>./ET.zip</path>
+		<name>E.T. 엑스트라 테레스트리얼</name>
+		<desc>판매순위 8위, 약 274만 장이라는 높은 판매량을 기록했으나, 아타리 역사상 가장 악명 높은 실패작으로 기록된다. 스필버그의 영화를 게임화한 작품으로, E.T.가 지구를 떠나기 위한 부품을 수집하는 어드벤처 게임이다. 단 5주라는 촉박한 개발 기간으로 인해 완성도가 매우 낮았고, 알 수 없는 게임 규칙과 빈번한 버그로 악평을 받았다. 게임의 주요 미션은 전화를 걸기 위한 부품을 찾는 것이지만, 이를 수행하는 과정이 매우 불친절하고 난해하다. 특히 움푹 파인 구덩이에 자주 빠지는 문제와 에너지 고갈로 인한 잦은 게임오버는 플레이어들의 원성을 샀다. 대량 생산된 카트리지가 불량재고로 남아 뉴멕시코 사막에 매립되었다는 일화는 게임 산업의 유명한 이야기가 되었다.</desc>
+		<rating>0.1</rating>
+		<releasedate>19831202T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<image>./media/image/ET.png</image>
+		<thumbnail>./media/thumbnail/ET.png</thumbnail>
+		<marquee>./media/marquee/ET.png</marquee>
+		<video>./media/video/ET.mp4</video>
+		<lastplayed>20241024T021140</lastplayed>
+	</game>
+	<game>
+		<path>./E.T..zip</path>
+		<name>E.T. 엑스트라 테레스트리얼</name>
+		<desc>판매순위 8위, 약 274만 장이라는 높은 판매량을 기록했으나, 아타리 역사상 가장 악명 높은 실패작으로 기록된다. 스필버그의 영화를 게임화한 작품으로, E.T.가 지구를 떠나기 위한 부품을 수집하는 어드벤처 게임이다. 단 5주라는 촉박한 개발 기간으로 인해 완성도가 매우 낮았고, 알 수 없는 게임 규칙과 빈번한 버그로 악평을 받았다. 게임의 주요 미션은 전화를 걸기 위한 부품을 찾는 것이지만, 이를 수행하는 과정이 매우 불친절하고 난해하다. 특히 움푹 파인 구덩이에 자주 빠지는 문제와 에너지 고갈로 인한 잦은 게임오버는 플레이어들의 원성을 샀다. 대량 생산된 카트리지가 불량재고로 남아 뉴멕시코 사막에 매립되었다는 일화는 게임 산업의 유명한 이야기가 되었다.</desc>
+		<rating>0.1</rating>
+		<releasedate>19831202T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Adventure</genre>
+		<players>1</players>
+		<image>./media/image/E.T..png</image>
+		<thumbnail>./media/thumbnail/E.T..png</thumbnail>
+		<marquee>./media/marquee/E.T..png</marquee>
+		<video>./media/video/E.T..mp4</video>
+		<lastplayed>20241024T021140</lastplayed>
+	</game>
+	<game>
+		<path>./Night Driver.zip</path>
+		<name>나이트 드라이버</name>
+		<desc>판매순위 11위, 약 199만 장의 판매고를 기록한 아타리의 혁신적인 레이싱 게임. 1인칭 시점으로 야간 도로를 질주하는 게임으로, 당시로서는 획기적인 3D 효과를 구현했다. 도로 양쪽의 반사경을 통해 코스를 파악하며 달리는 독특한 게임 방식을 채택했다. 기본적으로 시간 제한 내에 가능한 한 많은 거리를 주행하는 것이 목표이며, 다른 차량을 피하고 도로를 벗어나지 않도록 주의해야 한다. 게임이 진행될수록 도로가 구불구불해지고 장애물이 증가하며, 속도도 점점 빨라져 난이도가 상승한다. 특히 밤이라는 설정을 활용해 제한된 시야에서 오는 긴장감을 효과적으로 연출했다. 패들 컨트롤러를 지원하여 더욱 실감나는 운전 경험을 제공했으며, 아타리 2600의 기술적 한계 내에서 최대한의 몰입감을 이끌어냈다는 평가를 받는다.</desc>
+		<rating>0.6</rating>
+		<releasedate>19800101T000000</releasedate>
+		<developer>Atari</developer>
+		<publisher>Atari</publisher>
+		<genre>Racing, Driving</genre>
+		<players>1</players>
+		<image>./media/image/Night Driver.png</image>
+		<thumbnail>./media/thumbnail/Night Driver.png</thumbnail>
+		<marquee>./media/marquee/Night Driver.png</marquee>
+		<video>./media/video/Night Driver.mp4</video>
+		<lastplayed>20241024T021656</lastplayed>
+	</game>
+	<game>
+		<path>./Defender.zip</path>
+		<name>디펜더</name>
+		<desc>판매순위 7위, 약 304만 장의 판매고를 기록한 인기작. 수평 스크롤 슈팅의 선구자적 작품으로, 외계인들로부터 지구인을 보호하는 게임이다. 복잡한 조작 방식에도 불구하고 중독성 있는 게임플레이로 많은 팬을 확보했다. 화면 하단의 레이더를 통해 전체 상황을 파악하며 게임을 진행하는 혁신적인 시스템을 도입했다. 플레이어는 우주선을 좌우로 자유롭게 이동하며 지구인을 납치하려는 외계인들을 저지해야 한다. 특히 외계인이 지구인을 납치하여 뮤턴트로 변화시키는 것을 막는 것이 중요한데, 이미 변한 뮤턴트는 매우 위험한 적이 된다. 스마트 폭탄과 초광속 이동 같은 특수 능력을 전략적으로 활용해야 하며, 연료 관리도 중요한 요소다. 게임의 난이도는 매우 높은 편이나, 그만큼 숙련자에게 큰 만족감을 주는 게임이다.</desc>
+		<rating>0.75</rating>
+		<releasedate>19810101T000000</releasedate>
+		<developer>Williams Electronics</developer>
+		<publisher>Atari</publisher>
+		<genre>Shooter-Shooter / Horizontal</genre>
+		<players>1-2</players>
+		<hash>7D438163</hash>
+		<image>./media/image/Defender.png</image>
+		<thumbnail>./media/thumbnail/Defender.png</thumbnail>
+		<marquee>./media/marquee/Defender.png</marquee>
+		<video>./media/video/Defender.mp4</video>
+		<genreid>260</genreid>
+	</game>
+	<game>
+		<path>./River Raid.zip</path>
+		<name>리버 레이드</name>
+		<desc>판매순위 26위, 약 100만 장의 판매고를 달성한 액티비전의 수작. 수직 스크롤 슈팅 게임의 걸작으로 평가받는 작품이다. 좁은 강을 따라 비행하며 적 비행기, 헬리콥터, 탱크, 함선 등을 파괴하고 연료를 보충하는 게임이다. 특히 연료 관리가 중요한 요소로, 강을 따라 배치된 연료통을 적절히 획득하지 않으면 비행기가 추락하게 된다. 좁은 협곡을 통과할 때는 정교한 조작이 필요하며, 다리나 풍선 등의 장애물도 피해야 한다. 게임이 진행될수록 적의 공격이 더욱 치열해지고 지형이 복잡해져 난이도가 상승한다. 캐롤 쇼우라는 여성 프로그래머가 제작한 게임으로도 유명하며, 당시로서는 드물게 무한 스크롤 기술을 구현하여 기술적 혁신도 이루어냈다. 2인 플레이 모드도 지원하여 높은 점수를 겨룰 수 있다.</desc>
+		<rating>0.8</rating>
+		<releasedate>19820101T000000</releasedate>
+		<developer>Activision</developer>
+		<publisher>Activision</publisher>
+		<genre>Shoot'em Up / Vertical-Shoot'em Up</genre>
+		<players>1-2</players>
+		<image>./media/image/River Raid.png</image>
+		<thumbnail>./media/thumbnail/River Raid.png</thumbnail>
+		<marquee>./media/marquee/River Raid.png</marquee>
+		<video>./media/video/River Raid.mp4</video>
+		<lastplayed>20241030T155751</lastplayed>
+	</game>
+</gameList>

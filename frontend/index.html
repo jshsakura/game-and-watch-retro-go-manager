@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G&amp;W Retro Manager</title>
+    <meta name="description" content="Game &amp; Watch retro-go SD manager — upload ROMs, covers and video and pack them into a ready-to-use SD card ZIP." />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="G&amp;W Retro Manager" />
+    <meta property="og:title" content="G&amp;W Retro Manager" />
+    <meta property="og:description" content="Game &amp; Watch retro-go SD manager — ROMs · covers · video → SD card ZIP." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="G&amp;W Retro Manager" />
+    <meta name="twitter:description" content="Game &amp; Watch retro-go SD manager — ROMs · covers · video → SD card ZIP." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <script>
+      /* Browser autoplay policy starts every AudioContext suspended → no emulator
+         sound until a user gesture. Track created contexts and resume them on the
+         first real interaction (click / key / touch). Runs before the app/Nostalgist. */
+      (function () {
+        var ctxs = [];
+        ["AudioContext", "webkitAudioContext"].forEach(function (n) {
+          var Orig = window[n];
+          if (!Orig) return;
+          function Wrapped(opts) { var c = opts ? new Orig(opts) : new Orig(); ctxs.push(c); return c; }
+          Wrapped.prototype = Orig.prototype;
+          window[n] = Wrapped;
+        });
+        function unlock() {
+          ctxs.forEach(function (c) {
+            try {
+              if (c.state === "suspended") c.resume();
+              var s = c.createBufferSource();          // iOS needs a real buffer play to unlock
+              s.buffer = c.createBuffer(1, 1, 22050);
+              s.connect(c.destination); s.start(0);
+            } catch (e) {}
+          });
+        }
+        ["pointerdown", "touchend", "mousedown", "keydown", "click"].forEach(function (ev) {
+          window.addEventListener(ev, unlock, true);
+        });
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

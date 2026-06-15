@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  gnw-retro-manager:
+    build:
+      context: .
+      args:
+        # Match the container user to the host owner of the data dir (this
+        # host's `ubuntu` is uid 1001). Override: UID=1000 docker compose build
+        UID: ${UID:-1001}
+    # Host port is overridable: GNW_HOST_PORT=12345 docker compose up -d
+    # Default 38472 is intentionally uncommon so it doesn't clash with other
+    # services; attach your tunnel to this port.
+    ports:
+      - "${GNW_HOST_PORT:-38472}:8080"
+    volumes:
+      # Bind mount — uploaded files + the SQLite DB live on the host and survive
+      # restarts. Default ./data sits next to this compose file; set GNW_DATA_PATH
+      # to an absolute path to store it elsewhere. Match the host owner's uid via
+      # the UID build arg (see above) so the container can write without chown.
+      - ${GNW_DATA_PATH:-./data}:/app/backend/data
+    environment:
+      # Override any config via env; defaults match the app's config.py.
+      GNW_DATA_DIR: /app/backend/data
+      # IGDB cover-search keys — put values in a .env next to this compose file
+      # (compose auto-loads it). Empty = cover 검색기 disabled, app still works.
+      IGDB_CLIENT_ID: ${IGDB_CLIENT_ID:-}
+      IGDB_CLIENT_SECRET: ${IGDB_CLIENT_SECRET:-}
+      # SCREENSCRAPER_USER: ""
+      # SCREENSCRAPER_PASSWORD: ""
+    restart: unless-stopped

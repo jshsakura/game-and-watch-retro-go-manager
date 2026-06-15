@@ -1,0 +1,315 @@
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { Library, Inbox, ChevronLeft, ChevronRight, ImageOff, Languages, Search, Upload, Check } from "lucide-react";
+import { getLibrary, getSystems, coverUrl, uploadRoms } from "../api.js";
+import { RomCard, SystemIcon, systemColor, Dropzone } from "../components.jsx";
+import { useToast } from "../toast.jsx";
+import { useKoreanMode } from "../config.jsx";
+import { useI18n } from "../i18n.jsx";
+
+// Desktop: 30 fills whole rows (5/6-wide grid). Mobile: 21 (3-wide grid) so the
+// page isn't a giant scroll.
+const PAGE_SIZE_DESKTOP = 20;
+const PAGE_SIZE_MOBILE = 20;
+const MOBILE_QUERY = "(max-width: 640px)";
+
+// Sort roms by display name (Korean title if present, else filename), Korean-aware.
+const byName = (a, b) =>
+  (a.korean_name || a.stored_name || "").localeCompare(
+    b.korean_name || b.stored_name || "", "ko", { numeric: true }
+  );
+
+const HANGUL_RE = /[가-힣]/;
+// Homebrew / Pico-8 are indie carts with no Korean release → never "missing".
+const NO_KOREAN_SYSTEMS = new Set(["homebrew", "pico8"]);
+// "Needs a Korean title" = no Hangul AND has a real translatable word: a run of
+// 2+ consecutive letters containing a lowercase one. This excludes titles that
+// are only digits/symbols ("1942"), all-caps acronyms ("NBA", "WWF"), and dotted
+// initialisms ("Z.O.E" → just z/o/e single letters) — none of which get a Korean
+// name. "Antarctic Adventure", "R-Type", "Bonk's" all still count.
+const needsKorean = (rom) => {
+  if (NO_KOREAN_SYSTEMS.has(rom.system_key)) return false;
+  const stem = (rom.stored_name || "").replace(/\.[^.]+$/, "");
+  if (HANGUL_RE.test(stem)) return false;
+  const words = stem.match(/[A-Za-z]+/g) || [];
+  return words.some((w) => w.length >= 2 && /[a-z]/.test(w));
+};
+
+function usePageSize() {
+  const [size, setSize] = useState(
+    () => (window.matchMedia(MOBILE_QUERY).matches ? PAGE_SIZE_MOBILE : PAGE_SIZE_DESKTOP)
+  );
+  useEffect(() => {
+    const mq = window.matchMedia(MOBILE_QUERY);
+    const onChange = (e) => setSize(e.matches ? PAGE_SIZE_MOBILE : PAGE_SIZE_DESKTOP);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return size;
+}
+
+export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel }) {
+  const toast = useToast();
+  const { t, lang } = useI18n();
+  const koreanMode = useKoreanMode();
+  // 한글명-누락 filter/badge: Korean deploy AND Korean UI only (hidden in English).
+  const koFeature = koreanMode && lang === "ko";
+  const [lib, setLib] = useState({ roms: [], videos: [], music: [] });
+  const [systems, setSystems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [active, setActive] = useState(null); // selected system key (or MEDIA_KEY)
+  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState("");
+  const [searchAll, setSearchAll] = useState(false); // search scope: this system vs all
+  const [missingOnly, setMissingOnly] = useState(false); // show only cover-missing roms
+  const [nonKoOnly, setNonKoOnly] = useState(false); // show only NON-Korean-named roms
+  const pageSize = usePageSize();
+
+  const [busy, setBusy] = useState(false);
+  // Download selection is owned by App (전체 선택 + 다운로드 live in the top bar);
+  // here we just render each chip's checkbox from the `selected` prop.
+
+  const reload = useCallback(() => {
+    setLoading(true);
+    getLibrary()
+      .then(setLib)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(() => { reload(); }, [reload, reloadKey]);
+  useEffect(() => { getSystems().then(setSystems).catch(() => {}); }, []);
+
+  // While any cover is still being fetched (status 'pending'), poll so spinners
+  // turn into covers live without a manual refresh. Stops once none are pending.
+  const anyPending = useMemo(() => lib.roms.some((r) => r.cover_status === "pending"), [lib.roms]);
+  useEffect(() => {
+    if (!anyPending) return undefined;
+    const t = setInterval(() => { getLibrary().then(setLib).catch(() => {}); }, 4000);
+    return () => clearInterval(t);
+  }, [anyPending]);
+
+  const refresh = () => { reload(); onChanged?.(); };
+
+  async function uploadHere(files, onProgress) {
+    if (busy || !current) return;
+    setBusy(true); setError("");
+    try {
+      const res = await uploadRoms(current, files, onProgress);
+      const dups = (res.results || []).filter((r) => r.error === "duplicate");
+      if (dups.length) {
+        toast.warn(`${t("이미 있는 롬이라 건너뜀 (중복) {n}개", { n: dups.length })}: ${dups.map((d) => d.name).join(", ")}`);
+      }
+      toast.success(t("업로드 완료"));
+      refresh();
+    } catch (e) { setError(e.message); toast.error(e.message); }
+    finally { setBusy(false); }
+  }
+
+  // Group ROMs by system, in firmware order; the chips show per-system counts.
+  const bySystem = useMemo(() => lib.roms.reduce((acc, r) => {
+    (acc[r.system_key] ??= []).push(r);
+    return acc;
+  }, {}), [lib.roms]);
+
+  // Total rom files across the checked systems — shown in the selection badge
+  // ("N플랫폼 · M파일 선택됨"). selected holds system keys; sum their rom counts.
+  const selectedFileCount = useMemo(
+    () => [...selected].reduce((n, k) => n + (bySystem[k]?.length || 0), 0),
+    [selected, bySystem]
+  );
+
+  // ALL supported systems show as chips (don't omit any) — empty ones are dimmed
+  // with a 0 count so the full supported lineup is always visible. Chips are
+  // ordered by system name; each system's roms by display name (Korean-aware).
+  const groups = useMemo(() => systems
+    .map((s) => ({ key: s.key, system: s, roms: [...(bySystem[s.key] ?? [])].sort(byName) }))
+    .sort((a, b) => a.system.name.localeCompare(b.system.name, "en")), [systems, bySystem]);
+  const nonEmpty = useMemo(() => groups.filter((g) => g.roms.length), [groups]);
+
+  // Media (videos + music) is managed in the MEDIA tab, not here — LIBRARY is roms only.
+  const empty = lib.roms.length === 0;
+
+  // Keep a valid selection: default to the first NON-EMPTY group.
+  const validKeys = groups.map((g) => g.key);
+  const defaultKey = nonEmpty[0]?.key ?? groups[0]?.key;
+  const current = validKeys.includes(active) ? active : defaultKey;
+  useEffect(() => { setPage(1); }, [current]);
+
+  const activeGroup = groups.find((g) => g.key === current);
+
+  const q = query.trim().toLowerCase();
+  const searching = q.length > 0;
+  // Search scope: the selected system by default, or ALL when 전체 is chosen.
+  const searchPool = searchAll ? lib.roms : (activeGroup?.roms ?? []);
+  const matchName = (r) =>
+    (r.stored_name || r.original_name || "").toLowerCase().includes(q);
+  let items = searching
+    ? searchPool.filter(matchName).sort(byName)
+    : (activeGroup?.roms ?? []);
+  // 커버 누락 필터: 커버 없는 롬만
+  if (missingOnly) items = items.filter((r) => r.cover_status !== "ok");
+  // 한글명 아님 필터: 한글 없는 번역대상 롬만 (숫자전용 '1942'류 제외 — 칩 배지와 동일 기준)
+  // Korea-specific → only active in Korean mode (others detect cover-missing only).
+  if (nonKoOnly && koFeature) items = items.filter(needsKorean);
+  const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const pageItems = items.slice((safePage - 1) * pageSize, safePage * pageSize);
+  useEffect(() => { setPage(1); }, [q]);
+  useEffect(() => { setPage(1); }, [pageSize]);
+  useEffect(() => { setPage(1); }, [missingOnly, nonKoOnly]);
+
+  return (
+    <div className="stack">
+      <div className="muted">
+        <Library size={13} aria-hidden /> {t("보관 중")}: {lib.roms.length} ROM · {lib.videos.length} VIDEO · {lib.music?.length || 0} MUSIC{items.length > 0 ? ` · ${t("조회 {n}개", { n: items.length })}` : ""}
+      </div>
+
+      {error && <div className="badge failed">{error}</div>}
+      {loading && (
+        <div className="grid">
+          {Array.from({ length: pageSize }).map((_, i) => (
+            <div className="card skel-card" key={i}>
+              <div className="shot cover-slot"><div className="skeleton" /></div>
+              <div className="skel-line" />
+              <div className="skel-line short" />
+            </div>
+          ))}
+        </div>
+      )}
+      {!loading && empty && (
+        <div className="muted"><Inbox size={13} aria-hidden /> {t("아직 보관된 파일이 없습니다. 플랫폼을 고르고 아래에 롬을 올리세요.")}</div>
+      )}
+
+      {/* Search by name, scoped to the selected system or everything */}
+      {!empty && (
+        <div className="lib-searchbar">
+          <div className="lib-search">
+            {selected.size > 0 && (
+              <span className="sel-count-badge">{t("{n}플랫폼", { n: selected.size })} · {t("{n}파일 선택됨", { n: selectedFileCount.toLocaleString() })}</span>
+            )}
+            <Search size={14} strokeWidth={2.5} aria-hidden />
+            <input
+              className="text-input"
+              value={query}
+              placeholder={searchAll ? t("게임 이름 검색 (전체)") : t("게임 이름 검색 ({sys})", { sys: activeGroup?.system.name ?? t("현재 플랫폼") })}
+              spellCheck={false}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <div className="lib-filters">
+            <span className="search-scope" role="group" aria-label={t("검색 범위")}>
+              <button className={`scope-btn ${!searchAll ? "on" : ""}`} onClick={() => setSearchAll(false)}>{t("현재")}</button>
+              <button className={`scope-btn ${searchAll ? "on" : ""}`} onClick={() => setSearchAll(true)}>{t("전체")}</button>
+            </span>
+            <span className="search-scope" role="group" aria-label={t("필터")}>
+              <button className={`scope-btn icon-only ${missingOnly ? "on" : ""}`} onClick={() => setMissingOnly((m) => !m)}
+                title={t("커버 없는 롬만 보기")} aria-pressed={missingOnly}>
+                <ImageOff size={14} strokeWidth={2.5} />
+              </button>
+              {koFeature && (
+                <button className={`scope-btn icon-only ${nonKoOnly ? "on" : ""}`} onClick={() => setNonKoOnly((m) => !m)}
+                  title={t("한글명 아닌 롬만 보기 (영문·일본어 이름)")} aria-pressed={nonKoOnly}>
+                  <Languages size={14} strokeWidth={2.5} />
+                </button>
+              )}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Per-system count chips — also shown when empty so you can pick a system
+          to upload into; hidden only during an ALL-scope search. */}
+      {!loading && !(searching && searchAll) && (
+        <div className="lib-chips">
+          {groups.map((g) => {
+            const miss = g.roms.filter((r) => r.cover_status !== "ok").length;
+            const koMiss = g.roms.filter(needsKorean).length;
+            return (
+            <button
+              key={g.key}
+              className={`lib-chip ${g.key === current ? "on" : ""} ${g.roms.length ? "" : "empty"}`}
+              style={{ "--sys": systemColor(g.key) }}
+              onClick={() => setActive(g.key)}
+            >
+              {/* One issue badge at most (avoid 3-up crowding): cover-missing has
+                  priority; the 한글제목 badge only shows once covers are done. */}
+              <span className="lib-chip-badges">
+                <span className="lib-chip-count">{g.roms.length}</span>
+                {miss > 0
+                  ? <span className="lib-chip-miss" title={t("커버 누락 {n}개", { n: miss })}>{miss}</span>
+                  : koFeature && koMiss > 0 && <span className="lib-chip-komiss" title={t("한글 제목 없음 {n}개", { n: koMiss })}>{koMiss}</span>}
+              </span>
+              {g.roms.length > 0 && (
+                <span
+                  className={`lib-chip-check ${selected.has(g.key) ? "on" : ""}`}
+                  role="checkbox" aria-checked={selected.has(g.key)} title={t("다운로드 선택")}
+                  onClick={(e) => { e.stopPropagation(); onToggleSel(g.key); }}
+                >
+                  {selected.has(g.key) && <Check size={16} strokeWidth={4} aria-hidden />}
+                </span>
+              )}
+              <SystemIcon dirname={g.system.dirname} size={30} />
+              <span className="lib-chip-name">{g.system.name}</span>
+            </button>
+          );})}
+        </div>
+      )}
+
+      {/* Selected system has no roms → upload straight into it right here. */}
+      {!loading && !searching && activeGroup && activeGroup.roms.length === 0 && (
+        <div className="lib-upload-area">
+          <Dropzone
+            multiple
+            accept={activeGroup.system.exts.map((e) => "." + e).join(",")}
+            label={
+              busy
+                ? <span className="dz-label"><Upload size={16} aria-hidden /> {t("업로드 중…")}</span>
+                : <span className="dz-label"><Upload size={16} aria-hidden /> {t("여기로 {sys} 롬을 끌어다 놓거나 클릭", { sys: activeGroup.system.name })}</span>
+            }
+            onFiles={uploadHere}
+          />
+        </div>
+      )}
+
+
+      {/* Active group grid (paginated) */}
+      {pageItems.length > 0 && (
+        <div className="grid">
+          {pageItems.map((r) => (
+                <RomCard
+                  key={r.id}
+                  rom={r}
+                  previewSrc={r.cover_status === "ok" ? coverUrl(r.id) : null}
+                  onChanged={refresh}
+                />
+              ))}
+        </div>
+      )}
+
+      {/* One empty-state message only — positive when ONLY the cover filter is on,
+          generic otherwise. (Never two at once.) */}
+      {!loading && !empty && items.length === 0 && (searching || missingOnly || nonKoOnly) && (
+        <div className="lib-empty">
+          <Inbox size={18} aria-hidden />{" "}
+          {missingOnly && !searching && !nonKoOnly
+            ? t("이 플랫폼은 커버 누락이 없습니다 ✓")
+            : t("조회된 게임이 없습니다")}
+        </div>
+      )}
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="lib-pager">
+          <button className="icon-btn" disabled={safePage <= 1} onClick={() => setPage(safePage - 1)}>
+            <ChevronLeft size={14} strokeWidth={2.5} />
+          </button>
+          <span className="lib-pager-info">{safePage} / {totalPages}</span>
+          <button className="icon-btn" disabled={safePage >= totalPages} onClick={() => setPage(safePage + 1)}>
+            <ChevronRight size={14} strokeWidth={2.5} />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Javatari</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    #javatari { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+    #javatari-screen { width: 100%; height: 100%; }
+    .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+           color: #ccc; font-family: sans-serif; font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="msg" id="msg">불러오는 중…</div>
+  <div id="javatari"><div id="javatari-screen"></div></div>
+  <script>
+    /* autoplay policy: resume the (suspended) audio context on the first gesture */
+    (function () {
+      var ctxs = [];
+      ["AudioContext", "webkitAudioContext"].forEach(function (n) {
+        var Orig = window[n]; if (!Orig) return;
+        function W(o) { var c = o ? new Orig(o) : new Orig(); ctxs.push(c); return c; }
+        W.prototype = Orig.prototype; window[n] = W;
+      });
+      function unlock() {
+        ctxs.forEach(function (c) {
+          try {
+            if (c.state === "suspended") c.resume();
+            var s = c.createBufferSource(); s.buffer = c.createBuffer(1, 1, 22050);
+            s.connect(c.destination); s.start(0);
+          } catch (e) {}
+        });
+      }
+      ["pointerdown", "touchend", "mousedown", "keydown", "click"].forEach(function (ev) { window.addEventListener(ev, unlock, true); });
+    })();
+
+    // Javatari's empty boot fires a spurious alert("No valid ROM found.") before
+    // WE insert the real cartridge — suppress alerts so it doesn't interrupt.
+    window.alert = function () {};
+
+    // Virtual-pad input from the parent overlay → drive Javatari via the SAME
+    // socket the keyboard uses. We fire BOTH joystick ports (JOY0 + JOY1) for each
+    // direction/button: most games read JOY0, but some (e.g. Raiders of the Lost
+    // Ark) put the player on JOY1 — driving both makes the one pad work either way.
+    // jt.ConsoleControls: JOY0 11-15, JOY1 21-25, SELECT 53, RESET(=START) 54.
+    var CTRL = {
+      up: [11, 21], down: [12, 22], left: [13, 23], right: [14, 24],
+      a: [15, 25], b: [15, 25], select: [53], start: [54]
+    };
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || d.type !== "jt-input" || !CTRL[d.btn]) return;
+      try {
+        var sock = window.Javatari.room.console.getConsoleControlsSocket();
+        CTRL[d.btn].forEach(function (id) { sock.controlStateChanged(id, !!d.down); });
+      } catch (err) { /* not ready yet */ }
+    });
+
+    var msg = document.getElementById("msg");
+    var romId = new URLSearchParams(location.search).get("rom");
+    if (!romId) { msg.textContent = "ROM이 지정되지 않았습니다."; }
+    else {
+      window.Javatari = { AUTO_START: false, ALLOW_URL_PARAMETERS: false };
+      var url = "/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom";
+      fetch(url)
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.arrayBuffer(); })
+        .then(function (buf) {
+          // Plain Array of bytes — Javatari (2014-era) is built around normal arrays.
+          var bytes = Array.prototype.slice.call(new Uint8Array(buf));
+          var s = document.createElement("script");
+          s.src = "/javatari/javatari.js";
+          s.onload = function () { boot(bytes); };
+          s.onerror = function () { msg.textContent = "Javatari 로드 실패"; };
+          document.body.appendChild(s);
+        })
+        .catch(function (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; });
+    }
+
+    function boot(bytes) {
+      var started = false, tries = 60;
+      (function tick() {
+        try {
+          if (!started && window.Javatari && typeof Javatari.start === "function") {
+            // Set screen options on the real object right before start() reads them
+            // (pre-script config gets clobbered when the engine script loads).
+            Javatari.SCREEN_CONSOLE_PANEL_DISABLED = false; // show VCS console box (SELECT/RESET)
+            Javatari.SCREEN_CONTROL_BAR = 1;                // show toolbar
+            Javatari.SCREEN_DEFAULT_SCALE = -1;             // auto-scale
+            Javatari.start(); started = true;
+          }
+        } catch (e) { msg.textContent = "구동 실패: " + e.message; return; }
+        var room = window.Javatari && Javatari.room;
+        if (room && room.fileLoader) {
+          // loadFromContent wraps `content` into {name, content} so the format
+          // detector (reads .content.length) works — the path Javatari itself uses.
+          try { room.fileLoader.loadFromContent("game.bin", bytes, "ROM", 0, true, false); }
+          catch (e) { msg.textContent = "구동 실패: " + e.message; return; }
+          if (msg) msg.remove();
+          return;
+        }
+        if (tries-- > 0) setTimeout(tick, 100);
+        else msg.textContent = "Javatari 준비 실패";
+      })();
+    }
+  </script>
+</body>
+</html>

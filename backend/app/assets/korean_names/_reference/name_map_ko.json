@@ -1,0 +1,6925 @@
+[
+ {
+  "system": "nes",
+  "original_name": "(K) Kage no Densetsu (Japan)",
+  "korean": "카게의 전설 (Kage no Densetsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "2차 로봇대전",
+  "korean": "2차 로봇대전",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "8번째눈",
+  "korean": "8번째 눈 (8 Eyes)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "8비트뮤직파워",
+  "korean": "8비트 뮤직 파워 (8bit Music Power)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Daiku no Gen-san 2 - Akage no Dan no Gyakushuu (Japan)",
+  "korean": "목수 겐씨 (Daiku no Gen San)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Downtown - Nekketsu Monogatari (Japan)",
+  "korean": "다운타운 열혈 이야기 (Downtown Nekketsu Monogatari)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Downtown Special - Kunio-kun no Jidaigeki Da yo Zenin Shuugou! (Japan)",
+  "korean": "다운타운 스페셜 쿠니오군의 시대극이다 (Downtown Special - Kunio-kun)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Hokuto no Ken (Japan)",
+  "korean": "북두의 권 (Hokuto no Ken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Hokuto no Ken 2 (Japan)",
+  "korean": "북두의 권 2 (Hokuto no Ken 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Ike Ike! Nekketsu Hockey-bu - Subette Koronde Dairantou (Japan)",
+  "korean": "열혈 하키부 (Ike Ike! Nekketsu Hockey-bu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Kunio-kun no Nekketsu Soccer League (Japan)",
+  "korean": "쿠니오 군의 열혈 사커 리그 (Kunio-kun no Nekketsu Soccer League)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Nekketsu Kakutou Densetsu",
+  "korean": "열혈 격투전설 (Nekketsu Kakutou Densetsu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Nekketsu Koukou Dodgeball-bu (Japan)",
+  "korean": "열혈 고교 돗지볼부 축구편 (Nekketsu Koukou Dodgeball-bu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "SD 히어로-물리쳐라 악의 군단(k)",
+  "korean": "SD 히어로 (SD Hero - Soukessen - Taose! Aku no Gundan)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Super Mario 3 (1988,Nintendo,AT)(K-v1.2)",
+  "korean": "슈퍼 마리오 브라더스 3 (Super Mario Bros. 3)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Zelda2(K)",
+  "korean": "젤다의 전설 2 (Link No Bouken - The Legend Of Zelda 2)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "ZZZ_UNK_dragon_ball_-_shen_ron_no_nazo(trans) (163856)",
+  "korean": "드래곤볼 신룡의 신비 (Dragon Power)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "게바라",
+  "korean": "게바라 (Guevara)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "구극타이거",
+  "korean": "구극 타이거 (Kyuukyoku Tiger)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "구니스",
+  "korean": "구니스 (The Goonies)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "구니스2",
+  "korean": "구니스 2 (The Goonies II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "그라디우스",
+  "korean": "그라디우스 (Gradius)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "그라디우스2",
+  "korean": "그라디우스 II (Gradius II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "남극대모험",
+  "korean": "남극 대모험 (Antarctic Adventure)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "닌자용검전 2",
+  "korean": "닌자용검전 2 (Ninja Ryukenden 2 - Ankoku no Jashin Ken)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "닌자용검전",
+  "korean": "닌자 용검전 (Ninja Ryukenden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "닥터 마리오",
+  "korean": "닥터 마리오 (Dr. Mario)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "더블 드래곤 2",
+  "korean": "더블 드래곤 2",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "더블 드래곤 3",
+  "korean": "더블 드래곤 3 (Double Dragon 3 - The Sacred Stones)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "더블드래곤",
+  "korean": "더블 드래곤 (Double Dragon)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "모아이군(K)",
+  "korean": "모아이군 (Moai-kun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "성령전설 리클(K)",
+  "korean": "성령전설 리클 (Seirei Densetsu Lickle)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "슈퍼혼두라",
+  "korean": "슈퍼 혼두라 (Super C)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "이카리 2",
+  "korean": "이카리 2",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "이카리 3",
+  "korean": "이카리 3 (Ikari III - The Rescue)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "장군의 아들",
+  "korean": "장군의 아들 (Janggun-ui Adeul)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "쟈칼",
+  "korean": "쟈칼 (Jackal)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "전격빅뱅",
+  "korean": "전격 빅뱅 (Dengeki Big Bang)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "전설의기사엘론드",
+  "korean": "전설의 기사 엘론드 (Wizards & Warriors)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "전장의이리",
+  "korean": "전장의 이리 (Senjou no Ookami)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "제국전기(한글판)",
+  "korean": "제국전기(한글판)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "제이제이",
+  "korean": "제이제이 (JJ - Tobidase Daisakusen Part II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "젠인터글락틱닌자",
+  "korean": "젠 인터갤럭틱 닌자 (Zen - Intergalactic Ninja)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "천지를먹다2제갈공명전",
+  "korean": "천지를 먹다 2 (Tenchi wo Kurau II - Shokatsu Koumei Den)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "천하일무사케루나구루",
+  "korean": "천하일무사 케루나구루 (Tenkaichi Bushi - Keru Naguuru)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "초혹성전기메타파이트",
+  "korean": "초혹성전기 메타파이트 (Metafight)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "쵸플리터",
+  "korean": "쵸플리터 (Choplifter)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "칩 앤 데일2",
+  "korean": "칩 앤 데일2",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "카발",
+  "korean": "카발 (Cabal)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "크라이시스포스",
+  "korean": "크라이시스 포스 (Crisis Force)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "타카하시명인의모험도2",
+  "korean": "타카하시 명인의 모험도 II (Takahashi Meijin no Bouken Jima II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "타카하시명인의모험도3",
+  "korean": "타카하시 명인의 모험도 III (Takahashi Meijin no Bouken Jima III)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "타카하시명인의모험도4",
+  "korean": "타카하시 명인의 모험도 IV (Takahashi Meijin no Bouken Jima IV)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "트윈비",
+  "korean": "트윈비 (TwinBee)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "파로디우스다",
+  "korean": "파로디우스다! (Parodius Da!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_2010스트리트파이터",
+  "korean": "2010 스트리트 파이터 (2010 Street Fighter)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_SD건담 가챠폰 전사 3",
+  "korean": "SD건담 가챠폰 전사 3 (SD Gundam Gachapon Senshi 3)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_SD건담 가챠폰 전사 4",
+  "korean": "SD 건담 가챠폰 전사 4 (SD Gundam Gachapon Senshi 4 - NewType Story)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_개구쟁이 요리사군의 구루메월드",
+  "korean": "꿈꾸는 펭귄 이야기 (Yume Penguin Monogatari)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_고스트버스터",
+  "korean": "고스트버스터즈 (Ghostbusters)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_고양이 당인전 테얀테",
+  "korean": "고양이 당인전 테얀테 (Kyatto Ninden Teyandee)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_닌자 거북이 3",
+  "korean": "닌자 거북이 3 (Teenage Mutant Ninja Turtles III)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_닌자 용검전 3",
+  "korean": "닌자용검전 3 - 황천의 방주 (Ninja Ryukenden 3 - Yomi no Hakobune)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼 2 대마왕 부활",
+  "korean": "드래곤볼 - 대마왕 부활 (Dragon Ball - Daimaou Fukkatsu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼 3",
+  "korean": "드래곤볼 3 - 오공전 (Dragon Ball 3 - Gokuden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼Z 강습 사이어인",
+  "korean": "드래곤볼 Z - 강습! 사이어인 (Dragon Ball Z - Kyoushuu Saiyajin)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼Z 외전 사이어인 전멸계획",
+  "korean": "드래곤볼 Z 외전 - 사이어인 전멸계획 (Dragon Ball Z Gaiden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼Z2 격신 프리더",
+  "korean": "드래곤볼 Z II - 격신 프리더 (Dragon Ball Z II - Gekishin Freeza)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_드래곤볼Z3 열전 인조인간",
+  "korean": "드래곤볼 Z III - 열전 인조인간 (Dragon Ball Z III - Ressen Jinzouningen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_로보코워즈",
+  "korean": "로보코 워즈 (Robocco Wars)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_록맨 2",
+  "korean": "록맨 2 (Rockman 2 - Dr. Wily no Nazo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_록맨 4",
+  "korean": "록맨 4 (Rockman 4 - Aratanaru Yabou!!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_록맨 5",
+  "korean": "록맨 5 (Rockman 5 - Blues no Wana!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_록맨 6",
+  "korean": "록맨 6 (Rockman 6 - Shijou Saidai no Tatakai!!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_록맨",
+  "korean": "록맨 (Rockman)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_마이티 파이널 파이트",
+  "korean": "마이티 파이널 파이트 (Mighty Final Fight)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_미키마우스3",
+  "korean": "미키 마우스 3 (Mickey Mouse 3 - Yume Fuusen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_버그트리스",
+  "korean": "버그트리스 (Bugtris)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_버키 오헤어",
+  "korean": "버키 오 헤어 (Bucky O)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_별의카비",
+  "korean": "별의 커비 (Hoshi no Kirby - Yume no Izumi no Monogatari)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_삼국지2_패왕의대륙",
+  "korean": "삼국지 2 (Sangokushi 2 - Haou no Tairiku)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_슈퍼마리오",
+  "korean": "슈퍼 마리오 브라더스 (Super Mario Bros)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_열혈 농구",
+  "korean": "열혈! 길거리 농구 - 힘내라 덩크 히어로스 (Nekketsu! Street Basket - Ganbare Dunk Heroes)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_열혈 신기록",
+  "korean": "깜짝 열혈 신기록 (Bikkuri Nekketsu Shin Kiroku)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_열혈 행진곡",
+  "korean": "열혈 행진곡 (Nekketsu Koushinkyoku)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_와이와이 월드 2",
+  "korean": "와이와이 월드 2 (Wai Wai World 2 - SOS!! Parsley Jou)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_요시의알",
+  "korean": "요시의 알 (Yoshi no Tamago)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_요시의쿠키",
+  "korean": "요시의 쿠키 (Yoshi no Cookie)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_울트라맨클럽",
+  "korean": "울트라맨 클럽 (Ultraman Club)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_월드히어로즈",
+  "korean": "월드 히어로즈 (World Heroes)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_젤다의 전설",
+  "korean": "젤다의 전설 (The Legend of Zelda)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_조인전대제트맨",
+  "korean": "조인전대 제트맨 (Choujin Sentai Jetman)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_지구용사썬가드",
+  "korean": "지구용사 선가드 (Taiyou no Yuusha Firebird)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_철권2",
+  "korean": "철권 2 (Tekken 2)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_칩 앤 데일",
+  "korean": "칩 앤 데일 (Chip n Dale Rescue Rangers)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_카트파이터즈",
+  "korean": "카트 파이터 (Kart Fighter)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_캡틴 츠바사",
+  "korean": "캡틴 츠바사 (Captain Tsubasa)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_코코어드벤쳐",
+  "korean": "코코 어드벤쳐 (Cocoron)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_타카하시명인의모험도",
+  "korean": "타카하시 명인의 모험도 (Takahashi Meijin no Bouken Jima)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_특구지령솔브레인",
+  "korean": "특구지령 솔브레인 (Tokkyuu Shirei Solbrain)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_파이널 판타지 2",
+  "korean": "파이날 판타지 2 (Final Fantasy II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_파이널 판타지",
+  "korean": "파이널 판타지 (Final Fantasy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_파이어엠블렘외전",
+  "korean": "파이어 엠블렘 외전 (Fire Emblem Gaiden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "한글_혼두라",
+  "korean": "혼두라 (Contra)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "혼두라 포스",
+  "korean": "혼두라 포스",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Armor Battle (Mattel Electronics)",
+  "korean": "아머 배틀 (Armor Battle, Mattel Electronics)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Banana (VTech, Time & Fun)",
+  "korean": "바나나 (Banana, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Baseball (VTech, Explorer Time & Fun)",
+  "korean": "야구 (VTech, Explorer Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Bomb Fight (VTech, Mini Time & Fun)",
+  "korean": "봄 파이트 (Bomb Fight, VTech, Mini Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Caccia al Ladro (VTech, Mini Time & Fun)",
+  "korean": "카차 알 라드로 (Caccia al Ladro, VTech, Mini Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Cessate il Fuoco (VTech, Mini Time & Fun)",
+  "korean": "체사테 일 푸오코 (Cessate il Fuoco, VTech, Mini Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Chicky Woggy (VTech, Arcade Time & Fun)",
+  "korean": "치키 워기 (Chicky Woggy, VTech, Arcade Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Condor (VTech, Time & Fun)",
+  "korean": "콘도르 (Condor, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Defendo (VTech, Explorer Time & Fun)",
+  "korean": "디펜도 (Defendo, VTech, Explorer Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Donkey Angler (Gakken, LCD Card Game)",
+  "korean": "동키 앵글러 (Donkey Angler, Gakken, LCD Card Game)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Donkey Kong (Coleco)",
+  "korean": "동키콩 (Donkey Kong)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Donkey Kong Circus (Nintendo, Panorama Screen)",
+  "korean": "동키콩 서커스 (Donkey Kong Circus)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Donkey Kong Jr. (Coleco)",
+  "korean": "동키콩 주니어 (Donkey Kong Jr - New Wide Screen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Dungeons & Dragons Computer Fantasy Game (Mattel Electronics, Action Arcade Series)",
+  "korean": "던전 앤 드래곤 컴퓨터 판타지 게임 (Dungeons & Dragons Computer Fantasy Game, Mattel Electronics, Action Arcade Series)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Egg (Nintendo, Wide Screen)",
+  "korean": "에그 (Egg)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Engine Room (VTech, Explorer Time & Fun)",
+  "korean": "엔진 룸 (Engine Room, VTech, Explorer Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Escape (VTech, Time & Fun)",
+  "korean": "이스케이프 (Escape, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Explorers of Space (Elektronika)",
+  "korean": "익스플로러스 오브 스페이스 (Explorers of Space, Elektronika)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Fowling (Elektronika)",
+  "korean": "파울링 (Fowling, Elektronika)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Frog Boaster (Elektronika)",
+  "korean": "프로그 보스터 (Frog Boaster, Elektronika)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Galaxy II (Epoch)",
+  "korean": "갤럭시 II (Galaxy II, Epoch)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Grab Man (unknown manufacturer, Game & Time)",
+  "korean": "그랩 맨 (Grab Man, unknown manufacturer, Game & Time)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Hippo Teeth (VTech, Mini Time & Fun)",
+  "korean": "히포 티스 (Hippo Teeth, VTech, Mini Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Hot Line (VTech, Mini Time & Fun)",
+  "korean": "핫 라인 (Hot Line, VTech, Mini Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Las Vegas (Bandai, LCD Game Digital)",
+  "korean": "라스 베가스 (Las Vegas, Bandai, LCD Game Digital)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Lifeboat (Nintendo, Multi Screen)",
+  "korean": "구명보트 (Lifeboat)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Mario Bros. (Nintendo, Multi Screen)",
+  "korean": "마리오 브라더스 (Mario Bros.)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Mario's Bombs Away (Nintendo, Panorama Screen)",
+  "korean": "마리오의 폭탄 작전 (Mario's Bombs Away)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Mickey Mouse (Nintendo, Panorama Screen)",
+  "korean": "미키 마우스 (Mickey Mouse - Panorama Screen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Monkey (VTech, Time & Fun)",
+  "korean": "몽키 (Monkey, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Motor Cross (Queentex)",
+  "korean": "모터 크로스 (Motor Cross, Queentex)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Pac Man (Tomytronic)",
+  "korean": "팩맨 (Pac-Man, Tomytronic)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Pancake (VTech, Time & Fun)",
+  "korean": "팬케이크 (Pancake, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Parachute (Nintendo, Wide Screen)",
+  "korean": "낙하산 (Parachute)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Penguin Land (Bandai, LSI Game Double Play)",
+  "korean": "펭귄 랜드 (Penguin Land, Bandai, LSI Game Double Play)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Pirate (VTech, Time & Fun)",
+  "korean": "파이렛 (Pirate, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Roller Coaster (VTech, Explorer Time & Fun)",
+  "korean": "롤러 코스터 (Roller Coaster, VTech, Explorer Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Safari (VTech, Time & Fun)",
+  "korean": "사파리 (Safari, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Sleep Walker (VTech, Time & Fun)",
+  "korean": "슬립 워커 (Sleep Walker, VTech, Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Snoopy Tennis (Nintendo, Wide Screen)",
+  "korean": "스누피 테니스 (Snoopy Tennis)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Sub Chase (Mattel Electronics)",
+  "korean": "서브 체이스 (Sub Chase, Mattel Electronics)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Tennis Menace (VTech, Sporty Time & Fun)",
+  "korean": "테니스 메너스 (Tennis Menace, VTech, Sporty Time & Fun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Tom & Jerry Popper (Gakken, LCD Card Game)",
+  "korean": "톰과 제리 파퍼 (Tom & Jerry Popper, Gakken, LCD Card Game)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Towering Rescue (Gakken, LCD Card Game)",
+  "korean": "타워링 레스큐 (Towering Rescue, Gakken, LCD Card Game)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Tron (Tomytronic)",
+  "korean": "트론 (Tron, Tomytronic)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Turtle Bridge (Nintendo, Wide Screen)",
+  "korean": "터틀 브리지 (Turtle Bridge)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gw",
+  "original_name": "Wild Man Jump (VTech, Electronic Tini-Arcade)",
+  "korean": "와일드 맨 점프 (Wild Man Jump, VTech, Electronic Tini-Arcade)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "팝픈 뮤직 GB - 애니메이션 멜로디",
+  "korean": "팝픈 뮤직 GB - 애니메이션 멜로디",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Bomberman Selection (Korea)",
+  "korean": "봄버맨 셀렉션 (Bomberman Selection)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Cardcaptor Sakura - Itsumo Sakura-chan to Issho (Korea-patch J-K ver.proto)",
+  "korean": "카드 캡터 사쿠라 - 언제나 사쿠라짱과 함께! (Cardcaptor Sakura - Itsumo Sakura-chan to Issho)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Dejiko no Mahjong Party (Korea-patch J-K v20010101)",
+  "korean": "데지코의 마작 파티 (Dejiko no Mahjong Party)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Dragon Quest I & II (Korea-patch J-K v20070220 v0.95)",
+  "korean": "드래곤 퀘스트 1 & 2 (Dragon Quest I & II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Legend of Zelda, The - Link's Awakening DX (Korea-patch U-K v20210619 v1.0)",
+  "korean": "젤다의 전설 - 꿈꾸는 섬 DX (Legend of Zelda, The - Link)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Legend of Zelda, The - Oracle of Ages (Korea-patch U-K v20100529 v1.02)",
+  "korean": "젤다의 전설 시공의 장 (Legend of Zelda, The - Oracle of Ages)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Legend of Zelda, The - Oracle of Seasons (Korea-patch U-K v20100531 v1.0)",
+  "korean": "젤다의 전설 시공의 장 (Legend of Zelda, The - Oracle of Seasons)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Love Hina Party (Korea-patch J-K v20040111 v0.97)",
+  "korean": "러브 히나 파티 (Love Hina Party)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pocket Monsters - Crystal Version (Korea-patch J-K v20220220 v1.0)",
+  "korean": "포켓몬스터 크리스탈 (Pocket Monsters - Crystal Version)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pocket Monsters Eun (Korea)",
+  "korean": "포켓몬스터 은 (Pocket Monsters Eun)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pocket Monsters Geum (Korea)",
+  "korean": "포켓몬스터 금 (Pocket Monsters Geum)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pokemon Picross (Korea-patch J-K v20221001)",
+  "korean": "포켓몬 피크로스 (Pokemon Picross)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pokemon Puzzle Challenge (Korea-patch E-K v20181226 v4.0)",
+  "korean": "포켓몬 퍼즐 챌린지 (Pokemon Puzzle Challenge)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gbc",
+  "original_name": "Pokemon Trading Card Game (Korea-patch U-K v20200907 v1.2)",
+  "korean": "포켓몬 카드 게임 (Pokemon Trading Card Game)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "짱구는 못말려 4 - 나의 장난 대변신",
+  "korean": "짱구는 못말려 4 - 나의 장난 대변신",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Bikkuri Nekketsu Shin Kiroku! - Dokodemo Kin Medal (Korea-patch J-K v20221212 v1.0)",
+  "korean": "깜짝 열혈 신기록 (Bikkuri Nekketsu Shin Kiroku! - Dokodemo Kin Medal)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Crayon Shin-chan - Ora to Shiro wa Otomodachi Da yo (Korea-patch J-K v20220404 v1.0)",
+  "korean": "짱구는 못말려 1 - 나랑 흰둥이는 친구야 (Crayon Shin-chan - Ora To Shiro Wa Otomodachi Da Yo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Crayon Shin-chan 2 - Ora to Wanpaku Gokko Dazo (Korea-patch J-K v20220505 v1.0)",
+  "korean": "짱구는 못말려 2 (Crayon Shin-chan 2 - Ora to Wanpaku Gokko Dazo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Dai-2-ji Super Robot Taisen G (Korea-patch J-K v20130303 v0.99)",
+  "korean": "제2차 슈퍼 로봇 대전 G (Dai-2-ji Super Robot Taisen G)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Initial D Gaiden (Korea-patch J-K v20161020)",
+  "korean": "이니셜 D (Initial D Gaiden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Kaeru no Tame ni Kane wa Naru (Korea-patch J-K v20210903 v1.0)",
+  "korean": "개구리를 위해 종을 울린다 (Kaeru no Tame ni Kane wa Naru)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Legend of Zelda, The - Link's Awakening (Korea-patch U-K v20210730 v1.1)",
+  "korean": "젤다의 전설 - 깨어난 링크 (Legend of Zelda, The - Link's Awakening)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Makai Toushi Sa-Ga (Korea-patch J-K v20180818 v0.1)",
+  "korean": "사가 1 - 마계탑사 (Makai Toushi Sa-Ga)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Mario no Picross (Korea-patch J-K v20220210 v1.1)",
+  "korean": "마리오의 피크로스 1 (Mario no Picross)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Metroid II - Return of Samus (Korea-patch W-K v20221014 v1.0)",
+  "korean": "메트로이드 2 DX (Metroid II - Return of Samus)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Nettou The King of Fighters '95 (Korea-patch J-K v20220308 v1.1)",
+  "korean": "더 킹 오브 파이터즈 95 (Nettou The King of Fighters 95)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Nettou The King of Fighters '96 (Korea-patch J-K v20220314 v1.0)",
+  "korean": "더 킹 오브 파이터즈 96 (Nettou The King of Fighters 96)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Pac-Man (Korea-patch J-K 20120124)",
+  "korean": "팩맨 (Pac-Man)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Picross 2 (Korea-patch J-K v20220215 v1.0)",
+  "korean": "마리오 피크로스 2 (Picross 2)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Pokemon - Blue Version (Korea-patch U-K v20200316 v1.0)",
+  "korean": "포켓몬스터 청 (Pocket Monsters - Ao)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Pokemon - Red Version (Korea-patch U-K v20200316 v1.0)",
+  "korean": "포켓몬스터 적 (Pocket Monsters - Aka)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Pokemon - Yellow Version - Special Pikachu Edition (Korea-patch U-K 20200308 v1.2)",
+  "korean": "포켓몬스터 피카츄 (Pocket Monsters - Pikachu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Rockman World (Korea-patch J-K v20221128 v1.1)",
+  "korean": "록맨 월드 1 (Rockman World)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Rockman World 2 (Korea-patch J-K v20221128 v1.1)",
+  "korean": "록맨 월드 2 (Rockman World 2)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Rockman World 3 (Korea-patch J-K v20221128 v1.1)",
+  "korean": "록맨 월드 3 (Rockman World 3)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Rockman World 4 (Korea-patch J-K v20221128 v1.1)",
+  "korean": "록맨 월드 4 (Rockman World 4)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Rockman World 5 (Korea-patch J-K v20221128 v1.1)",
+  "korean": "록맨 월드 5 (Rockman World 5)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Sa-Ga 2 - Hihou Densetsu (Korea-patch J-K v20190804 v1.0)",
+  "korean": "사가 2 비보전설 (Sa-Ga 2 - Hihou Densetsu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Saigo no Nindou (Korea-patch J-K v20221125 v1.0)",
+  "korean": "닌자 스피릿 마지막 닌자도 (Saigo no Nindou)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Seiken Densetsu - Final Fantasy Gaiden (Korea-patch J-K v20101118 v1.0)",
+  "korean": "성검전설 (Seiken Densetsu - Final Fantasy Gaiden)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Super Mario Land (Korea-patch W-K v20090129)",
+  "korean": "슈퍼 마리오 랜드 1 (Super Mario Land)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Super Robot Taisen (Korea-patch J-K v20131009 v1.1)",
+  "korean": "슈퍼 로봇 대전 (Super Robot Taisen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Yu-Gi-Oh! Duel Monsters (Korea-patch J-K 20110323 v0.9)",
+  "korean": "유희왕 듀얼몬스터즈 (Yu-Gi-Oh! Duel Monsters)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "pico8",
+  "original_name": "boomby-2.p8",
+  "korean": "boomby-2.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pico8",
+  "original_name": "carrot_kingdom_v7-0.p8",
+  "korean": "carrot_kingdom_v7-0.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pico8",
+  "original_name": "eniplatformsample-0.p8",
+  "korean": "eniplatformsample-0.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pico8",
+  "original_name": "libryinth-10.p8",
+  "korean": "libryinth-10.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pico8",
+  "original_name": "suika_demake-9.p8",
+  "korean": "suika_demake-9.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pico8",
+  "original_name": "top_speed-3.p8",
+  "korean": "top_speed-3.p8",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "pce",
+  "original_name": "Aero Blasters (USA)",
+  "korean": "에어로 블래스터즈 (Aero Blasters)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Atomic Robo-Kid Special (Japan)",
+  "korean": "아토믹 로보 키드 스페셜 (Atomic Robo-Kid Special)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bikkuriman World (Japan)",
+  "korean": "빅쿠리맨 월드 (원더보이 - 몬스터랜드 패치 - Bikkuriman World)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Blazing Lazers (USA)",
+  "korean": "블레이징 레이저스 (Blazing Lazers)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bloody Wolf (USA)",
+  "korean": "블러디 울프 (Bloody Wolf)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bomberman '94 (Japan)",
+  "korean": "봄버맨 '94 (Bomberman '94)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bonk 3 - Bonk's Big Adventure (USA)",
+  "korean": "PC 원인 3_ 봉크의 대모험 (Bonk 3 - Bonk's Big Adventure)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bonk's Adventure (USA)",
+  "korean": "봉크스 어드벤처 (Bonk's Adventure)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bonk's Revenge (USA)",
+  "korean": "봉크스 리벤지 (Bonk's Revenge)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Bravoman (USA)",
+  "korean": "초절륜인 베라보맨 (Bravoman)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Burning Angels (Japan)",
+  "korean": "버닝 엔젤 (Burning Angels)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Busou Keiji - Cyber Cross (Japan)",
+  "korean": "무장형사 - 사이버 크로스 (Busou Keiji - Cyber Cross)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Cadash (USA)",
+  "korean": "카다시 (Cadash)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Chew-Man-Fu (USA)",
+  "korean": "츄만푸 (Chew Man Fu)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "China Warrior (USA)",
+  "korean": "더 쿵푸 (China Warrior)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Cratermaze (USA)",
+  "korean": "크레이터메이즈 (Cratermaze)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Don Doko Don! (Japan)",
+  "korean": "돈 도코 돈! (Don Doko Don!)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Doraemon - Nobita no Dorabian Night (Japan)",
+  "korean": "도라에몽 - 노비타의 도라비안 나이트 (Doraemon - Nobita no Dorabian Night)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Download (Japan)",
+  "korean": "다운로드 (Download)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Dragon Egg! (Japan)",
+  "korean": "드래곤 에그! (Dragon Egg!)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Dragon Spirit (USA)",
+  "korean": "드래곤 스피리트 (Dragon Spirit)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Dragon's Curse (USA)",
+  "korean": "드래곤스 커즈 (Dragon's Curse)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Fantasy Zone (USA)",
+  "korean": "판타지 존 (Fantasy Zone)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Final Blaster (Japan)",
+  "korean": "파이날 블라스터 (Final Blaster)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Fire Pro Wrestling - Combination Tag (Japan)",
+  "korean": "파이어 프로 레슬링_ 콤비네이션 테그 (Fire Pro Wrestling - Combination Tag)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Galaga '90 (USA)",
+  "korean": "갤러그 '88 (Galaga '90)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Genpei Toumaden (Japan)",
+  "korean": "원평토마전 (Genpei Toumaden)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Hana Taaka Daka! (Japan)",
+  "korean": "하나 타카 다카 (Hana Taaka Daka!)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "J.J. & Jeff (USA)",
+  "korean": "카토짱과 켄짱 (J.J. & Jeff)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Jackie Chan's Action Kung Fu (USA)",
+  "korean": "재키 챈스 액션 쿵푸 (Jackie Chan's Action Kung Fu)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Jigoku Meguri (Japan)",
+  "korean": "지옥 순례 (Jigoku Meguri)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Jinmu Denshou (Japan)",
+  "korean": "신무전승 (Jinmu Denshou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Juuouki (Japan)",
+  "korean": "수왕기 (Juuouki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Kaizou Choujin Shubibinman (Japan)",
+  "korean": "개조정인 슈비빅맨 (Kaizou Choujin Shubibinman)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Kiki Kaikai (Japan)",
+  "korean": "기기괴계 (KiKi KaiKai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Kyuukyoku Tiger (Japan)",
+  "korean": "구극 타이거 (Kyuukyoku Tiger)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Legend of Hero Tonma (USA)",
+  "korean": "레전드 오브 히어로 톤마 (Legend of Hero Tonma)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Legendary Axe, The (USA)",
+  "korean": "더 레젠더리 액스 (Legendary Axe, The)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Maerchen Maze (Japan)",
+  "korean": "메르헨 메이즈 (Maerchen Maze)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Magical Chase (USA)",
+  "korean": "매지컬 체이스 (Magical Chase)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Mizubaku Daibouken (Japan)",
+  "korean": "미즈바쿠 대모험 (Mizubaku Daibouken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Momotarou Katsugeki (Japan)",
+  "korean": "모모타로 활극 (Momotarou Katsugeki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Mr. Heli no Daibouken (Japan)",
+  "korean": "미스터 헬리의 대모험 (Mr. Heli no Daibouken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Nekketsu Koukou Dodgeball-bu - PC Bangai Hen (Japan)",
+  "korean": "열혈고교 돗지볼부 - PC 번외편 (Nekketsu Koukou Dodgeball-bu - PC Bangai Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Nekketsu Koukou Dodgeball-bu - PC Soccer Hen (Japan)",
+  "korean": "열혈고교 돗지볼부 PC 축구편 (Nekketsu Koukou Dodgeball-bu - PC Soccer Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "NewZealand Story, The (Japan)",
+  "korean": "뉴질랜드 스토리 (NewZealand Story, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Ninja Spirit (USA)",
+  "korean": "닌자 스피릿 (Ninja Spirit)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Ninja Warriors, The (Japan)",
+  "korean": "닌자 워리어즈 (Ninja Warriors, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Ordyne (USA)",
+  "korean": "오다인 (Ordyne)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Override (Japan)",
+  "korean": "오버라이드 (Override)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Parasol Stars - The Story of Bubble Bobble III (USA)",
+  "korean": "파라솔 스타즈 - 더 스토리 오브 버블 보블 III (Parasol Stars - The Story of Bubble Bobble III)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "R-Type I (Japan)",
+  "korean": "알 타입 (R-Type I)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "R-Type II (Japan)",
+  "korean": "알 타입 2 (R-Type II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Rabio Lepus Special (Japan)",
+  "korean": "라비오 레푸스 스페샬 (Rabio Lepus Special)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Shinobi (Japan)",
+  "korean": "시노비 (Shinobi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Shockman (USA)",
+  "korean": "개조정인 슈비빅맨 2_ 새로운 적 (Shockman)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "SideArms (USA)",
+  "korean": "사이드 암스_ 하이퍼 딘 (SideArms)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Sinistron (USA)",
+  "korean": "바이올런트 솔져 (Sinistron)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Son Son II (Japan)",
+  "korean": "손 손 2 (Son Son II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Space Harrier (USA)",
+  "korean": "스페이스 해리어 (Space Harrier)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Space Invaders - Fukkatsu no Hi (Japan)",
+  "korean": "스페이스 인베이더_ 디 오리지날 게임 (Space Invaders - Fukkatsu no Hi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Splatterhouse (USA)",
+  "korean": "스플래터하우스 (Splatterhouse)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Street Fighter II' - Champion Edition (Japan)",
+  "korean": "스트리트 파이터 II' - 챔피언 에디션 (Street Fighter II' - Champion Edition)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Super Star Soldier (USA)",
+  "korean": "슈퍼 스타 솔저 (Super Star Soldier)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Tiger Road (USA)",
+  "korean": "타이거 로드 (Tiger Road)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Valkyrie no Densetsu (Japan)",
+  "korean": "발키리의 전설 (Valkyrie no Densetsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Veigues - Tactical Gladiator (USA)",
+  "korean": "베이그스_ 택티컬 글래디에이터 (Veigues - Tactical Gladiator)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Vigilante (USA)",
+  "korean": "비질란테 (Vigilante)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "W-Ring - The Double Rings (Japan)",
+  "korean": "W-링_ 더 더블 링스 (W-Ring - The Double Rings)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Wonder Momo (Japan)",
+  "korean": "원더 모모 (Wonder Momo)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Xevious - Fardraut Saga (Japan)",
+  "korean": "제비우스_ 파드라우트 사가 (Xevious - Fardraut Saga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Youkai Douchuuki (Japan)",
+  "korean": "요괴도중기 (Youkai Douchuuki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "pce",
+  "original_name": "Zipang (Japan)",
+  "korean": "지팡구 (Zipang)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Bare Knuckle ~ Streets of Rage (World)",
+  "korean": "베어 너클 2 (Bare Knuckle ~ Streets of Rage)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Bare Knuckle II ~ Streets of Rage 2 ~ Streets of Rage II (World)",
+  "korean": "베어 너클 II - 스트리츠 오브 레이지 2 (Streets of Rage II)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Bishoujo Senshi Sailor Moon S (Japan)",
+  "korean": "미소녀 전사 세일러문 S (Bishoujo Senshi Sailor Moon S)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Bubble Bobble (USA)",
+  "korean": "버블 보블 (Bubble Bobble)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Buster Fight (Japan)",
+  "korean": "버스터 파이트 (Buster Fight)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Crayon Shin-chan - Taiketsu! Kantam Panic!! (Japan)",
+  "korean": "크레용 신짱 - 대결! 캔탐 패닉!! (Crayon Shin-chan - Taiketsu! Kantam Panic!!)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Crystal Warriors (USA, Europe)",
+  "korean": "크리스탈 워리어즈 (Crystal Warriors)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Defenders of Oasis (USA, Europe)",
+  "korean": "오아시스의 수호자 (Defenders of Oasis)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Devilish (USA)",
+  "korean": "데빌리쉬 (Devilish)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Double Dragon (USA, Europe)",
+  "korean": "더블 드래곤 (Double Dragon)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Dynamite Headdy (USA, Europe)",
+  "korean": "다이나마이트 헤디 (Dynamite Headdy)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Ecco - The Tides of Time (USA, Europe)",
+  "korean": "에코 더 돌핀 2 (Ecco - The Tides of Time)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Ecco the Dolphin (USA, Europe, Brazil)",
+  "korean": "에코 더 돌핀 (Ecco the Dolphin)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Fatal Fury Special (USA)",
+  "korean": "아랑전설 스페셜 (Fatal Fury Special)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Fray - Shugyou Hen (Japan)",
+  "korean": "프레이 - 수행 편 (Fray - Shugyou Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "GG Aleste (Japan)",
+  "korean": "GG 알레스테 (GG Aleste)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "GG Aleste II ~ Power Strike II (Japan, Europe)",
+  "korean": "알레스테 2 (GG Aleste II)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "GG Shinobi ~ Shinobi (World) (Rev 1)",
+  "korean": "GG 시노비 (GG Shinobi ~ Shinobi)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Gunstar Heroes (Japan)",
+  "korean": "건스타 히어로즈 (Gunstar Heroes)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Honoo no Toukyuuji - Dodge Danpei (Japan)",
+  "korean": "피구왕 통키 (Honoo no Toukyuuji - Dodge Danpei)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Kaitou Saint Tail (Japan)",
+  "korean": "괴도 세인트 테일 - 천사소녀 네티 (Kaitou Saint Tail)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Kenyuu Densetsu Yaiba (Japan)",
+  "korean": "검용전설 야이바 (Kenyuu Densetsu Yaiba)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Kishin Douji Zenki (Japan)",
+  "korean": "귀신동자 젠키 (Kishin Douji Zenki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Land of Illusion Starring Mickey Mouse (USA, Europe, Brazil)",
+  "korean": "랜드 오브 일루전 스타링 미키 마우스 (Land of Illusion Starring Mickey Mouse)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Legend of Illusion Starring Mickey Mouse (USA, Europe)",
+  "korean": "레전드 오브 일루전 스타링 미키 마우스 (Legend of Illusion Starring Mickey Mouse)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Magic Knight Rayearth (Japan)",
+  "korean": "마법기사 레이어스 1 (Magic Knight Rayearth)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Magical Taruruuto-kun (Japan)",
+  "korean": "마법의 타루루토군 (Magical Taruruuto-kun)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Mappy (Japan)",
+  "korean": "마피 (Mappy)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Mega Man (USA)",
+  "korean": "메가맨 - 록맨 (Mega Man)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Megami Tensei Gaiden - Last Bible (Japan)",
+  "korean": "여신전생 외전 라스트 바이블 (Megami Tensei Gaiden - Last Bible)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Megami Tensei Gaiden - Last Bible Special (Japan)",
+  "korean": "여신전생 외전 - 라스트 바이블 스페셜 (Megami Tensei Gaiden - Last Bible Special)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Mighty Morphin Power Rangers - The Movie (USA, Europe)",
+  "korean": "마이티 모핀 파워레인저 - 더 무비 (Mighty Morphin Power Rangers - The Movie)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Ninja Gaiden (USA, Europe, Brazil)",
+  "korean": "닌자 가이덴 (Ninja Gaiden)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Ninku (Japan)",
+  "korean": "닌쿠 1 (Ninku)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Ninku 2 - Tenkuuryuu e no Michi (Japan)",
+  "korean": "닌쿠 2 - 천구룡으로 가는 길 (Ninku 2 - Tenkuuryuu e no Michi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Phantasy Star Gaiden (Japan)",
+  "korean": "판타지 스타 외전 (Phantasy Star Gaiden)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Psychic World (USA, Europe, Brazil)",
+  "korean": "사이킥 월드 (Psychic World)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Revenge of Drancon (USA, Brazil)",
+  "korean": "원더 보이 (Revenge of Drancon)",
+  "region": "USA, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Samurai Shodown (USA)",
+  "korean": "사무라이 쇼다운 (Samurai Shodown)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Shaq Fu (USA)",
+  "korean": "샤크 푸 (Shaq Fu)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Shining Force Gaiden - Ensei, Jashin no Kuni e (Japan)",
+  "korean": "샤이닝 포스 외전 - 원정, 사신의 나라로 (Shining Force Gaiden - Ensei, Jashin no Kuni e)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Shining Force Gaiden - Final Conflict (Japan)",
+  "korean": "샤이닝 포스 외전 - 최후의 대결 (Shining Force Gaiden - Final Conflict)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Shining Force II - The Sword of Hajya (USA)",
+  "korean": "샤이닝 포스 외전 2 - 사신의 각성 (Shining Force II - The Sword of Hajya)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Shinobi II - The Silent Fury (World)",
+  "korean": "GG 시노비 II - 침묵의 분노 (Shinobi II - The Silent Fury)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Sonic Chaos (USA, Europe, Brazil)",
+  "korean": "소닉 & 테일즈 (Sonic Chaos)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Sonic Labyrinth (World)",
+  "korean": "소닉 래버린스 (Sonic Labyrinth)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Sonic The Hedgehog - Triple Trouble (USA, Europe)",
+  "korean": "소닉 더 헤지혹 - 트리플 트러블 (Sonic The Hedgehog - Triple Trouble)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Sonic The Hedgehog (Japan, USA)",
+  "korean": "바람돌이 소닉 (Sonic The Hedgehog)",
+  "region": "Japan, USA",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Sonic The Hedgehog 2 (World)",
+  "korean": "바람돌이 소닉 2 (Sonic The Hedgehog 2)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Super Smash T.V. (World)",
+  "korean": "슈퍼 스매시 T.V. (Super Smash T.V.)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Surf Ninjas (USA, Europe, Brazil)",
+  "korean": "서프 닌자 (Surf Ninjas)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Tails Adventure ~ Tails Adventures (Korea-patch W-K v20210705 v1.1)",
+  "korean": "테일즈 어드밴처 (Tails Adventure)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Virtua Fighter Animation (USA, Europe)",
+  "korean": "버추어 파이터 애니메이션 (Virtua Fighter Animation)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Wonder Boy - The Dragon's Trap (Europe)",
+  "korean": "몬스터 월드 2 드래곤의 함정 (Wonder Boy - The Dragon's Trap)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Yu Yu Hakusho - Horobishimono no Gyakushuu (Japan)",
+  "korean": "유유백서 - 멸하는 자의 역습 (Yu Yu Hakusho - Horobishimono no Gyakushuu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "gg",
+  "original_name": "Yu Yu Hakusho II - Gekitou! Nanakyou no Tatakai (Japan)",
+  "korean": "유유백서 II - 격투! 7강의 싸움 (Yu Yu Hakusho 2 - Gekitou! Nanakyou no Tatakai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Advanced Busterhawk Gleylancer (Korea-patch J-K v20130323)",
+  "korean": "그레이 랜서 (Advanced Busterhawk Gleylancer)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Alex Kidd - Cheongong Maseong (Korea)",
+  "korean": "알렉스 키드 - 천공마성 (Alex Kidd - Cheongong Maseong)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Alisia Dragoon (Korea-patch J-K v20130531)",
+  "korean": "아리시아 드라군 (Alisia Dragoon)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Battle Mania Daiginjou (Japan, Korea)",
+  "korean": "배틀 매니아 대음양 (Battle Mania Daiginjou, Japan, Korea)",
+  "region": "Japan, Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Contra - The Hard Corps (Korea-patch J-K v20130320)",
+  "korean": "혼두라 (Contra - The Hard Corps)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Dahna (Korea)",
+  "korean": "다나 (Dahna)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Darwin 4081 (Japan, Korea)",
+  "korean": "다윈 4081 (Darwin 4081, Japan, Korea)",
+  "region": "Japan, Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "El.Viento (Korea-patch J-K v20091009 v1.0)",
+  "korean": "엘 비엔토 (El. Viento)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Elemental Master (Korea-patch J-K v20130323)",
+  "korean": "엘리멘탈 마스터 (Elemental Master)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Exile - Toki no Hazama he (Korea-patch J-K v20180225)",
+  "korean": "엑자일 - 시간의 틈새 (Exile - Toki no Hazama he)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Gunstar Heroes (Korea-patch J-K v20171102)",
+  "korean": "건스타 히어로즈 (Gunstar Heroes)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Honoo no Toukyuuji - Dodge Danpei (Korea-patch J-K v20210808 v0.9)",
+  "korean": "피구왕 통키 (Honoo no Toukyuuji - Dodge Danpei)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Landstalker - Koutei no Zaihou (Korea-patch J-K v20130927)",
+  "korean": "랜드 스토커 (Landstalker - Koutei no Zaihou)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Light Crusader (Korea) (En,Ko)",
+  "korean": "라이트 크루세이더 (Light Crusader)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Magical Hat no Buttobi Turbo! Daibouken (Korea-patch J-K v20210912 v1.01)",
+  "korean": "용의아들의 날아라 터보! 대모험 (Magical Hat no Buttobi Turbo! Daibouken)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Magical Taruruuto-kun (Korea-patch J-K v20210902 v1.0)",
+  "korean": "매지컬 타루루토군 (Magical Taruruuto-kun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Mugen Senshi Valis (Korea-patch J-K v20090423 v1.0c)",
+  "korean": "몽환전사 바리스 (Mugen Senshi Valis)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Musha Aleste - Full Metal Fighter Ellinor (Korea-patch J-K v20171205 v2.0)",
+  "korean": "무사 알레스트 (Musha Aleste - Full Metal Fighter Ellinor)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "On Dal Jang Goon (Korea)",
+  "korean": "온달장군 (On Dal Jang Goon)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Phantasy Star - Sennenki no Owari ni (Korea-patch J-K v20140113)",
+  "korean": "판타지 스타 4 (Phantasy Star - Sennenki no Owari ni)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Phantasy Star II - Kaerazaru Toki no Owari ni (Korea-patch J-K v20130821)",
+  "korean": "판타지 스타 2 (Phantasy Star II - Kaerazaru Toki no Owari ni)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Ragnacenty (Korea)",
+  "korean": "라그나센티 (Ragnacenty)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "SD Valis (Korea-patch J-K v20090908 v1.0)",
+  "korean": "바리스 SD (SD Valis)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Shining and the Darkness (Korea-patch J-K v20131014)",
+  "korean": "샤이닝 앤드 더 다크니스 (Shining and the Darkness)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Shining Force - Kamigami no Isan (Korea-patch J-K v20130418)",
+  "korean": "샤이닝 포스 (Shining Force - Kamigami no Isan)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Shura no Mon (Korea-patch J-K v20221026 v1.1)",
+  "korean": "수라의 문 (Shura no Mon)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Sonic 3D Blast ~ Sonic 3D Flickies' Island (USA, Europe, Korea)",
+  "korean": "소닉 3D 블라스트 (Sonic 3D Blast)",
+  "region": "USA, Europe, Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Story of Thor, The - Hikari o Tsugumono (Korea-patch J-K v20150227)",
+  "korean": "스토리 오브 토르 (아루미 - Story of Thor, The - Hikari o Tsugumono)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Super Fantasy Zone (Korea-patch J-K v20130930)",
+  "korean": "슈퍼 판타지존 (Super Fantasy Zone)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Super Shinobi II, The (Korea-patch J-K v20130609)",
+  "korean": "슈퍼 시노비 2 (Super Shinobi II, The)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Tiny Toon Adventures - Acme All-Stars (USA, Korea)",
+  "korean": "타이니툰 어드벤쳐 올스타즈 (Tiny Toon Adventures)",
+  "region": "USA, Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Twinkle Tale (Korea-patch J-K v20130323)",
+  "korean": "트윙클 테일 (Twinkle Tale)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Uzu Keobukseon (Korea)",
+  "korean": "우주거북선 (Uzu Keobukseon)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Vampire Killer (Korea-patch J-K v20210922 v1.0)",
+  "korean": "뱀파이어 킬러 (Castlevania - The New Generation)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Wizard of the Immortal (Korea-patch J-K v20110716 v0.96)",
+  "korean": "위자드 오브 더 이모탈 (Immortal, The)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Ys - Wanderers from Ys (Korea-patch J-K v20130825 v1.0)",
+  "korean": "이스 3 (Ys - Wanderers from Ys)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "md",
+  "original_name": "Zero Wing (Korea-patch E-K v20221014 v0.0)",
+  "korean": "제로 윙 (Zero Wing)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Aliens - Alien 2 (Japan)",
+  "korean": "에이리언 2 (Aliens - Alien 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Alpha Roid (Japan)",
+  "korean": "알파 로이드 (Alpha Roid)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Antarctic Adventure (Europe)",
+  "korean": "남극 대모험 (Antarctic Adventure)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Athletic Land (Japan)",
+  "korean": "애슬레틱 랜드 (Athletic Land)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Back to the Future (Japan)",
+  "korean": "백 투 더 퓨처 (Back to the Future)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Bank Panic (Korea-patch J-K v20170115)",
+  "korean": "은행강도 (Bank Panic)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Block Hole (Korea) (Unl)",
+  "korean": "블록 홀 (Block Hole)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Bokosuka Wars (Japan)",
+  "korean": "보코스카 워즈 (Bokosuka Wars)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Boogie Woogi Jungle (Japan)",
+  "korean": "부기우기 정글 (Boogie Woogi Jungle)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Bouken Roman - Dota (Japan)",
+  "korean": "모험 로망 - 도타 (Bouken Roman - Dota)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Brother Adventure (Korea) (Unl)",
+  "korean": "브라더 어드벤처 (Brother Adventure)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Bubble Bobble (Korea) (Unl)",
+  "korean": "보글보글 (Bubble Bobble)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Butam Pants (Japan)",
+  "korean": "부탐 팬츠 (Butam Pants)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Cabbage Patch Kids (Japan)",
+  "korean": "캐비지 패치 키즈 (Cabbage Patch Kids)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Castle Excellent (Japan)",
+  "korean": "더 캐슬 (Castle, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Champion Boxing (Korea-patch J-K v20170103)",
+  "korean": "챔피언 복싱 (Champion Boxing)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Champion Pro Wrestling (Korea-patch J-K v20170104)",
+  "korean": "챔피언 프로 레슬링 (Champion Pro Wrestling)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Championship Lode Runner (Japan)",
+  "korean": "챔피언십 로드 러너 (Championship Lode Runner)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Cross Blaim (Japan)",
+  "korean": "크로스 블레임 (Cross Blaim)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Daiva Story 4 - Asura's Bloodfeud (Japan)",
+  "korean": "디바 스토리 4 - 아수라의 혈투 (Daiva Story 4 - Asura's Bloodfeud)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dig Dug (Japan)",
+  "korean": "디그 더그 (Dig Dug)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Digital Devil Monogatari Megami Tensei (Japan)",
+  "korean": "디지털 데빌 스토리 여신전생 (Digital Devil Monogatari Megami Tensei)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Doki Doki Penguin Land (Japan)",
+  "korean": "두근두근 펭귄 랜드 (Doki Doki Penguin Land)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Double Dragon (Korea) (Unl)",
+  "korean": "더블 드래곤 (Double Dragon)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Slayer (Japan)",
+  "korean": "드래곤 슬레이어 (Dragon Slayer)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Slayer II - Xanadu (Japan)",
+  "korean": "드래곤 슬레이어 2 - 자나두 (Dragon Slayer II - Xanadu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Slayer IV - Drasle Family (Japan)",
+  "korean": "드래곤 슬레이어 4 - 드라슬레 패밀리 (Dragon Slayer IV - Drasle Family)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dungeon Master (Japan)",
+  "korean": "던전 마스터 (Dungeon Master)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Eggerland Mystery (Japan)",
+  "korean": "에거랜드 미스터리 (Eggerland Mystery)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "F-1 Spirit - The Way to Formula-1 (Japan)",
+  "korean": "F-1 스피릿 - 포뮬러-1으로 가는 길 (F-1 Spirit - The Way to Formula-1)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Fantasy Zone (Japan)",
+  "korean": "판타지 존 (Fantasy Zone)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Final Zone Wolf (Japan)",
+  "korean": "파이널 존 울프 (Final Zone Wolf)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Flash Point (Korea) (Unl)",
+  "korean": "플래시 포인트 (Flash Point)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Formation Z (Japan)",
+  "korean": "포메이션 Z (Formation Z)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Galaga (Japan)",
+  "korean": "갤러그 (Galaga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Galaxian (Japan)",
+  "korean": "갤럭시안 (Galaxian)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gall Force - Defense of Chaos (Japan)",
+  "korean": "갈 포스 - 디펜스 오브 카오스 (Gall Force - Defense of Chaos)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Game World - 126 Games (Korea) (Unl)",
+  "korean": "게임 월드 - 126 게임 (Game World - 126 Games)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gojira vs 3 Daikaijuu (Japan)",
+  "korean": "슈퍼 컬럼스 (L3W - Super Columns)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Golvellius (Japan)",
+  "korean": "골벨리우스 (Golvellius)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gomok Narabe - Omo Go (Korea-patch J-K v20170118)",
+  "korean": "오목 (Gomok Narabe - Omo Go.zip)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Goonies, The (Japan)",
+  "korean": "구니스 (Goonies, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gradius 2. Nemesis 2 (Korea-patch J-K v20160324)",
+  "korean": "그라디우스 2 (Nemesis 2)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Guardic (Japan)",
+  "korean": "가디크 (Guardic)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gulkave (Japan)",
+  "korean": "걸케이브 (Gulkave)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "H.E.R.O. (Japan)",
+  "korean": "히어로 (H.E.R.O.)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hades no Monsho (Japan)",
+  "korean": "하데스의 문장 (Hades no Monsho)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "High Way Star (Korea)",
+  "korean": "하이웨이 스타 (High Way Star)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hole in One (Japan)",
+  "korean": "홀 인 원 프로페셔널 (Hole in One Professional)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hydlide 3 - The Space Memories (Japan)",
+  "korean": "하이드라이드 3 (Hydlide 3 - The Space Memories)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hyper Sports 1 (Japan)",
+  "korean": "하이퍼 스포츠 1 (Hyper Sports 1)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hyper Sports 2 (Japan)",
+  "korean": "하이퍼 스포츠 2 (Hyper Sports 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Iriegas - Theseus (Japan)",
+  "korean": "이리가스 - 테세우스 (Iriegas - Theseus)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "J.P. Winkle (Japan)",
+  "korean": "J.P. 윙클 (J.P. Winkle)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Jagur (Japan)",
+  "korean": "재규어 (Jagur)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "King Knight (Japan)",
+  "korean": "킹 나이트 (King Knight)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "King's Valley (Japan, Europe)",
+  "korean": "왕가의 계곡 (King's Valley)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "King's Valley II (Japan, Europe)",
+  "korean": "왕가의 계곡 2 (King's Valley II)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Kinnikuman - Muscle Man (Japan)",
+  "korean": "근육맨 (Kinnikuman - Muscle Man)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Knightmare - Majou Densetsu (Japan)",
+  "korean": "마성전설 (Knightmare - Majou Densetsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Knightmare II - The Maze of Galious (Japan)",
+  "korean": "마성전설 2 - 갈리우스의 미로 (Knightmare II - The Maze of Galious)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Knightmare III - Shalom (Japan)",
+  "korean": "마성전설 3 (Knightmare III - Shalom)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Konami's Tennis (Korea-patch J-K v20151112)",
+  "korean": "코나미 테니스 (Konami's Tennis)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Koneko no Daibouken - Catboy (Japan)",
+  "korean": "아기고양이의 대모험 - 캣보이 (Koneko no Daibouken - Catboy)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Legendly Knight (Korea)",
+  "korean": "대마성 - 레전드리 나이트 (Legendly Knight)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Lode Runner (Japan)",
+  "korean": "로드 러너 (Lode Runner)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Lode Runner II (Japan)",
+  "korean": "로드 러너 2 (Lode Runner II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Magical Kid Wiz (Japan)",
+  "korean": "마법사 위즈 (Magical Kid Wiz)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Magical Tree (Japan)",
+  "korean": "매지컬 트리 (Magical Tree)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Magnum Prohibition 1931 (Japan)",
+  "korean": "매그넘 - 금주법 1931 (Magnum Prohibition 1931)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Meikyuu Shinwa (Japan)",
+  "korean": "미궁신화 (Meikyuu Shinwa)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Moai no Hibou (Korea)",
+  "korean": "모아이의 비보 (Moai no Hibou)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Mobile-Suit Gundam - Last Shooting (Japan)",
+  "korean": "기동전사 건담 - 라스트 슈팅 (Mobile-Suit Gundam - Last Shooting)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Mugen Senshi Valis - The Fantasm Soldier (Japan)",
+  "korean": "몽환전사 바리스_ 더 판타지 솔져 (Mugen Senshi Valis - The Fantasm Soldier)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nemesis (Japan, Europe)",
+  "korean": "네메시스 1 (Nemesis)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nemesis 2 (Japan, Europe)",
+  "korean": "그라디우스 2 (Gradius 2)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nyorols (Japan)",
+  "korean": "뇨롤스 (Nyorols)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Parodius (Japan)",
+  "korean": "파로디우스 (Parodius)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Penguin Adventure (Japan, Europe)",
+  "korean": "펭귄 어드벤처 (Penguin Adventure)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Pippols (Japan)",
+  "korean": "핏폴스 (Pippols)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Pooyan (Japan)",
+  "korean": "푸얀 (Pooyan)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Psychic War - Cosmic Soldier 2 (Japan)",
+  "korean": "사이킥 워 - 코스믹 솔저 2 (Psychic War - Cosmic Soldier 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "R-Type (Japan)",
+  "korean": "알 타입 (R-Type)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Rambo (Japan)",
+  "korean": "람보 (Rambo)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Relics (Japan)",
+  "korean": "렐릭스 (Relics)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Rise Out from Dungeons (Japan)",
+  "korean": "라이즈 아웃 프롬 던전스 (Rise Out from Dungeons)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Salamander (Japan)",
+  "korean": "사라만다 (Salamander)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Stone of Wisdom, The (Japan)",
+  "korean": "더 스톤 오브 위즈덤 (Stone of Wisdom, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Bioman 4 (Korea) (Unl)",
+  "korean": "슈퍼 바이오맨 4 (Super Bioman 4)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Boy 3 (Korea) (Unl)",
+  "korean": "슈퍼 보이 3 (Super Boy 3)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Boy I (Korea) (Unl)",
+  "korean": "슈퍼 보이 1 (Super Boy I)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Boy II (Korea) (Unl)",
+  "korean": "슈퍼 보이 2 (Super Boy II)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Bubble Bobble (Korea) (Unl)",
+  "korean": "슈퍼 버블 보블 (Super Bubble Bobble)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Tank Battalion (Japan)",
+  "korean": "탱크 바탈리온 (Tank Battalion)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Tetris (Korea) (Unl)",
+  "korean": "FA 테트리스 (FA Tetris)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Thexder (Japan)",
+  "korean": "테그저 (Thexder)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Track & Field 1 (Europe)",
+  "korean": "트랙 앤 필드 1 (Track & Field 1)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Track & Field 2 (Europe)",
+  "korean": "트랙 앤 필드 2 (Track & Field 2)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Twin Bee (Japan)",
+  "korean": "트윈비 (Twin Bee)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ultraman (Japan)",
+  "korean": "울트라맨 (Ultraman)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Vaxol - Heavy Armed Storm Vehicle (Japan)",
+  "korean": "바솔 - 헤비 암드 스톰 비클 (Vaxol - Heavy Armed Storm Vehicle)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Warp & Warp (Japan)",
+  "korean": "워프 & 워프 (Warp & Warp)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Warroid (Japan)",
+  "korean": "워로이드 (Warroid)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Wonder Boy (Japan)",
+  "korean": "다카하시 명인의 모험도 (Takahasi Meijin no Boukenjima)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Yie Ar Kung-Fu (Japan)",
+  "korean": "이얼 쿵푸 (Yie Ar Kung-Fu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Yie Ar Kung-Fu II - The Emperor Yie-Gah (Japan)",
+  "korean": "이얼 쿵푸 2 (Yie Ar Kung-Fu II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Zanac (Japan) (v2)",
+  "korean": "자낙 (Zanac)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Action 52 (Korea-patch U-K v20100512 only.Cheetahmen)",
+  "korean": "액션 52 (Action 52)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Akumajou Densetsu (Korea-patch J-K v200170225 v1)",
+  "korean": "악마성 전설 (Akumajou Densetsu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Akumajou Special - Boku Dracula-kun (Korea-patch J-K v20221107 v1.1)",
+  "korean": "악마성 스페셜 - 나는 드라큘라 군 (Akumajou Special - Boku Dracula-kun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Baby Boomer (Korea) (Unl)",
+  "korean": "베이비 부머 (Baby Boomer)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Baseball (Korea-patch W-K v20220914 v1.0)",
+  "korean": "야구 - 83한국프로야구 (Baseball)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Battle Kid 2 - Mountain of Torment Arcade (Korea-patch Unl-K)",
+  "korean": "배틀 키드 2 (Battle Kid 2 - Mountain Of Torment)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Bikkuri Nekketsu Shin Kiroku! - Harukanaru Kin Medal (Korea-patch J-K v20170624)",
+  "korean": "깜짝 열혈신기록! - 아득한 금메달 (Bikkuri Nekketsu Shin Kiroku! - Harukanaru Kin Medal)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Bio Miracle Bokutte Upa (Korea-patch J-K v20190828 v0.1)",
+  "korean": "바이오 미라클 우파 (Bio Miracle Bokutte Upa)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Brilliant Com Cocoma Pack 1 (Korea) (Unl)",
+  "korean": "꼬꼬마 (Brilliant Com Cocoma Pack 1)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Brilliant Com Cocoma Pack 2 (Korea) (Unl)",
+  "korean": "영재컴 꼬꼬마 팩 2 (Yeongjaecom Cocoma Pack 2)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Cheetahmen II (Korea-patch U-K v20091006)",
+  "korean": "치타맨 2 (Cheetahmen II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Circus Charlie (Korea-patch J-K v20221030 v1.1)",
+  "korean": "서커스 찰리 (Circus Charlie)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Dooly Bravo Land (Korea) (Unl)",
+  "korean": "둘리 부라보 랜드 (Dooly Bravo Land)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Doraemon (Korea-patch J-K v20131202 v0.2)",
+  "korean": "도라에몽 (Doraemon)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Downtown - Nekketsu Koushinkyoku - Soreyuke Daiundoukai (Korea-patch J-K v20171231)",
+  "korean": "다운타운 열혈행진곡 - 자 가자! 대운동회 (Downtown - Nekketsu Koushinkyoku - Soreyuke Daiundoukai)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Dragon Ball - Shen Long no Nazo (Korea-patch J-K v20080614 v1.1)",
+  "korean": "드래곤볼 신룡의 수수께끼 (Dragon Ball - Shenlong no Nazo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Dragon Ball Z II - Gekishin Freeza!! (Korea-patch J-K v20070410)",
+  "korean": "드래곤볼 Z 2 격신 프리더!! (Dragon Ball Z II - Gekishin Freeza!!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Honoo no Toukyuuji - Dodge Danpei (Korea-patch J-K v20041103)",
+  "korean": "피구왕 통키 (Honoo No Toukyuuji - Dodge Danpei)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Ikari (Korea-patch J-K v20221028 v1.0)",
+  "korean": "이카리 (Ikari)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Kinnikuman - Muscle Tag Match (Korea-patch J-K v0.1)",
+  "korean": "근육맨 머슬 태그 매치 (Kinnikuman - Muscle Tag Match)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Korean Igo (Korea) (Unl)",
+  "korean": "장두진 바둑교실 (Korean Igo)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Koushien (Korea-patch J-K v20120226)",
+  "korean": "갑자원 (Koushien)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Magic Kid Googoo (Korea) (Unl)",
+  "korean": "도술동자 구구 (Magic Kid Googoo)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Mappy (Korea-patch J-K v20221028 v0.9)",
+  "korean": "마피 (Mappy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Metal Force (Korea) (Unl)",
+  "korean": "메탈 포스 (Metal Force)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Nekketsu Kouha Kunio-kun (Korea-patch J-K v20221013 v0.9)",
+  "korean": "열혈경파 쿠니오군 (Nekketsu Kouha Kunio-kun)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Skull & Crossbones (Korea) (Unl)",
+  "korean": "스컬 앤 크로스본즈 (Skull & Crossbones)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Sugoro Quest - Dice no Senshitachi (Korea-patch J-K v20171122)",
+  "korean": "주사위 놀이 모험 - 스고로 퀘스트 (Sugoro Quest - Dice No Senshi Tachi)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Teenage Mutant Ninja Turtles - Tournament Fighters (Korea-patch U-K v20221031 v0.9)",
+  "korean": "닌자거북이 - 토너먼트 파이터즈 (TMNT - Tournament Fighters)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "TwinBee 3 - Poko Poko Daimaou (Korea-patch J-K v20221122 v0.9)",
+  "korean": "트윈비 3 (TwinBee 3 - Poko Poko Daimaou)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Ultraman Club - Kaijuu Daikessen!! (Korea-patch J-K v20170515)",
+  "korean": "울트라맨 클럽 - 괴수 대결전 (Ultraman Club - Kaijuu Dai Kessen!!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Urusei Yatsura - Lum no Wedding Bell (Korea-patch J-K v20190829 v0.2)",
+  "korean": "시끌별 녀석들 - 라무의 웨딩벨 (Urusei Yatsura - Lum no Wedding Bell)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "nes",
+  "original_name": "Valkyrie no Bouken - Toki no Kagi Densetsu (Korea-patch J-K)",
+  "korean": "발키리의 모험 (Valkyrie no Bouken - Toki no Kagi Densetsu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "gb",
+  "original_name": "Yoshi no Tamago (Korea-patch J-K v20140608)",
+  "korean": "요시의 알 (Yoshi no Tamago)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "homebrew",
+  "original_name": "celeste",
+  "korean": "celeste",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "homebrew",
+  "original_name": "Music",
+  "korean": "Music",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "homebrew",
+  "original_name": "Super Mario World",
+  "korean": "Super Mario World",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "homebrew",
+  "original_name": "Zelda 3",
+  "korean": "Zelda 3",
+  "region": null,
+  "is_korean": false
+ },
+ {
+  "system": "msx",
+  "original_name": "Zombie Hunter (Japan)",
+  "korean": "좀비 헌터 (Zombie Hunter)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Zoids - Chuuou Tairiku no Tatakai (Japan)",
+  "korean": "조이드 중앙대륙의 싸움 (Zoids - Chuuou Tairiku no Tatakai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Zanac Ex (Japan)",
+  "korean": "자낙 Ex. 사운드 (Zanac Ex)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Yuurei-kun (Japan)",
+  "korean": "유령군 (Yuurei-kun)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Yamamura Misa Suspense - Kyoto Ryuu no Tera Satsujinjiken (Japan)",
+  "korean": "야마무라 미사 서스펜스 쿄토 용의사원 살인사건 (Yamamura Misa Suspense - Kyoto Ryuu no Tera Satsujinjiken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Yaksa (Japan)",
+  "korean": "야차 (Yaksa)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Xevious - Fardraut Saga (Japan)",
+  "korean": "제비우스_ 파드라우트 사가 (Xevious - Fardraut Saga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Woody Poco (Japan)",
+  "korean": "우디 포코 (Woody Poco)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Wizardry (Japan)",
+  "korean": "자스 (Zarth)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Victorious Nine II - Koukou Yakyuu Hen (Japan)",
+  "korean": "빅토리어스 나인 2_ 고교 야구편 (Victorious Nine II - Koukou Yakyuu Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Vampire Killer (Japan, Europe)",
+  "korean": "악마성 드라큘라 (Vampire Killer)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Urusei Yatsura - Koi no Survival Birthday (Korea-patch J-K v20180408)",
+  "korean": "시끌별 녀석들 - 사랑의 생일 서바이벌 (Urusei Yatsura - Koi no Survival Birthday)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ultima Exodus (Japan)",
+  "korean": "울티마 엑소더스 (Ultima Exodus)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Tsurikichi Sanpei - Tsuri Sennin Hen (Japan)",
+  "korean": "낚시광 산페이 낚시 선인편 (Tsurikichi Sanpei - Tsuri Sennin Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Tsurikichi Sanpei - Blue Marine Hen (Japan)",
+  "korean": "낚시광 산페이 블루 마린편 (Tsurikichi Sanpei - Blue Marine Hen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Treasure of Usas, The (Japan, Europe)",
+  "korean": "트레져 오브 우샤스 (Treasure of Usas, The)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Topple Zip (Japan)",
+  "korean": "토플 집 (Topple Zip)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Tengoku Yoitoko (Japan)",
+  "korean": "천국 좋은곳 (Tengoku Yoitoko)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Teitoku no Ketsudan (Japan)",
+  "korean": "제독의 결단 (Teitoku no Ketsudan)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Taiyou no Shinden - Asteka II (Japan)",
+  "korean": "태양의 신전 아스테카 2 (Taiyou no Shinden - Asteka II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Tritorn (Japan)",
+  "korean": "슈퍼 트라이톤 (Super Tritorn)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Runner (Japan)",
+  "korean": "슈퍼 러너 (Super Runner)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Rambo Special (Japan)",
+  "korean": "슈퍼 람보 스페셜 (Super Rambo Special)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Load Runner (Japan)",
+  "korean": "슈퍼 로드 러너 (Super Load Runner)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Game World 30 SCC Mapper (Hack)",
+  "korean": "슈퍼 게임 월드 30 (Super Game World 30 SCC Mapper)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Super Daisenryaku (Japan)",
+  "korean": "슈퍼 대전략 (Super Daisenryaku)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Suikoden - Tenmei no Chikai (Japan)",
+  "korean": "수호지 (Suikoden - Tenmei no Chikai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Strategic Mars (Japan)",
+  "korean": "스트래티직 마스 (Strategic Mars)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Star Virgin (Japan)",
+  "korean": "스타 버진 (Star Virgin)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Space Manbow (Japan)",
+  "korean": "스페이스 만보우 (Space Manbow)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Shiryou Sensen - War of the Dead (Japan)",
+  "korean": "사령전선 - 워 오브 더 데드 (Shiryou Sensen - War of the Dead)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Shanghai (Japan)",
+  "korean": "상하이 (Shanghai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Seikima II Special - Akuma no Gyakushuu (Japan)",
+  "korean": "세이키마 II 스페셜 - 악마의 역습 (Seikima II Special - Akuma no Gyakushuu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Scramble Formation (Japan)",
+  "korean": "스크램블 포메이션 (Scramble Formation)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Sangokushi II (Korea-patch J-K v20151106)",
+  "korean": "삼국지 2 (Sangokushi II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Sangokushi (Japan)",
+  "korean": "삼국지 (Sangokushi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Royal Blood (Japan)",
+  "korean": "로열 블러드 (Royal Blood)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Rick to Mick no Daibouken (Japan)",
+  "korean": "릭과 믹의 대모험 (Rick to Mick no Daibouken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Return of Jelda (Japan)",
+  "korean": "리턴 오브 젤다 (Return of Jelda)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Return of Ishtar, The (Japan)",
+  "korean": "이슈타의 부활 (Return of Ishtar, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Replicart (Japan)",
+  "korean": "레플리카트 (Replicart)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Rastan Saga (Japan)",
+  "korean": "라스탄 사가 (Rastan Saga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Quinpl (Japan)",
+  "korean": "퀸플 (Quinpl)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Quarth (Korea)",
+  "korean": "쿼스 (Quarth)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Project A2 - Shijousaidai no Hyouteki (Japan)",
+  "korean": "프로젝트 A2 - 사상 최대의 표적 (Project A2 - Shijousaidai no Hyouteki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Pro Yakyuu Fan - Telenet Stadium (Japan)",
+  "korean": "프로야구 팬 - 텔레넷 스타디움 (Pro Yakyuu Fan - Telenet Stadium)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Pro Yakyuu Family Stadium - Pennant Race (Japan)",
+  "korean": "프로야구 패미스타 - 페넌트 레이스 (Pro Yakyuu Family Stadium - Pennant Race)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Predator (Japan)",
+  "korean": "프레데터 (Predator)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Penguin-kun Wars 2 (Japan)",
+  "korean": "펭귄군 워즈 2 (Penguin-kun Wars 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Pac-Mania (Japan)",
+  "korean": "팩매니아 (Pac-Mania)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Out Run (Japan)",
+  "korean": "아웃런 (Out Run)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ouke no Tani - El Giza no Fuuin (Japan)",
+  "korean": "왕가의 계곡 - 엘기자의 봉인 (Ouke no Tani - El Giza no Fuuin)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ouke no Tani - El Giza no Fuuin - Edit Contest Yuushuu Sakuhinshuu (Japan)",
+  "korean": "왕가의 계곡 - 엘기자의 봉인 - 에디트 콘테스트 우수작품집 (Ouke no Tani - El Giza no Fuuin - Edit Contest Yuushuu Sakuhinshuu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ogre (Japan)",
+  "korean": "오우거 (Ogre)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nobunaga no Yabou - Zenkoku Ban (Japan)",
+  "korean": "노부나가의 야망 - 전국판 (Nobunaga no Yabou - Zenkoku Ban)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nobunaga no Yabou - Sengoku Gunyuuden (Japan)",
+  "korean": "노부나가의 야망 - 전국군웅전 (Nobunaga no Yabou - Sengoku Gunyuuden)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nobunaga no Yabou - Bushou Fuuun Roku (Japan)",
+  "korean": "노부나가의 야망 - 무장풍운록 (Nobunaga no Yabou - Bushou Fuuun Roku)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ninja-kun - Asura no Shou (Japan)",
+  "korean": "닌자군 - 아수라의 장 (Ninja-kun - Asura no Shou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Nekketsu Juudou (Japan)",
+  "korean": "열혈 유도 (Nekketsu Juudou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Monmon Kaibutsu (Japan)",
+  "korean": "몬몬 괴물 (Monmon Kaibutsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Moero!! Nettou Yakyuu '88 (Japan)",
+  "korean": "불타라!! 열투 야구 '88 (Moero!! Nettou Yakyuu '88)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Mississippi Satsujinjiken (Japan)",
+  "korean": "미시시피 살인사건 (Mississippi Satsujinjiken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Mirai (Japan)",
+  "korean": "미라이 (Mirai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Metal Gear 2 - Solid Snake (Korea-patch J-K v20160908 v2.0)",
+  "korean": "메탈기어 2 - 솔리드 스네이크 (Metal Gear 2 - Solid Snake)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Metal Gear (Korea-patch J-K v20240409 v1.1)",
+  "korean": "메탈기어 1 (Metal Gear)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Malaya no Hibou (Japan)",
+  "korean": "말라야의 비보 (Malaya no Hibou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Maison Ikkoku - Omoide no Photograph (Japan)",
+  "korean": "메종일각 - 추억의 포토그래프 (Maison Ikkoku - Omoide no Photograph)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Maison Ikkoku - Kanketsu Hen - Sayonara, Soshite... (Japan)",
+  "korean": "메종일각 - 완결편 (Maison Ikkoku - Kanketsu Hen - Sayonara, Soshite...)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Mad Rider (Japan)",
+  "korean": "매드 라이더 (Mad Rider)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Lupin Sansei - Cagliostro no Shiro (Japan)",
+  "korean": "루팡 3세 - 칼리오스트로의 성 (Lupin Sansei - Cagliostro no Shiro)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Lupin Sansei - Babylon no Ougon Densetsu (Japan)",
+  "korean": "루팡 3세 - 바빌론의 황금전설 (Lupin Sansei - Babylon no Ougon Densetsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Labyrinth (Japan)",
+  "korean": "래버린스 (Labyrinth)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Koronis Rift (Europe)",
+  "korean": "코로니스 리프트 (Koronis Rift)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "King Kong 2 - Yomigaeru Densetsu (Japan)",
+  "korean": "킹콩 2 - 되살아나는 전설 (King Kong 2 - Yomigaeru Densetsu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Kiki Kaikai (Japan)",
+  "korean": "기기괴계 (KiKi KaiKai)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Kempelen Chess (Japan)",
+  "korean": "켐펠렌 체스 (Kempelen Chess)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ishin no Arashi (Japan)",
+  "korean": "유신의 폭풍 (Ishin no Arashi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Inindou - Datou Nobunaga (Japan)",
+  "korean": "인의도 - 타도 노부나가 (Inindou - Datou Nobunaga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ikari (Japan)",
+  "korean": "이카리 (Ikari)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hinotori - Houou Hen (Korea-patch J-K v20170317)",
+  "korean": "불새 - 봉황편 (Hi no Tori - Hououhen)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "High School! Kimengumi (Japan)",
+  "korean": "하이스쿨! 기면조 (High School! Kimengumi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Higemaru Makai Shima - Nanatsu no Shima Daibouken (Japan)",
+  "korean": "히게마루 마계도 - 일곱 섬의 대모험 (Higemaru Makai Shima - Nanatsu no Shima Daibouken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Heroes of the Lance (Japan)",
+  "korean": "히어로즈 오브 더 랜스 (Heroes of the Lance)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hard Ball (Japan)",
+  "korean": "하드 볼 (Hard Ball)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Han Seimei Senki Andorogynus (Japan)",
+  "korean": "반생명전기 안드로지누스 (Han Seimei Senki Andorogynus)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Hacker (Japan)",
+  "korean": "해커 (Hacker)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Girly Block (Japan)",
+  "korean": "걸리 블록 (Girly Block)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gekitotsu Pennant Race 2 (Japan)",
+  "korean": "격돌 페넌트 레이스 2 (Gekitotsu Pennant Race 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gekitotsu Pennant Race - Pro Yakyuu, The (Japan)",
+  "korean": "격돌 페넌트 레이스 - 프로야구 (Gekitotsu Pennant Race - Pro Yakyuu, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Garyuu Ou (Japan)",
+  "korean": "가류왕 (Garyuu Ou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Ganbare Goemon! - Karakuri Douchuu (Japan)",
+  "korean": "간바레 고에몬! - 꼭두각시 도중 (Ganbare Goemon! - Karakuri Douchuu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Gakuen Monogatari - High School Story (Japan)",
+  "korean": "학원 이야기 - 하이스쿨 스토리 (Gakuen Monogatari - High School Story)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Fleet Commander II - Koukon no Kaiiki (Japan)",
+  "korean": "플리트 코맨더 II - 황혼의 해역 (Fleet Commander II - Koukon no Kaiiki)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Fire Ball (Japan)",
+  "korean": "파이어 볼 (Fire Ball)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Final Mystery Murder Club - Satsujin Club (Japan)",
+  "korean": "살인구락부 - 살인클럽 (Final Mystery Murder Club - Satsujin Club)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Fantasy Zone II - The Tears of Opa-Opa (Japan)",
+  "korean": "판타지 존 2 - 오파오파의 눈물 (Fantasy Zone II - The Tears of Opa-Opa)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Family Boxing - MSX Title Match (Japan)",
+  "korean": "패밀리 복싱 - MSX 타이틀 매치 (Family Boxing - MSX Title Match)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Family Billiards (Japan)",
+  "korean": "패밀리 빌리어드 (Family Billiards)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Famicle Parodic (Japan)",
+  "korean": "파미클 파로딕 (Famicle Parodic)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "F-15 Strike Eagle (Japan)",
+  "korean": "F-15 스트라이크 이글 (F-15 Strike Eagle)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Europe Sensen (Japan)",
+  "korean": "유럽 전선 (Europe Sensen)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Empereur, L' (Japan)",
+  "korean": "랑페르 (Empereur, L')",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Elthlead (Japan)",
+  "korean": "엘스리드 (Elthlead)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Eidolon, The (Europe)",
+  "korean": "디 에이돌론 (Eidolon, The)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dynamite Bowl (Japan)",
+  "korean": "다이너마이트 볼 (Dynamite Bowl)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Druid (Japan)",
+  "korean": "드루이드 (Druid)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Slayer Jr. - Romancia (Japan)",
+  "korean": "드래곤 슬레이어 주니어 - 로맨시아 (Dragon Slayer Jr. - Romancia)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Quest II (Japan)",
+  "korean": "드래곤 퀘스트 2 (Dragon Quest II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Quest (Japan)",
+  "korean": "드래곤 퀘스트 (Dragon Quest)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dragon Buster (Japan)",
+  "korean": "드래곤 버스터 (Dragon Buster)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Double Vision (Japan)",
+  "korean": "더블 비전 (Double Vision)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Dires - Giger Loop (Japan)",
+  "korean": "디레스 - 가이거 루프 (Dires - Giger Loop)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Deep Forest (Japan)",
+  "korean": "딥 포레스트 (Deep Forest)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Darwin 4078 (Japan)",
+  "korean": "다윈 4078 (Darwin 4078)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Daisenryaku MSX2 (Japan)",
+  "korean": "대전략 MSX2 (Daisenryaku MSX2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Daikoukai Jidai (Korea-patch J-K v20151104)",
+  "korean": "대항해시대 (Daikoukai Jidai)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Crimson (Japan)",
+  "korean": "크림슨 (Crimson)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Contra (Japan)",
+  "korean": "혼두라 (Contra)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Cockpit, The (Japan)",
+  "korean": "더 콕핏 (Cockpit, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Bubble Bobble (Japan)",
+  "korean": "버블 보블 (Bubble Bobble)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "AshGuine Story III - Fukushuu no Honoo (Japan)",
+  "korean": "애쉬가인 스토리 III - 복수의 불꽃 (AshGuine Story III - Fukushuu no Honoo)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "AshGuine Story II - Kokuu no Gajou (Japan)",
+  "korean": "아쉬기네 2 - 허공의 아성 (AshGuine Story II - Kokuu no Gajou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "AshGuine - Densetsu no Seisenshi (Japan)",
+  "korean": "애쉬가인 - 전설의 성전사 (AshGuine - Densetsu no Seisenshi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Arkanoid II - Revenge of Doh (Japan)",
+  "korean": "알카노이드 2 (Arkanoid 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Arctic - Active Rail Playing (Japan)",
+  "korean": "아크틱 (Arctic - Active Rail Playing)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Aoki Ookami to Shiroki Mejika - Genghis Khan (Japan)",
+  "korean": "푸른 늑대와 흰 사슴 - 칭기즈칸 (Aoki Ookami to Shiroki Mejika - Genghis Khan)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Aoki Ookami to Shiroki Mejika - Genchou Hishi (Japan)",
+  "korean": "푸른 늑대와 흰 사슴 - 원조비사 (Aoki Ookami to Shiroki Mejika - Genchou Hishi)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "American Soccer (Japan)",
+  "korean": "아메리칸 사커 (American Soccer)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Alges no Yoku (Japan)",
+  "korean": "알게스의 날개 (Alges no Yoku)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "Aleste (Japan)",
+  "korean": "알레스트 (Aleste)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "AcroJet (Japan)",
+  "korean": "아크로젯 (AcroJet)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "A Ressha de Ikou MSX (Japan)",
+  "korean": "A열차로 가자 MSX (A Ressha de Ikou MSX)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "msx",
+  "original_name": "1942 (Japan)",
+  "korean": "1942",
+  "region": "Japan",
+  "is_korean": false
+ },
+ {
+  "system": "msx",
+  "original_name": "Zukkoke Yajikita Onmitsu Douchuu (Japan)",
+  "korean": "즛코케 야지키타 온밀도중 (Zukkoke Yajikita Onmitsu Douchuu)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini - Chansey's Dribble (Europe) (GameCube)",
+  "korean": "포켓몬 파티 미니 - 럭키의 드리블 (Pokemon Party Mini - Chansey's Dribble)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini - Ricochet Dribble (USA) (GameCube)",
+  "korean": "포켓몬 파티 미니 - 리코셰 드리블 (Pokemon Party Mini - Ricochet Dribble)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini - Rocket Start (USA) (GameCube)",
+  "korean": "포켓몬 파티 미니 - 로켓 스타트 (Pokemon Party Mini - Rocket Start)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini - Slowking's Judge (Europe) (GameCube)",
+  "korean": "포켓몬 파티 미니 - 야도킹의 심판 (Pokemon Party Mini - Slowking's Judge)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini (USA)",
+  "korean": "포켓몬 파티 미니 (Pokemon Party Mini)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Pinball Mini (USA, Europe)",
+  "korean": "포켓몬 핀볼 미니 (Pokemon Pinball Mini)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Puzzle Collection (USA, Europe)",
+  "korean": "포켓몬 퍼즐 컬렉션 (Pokemon Puzzle Collection)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Puzzle Collection Vol. 2 (Japan)",
+  "korean": "포켓몬 퍼즐 컬렉션 Vol. 2 (Pokemon Puzzle Collection Vol. 2)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Race Mini (Japan)",
+  "korean": "포켓몬 레이스 미니 (Pokemon Race Mini)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Sodateyasan Mini (Japan)",
+  "korean": "포켓몬 사육사 미니 (Pokemon Sodateyasan Mini)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Tetris (Europe) (En,Ja,Fr)",
+  "korean": "포켓몬 테트리스 (Pokemon Tetris)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Zany Cards (USA, Europe)",
+  "korean": "포켓몬 재니 카드 (Pokemon Zany Cards)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Togepi no Daibouken (Japan)",
+  "korean": "토게피의 대모험 (Togepi no Daibouken)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Lunch Time (USA) (GameCube)",
+  "korean": "런치 타임 (Lunch Time)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pichu Bros. Mini (Japan)",
+  "korean": "피츄 형제 미니 (Pichu Bros. Mini)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "mini",
+  "original_name": "Pokemon Party Mini - Baseline Judge (USA) (GameCube)",
+  "korean": "포켓몬 파티 미니 - 베이스라인 저지 (Pokemon Party Mini - Baseline Judge)",
+  "region": "USA",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Soukoban (Japan)",
+  "korean": "소코반 (Soukoban)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Space Armor (Japan) (v2.0) (Newer) (Othello Multivision)",
+  "korean": "스페이스 아머 (Space Armor)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Space Invaders (Japan)",
+  "korean": "스페이스 인베이더 (Space Invaders)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Space Mountain (Japan) (Othello Multivision)",
+  "korean": "스페이스 마운틴 (Space Mountain)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Space Slalom (Japan)",
+  "korean": "스페이스 슬라럼 (Space Slalom)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Star Force (Japan)",
+  "korean": "스타 포스 (Star Force)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Star Jacker (Japan, Europe) (Rev 2)",
+  "korean": "스타 잭커 (Star Jacker)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Star Soldier (Taiwan)",
+  "korean": "스타 솔져 (Star Soldier)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Super Tank (Japan)",
+  "korean": "슈퍼 탱크 (Super Tank)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Tank Battalion (Taiwan)",
+  "korean": "탱크 바탈리온 (Tank Battalion)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "TwinBee (Taiwan)",
+  "korean": "트윈비 (TwinBee)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Wonder Boy (Japan) (Rev 1)",
+  "korean": "원더보이 (Wonder Boy)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Yamato (Japan, Europe)",
+  "korean": "야마토 (Yamato)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Yie Ar Kung-Fu II (Taiwan)",
+  "korean": "이얼 쿵푸 2 (Yie Ar Kung-Fu II)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Zaxxon (Japan)",
+  "korean": "잭슨 (Zaxxon)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Zippy Race (Japan)",
+  "korean": "지피 레이스 (Zippy Race)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Zoom 909 (Japan)",
+  "korean": "줌 909 (Zoom 909)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "007 James Bond (Japan) (v2.7) (Othello Multivision)",
+  "korean": "007 제임스 본드 (007 James Bond)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Bank Panic (Japan)",
+  "korean": "은행강도 (Bank Panic)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Black Onyx, The (Japan)",
+  "korean": "블랙 오닉스 (Black Onyx, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Bomb Jack (Japan)",
+  "korean": "봄잭 (Bomb Jack)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Bomberman Special (Taiwan)",
+  "korean": "봄버맨 스페샬 (Bomberman Special)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Borderline (Japan, Europe)",
+  "korean": "보더라인 (Borderline)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "C_So! (Japan)",
+  "korean": "씨소! (C_So!)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Castle, The (Japan)",
+  "korean": "캐슬 (Castle, The)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Chack'n Pop (Japan)",
+  "korean": "채큰 팝 (Chack'n Pop)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Baseball (Japan) (40kB)",
+  "korean": "챔피언 베이스볼 (Champion Baseball)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Billiards (Japan)",
+  "korean": "챔피언 빌리야드 (Champion Billiards)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Boxing (Japan)",
+  "korean": "챔피언 복싱 (Champion Boxing)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Golf (Japan)",
+  "korean": "챔피언 골프 (Champion Golf)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Ice Hockey (Japan)",
+  "korean": "챔피언 아이스 하키 (Champion Ice Hockey)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Kendou (Japan)",
+  "korean": "챔피언 검도 (Champion Kendou)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Pro Wrestling (Japan)",
+  "korean": "챔피언 프로 레슬링 (Champion Pro Wrestling)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Soccer (Japan)",
+  "korean": "챔피언 사커 (Champion Soccer)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Champion Tennis (Japan)",
+  "korean": "챔피언 테니스 (Champion Tennis)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Championship Lode Runner (Japan)",
+  "korean": "챔피언쉽 로드 런너 (로드 런너 2) (Championship Lode Runner)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Choplifter (Japan)",
+  "korean": "쵸플리터 (Choplifter)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Congo Bongo (Japan, Europe) (Rev 1)",
+  "korean": "콩고 봉고 (Congo Bongo)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Dokidoki Penguin Land (Japan)",
+  "korean": "두근두근 펭귄 랜드 (Dokidoki Penguin Land)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Dragon Wang (Japan)",
+  "korean": "드레곤 왕 (Dragon Wang)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Drol (Japan)",
+  "korean": "드롤 (Drol)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Elevator Action (Japan)",
+  "korean": "엘리베이터 액션 (Elevator Action)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Exerion (Japan, Europe)",
+  "korean": "엑스리온 (Exerion)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Flicky (Japan) (Rev 1)",
+  "korean": "프릭키 (Flicky)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Girl's Garden (Japan)",
+  "korean": "걸스 가든 (Girl's Garden)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Golgo 13 (Japan)",
+  "korean": "골고 13 (Golgo 13)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "GP World (Japan) (Rev 1)",
+  "korean": "GP 월드 (GP World)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Gulkave (Japan)",
+  "korean": "걸케이브 (Gulkave)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Guzzler (Japan) (Othello Multivision)",
+  "korean": "거즐러 (Guzzler)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "H.E.R.O. (Japan)",
+  "korean": "히어로 (H.E.R.O.)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Hang-On II (Japan)",
+  "korean": "행온 2 (Hang-On II)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Hustle Chumy (Japan)",
+  "korean": "허슬 츄미 (Hustle Chumy)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Hyper Sports (Japan)",
+  "korean": "하이퍼 스포츠 (Hyper Sports)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "King's Valley (Taiwan)",
+  "korean": "왕가의 계곡 (King's Valley)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Knightmare (Taiwan)",
+  "korean": "마성전설 (Knightmare)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Legend of Kage, The (Taiwan)",
+  "korean": "영의 전설 (Legend of Kage, The)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Lode Runner (Japan, Europe)",
+  "korean": "로드 런너 (Lode Runner)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Magical Kid Wiz (Taiwan)",
+  "korean": "마법사 위즈 (Magical Kid Wiz)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Monaco GP (Japan) (Rev 2)",
+  "korean": "모나코 GP (Monaco GP)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Ninja Princess (Japan)",
+  "korean": "닌자 프린세스 (Ninja Princess)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "N-Sub (Europe)",
+  "korean": "N-서브 (N-Sub)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Okamoto Ayako no Match Play Golf (Japan) (Rev 1) (Othello Multivision)",
+  "korean": "오카모토 아야코의 매치 플레이 골프 (Okamoto Ayako no Match Play Golf)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Orguss (Japan, Europe)",
+  "korean": "오거스 (Orguss)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Othello (Japan)",
+  "korean": "오델로 (Othello)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Pacar (Japan, Europe)",
+  "korean": "파카 (Pacar)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Pippols (Taiwan)",
+  "korean": "핏폴스 (Pippols)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Pitfall II - The Lost Caverns (Japan) (Rev 1)",
+  "korean": "핏폴 2 (Pitfall II - The Lost Caverns)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Pop Flamer (Japan, Europe)",
+  "korean": "팝 플레이머 (Pop Flamer)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Q-bert (Japan) (Othello Multivision)",
+  "korean": "큐 버트 (Q-bert)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Rally-X (Taiwan)",
+  "korean": "랠리 엑스 (Rally-X)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Road Fighter (Taiwan)",
+  "korean": "로드 파이터 (Road Fighter)",
+  "region": "Taiwan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Rock n' Bolt (Japan)",
+  "korean": "락앤 볼트 (Rock n' Bolt)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Safari Hunting (Japan)",
+  "korean": "사파리 헌팅 (Safari Hunting)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Safari Race (Europe)",
+  "korean": "사파리 레이스 (Safari Race)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Sega Flipper (Japan, Europe)",
+  "korean": "세가 플리퍼 (Sega Flipper)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Sega-Galaga (Japan) (40kB)",
+  "korean": "세가 갤러그 (Sega-Galaga)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Shinnyushain Tooru Kun (Japan)",
+  "korean": "신입사원 토루-군 (Shinnyushain Tooru Kun)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sg",
+  "original_name": "Sindbad Mystery (Japan, Europe)",
+  "korean": "신밧드 미스터리 (Sindbad Mystery)",
+  "region": "Japan, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "After Burner (World)",
+  "korean": "애프터 버너 (After Burner)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Agigongnyong Dooly (Korea) (Unl)",
+  "korean": "아기공룡 둘리 (Agigongnyong Dooly)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Alex Kidd - High-Tech World (USA, Europe, Brazil)",
+  "korean": "안미츠 히메 (Alex Kidd - High-Tech World)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Alex Kidd in Miracle World (USA, Europe, Brazil) (Rev 1)",
+  "korean": "알렉스 키드 인 미라클 월드 (Alex Kidd in Miracle World)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Alibaba and 40 Thieves (Korea) (Unl)",
+  "korean": "알리바바와 40인의 도적 (Alibaba and 40 Thieves)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Astro Warrior (Japan, USA, Brazil)",
+  "korean": "아스트로 워리어 (Astro Warrior)",
+  "region": "Japan, USA, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Bobble Bobble (Korea)",
+  "korean": "보블 보블 (Bobble Bobble)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "C_So! (Korea) (Unl)",
+  "korean": "씨소! (C_So!)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "California Games (USA, Europe, Brazil)",
+  "korean": "캘리포니아 게임스 (California Games)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Comical Machine Gun Joe (Japan)",
+  "korean": "코미컬 머신건 조 (Comical Machine Gun Joe)",
+  "region": "Japan",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Cyborg Z (Korea)",
+  "korean": "사이보그 Z (Cyborg Z)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Dallyeora Pigu-Wang (Korea) (Unl)",
+  "korean": "달려라 피구왕 (Dallyeora Pigu-Wang)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Double Dragon (World)",
+  "korean": "더블 드래곤 (Double Dragon)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Dr. HELLO (Korea) (Unl)",
+  "korean": "닥터 헬로 (Dr. HELLO)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "E.I. - Exa Innova (Korea)",
+  "korean": "E.I. - 엑사 이노바 (E.I. - Exa Innova)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Eagles 5 (Korea)",
+  "korean": "이글스 5 (Eagles 5)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "F-1 Spirit - The Way to Formula-1 (Korea) (Unl)",
+  "korean": "F-1 스피릿 - 포뮬러-1으로 가는 길 (F-1 Spirit - The Way to Formula-1)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "FA Tetris (Korea) (Unl)",
+  "korean": "FA 테트리스 (FA Tetris)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Fantasy Zone (World)",
+  "korean": "판타지 존 (Fantasy Zone)",
+  "region": "World",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Fantasy Zone II (USA, Europe, Brazil)",
+  "korean": "판타지 존 2_ 오파 오파의 눈물 (Fantasy Zone II)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Flashpoint (Korea) (Unl)",
+  "korean": "플래시포인트 (Flashpoint)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Gaegujangi Ggachi (Korea) (Unl)",
+  "korean": "개구장이 까치 (Gaegujangi Ggachi)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Galaxian (Korea) (Unl)",
+  "korean": "갤럭시안 (Galaxian)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Game Mo-eumjip 188 Hap (Korea)",
+  "korean": "게임 모음집 188합",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Gangcheol RoboCop (Korea) (Unl)",
+  "korean": "강철 로보캅 (Gangcheol RoboCop)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Ghost House (Korea) (Unl)",
+  "korean": "유령의 집 (Ghost House)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Great Golf (Korea)",
+  "korean": "그레이트 골프 (Great Golf)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Gun.Smoke (Korea) (Unl)",
+  "korean": "건스모크 (Gun.Smoke)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Hong Kil Dong (Korea)",
+  "korean": "홍길동 (Hong Kil Dong)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Hwarang-ui Geom (Korea)",
+  "korean": "화랑의 검 (Hwarang-ui Geom)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Jang Pung 3 (Korea) (Unl)",
+  "korean": "장풍 3 (Jang Pung 3)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Jang Pung II (Korea) (Unl)",
+  "korean": "장풍 2 (Jang Pung II)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Janggun-ui Adeul (Korea) (Unl)",
+  "korean": "장군의 아들 (Janggun-ui Adeul)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "King & Balloon (Korea) (Unl)",
+  "korean": "킹 & 벌룬 (King & Balloon)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Knightmare II - The Maze of Galious (Korea)",
+  "korean": "마성전설 2 - 갈리우스의 미로 (Knightmare II - The Maze of Galious)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Kung Fu Kid (USA, Europe, Brazil)",
+  "korean": "쿵후 키드 (Kung Fu Kid)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Micro Xevious, The (Korea) (Unl)",
+  "korean": "마이크로 제비우스 (Micro Xevious, The)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Mopiranger (Korea) (Unl)",
+  "korean": "모피레인저 (Mopiranger)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "My Hero (USA, Europe, Brazil)",
+  "korean": "똘이의 모험 (My Hero)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Nemesis (Korea)",
+  "korean": "네메시스 1 (Nemesis)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Nemesis 2 (Korea)",
+  "korean": "네메시스 2 (Nemesis 2)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "New Boggle Boggle 2 (Korea) (Unl)",
+  "korean": "뉴 보글보글 2 (New Boggle Boggle 2)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Penguin Adventure (Korea) (Unl) (Pirate)",
+  "korean": "펭귄 어드벤처 (Penguin Adventure)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Phantasy Star (Korea)",
+  "korean": "판타지 스타 (삼성전자 - Phantasy Star)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Pooyan (Korea)",
+  "korean": "푸얀 (Pooyan)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Power Boggle Boggle (Korea) (Unl)",
+  "korean": "파워 보글보글 (Power Boggle Boggle)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Power Strike (USA, Europe, Brazil)",
+  "korean": "파워 스트라이크 (Power Strike)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Ppang Gongjang (Korea) (Unl)",
+  "korean": "빵 공장 (Ppang Gongjang)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Puznic (Korea) (Unl)",
+  "korean": "퍼즈닉 (Puznic)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Quartet (USA, Europe)",
+  "korean": "쿼르텟 (Quartet)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Road Fighter (Korea) (Unl)",
+  "korean": "로드 파이터 (Road Fighter)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sagak-ui Bimil (Korea) (Unl)",
+  "korean": "사각의 비밀",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Samgukji 3 (Korea) (Unl)",
+  "korean": "삼국지 3 - 천하쟁패 (Samgukji 3)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Shinobi (USA, Europe, Brazil) (Rev 1)",
+  "korean": "시노비 (Shinobi)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sky Fighter (Korea) (Unl)",
+  "korean": "스카이 파이터 (Sky Fighter)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sky Jaguar (Korea)",
+  "korean": "스카이 재규어 (Sky Jaguar)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sonic Blast (Brazil)",
+  "korean": "소닉 블라스트 (Sonic Blast)",
+  "region": "Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sonic Chaos (Europe, Brazil)",
+  "korean": "소닉 카오스 (Sonic Chaos)",
+  "region": "Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sonic Spinball (Europe, Brazil)",
+  "korean": "소닉 더 헤지혹 (Sonic Spinball)",
+  "region": "Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sonic The Hedgehog (USA, Europe, Brazil)",
+  "korean": "소닉 스핀볼 (Sonic the Hedgehog)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Sonic The Hedgehog 2 (Europe, Brazil) (Rev 1)",
+  "korean": "소닉 더 헤지혹 2 (Sonic the Hedgehog 2)",
+  "region": "Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Space Harrier (Europe)",
+  "korean": "스페이스 해리어 (Space Harrier)",
+  "region": "Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Street Master (Korea) (Unl)",
+  "korean": "스트리트 마스터 (Street Master)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Streets of Rage (Europe, Brazil)",
+  "korean": "스트리트 오브 레이지 (Streets of Rage)",
+  "region": "Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Streets of Rage II (Europe, Brazil)",
+  "korean": "스트리트 오브 레이지 2 (Streets of Rage II)",
+  "region": "Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Suho Jeonsa (Korea) (Unl)",
+  "korean": "수호전사 (Suho Jeonsa)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Arkanoid (Korea) (Unl)",
+  "korean": "슈퍼 알카노이드 (Super Arkanoid)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Bioman I (Korea) (Unl)",
+  "korean": "슈퍼 바이오맨 1 (Super Bioman I)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Boy 4 (Korea) (Unl)",
+  "korean": "슈퍼 보이 4 (Super Boy 4)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Boy I (Korea) (Unl)",
+  "korean": "슈퍼 보이 1 (Super Boy I)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Boy II (Korea) (Unl)",
+  "korean": "슈퍼 보이 2 (Super Boy II)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Boy III (Korea) (Unl)",
+  "korean": "슈퍼 보이 3 (Super Boy III)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Bubble Bobble (Korea) (Unl)",
+  "korean": "슈퍼 버블 보블 (Super Bubble Bobble)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Columns & Tetris (Korea) (Unl)",
+  "korean": "슈퍼 컬럼스 & 테트리스 (Super Columns & Tetris)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Super Tetris (Korea) (Unl)",
+  "korean": "슈퍼 테트리스 (Super Tetris)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Three Dragon Story, The (Korea) (Unl)",
+  "korean": "용의 전설 (Three Dragon Story, The)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Thunder Blade (USA, Europe, Brazil)",
+  "korean": "썬더 블레이드 (Thunder Blade)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Toto World 3 (Korea) (Unl)",
+  "korean": "토토 월드 3 (Toto World 3)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "TransBot (USA, Europe, Brazil)",
+  "korean": "트랜스봇 (TransBot)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Ttoriui Moheom (Korea)",
+  "korean": "또리의 모험 (Ttoriui Moheom)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Wonder Boy (USA, Europe, Brazil) (Rev 1)",
+  "korean": "원더보이 (Wonder Boy)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Wonder Boy in Monster Land (USA, Europe)",
+  "korean": "원더보이 인 몬스터 랜드 (Wonder Boy in Monster Land)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Wonsiin (Korea) (Unl)",
+  "korean": "원시인 (Wonsiin)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Xyzolog (Korea)",
+  "korean": "자이조로고 (Xyzolog)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "3 in 1 - The Best Game Collection (F) (Korea) (Unl)",
+  "korean": "3 in 1 베스트 게임 컬렉션",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "8 in 1 - The Best Game Collection (C) (Korea) (Unl)",
+  "korean": "8 in 1 베스트 게임 컬렉션",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "94 Super World Cup Soccer (Korea)",
+  "korean": "94 슈퍼 월드컵 축구 (94 Super World Cup Soccer)",
+  "region": "Korea",
+  "is_korean": true
+ },
+ {
+  "system": "sms",
+  "original_name": "Action Fighter (USA, Europe, Brazil) (Rev 1)",
+  "korean": "액션 파이터 (Action Fighter)",
+  "region": "USA, Europe, Brazil",
+  "is_korean": true
+ },
+ {
+  "system": "tama",
+  "original_name": "다마고치 (Tamagotchi P1)",
+  "korean": "다마고치 (Tamagotchi P1)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Popo Team (USA, Europe)",
+  "korean": "포포 팀 (Popo Team)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Pyramid (USA, Europe)",
+  "korean": "피라미드 (Pyramid)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Recycle Design (USA, Europe)",
+  "korean": "리사이클 디자인 (Recycle Design)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Scaffolder (USA, Europe)",
+  "korean": "스캐폴더 (Scaffolder)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Soccer Champion (USA, Europe)",
+  "korean": "사커 챔피언 (Soccer Champion)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Space Fighter (USA, Europe)",
+  "korean": "스페이스 파이터 (Space Fighter)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "SSSnake (USA, Europe)",
+  "korean": "스스스네이크 (SSSnake)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Super Block (USA, Europe)",
+  "korean": "슈퍼 블록 (Super Block)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Super Kong (USA, Europe)",
+  "korean": "슈퍼 콩 (Super Kong)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Super Pang (USA, Europe)",
+  "korean": "슈퍼 팡 (Super Pang)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Tasac 2010 (USA, Europe)",
+  "korean": "타삭 2010 (Tasac 2010)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Tennis Pro '92 (USA, Europe)",
+  "korean": "테니스 프로 '92 (Tennis Pro '92)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Thunder Shooting (USA, Europe)",
+  "korean": "썬더 슈팅 (Thunder Shooting)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Treasure Hunter (USA, Europe)",
+  "korean": "트레저 헌터 (Treasure Hunter)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Untouchable (USA, Europe)",
+  "korean": "언터처블 (Untouchable)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Witty Cat (USA, Europe)",
+  "korean": "위티 캣 (Witty Cat)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "2 in 1 - Block Buster + Cross High (USA, Europe)",
+  "korean": "2 in 1 - 블록 버스터 + 크로스 하이 (2 in 1 - Block Buster + Cross High)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "2 in 1 - Hash Blocks + Eagle Plan (USA, Europe)",
+  "korean": "2 in 1 - 해시 블록스 + 이글 플랜 (2 in 1 - Hash Blocks + Eagle Plan)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Alien (USA, Europe)",
+  "korean": "에일리언 (Alien)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Balloon Fight (USA, Europe)",
+  "korean": "벌룬 파이트 (Balloon Fight)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Block Buster (USA, Europe)",
+  "korean": "블록 버스터 (Block Buster)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Brain Power (USA, Europe)",
+  "korean": "브레인 파워 (Brain Power)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Bubble World (USA, Europe)",
+  "korean": "버블 월드 (Bubble World)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Carrier (USA, Europe)",
+  "korean": "캐리어 (Carrier)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Cave Wonders (USA, Europe)",
+  "korean": "케이브 원더스 (Cave Wonders)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Challenger Tank (USA, Europe)",
+  "korean": "챌린저 탱크 (Challenger Tank)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Chimera (USA, Europe)",
+  "korean": "키메라 (Chimera)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Chinese Checkers (USA, Europe)",
+  "korean": "차이니즈 체커스 (Chinese Checkers)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Classic Casino (USA, Europe)",
+  "korean": "클래식 카지노 (Classic Casino)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Climber (USA, Europe)",
+  "korean": "클라이머 (Climber)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Crystball (USA, Europe)",
+  "korean": "크리스트볼 (Crystball)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Dancing Block (USA, Europe)",
+  "korean": "댄싱 블록 (Dancing Block)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Delta Hero (USA, Europe)",
+  "korean": "델타 히어로 (Delta Hero)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Dream World (USA, Europe)",
+  "korean": "드림 월드 (Dream World)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Eagle Plan (USA, Europe)",
+  "korean": "이글 플랜 (Eagle Plan)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Earth Defender (USA, Europe)",
+  "korean": "어스 디펜더 (Earth Defender)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Fatal Craft (USA, Europe)",
+  "korean": "페이탈 크래프트 (Fatal Craft)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Final Combat (USA, Europe)",
+  "korean": "파이널 컴뱃 (Final Combat)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Galactic Crusader (USA, Europe)",
+  "korean": "갤럭틱 크루세이더 (Galactic Crusader)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Galaxy Fighter (USA, Europe)",
+  "korean": "갤럭시 파이터 (Galaxy Fighter)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Grand Prix (USA, Europe)",
+  "korean": "그랑프리 (Grand Prix)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Happy Pairs (USA, Europe)",
+  "korean": "해피 페어스 (Happy Pairs)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Happy Race (USA, Europe)",
+  "korean": "해피 레이스 (Happy Race)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Hash Blocks (USA, Europe)",
+  "korean": "해시 블록스 (Hash Blocks)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Hero Hawk (USA, Europe)",
+  "korean": "히어로 호크 (Hero Hawk)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Hero Kid (USA, Europe)",
+  "korean": "히어로 키드 (Hero Kid)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Honey Bee (USA, Europe)",
+  "korean": "허니 비 (Honey Bee)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Jacky Lucky (USA, Europe)",
+  "korean": "재키 럭키 (Jacky Lucky)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Jaguar Bomber (USA, Europe)",
+  "korean": "재규어 바머 (Jaguar Bomber)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "John Adventure (USA, Europe)",
+  "korean": "존 어드벤처 (John Adventure)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Juggler (USA, Europe)",
+  "korean": "저글러 (Juggler)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Kabi Island - Gold in Island (USA, Europe)",
+  "korean": "카비 아일랜드 - 골드 인 아일랜드 (Kabi Island - Gold in Island)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Kitchen War (USA, Europe)",
+  "korean": "키친 워 (Kitchen War)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Kung-Fu Street (USA, Europe)",
+  "korean": "쿵푸 스트리트 (Kung-Fu Street)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Linear Racing (USA, Europe)",
+  "korean": "리니어 레이싱 (Linear Racing)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Magincross (USA, Europe)",
+  "korean": "매진크로스 (Magincross)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Matta Blatta (USA, Europe)",
+  "korean": "마타 블라타 (Matta Blatta)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Olympic Trials (USA, Europe)",
+  "korean": "올림픽 트라이얼스 (Olympic Trials)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "P-52 Sea Battle (USA, Europe)",
+  "korean": "P-52 씨 배틀 (P-52 Sea Battle)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "PacBoy & Mouse (USA, Europe)",
+  "korean": "팩보이 & 마우스 (PacBoy & Mouse)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Pacific Battle (USA, Europe)",
+  "korean": "퍼시픽 배틀 (Pacific Battle)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Penguin Hideout (USA, Europe)",
+  "korean": "펭귄 하이드아웃 (Penguin Hideout)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "wsv",
+  "original_name": "Police Bust (USA, Europe)",
+  "korean": "폴리스 버스트 (Police Bust)",
+  "region": "USA, Europe",
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "2010 - The Graphic Action Game (1984) (Coleco)",
+  "korean": "2010 그래픽 액션 게임 (2010 - The Graphic Action Game)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Alcazar - The Forgotten Fortress (1985) (Activision)",
+  "korean": "알카자 잊혀진 요새 (Alcazar - The Forgotten Fortress)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Alphabet Zoo (1984) (Spinnaker)",
+  "korean": "알파벳 주 (Alphabet Zoo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Amazing Bumpman (1986) (Telegames)",
+  "korean": "어메이징 범프맨 (Amazing Bumpman)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Antarctic Adventure (1984) (Konami)",
+  "korean": "남극 대모험 (Antarctic Adventure)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Aquattack (1984) (Interphase)",
+  "korean": "아쿠아텍 (Aquattack)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Artillery Duel (1983) (Xonox)",
+  "korean": "아틸러리 듀얼 (Artillery Duel)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "BC's Quest for Tires (1983) (Sierravision)",
+  "korean": "원시인 (BC's Quest for Tires)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "BC's Quest for Tires II - Grog's Revenge (1984) (32k)",
+  "korean": "원시인 2 그록의 복수 (BC's Quest for Tires II - Grog's Revenge)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Beamrider (1983) (Activision) [!]",
+  "korean": "빔라이더 (Beamrider)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Blockade Runner (1984) (Interphase)",
+  "korean": "블록케이드 런너 (Blockade Runner)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Boulder Dash (1984) (Micro Fun)",
+  "korean": "볼더 대쉬 (Boulder Dash)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Brain Strainers (1984) (Carousel)",
+  "korean": "브레인 스트레이너스 (Brain Strainers)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Buck Rogers - Planet of Zoom (1983) (Sega)",
+  "korean": "벅 로저스 플래닛 오브 줌 (Buck Rogers - Planet of Zoom)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Bump 'N' Jump (1982-84) (Data East)",
+  "korean": "범프 앤 점프 (Bump 'N' Jump)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Burgertime (1982-84) (Data East)",
+  "korean": "버거 타임 (Burgertime)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Cabbage Patch Kids - Adventure in the Park (1983)",
+  "korean": "캐비지 패치 키즈 - 어드벤처 인 더 파크 (Cabbage Patch Kids - Adventure in the Park)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Cabbage Patch Kids Picture Show (1984)",
+  "korean": "양배추 인형 픽처 쇼 (Cabbage Patch Kids Picture Show)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Campaign '84 (1983) (Sunrise)",
+  "korean": "캠페인 '84 (Campaign '84)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Carnival (1982)",
+  "korean": "카니발 (Carnival)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Centipede (1983) (Atarisoft)",
+  "korean": "센티피드 (Centipede)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Choplifter (1982-84) (Broderbund)",
+  "korean": "쵸플리터 (Choplifter)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Chuck Norris - Super Kicks (1983) (Xonox)",
+  "korean": "척 노리스 슈퍼킥스 (Chuck Norris - Super Kicks)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Congo Bongo (1984)",
+  "korean": "콩고 봉고 (Congo Bongo)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Cosmic Avenger (1982) (Universal)",
+  "korean": "코스믹 어벤져 (Cosmic Avenger)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Cosmic Crisis (1983) (Bit Corp)",
+  "korean": "코스믹 크라이시스 (Cosmic Crisis)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Dam Busters, The (1984)",
+  "korean": "댐 버스터 (Dam Busters, The)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Dance Fantasy (1984) (Fisher-Price)",
+  "korean": "댄스 판타지 (Dance Fantasy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Decathlon (1983) (Activision)",
+  "korean": "데카슬론 (Decathlon)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Defender (1983) (Atarisoft)",
+  "korean": "디펜더 (Defender)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Destructor (1984) (Coleco)",
+  "korean": "디스트럭터 (Destructor)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Dig Dug (1983) (Atarisoft) (Prototype)",
+  "korean": "디그 더그 (Dig Dug)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Donkey Kong (1982)",
+  "korean": "동키콩 (Donkey Kong)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Donkey Kong for Adam (1982)",
+  "korean": "동키콩 (for Adam) (Donkey Kong for Adam)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Donkey Kong Jr (1982-83)",
+  "korean": "동키콩 주니어 (Donkey Kong Jr)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Dr. Seuss's Fix-Up The Mix-Up Puzzler (1984) (Coleco)",
+  "korean": "닥터 수스의 픽스업 더 믹스업 퍼즐러 (Dr. Seuss's Fix-Up The Mix-Up Puzzler)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "DragonFire (1984) (Imagic)",
+  "korean": "드래곤파이어 (DragonFire)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Dukes of Hazzard, The (1984) (Warner Bros)",
+  "korean": "듀크 오브 해저드 (Dukes of Hazzard, The)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Escape From The Mind Master (1983) (Starpath) (Prototype)",
+  "korean": "이스케이프 프롬 더 마인드마스터 (Escape From The Mind Master)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Evolution (1983) (Sydney)",
+  "korean": "에볼루션 (Evolution)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Facemaker (1983) (Spinnaker) [!]",
+  "korean": "페이스메이커 (Facemaker)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Fall Guy (1983) (20th Century Fox) (Prototype)",
+  "korean": "폴 가이 (Fall Guy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Fathom (1983) (Imagic)",
+  "korean": "패덤 (Fathom)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Flipper Slipper (1983) (Spectravideo)",
+  "korean": "플리퍼 슬리퍼 (Flipper Slipper)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Fortune Builder (1984) (Circuits and Systems)",
+  "korean": "포춘 빌더 (Fortune Builder)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Fraction Fever (1983) (Spinnaker)",
+  "korean": "프랙션 피버 (Fraction Fever)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Frantic Freddy (1983) (Spectravideo)",
+  "korean": "프랜틱 프레디 (Frantic Freddy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Frenzy! (1982-83)",
+  "korean": "프렌지 (Frenzy!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Frogger (1982-83) (Parker Bros)",
+  "korean": "프로거 (Frogger)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Frogger II - ThreeDeep! (1984) (Parker Bros)",
+  "korean": "프로거 2 - 쓰리딥! (Frogger II - ThreeDeep!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Frontline (1983) (Taito)",
+  "korean": "프론트 라인 (Frontline)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Galaxian (1983) (Atarisoft)",
+  "korean": "갤럭시안 (Galaxian)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Gateway to Apshai (1984) (Epyx)",
+  "korean": "압샤이의 관문 (Gateway to Apshai)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Gorf (1981-83) (Midway)",
+  "korean": "고르프 (Gorf)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Gust Buster (1983) (Sunrise)",
+  "korean": "거스트 버스터 (Gust Buster)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Gyruss (1984) (Parker Bros)",
+  "korean": "자이러스 (Gyruss)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "H.E.R.O. (1984) (Activision)",
+  "korean": "히어로 (H.E.R.O.)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Heist, The (1983) (Micro Fun)",
+  "korean": "헤이스트 (Heist, The)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Illusions (1984) (Nice Ideas)",
+  "korean": "일루전스 (Illusions)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Its Only Rock 'N' Roll (1984) (Xonox)",
+  "korean": "잇츠 온리 락 앤 롤 (Its Only Rock 'N' Roll)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "James Bond 007 (1984) (Parker Bros)",
+  "korean": "제임스 본드 007 (James Bond 007)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Joust (1983) (Atarisoft) (Prototype)",
+  "korean": "자우스트 (Joust)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Juke Box (1984) (Spinnaker)",
+  "korean": "주크박스 (Juke Box)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "JBulman Junior (Jumpman Jr. Hack) by Daniel Bienvenu (1997)",
+  "korean": "제이불맨 주니어 (JBulman Junior by Daniel Bienvenu)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Jumpman Junior (1984) (Epyx)",
+  "korean": "점프맨 주니어 (Jumpman Junior)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Jungle Hunt (1983) (Atarisoft)",
+  "korean": "정글 헌터 (Jungle Hunt)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Ken Uston's Blackjack-Poker (1983)",
+  "korean": "켄 우스턴의 블랙잭 포커 (Ken Uston's Blackjack-Poker)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Keystone Kapers (1983-84) (Activision)",
+  "korean": "키스톤 케이퍼스 (Keystone Kapers)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Lady Bug (1982) (Universal)",
+  "korean": "레이디 버그 (Lady Bug)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Learning With Leeper (1983) (Sierravision) [!]",
+  "korean": "러닝 위드 리퍼 (Learning With Leeper)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Linking Logic (1984) (Fisher-Price)",
+  "korean": "링킹 로직 (Linking Logic)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Logic Levels (1984) (Fisher-Price)",
+  "korean": "로직 레벨스 (Logic Levels)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Looping (1983) (Venture Line)",
+  "korean": "루핑 (Looping)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "M.A.S.H. (1983) (20th Century Fox) (Prototype)",
+  "korean": "매시 (M.A.S.H.)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Matt Patrol (1984) (Atarisoft) (Prototype)",
+  "korean": "매트 패트롤 (Matt Patrol)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Memory Manor (1984) (Fisher-Price)",
+  "korean": "메모리 매너 (Memory Manor)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Meteoric Shower (1983) (Bit Corp)",
+  "korean": "메테오릭 샤워 (Meteoric Shower)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Miner 2049er (1983) (Micro Fun)",
+  "korean": "마이너 2049 (Miner 2049er)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Monkey Academy (1984) (Konami)",
+  "korean": "몽키 아카데미 (Monkey Academy)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Montezuma's Revenge (1984) (Parker Bros)",
+  "korean": "몬테주마의 복수 (Montezuma's Revenge)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Moonsweeper (1983) (Imagic)",
+  "korean": "문스위퍼 (Moonsweeper)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Motocross Racer (1984) (Xonox)",
+  "korean": "모터크로스 레이서 (Motocross Racer)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Mountain King (1983-84) (Sunrise) [!]",
+  "korean": "마운틴 킹 (Mountain King)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Mousetrap (1982) (Exidy)",
+  "korean": "마우스 트랩 (Mousetrap)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Mr. Do! (1983) (Universal)",
+  "korean": "미스터 도! (Mr. Do!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Mr. Do's Castle (1983) (Parker Bros)",
+  "korean": "미스터 도의 캐슬 (Mr. Do's Castle)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Ms. Space Fury (Digital Press) (2001)",
+  "korean": "미즈 스페이스 퓨리 (Ms. Space Fury)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Nova Blast (1983) (Imagic) [!]",
+  "korean": "노바 블라스트 (Nova Blast)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Oil's Well (1984) (Sierravision)",
+  "korean": "오일스 웰 (Oil's Well)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Omega Race (1981-83) (Midway)",
+  "korean": "오메가 레이스 (Omega Race)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "One on One Basketball (1984) (Micro Fun)",
+  "korean": "원 온 원 바스켓볼 (One on One Basketball)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Pac-Man (1983) (Atarisoft) (Prototype)",
+  "korean": "팩맨 (Pac-Man)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Pepper II (1983) (Exidy)",
+  "korean": "페퍼 (Pepper II)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Pitfall II - Lost Caverns (1983-84) (Activision)",
+  "korean": "핏폴 2 잃어버린 동굴 (Pitfall II - Lost Caverns)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Pitfall! (1983) (Activision) [!]",
+  "korean": "핏폴 (Pitfall!)",
+  "region": null,
+  "is_korean": true
+ },
+ {
+  "system": "col",
+  "original_name": "Pitstop (1983) (Epyx)",
+  "korean": "피트스톱 (Pitstop)",
+  "region": null,
+  "is_korean": true
+ }
+]

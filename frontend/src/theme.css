@@ -1,0 +1,1574 @@
+/* ===========================================================================
+   Game & Watch design DNA — 8-bit pixel-art look.
+   Shared LCD frame; accent + edition motifs swap per theme.
+   Themes: [data-theme="zelda"] (green)  /  [data-theme="mario"] (red)
+   ========================================================================== */
+
+:root {
+  /* Shared G&W hardware tones */
+  --lcd-bg: #949e74;            /* olive-green reflective LCD (a touch brighter) */
+  --lcd-bg-deep: #7c865d;
+  --lcd-ink: #161a08;          /* "on" segment ink — near black for contrast */
+  --lcd-ink-dim: #3c4225;      /* "off" segment ghost (still readable) */
+  --shell-shadow: rgba(0, 0, 0, 0.35);
+  --gold: #c9a227;             /* signature gold ring */
+  /* FIXED dark tile — does NOT follow the theme/LCD background; only the
+     card border picks up the theme accent. */
+  --card-bg: #2c331c;          /* deep tile — strong contrast vs olive LCD */
+  --card-ink: #f4f6e6;         /* bright text on the dark tile */
+  --card-dim: #c6cca6;         /* dim light for sub-labels on the card */
+  /* English glyphs -> Press Start 2P (pixel); Korean glyphs fall back to
+     Noto Sans KR automatically (per-glyph). 영문=픽셀, 한글=noto cjk. */
+  --pixel: "Press Start 2P", "Noto Sans KR", sans-serif;
+  --body-font: "Noto Sans KR", "Press Start 2P", system-ui, sans-serif;
+  /* Shared frame geometry — device gold ring overhangs the box by --ring, so
+     sibling cards add it back to keep every panel's outer edge aligned. */
+  --frame: 920px;
+  --ring: 6px;
+  --frame-outer: calc(var(--frame) + var(--ring) * 2);
+  /* outer-chrome tints — overridden per theme below */
+  --panel: #23281a;
+  --well: #14180c;
+}
+
+/* Zelda Edition — soft sage green (pastel, not neon) */
+[data-theme="zelda"] {
+  --shell: #2c4a38;            /* muted forest */
+  --shell-2: #3c5f49;
+  --accent: #5ea27a;           /* sage green */
+  --accent-2: #93cda6;         /* soft mint */
+  --accent-ink: #0e2417;
+  --tab-on: #5ea27a;
+  --tab-media: #5586a3; --tab-media-on: #79a8c2;   /* dusty blue (rupee) media */
+  --tab-help: #b39a52; --tab-help-on: #d6c079;     /* soft gold (Triforce) help */
+  --tab-data: #7d6bb0; --tab-data-on: #9b89cb;     /* soft violet (data) */
+  --led: #9ae0ac;              /* pastel green LED */
+  /* Outer chrome — tinted to match the green shell */
+  --panel: #25402f;            /* tab card / dropdown */
+  --well: #1a3022;             /* recessed select field */
+  /* Content tiles (cards / chips) follow the edition too */
+  --card-bg: #303a26;
+  --tile-top: #36412a;
+  --tile-bot: #2a331f;
+}
+
+/* Mario Edition — warm pastel coral (not fire-engine red) */
+[data-theme="mario"] {
+  --shell: #8a443c;            /* dusty brick */
+  --shell-2: #ab5a50;          /* terracotta */
+  --accent: #df6f62;           /* coral (was pure red) */
+  --accent-2: #f3a89e;         /* soft salmon */
+  --accent-ink: #3a120c;
+  --tab-on: #df6f62;
+  --tab-media: #5e80b2; --tab-media-on: #7e9ecb;   /* soft blue (overalls) media */
+  --tab-help: #6aa870; --tab-help-on: #8cc790;     /* soft green (Luigi) help */
+  --tab-data: #8a6bb0; --tab-data-on: #a888cb;     /* soft violet (data) */
+  --led: #ff9d8e;              /* warm coral LED */
+  /* Outer chrome — tinted to match the coral shell */
+  --panel: #5a2c25;            /* tab card / dropdown — muted maroon */
+  --well: #3e1c16;             /* recessed select field */
+  /* Content tiles (cards / chips) follow the edition too — warm */
+  --card-bg: #3c241e;
+  --tile-top: #482b22;
+  --tile-bot: #361e18;
+}
+
+* { box-sizing: border-box; }
+
+/* Themed scrollbars */
+* { scrollbar-width: thin; scrollbar-color: var(--accent) #00000033; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: #00000026; border-radius: 6px; }
+::-webkit-scrollbar-thumb {
+  background: var(--accent); border-radius: 6px;
+  border: 2px solid #00000033; background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-2); }
+
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  background:
+    radial-gradient(circle at 50% 0%, var(--shell-2), var(--shell)) fixed;
+  color: #f4f1e6;
+}
+/* Site-wide CRT scanlines — sells the 8-bit/LCD feel across the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.06) 0 1px, transparent 1px 3px);
+  opacity: 0.5;
+}
+
+/* The physical device shell — the gold ring is a REAL border (wraps cleanly all
+   the way around; a box-shadow spread used to look clipped at the top corners). */
+.device {
+  /* border-box + frame-outer width → the gold border's OUTER edge lines up with
+     the tab bar / top bar (which use frame-outer too). */
+  max-width: var(--frame-outer);
+  margin: 0 auto 28px;
+  padding: 18px;
+  background: var(--shell);
+  border: var(--ring) solid var(--gold);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 3px #00000055,
+    0 18px 40px var(--shell-shadow);
+}
+
+/* Top bar — logo + edition switch, OUTSIDE the device box */
+.topbar {
+  max-width: var(--frame-outer);
+  margin: 22px auto 14px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand-id { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.topbar h1 {
+  font-family: var(--pixel);
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--gold);
+  text-shadow: 2px 2px 0 #00000088;
+}
+.topbar small { font-family: var(--pixel); font-size: 8px; opacity: 0.75; }
+
+/* Edition toggle — on/off switch, edition = background colour, heart knob */
+.theme-switch {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  padding: 0;
+  border: 2px solid #00000066;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px #00000055;
+  transition: background 0.18s ease;
+}
+.theme-switch.zelda { background: #5ea27a; }
+.theme-switch.mario { background: #df6f62; }
+.theme-switch-knob {
+  position: absolute;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fdf6e3;
+  box-shadow: 0 2px 0 #00000055;
+  transition: left 0.18s ease;
+}
+.theme-switch.zelda .theme-switch-knob { left: 2px; }
+.theme-switch.mario .theme-switch-knob { left: 26px; }
+.pixheart { display: block; }
+.pixheart rect { fill: var(--accent); }
+
+/* UI language toggle — current language's flag, sized to match the theme switch */
+.lang-switch {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 28px; padding: 0;
+  border: 2px solid #00000066; border-radius: 7px; cursor: pointer;
+  background: #fdf6e3; box-shadow: inset 0 2px 4px #00000033;
+  transition: filter 0.15s ease;
+}
+.lang-switch:hover { filter: brightness(1.06); }
+.lang-switch img {
+  width: 22px; height: 15px; object-fit: cover;
+  border-radius: 2px; border: 1px solid #00000055; display: block;
+}
+
+/* Edition emblem — only the active theme's mark is shown */
+.emblem { display: inline-flex; flex: 0 0 auto; filter: drop-shadow(1px 1px 0 #00000066); }
+.emblem svg { shape-rendering: crispEdges; }
+.emblem-mario { display: none; }
+[data-theme="mario"] .emblem-zelda { display: none; }
+[data-theme="mario"] .emblem-mario { display: inline-block; }
+
+/* LCD screen — content lives "inside the screen" */
+.lcd {
+  /* subtle LCD scanlines + vignette over the olive panel */
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.045) 0 1px, transparent 1px 3px),
+    radial-gradient(120% 90% at 50% 0%, var(--lcd-bg) 60%, var(--lcd-bg-deep));
+  border-radius: 12px;
+  border: 3px solid #3b3f28;
+  box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.38), 0 1px 0 #ffffff1a;
+  padding: 22px;
+  color: var(--lcd-ink);
+  min-height: 360px;
+}
+
+/* Tabs */
+.tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.tab {
+  font-family: var(--pixel);
+  font-size: 9px;
+  padding: 10px 12px;
+  border: 2px solid #1c2027;
+  /* same beveled raised key as the buttons (gradient + top sheen + bottom lip) */
+  background: linear-gradient(#646c79, #4c535e);
+  color: #f1f3ee;
+  cursor: pointer;
+  border-radius: 8px;          /* unified button radius */
+}
+.tab { transition: background 0.12s, transform 0.05s, box-shadow 0.12s; box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e; }
+.tab:hover { background: linear-gradient(#727b88, #5a616d); }
+.tab:active { transform: translateY(2px); box-shadow: 0 1px 2px #00000047, inset 0 1px 2px #00000040; }
+.tab.active {
+  background: var(--tab-on); color: #fff; border-color: #1c2027;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff33;
+}
+.tab.active:active { transform: translateY(3px); box-shadow: 0 1px 0 #00000055; }
+.card { transition: box-shadow 0.12s; }
+.card:hover { box-shadow: 0 7px 16px #00000044, inset 0 1px 0 #ffffff14; }
+
+/* ONE button design — same look as the LIBRARY/UPLOAD primary tabs: themed
+   accent fill, white pixel label, icon + label, 8-bit drop shadow. Every action
+   button (modal, download, 전체선택…) uses it. Only recolor variants differ:
+   .danger = red (delete), .on = brighter accent-2 (toggled/active). */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  font-family: var(--pixel);
+  font-size: 9px; line-height: 1.4;
+  padding: 11px 14px;
+  border: 2px solid #1c2027;
+  border-radius: 8px;
+  /* beveled raised key: top sheen + bottom lip so adjacent buttons read separately */
+  background: linear-gradient(#646c79, #4c535e);
+  color: #f1f3ee;
+  cursor: pointer;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;   /* soft, natural lift */
+  transition: transform 0.05s, filter 0.12s, background 0.12s, box-shadow 0.12s;
+}
+.btn.ghost { background: linear-gradient(#646c79, #4c535e); color: #f1f3ee; }   /* alias — same look */
+.btn:active:not(:disabled) { transform: translateY(2px); box-shadow: 0 1px 2px #00000047, inset 0 1px 2px #00000040; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:hover:not(:disabled) { background: linear-gradient(#727b88, #5a616d); }
+.btn.danger { background: #c0392b; }                   /* destructive — red */
+.btn.danger:hover:not(:disabled) { background: #d4493a; }
+.btn.play { background: var(--accent); color: #fff; }   /* run/실행 — theme accent */
+.btn.play:hover:not(:disabled) { background: var(--accent-2); color: var(--accent-ink); }
+/* toggled/active — a brighter slate (no extra color; the icon/label also flips) */
+.btn.on { background: #717b8a; color: #fff; }
+
+
+/* Dropzone */
+.dropzone {
+  border: 4px dashed color-mix(in srgb, var(--accent) 70%, var(--lcd-ink));
+  border-radius: 12px;
+  padding: 40px 24px;
+  min-height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--pixel);
+  font-size: 11px;
+  line-height: 1.85;
+  color: var(--lcd-ink);
+  cursor: pointer;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0 2px, transparent 2px 4px),
+    rgba(255, 255, 255, 0.07);
+  box-shadow: inset 0 0 0 2px #ffffff10;
+  transition: border-color 0.12s, background 0.12s;
+}
+.dropzone:hover { border-color: var(--accent); background: rgba(255, 255, 255, 0.12); }
+.dropzone.drag { background: var(--accent-2); color: var(--accent-ink); border-color: var(--accent); }
+.dz-label {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 4px 9px; font-size: 11px;
+  word-break: keep-all; overflow-wrap: anywhere;
+}
+.dz-label svg { flex: 0 0 auto; width: 18px; height: 18px; }
+
+/* System picker — a recessed "cartridge slot" FIELD (distinct from the raised
+   tab buttons: inset well, leading label, accent chevron bay). */
+.sysselect { position: relative; margin-bottom: 14px; max-width: 360px; }
+.sysselect-trigger {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  font-family: var(--body-font); text-align: left;
+  padding: 6px 6px 6px 10px; border-radius: 8px; cursor: pointer;
+  background: var(--well); color: var(--card-ink);  /* theme-tinted inset well */
+  border: 2px solid #00000077;
+  box-shadow: inset 0 2px 6px #00000088;            /* RECESSED, not raised */
+}
+.sysselect-trigger:hover,
+.sysselect.open .sysselect-trigger { border-color: var(--accent); }
+.sysselect-tag {
+  flex: 0 0 auto; font-family: var(--pixel); font-size: 7px; line-height: 1;
+  padding: 5px 6px; border-radius: 4px;
+  background: var(--accent); color: #fff;
+}
+.sysselect-cart {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 5px; flex: 0 0 auto;
+  background: #00000040; box-shadow: inset 0 0 0 2px #ffffff10;
+}
+.sysselect-name {
+  flex: 1; min-width: 0; font-family: var(--pixel); font-size: 9px; line-height: 1.5;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sysselect-ext { font-family: var(--pixel); font-size: 6.5px; color: var(--card-dim); flex: 0 0 auto; }
+.sysselect-chev {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; align-self: stretch; color: #fff;
+  background: #00000055; border-radius: 5px;
+  transition: transform 0.15s;
+}
+.sysselect.open .sysselect-chev { transform: rotate(180deg); }
+
+.sysselect-panel {
+  position: absolute; z-index: 30; top: calc(100% + 6px); left: 0; right: 0;
+  max-height: 332px; overflow-y: auto;
+  background: var(--panel); border: 2px solid var(--accent);
+  border-radius: 9px; padding: 5px;
+  box-shadow: 0 14px 32px #00000077;
+}
+.sysselect-opt {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  font-family: var(--body-font); text-align: left; cursor: pointer;
+  padding: 7px 8px; border: none; border-radius: 6px;
+  background: transparent; color: var(--card-ink); font-size: 12.5px;
+}
+.sysselect-opt:hover { background: #ffffff12; }
+.sysselect-opt.on { background: color-mix(in srgb, var(--accent) 32%, transparent); }
+.sysselect-opt-name {
+  flex: 1; min-width: 0; font-family: var(--pixel); font-size: 8.5px; line-height: 1.5;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.sysselect-opt-ext { font-family: var(--pixel); font-size: 6px; color: var(--card-dim); flex: 0 0 auto; }
+.sysselect-opt > svg { color: var(--accent-2); flex: 0 0 auto; }
+
+/* Cover grid */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 2px solid #00000033;
+  border-top: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 9px;
+  font-family: var(--pixel);
+  font-size: 7px;
+  line-height: 1.7;
+  color: var(--card-ink);
+  box-shadow: 0 4px 10px #00000033, inset 0 1px 0 #ffffff14;
+}
+/* 한글패치(Korean-translated) marker — top-right corner (top-left holds the platform icon) */
+.ko-tag {
+  position: absolute; top: 5px; right: 5px; z-index: 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; line-height: 1; padding: 2px 3px; border-radius: 4px;
+  white-space: nowrap;
+  background: #000000a6; border: 1px solid #ffffff33;
+  box-shadow: 0 1px 3px #00000066;
+  cursor: pointer;   /* clickable badge → toggles the 한글패치 flag off */
+}
+.ko-tag:hover { background: #000000cc; border-color: #ffffff55; }
+.ko-tag:disabled { opacity: 0.6; cursor: default; }
+
+/* 한글패치 toggle + language line inside the rom edit modal */
+.lang-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin: 4px 0 2px;
+}
+.lang-toggle { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
+.lang-toggle input { accent-color: #2e7d32; cursor: pointer; }
+.lang-toggle span { font-size: 11px; }
+.lang-info { font-size: 10px; color: var(--card-dim); }
+.lang-manual { color: var(--accent-2); }
+
+/* Cover-flag (corner country) picker in the rom edit modal */
+.flag-select { display: inline-flex; align-items: center; gap: 6px; }
+.flag-select > span { font-size: 11px; }
+.flag-select select { width: auto; padding: 2px 6px; font-size: 11px; }
+.flag-preview {
+  width: 21px; height: 14px; object-fit: cover;
+  border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+/* homebrew card file list (template .bin + replaceable .dat) in the modal */
+.file-list { margin: 8px 0 2px; }
+.file-list .files { list-style: none; margin: 4px 0 8px; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.file-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 9px; border-radius: 6px;
+  background: #00000040; border: 1px solid #ffffff14;
+}
+.file-row .file-name { flex: 1; min-width: 0; font-size: 11px; color: var(--card-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-row .file-size { flex: 0 0 auto; font-size: 9px; color: var(--card-dim); }
+.file-row .file-tag {
+  flex: 0 0 auto; font-family: var(--pixel); font-size: 7px; line-height: 1;
+  padding: 3px 5px; border-radius: 4px; background: #ffffff1a; color: var(--card-dim);
+}
+
+/* file-count badge next to a multi-file (homebrew) card title */
+.file-count {
+  display: inline-block; margin-left: 5px; vertical-align: middle;
+  font-family: var(--pixel); font-size: 7px; line-height: 1;
+  padding: 3px 5px; border-radius: 5px;
+  background: var(--gold); color: #1a1206; border: 1px solid #00000055;
+}
+
+/* Empty search/filter result — bigger + left-aligned so it doesn't look broken */
+.lib-empty {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; color: var(--card-ink); text-align: left;
+  padding: 20px 6px;
+}
+
+.card .muted { color: var(--card-dim); }
+/* Platform icon — small, pinned to the cover image's top-left corner (no big box) */
+.cover-corner {
+  /* Vertically centered on the baked flag (flag center ≈ 9.25% of cover height);
+     box is ~18px tall → offset half of that so the icon lines up with the flag. */
+  position: absolute; left: 4px; top: calc(9% - 9px); z-index: 2;
+  display: inline-flex; align-items: center; justify-content: center; gap: 3px;
+  padding: 2px 3px; border-radius: 4px;
+  background: #00000066;
+  filter: drop-shadow(0 1px 1px #000000aa);
+  pointer-events: none;
+}
+/* override .cover-slot img {width:100%} which was blowing these up full-size */
+.cover-corner .sys-ico { width: 14px; height: 14px; object-fit: contain; }
+.cover-corner .sys-mono { width: 14px; height: 14px; }
+/* Language flag (small, rounded, top-right) is composited at REQUEST time by the
+   server's render_display (the default /cover view) from the CLEAN stored preview —
+   non-destructive: the 원본/full preview is never modified. The device .img bakes
+   the same flag in so it also shows on the device's own list. No HTML overlay. */
+.card .shot {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: contain;  /* display already = system ratio → fills, no stretch */
+  border-radius: 6px; background: #00000022;
+  display: block; margin-bottom: 8px;
+}
+/* Name: up to 2 lines then ellipsis, on a FIXED height so every card lines up. */
+.card .name {
+  color: var(--card-ink); font-size: 9.5px; line-height: 1.5;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; text-overflow: ellipsis; word-break: break-word;
+  height: 3em; /* 2 × line-height → uniform card heights regardless of title */
+}
+/* Cover slot + beautiful centered placeholder */
+.cover-slot { position: relative; overflow: hidden; }
+/* Most covers are PORTRAIT box art → a portrait slot + contain shows the WHOLE
+   cover (box art fills 3:4; the odd landscape one letterboxes, never cropped). */
+.cover-slot img { width: 100%; height: 100%; object-fit: contain; display: block; background: #00000033; transition: opacity 0.25s; }
+.cover-slot.clickable { cursor: pointer; }
+.cover-slot.clickable:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
+.shot-empty {
+  display: flex; align-items: center; justify-content: center;
+  background:
+    repeating-linear-gradient(45deg, #ffffff08 0 6px, transparent 6px 12px),
+    linear-gradient(150deg, #00000055, #00000022);
+  border: 2px dashed #ffffff2a;
+}
+.cover-add {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; width: 100%; height: 100%;
+  color: var(--card-dim); font-family: var(--body-font); font-size: 9px;
+}
+.cover-slot.clickable:hover .cover-add { color: var(--accent-2); }
+.cover-busy {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, 0.55); color: #fff;
+}
+
+/* Per-card actions */
+/* actions pinned to the card bottom so rows align regardless of name height */
+.card-actions { display: flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 8px; }
+.card-actions .badge { margin-left: auto; margin-top: 0; }
+/* hand-set / crop / no-cover markers sit at the far right corner of the actions */
+.card-actions .cover-manual,
+.card-actions .cover-crop,
+.card-actions .no-cover { margin-left: auto; }
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 26px; border: 2px solid #1c2027; border-radius: 8px;
+  background: linear-gradient(#646c79, #4c535e); color: #f1f3ee;   /* beveled raised key */
+  cursor: pointer; text-decoration: none;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;   /* soft, natural lift */
+  transition: transform 0.05s, background 0.12s, filter 0.12s, box-shadow 0.12s;
+}
+.icon-btn:hover { background: linear-gradient(#727b88, #5a616d); color: #fff; }
+.icon-btn:active { transform: translateY(2px); box-shadow: 0 1px 2px #00000047, inset 0 1px 2px #00000040; }
+/* Destructive icon button (delete) — red so it reads as dangerous, not neutral. */
+.icon-btn.danger { background: #8c2f24; color: #ffd9d2; }
+.icon-btn.danger:hover { background: #c0392b; color: #fff; }
+
+/* Modal popup */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(0, 0, 0, 0.62);
+  display: flex; align-items: center; justify-content: center; padding: 16px;
+}
+.modal {
+  background: var(--shell); border: 3px solid var(--gold); border-radius: 14px;
+  padding: 16px; width: 460px; max-width: 92vw;   /* fixed width → title can't stretch it */
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.6);
+}
+.modal-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-bottom: 14px; font-family: var(--pixel); font-size: 10px; color: var(--gold);
+}
+.modal-title { min-width: 0; word-break: break-word; line-height: 1.5; }
+.modal-head .icon-btn { flex: 0 0 auto; }
+.modal-body { display: flex; flex-direction: column; gap: 10px; }
+/* bottom action buttons — one even row */
+.modal-actions { display: flex; gap: 10px; }
+.modal-actions .btn { flex: 1; justify-content: center; padding: 11px 8px; }
+
+/* estimated size corner label on download buttons (top-right) — bright & legible */
+.has-size { position: relative; overflow: visible; }
+.size-tag {
+  position: absolute; top: -8px; right: -6px;
+  font-family: var(--pixel); font-size: 8.5px; line-height: 1;
+  color: #1a1206; background: var(--gold);
+  border: 1px solid #00000066; border-radius: 5px;
+  padding: 3px 5px; pointer-events: none; white-space: nowrap;
+  box-shadow: 0 1px 0 #00000055;
+}
+
+/* Subtle "no cover" hint on a card (replaces the old COVER OK/NO COVER badge —
+   the image itself shows the state, so we only flag a MISSING cover). */
+.no-cover {
+  display: inline-flex; align-items: center; color: var(--card-dim); opacity: 0.6;
+}
+/* manual (hand-set) cover marker — distinct accent so it reads as "yours / kept" */
+.cover-manual {
+  display: inline-flex; align-items: center; color: var(--gold);
+}
+/* hand-cropped-for-device marker (original kept separately) */
+.cover-crop {
+  display: inline-flex; align-items: center; color: var(--accent-2);
+}
+
+/* Toasts — bottom-center stack, auto-dismiss, click to close */
+.toast-stack {
+  position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%);
+  z-index: 80; display: flex; flex-direction: column; gap: 8px;
+  width: max-content; max-width: 92vw; pointer-events: none;
+}
+.toast {
+  pointer-events: auto; cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
+  padding: 11px 14px; border-radius: 10px;
+  font-family: var(--body-font); font-size: 12px; line-height: 1.4; color: #fff;
+  border: 2px solid #00000055; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+  animation: toast-in 0.18s ease-out;
+}
+.toast svg { flex: 0 0 auto; }
+.toast-success { background: #2e7d32; }
+.toast-error { background: #9b2226; }
+.toast-warn { background: #8a6d1a; }
+.toast-info { background: #2c3a4a; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Confirm dialog (replaces window.confirm) */
+.confirm {
+  background: var(--shell); border: 3px solid var(--gold); border-radius: 14px;
+  padding: 18px; min-width: 260px; max-width: 92vw;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.6);
+}
+.confirm-msg { font-family: var(--body-font); font-size: 14px; color: #f4f1e6; line-height: 1.5; }
+.confirm-detail { margin-top: 8px; font-family: var(--body-font); font-size: 12px; color: var(--card-dim); line-height: 1.6; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+
+/* Cover compare — web preview vs the actual device .img (in the ROM popup) */
+.cover-compare { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; max-width: 100%; }
+.cover-compare figure { margin: 0; min-width: 0; max-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cover-compare img {
+  border-radius: 6px; border: 2px solid #00000055; background: #00000033;
+  display: block; width: 150px; max-width: 100%; height: auto;
+  aspect-ratio: var(--cover-ar, 3 / 4); object-fit: cover;  /* per-system ratio, set inline */
+}
+/* the ORIGINAL side shows the WHOLE image at its natural shape — never cropped */
+.cover-compare .cmp-web {
+  width: auto; height: auto; max-width: 150px; max-height: 210px;
+  aspect-ratio: auto; object-fit: contain;
+}
+/* the device image shown with crisp pixels (honest about hardware output) */
+.cover-compare .cmp-device { image-rendering: pixelated; }
+/* crop control overlaid on the device image (instead of a separate button) */
+.cmp-imgwrap { position: relative; display: inline-block; line-height: 0; max-width: 100%; }
+.cmp-crop-overlay {
+  position: absolute; bottom: 6px; right: 6px;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--pixel); font-size: 7px; color: #fff;
+  background: #000000c2; border: 1px solid var(--gold); border-radius: 5px;
+  padding: 4px 6px; cursor: pointer; transition: background 0.12s;
+}
+.cmp-crop-overlay:hover { background: var(--accent); }
+/* small download icon, top-left of each cover image (shown when a cover exists) */
+.cmp-dl-overlay {
+  position: absolute; top: 6px; left: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; color: #fff;
+  background: #000000c2; border: 1px solid var(--gold); border-radius: 5px;
+  cursor: pointer; transition: background 0.12s;
+}
+.cmp-dl-overlay:hover { background: var(--accent); }
+.cover-compare figcaption { font-family: var(--pixel); font-size: 7px; color: var(--card-dim); }
+.cover-compare.empty {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 18px 12px; text-align: center;
+  font-family: var(--body-font); font-size: 12px; color: var(--card-dim);
+  border: 2px dashed #ffffff22; border-radius: 8px;
+}
+
+/* Top-bar right cluster: theme switch + SD ZIP button */
+.topbar-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* DATA extension filter chips */
+.data-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 4px; }
+
+/* Firmware upload date in the data-row */
+.data-date { font-family: var(--pixel); font-size: 7px; color: #cfcfcf; white-space: nowrap; }
+
+/* Firmware tab current-file row */
+.fw-current {
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 12px; border: 2px solid var(--gold); border-radius: 6px;
+  background: #00000022; color: var(--accent-2);
+}
+.fw-name { font-family: var(--pixel); font-size: 9px; color: var(--ink, #fff); }
+.fw-current .icon-btn { margin-left: auto; }
+
+/* Dropzone upload busy state */
+.dropzone.busy { cursor: progress; pointer-events: none; border-color: var(--gold); }
+.dz-busy { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; max-width: 280px; }
+.dz-busy-label { display: inline-flex; align-items: center; gap: 7px; font-family: var(--pixel); font-size: 11px; color: #fff; }
+.dz-busy .dl-bar { width: 100%; }
+
+/* Music card inline player */
+.music-player { width: 100%; height: 30px; margin: 4px 0 6px; }
+.music-size { font-size: 8px; margin-right: auto; }
+
+/* 8-bit download progress overlay (SD ZIP etc.) */
+.dl-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #000000bb; display: flex; align-items: center; justify-content: center;
+}
+.dl-panel {
+  background: var(--card-bg); border: 3px solid var(--gold); border-radius: 2px;
+  padding: 22px 24px 18px; min-width: 290px; max-width: 90vw; text-align: center;
+  box-shadow: 0 0 0 3px #000, 7px 7px 0 #00000088; image-rendering: pixelated;
+}
+.dl-title { font-family: var(--pixel); font-size: 11px; color: #fff; letter-spacing: 1px; margin-bottom: 16px; }
+.dl-bar {
+  height: 18px; border: 2px solid #fff; background: #000; padding: 2px;
+  position: relative; overflow: hidden; image-rendering: pixelated;
+}
+.dl-fill {
+  height: 100%;
+  background: repeating-linear-gradient(90deg,
+    var(--accent-2) 0, var(--accent-2) 6px, #00000044 6px, #00000044 8px);
+  transition: width 0.12s steps(6, end);
+}
+.dl-bar.indet .dl-fill {
+  width: 36%; position: absolute; left: 0;
+  animation: dl-indet 0.9s steps(7, end) infinite;
+}
+.dl-bar.err .dl-fill { background: var(--danger, #e0403a); width: 100%; }
+@keyframes dl-indet { 0% { transform: translateX(-110%); } 100% { transform: translateX(300%); } }
+.dl-meta { font-family: var(--pixel); font-size: 8px; color: #fff; margin-top: 13px; line-height: 1.5; }
+.dl-cancel {
+  margin-top: 14px; font-family: var(--pixel); font-size: 8px; color: #fff;
+  background: #00000066; border: 2px solid #ffffff66; border-radius: 4px;
+  padding: 5px 12px; cursor: pointer; transition: background 0.12s;
+}
+.dl-cancel:hover { background: var(--danger, #e0403a); }
+
+/* Rename field in the ROM modal */
+.field-label { font-family: var(--body-font); font-weight: 700; font-size: 12px; color: var(--card-ink); margin-bottom: 2px; }
+.rename-row { display: flex; gap: 8px; align-items: stretch; }
+/* read-only ROM path shown in front of the filename so the destination is clear */
+.path-prefix {
+  display: inline-flex; align-items: center; flex: 0 0 auto;
+  font-family: monospace; font-size: 12px; color: var(--card-dim);
+  background: #00000033; border: 2px solid #00000077; border-radius: 8px;
+  padding: 0 10px; white-space: nowrap; user-select: none;
+}
+.text-input {
+  flex: 1; min-width: 0;
+  font-family: var(--body-font); font-size: 13px;
+  padding: 8px 10px; border-radius: 8px;
+  background: #161a0d; color: var(--card-ink);
+  border: 2px solid #00000077;
+  box-shadow: inset 0 2px 5px #00000077;
+}
+.text-input:focus { outline: none; border-color: var(--accent); }
+.rename-row .btn { flex: 0 0 auto; }
+
+/* Cover cropper (user-adjustable crop) */
+.cropper { display: flex; flex-direction: column; gap: 10px; }
+.crop-aspects { display: flex; gap: 6px; justify-content: center; }
+.crop-aspects .scope-btn { padding: 7px 12px; font-size: 8px; background: #00000040; }
+.cropper-stage {
+  position: relative; width: 100%; height: 220px;
+  background: #0c0f06; border-radius: 8px; overflow: hidden;
+  border: 2px solid #00000077;
+}
+.cropper-zoom { width: 100%; accent-color: var(--accent); }
+/* live device-size preview — exactly what the hardware shows (186×100) */
+.cropper-preview { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.device-canvas {
+  /* display size set inline per system ratio (3:4 / 1:1) — not fixed landscape */
+  max-width: 100%; display: block;
+  border-radius: 6px; border: 2px solid var(--gold); background: #00000055;
+  image-rendering: auto;
+}
+.cropper-preview span { font-family: var(--pixel); font-size: 7px; color: var(--card-dim); }
+.cropper-actions { display: flex; gap: 8px; }
+.cropper-actions .btn { flex: 1; justify-content: center; }
+
+/* IGDB cover search results in the popup */
+.cover-search { display: flex; flex-direction: column; gap: 8px; }
+.cover-results {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  max-height: 260px; overflow-y: auto; padding: 2px;
+}
+.cover-result {
+  position: relative; display: flex; flex-direction: column; gap: 4px;
+  padding: 0; border: 2px solid #00000044; border-radius: 6px;
+  background: #161a0d; cursor: pointer; overflow: hidden;
+}
+.cover-result:hover:not(:disabled) { border-color: var(--accent); }
+.cover-result:disabled { opacity: 0.6; cursor: default; }
+.cover-result img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.cover-result-name {
+  font-family: var(--body-font); font-size: 9px; line-height: 1.3;
+  color: var(--card-dim); padding: 0 4px 4px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* Library search bar */
+/* One wide field: search icon merged INSIDE the input row, full width. */
+/* Search row: input box on the left, scope/filter controls split OUT to the
+   right. On mobile it wraps so the controls drop to a second row below. */
+.lib-searchbar {
+  position: relative;
+  display: flex; align-items: stretch; gap: 9px; width: 100%;
+}
+.lib-filters { display: flex; align-items: stretch; gap: 9px; flex: 0 0 auto; }
+.lib-search {
+  position: relative; flex: 1; min-width: 0;
+  display: flex; align-items: center; gap: 9px;
+  padding: 9px 13px; border-radius: 9px;
+  background: #161a0d; color: var(--lcd-ink-dim);
+  border: 2px solid #00000077; box-shadow: inset 0 2px 5px #00000077;
+}
+@media (max-width: 640px) {
+  .lib-searchbar { flex-wrap: wrap; }
+  .lib-filters { width: 100%; justify-content: flex-end; }
+}
+/* selected-platform count, pinned to the search bar's top-right corner */
+.sel-count-badge {
+  position: absolute; top: -11px; right: 10px;
+  font-family: var(--pixel); font-size: 9px; line-height: 1; white-space: nowrap;
+  padding: 4px 8px; border-radius: 6px;
+  background: var(--gold); color: #1a1206; border: 1px solid #00000066;
+  box-shadow: 0 2px 5px #0000005c;
+}
+.lib-search:focus-within { border-color: var(--accent); }
+.lib-search > svg { flex: 0 0 auto; }
+.lib-search .text-input {
+  flex: 1; min-width: 0;
+  border: none; background: transparent; box-shadow: none; padding: 0;
+  font-size: 13px; color: var(--card-ink);
+}
+.lib-search .text-input:focus { border: none; }
+.lib-search .muted { flex: 0 0 auto; font-size: 10px; }
+/* search scope toggle: 이 기종 / 전체 — stretches to the row height so every
+   button (text and icon) shares one uniform height */
+/* match the search input box exactly (same olive bg, border, inset shadow) */
+.search-scope {
+  flex: 0 0 auto; display: inline-flex; align-items: stretch; gap: 3px;
+  padding: 3px; border-radius: 9px;
+  background: #161a0d; border: 2px solid #00000077; box-shadow: inset 0 2px 5px #00000077;
+}
+.scope-btn {
+  font-family: var(--pixel); font-size: 9px; line-height: 1; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 38px; padding: 0 11px; border: none; border-radius: 5px;
+  background: #ffffff14; color: var(--card-ink); white-space: nowrap;
+  transition: background .12s, color .12s;
+}
+.scope-btn:hover { background: #ffffff26; }
+.scope-btn.on { background: var(--accent); color: #fff; box-shadow: 0 0 0 1px var(--accent), 0 1px 3px #0000006b; }
+/* icon filters: same height, square-ish width */
+.scope-btn.icon-only { min-width: 0; width: 38px; padding: 0; }
+
+/* result count, sat with the results (not the search box) */
+.lib-result-count { text-align: center; font-size: 11px; margin-top: 2px; }
+
+/* Library: per-system count chips + pagination.
+   Raised dark-tile chips (echo the library cards) — intentionally distinct
+   from the recessed upload select; the colored system icon gives each identity. */
+/* System cards: icon centered, name bottom, /dirname top-right, count top-left,
+   per-system accent color (--sys). */
+.lib-chips {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(98px, 1fr)); gap: 9px;
+  /* breathing room + a subtle divider so the system selector reads separately
+     from the games below (not crammed together). */
+  margin-bottom: 6px; padding-bottom: 18px;
+  border-bottom: 2px dashed color-mix(in srgb, var(--accent) 30%, #00000055);
+}
+.lib-chip {
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 7px; padding: 14px 8px 10px; min-height: 86px; cursor: pointer;
+  color: var(--card-ink); border-radius: 11px;
+  background: linear-gradient(var(--tile-top), var(--tile-bot));
+  border: 2px solid #00000044;
+  box-shadow: 0 3px 0 #00000040, inset 0 1px 0 #ffffff10;
+  transition: box-shadow 0.1s, transform 0.06s, border-color 0.1s;
+}
+.lib-chip:hover { box-shadow: 0 5px 12px #00000044, inset 0 1px 0 #ffffff16; }
+/* Supported-but-empty system — dimmed, grayscale icon, muted 0 badge. Still
+   shown (and clickable) so the full supported lineup is never hidden. */
+.lib-chip.empty { opacity: 0.5; border-top-color: #00000044; }
+.lib-chip.empty:not(.on) .sys-ico, .lib-chip.empty:not(.on) .sys-mono { filter: grayscale(1); }
+.lib-chip.empty .lib-chip-count { background: #5b6168; }
+.lib-chip.empty.on { opacity: 1; }
+.lib-chip.on {
+  background: linear-gradient(color-mix(in srgb, var(--sys) 40%, #2a3119), color-mix(in srgb, var(--sys) 16%, #232a18));
+  border-color: var(--sys);
+}
+.lib-chip .sys-ico, .lib-chip .sys-mono { width: 30px; height: 30px; }
+.lib-chip-name {
+  font-family: var(--pixel); font-size: 8px; line-height: 1.4; text-align: center;
+  word-break: keep-all; text-shadow: 1px 1px 0 #00000055;
+}
+/* download-select checkbox — top-right of each chip (replaces the old /dir path) */
+.lib-chip-check {
+  position: absolute; top: 5px; right: 5px; z-index: 3;
+  width: 22px; height: 22px; border-radius: 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #0000005e; border: 2px solid #ffffff66; color: #fff;
+  cursor: pointer; transition: background 0.1s, border-color 0.1s;
+}
+.lib-chip-check:hover { border-color: #fff; }
+.lib-chip-check.on { background: var(--accent); border-color: #fff; }
+.lib-chip-check.sm { position: static; width: 20px; height: 20px; }
+
+/* 전체 선택 + 선택 다운로드 row (sits with the results, in front of the button) */
+.lib-dl-bar { display: flex; align-items: center; gap: 10px; margin: 2px 0 4px; flex-wrap: wrap; }
+.lib-selectall {
+  display: inline-flex; align-items: center; gap: 7px; cursor: pointer; user-select: none;
+  font-family: var(--body-font); font-size: 12px; color: var(--lcd-ink);
+}
+.lib-chip-badges { position: absolute; top: 4px; left: 5px; display: inline-flex; gap: 3px; align-items: center; }
+.lib-chip-count {
+  position: absolute; top: 4px; left: 5px;
+  font-family: var(--pixel); font-size: 7px; line-height: 1.35;
+  padding: 4px 6px 3px; border-radius: 999px;
+  background: var(--sys, var(--accent)); color: #fff;
+  box-shadow: inset 0 0 0 1px #00000033;
+}
+/* inside the badge group, count is in-flow; gray badge = missing-cover count */
+.lib-chip-badges .lib-chip-count { position: static; top: auto; left: auto; }
+.lib-chip-miss {
+  font-family: var(--pixel); font-size: 7px; line-height: 1.35;
+  padding: 4px 6px 3px; border-radius: 999px;
+  background: #6b7280; color: #fff; box-shadow: inset 0 0 0 1px #00000033;
+}
+/* amber badge = 한글 제목 없는 롬 수 (커버가 다 채워졌을 때만 노출) */
+.lib-chip-komiss {
+  font-family: var(--pixel); font-size: 7px; line-height: 1.35;
+  padding: 4px 6px 3px; border-radius: 999px;
+  background: #d9871f; color: #fff; box-shadow: inset 0 0 0 1px #00000033;
+}
+
+/* Image loading skeleton (shimmer) */
+.skeleton {
+  position: absolute; inset: 0; border-radius: 4px;
+  background: linear-gradient(100deg, #2a2f1e 30%, #3a4029 50%, #2a2f1e 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.1s linear infinite;
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* Skeleton card (library loading) — shimmer cover + name lines */
+.skel-card { pointer-events: none; }
+.skel-card .cover-slot { position: relative; aspect-ratio: 3 / 4; }
+.skel-line {
+  height: 11px; border-radius: 4px; margin-top: 7px;
+  background: linear-gradient(100deg, #2a2f1e 30%, #3a4029 50%, #2a2f1e 70%);
+  background-size: 200% 100%; animation: shimmer 1.1s linear infinite;
+}
+.skel-line.short { width: 58%; }
+
+
+.lib-pager {
+  display: flex; align-items: center; justify-content: center; gap: 12px;
+  margin-top: 6px;
+}
+.lib-pager-info { font-family: var(--pixel); font-size: 9px; color: var(--lcd-ink); }
+
+/* Tab bar — a CARD that sits OUTSIDE the LCD (right-aligned ZIP download) */
+.tabbar {
+  max-width: var(--frame-outer);
+  margin: 0 auto 12px;
+  padding: 8px 10px;
+  background: var(--panel);
+  border: 2px solid #00000066;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--accent), inset 0 1px 0 #ffffff10, 0 4px 0 #00000040;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 8px; flex-wrap: wrap;
+}
+.tabs { margin-bottom: 0; }
+/* 전체 선택 + 다운로드 grouped at the right (PC: auto width, right-aligned). */
+.tabbar-dl { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
+.tab-dl, .tab-selall { white-space: nowrap; }
+/* icon-only secondary tabs (VIDEO/MUSIC/DATA/HELP) — square, no label */
+.tabbar .tab.tab-icononly { padding: 9px 11px; }
+/* Secondary tabs (VIDEO, DATA) — a gray cluster, split from primary UPLOAD/LIBRARY */
+.tab-divider {
+  align-self: stretch; width: 2px; flex: 0 0 auto;
+  margin: 2px 8px; border-radius: 2px;
+  background: #ffffff2e;
+}
+/* All inactive tabs share a SUBTLE border — the fill colour carries the identity,
+   not a heavy bright outline. Active tabs get the solid colour + dark border. */
+.tabbar .tab.tab-secondary {
+  background: #3b4047; color: #cdd1cc; border-color: #1c2027;
+}
+.tabbar .tab.tab-secondary:hover { background: #474d55; }
+.tabbar .tab.tab-secondary.active { background: #6b7280; color: #fff; border-color: #00000077; }
+/* Primary tabs (LIBRARY/UPLOAD = SD content) → theme accent tint. */
+.tabbar .tab:not(.tab-secondary) {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  color: #fff; border-color: #1c2027;
+}
+.tabbar .tab:not(.tab-secondary):hover { background: color-mix(in srgb, var(--accent) 34%, transparent); }
+.tabbar .tab:not(.tab-secondary).active {
+  background: var(--accent); color: #fff; border-color: #00000077;
+}
+/* VIDEO/MUSIC = media converters → per-theme color (Zelda blue / Mario blue) */
+.tabbar .tab.tab-media { background: color-mix(in srgb, var(--tab-media) 60%, #000); color: #fff; border-color: #1c2027; }
+.tabbar .tab.tab-media:hover { background: var(--tab-media); }
+.tabbar .tab.tab-media.active { background: var(--tab-media-on); color: #fff; border-color: #00000077; }
+/* HELP → per-theme color (Zelda gold / Mario green) */
+.tabbar .tab.tab-help { background: color-mix(in srgb, var(--tab-help) 60%, #000); color: #fff; border-color: #1c2027; }
+.tabbar .tab.tab-help:hover { background: var(--tab-help); }
+.tabbar .tab.tab-help.active { background: var(--tab-help-on); color: #fff; border-color: #00000077; }
+/* DATA → soft violet (was the only plain-gray secondary tab) */
+.tabbar .tab.tab-data { background: color-mix(in srgb, var(--tab-data) 60%, #000); color: #fff; border-color: #1c2027; }
+.tabbar .tab.tab-data:hover { background: var(--tab-data); }
+.tabbar .tab.tab-data.active { background: var(--tab-data-on); color: #fff; border-color: #00000077; }
+
+/* Themed scrollbar (was a white default track) — thumb = theme accent */
+* { scrollbar-width: thin; scrollbar-color: var(--accent) var(--well, #14140f); }
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-track { background: var(--well, #14140f); }
+::-webkit-scrollbar-corner { background: var(--well, #14140f); }
+::-webkit-scrollbar-thumb {
+  background: var(--accent); border-radius: 6px;
+  border: 2px solid var(--well, #14140f);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-2); }
+
+/* Dropzone "폴더 통째로" button */
+.dz-folder-btn {
+  display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
+  font-family: var(--pixel); font-size: 8px; color: #fff;
+  background: #00000044; border: 2px solid var(--accent); border-radius: 5px;
+  padding: 5px 10px; cursor: pointer; transition: background 0.12s;
+}
+.dz-folder-btn:hover { background: var(--accent); }
+
+/* Extra "SD 경로" input group — path-bar style */
+.path-group {
+  display: flex; align-items: stretch; margin-bottom: 4px;
+  border: 2px solid var(--accent); border-radius: 8px; overflow: hidden;
+  background: var(--well, #0e2016);
+}
+.path-group-tag {
+  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+  background: var(--accent); color: #fff; font-family: var(--pixel); font-size: 8px; padding: 0 11px;
+}
+.path-slash, .path-trail { display: inline-flex; align-items: center; color: var(--card-dim); font-family: monospace; font-size: 15px; }
+.path-slash { padding-left: 9px; }
+.path-trail { padding: 0 11px; }
+.path-input {
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  color: var(--card-ink); font-family: monospace; font-size: 15px; padding: 11px 4px;
+}
+.path-input::placeholder { color: var(--card-dim); }
+
+/* DATA list (scratch/reference files) */
+.data-list { display: flex; flex-direction: column; gap: 6px; }
+.data-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: 8px;
+  background: #2a2d28; color: var(--card-ink);
+  border: 2px solid #00000033; border-left: 3px solid #6b7280;
+}
+.data-name {
+  flex: 1; min-width: 0; font-family: var(--body-font); font-size: 12px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.data-size { font-family: var(--pixel); font-size: 7px; color: var(--card-dim); flex: 0 0 auto; }
+/* Data 탭 드랍존도 업로드 탭과 동일한 accent 스타일을 공유 (회색 오버라이드 제거) */
+/* tabs live on a dark card now → light ink + light borders */
+.tabbar .tab { color: var(--card-ink); border-color: #ffffff2e; }
+.tabbar .tab:hover { background: #ffffff14; }
+.tabbar .tab.active { background: var(--tab-on); color: #fff; border-color: #00000055; }
+
+/* Help tab — device button shortcuts */
+.help-section { margin-top: 4px; }
+.help-head {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--pixel); font-size: 11px; color: var(--lcd-ink); line-height: 1.5;
+  padding-bottom: 7px; margin-bottom: 8px; border-bottom: 2px solid #00000022;
+}
+/* INFO is read-heavy → bump the body text off the tiny defaults. */
+.help-tab .muted { font-size: 13px; }
+.help-list { display: flex; flex-direction: column; gap: 7px; }
+.help-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; border-radius: 8px;
+  background: var(--card-bg); border: 2px solid #00000033; border-left: 3px solid var(--accent);
+}
+.help-combo { display: inline-flex; align-items: center; gap: 4px; flex: 0 0 auto; flex-wrap: wrap; }
+.help-plus { font-family: var(--pixel); font-size: 9px; color: var(--card-dim); }
+.keycap {
+  font-family: var(--pixel); font-size: 9px; color: var(--card-ink);
+  background: #1c1f14; border: 1.5px solid #00000077; border-bottom-width: 3px;
+  border-radius: 5px; padding: 6px 8px; white-space: nowrap;
+}
+.help-action { font-family: var(--body-font); font-size: 14px; color: var(--card-ink); line-height: 1.5; }
+.help-steps {
+  margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 9px;
+  font-family: var(--body-font); font-size: 14px; color: var(--card-ink); line-height: 1.6;
+}
+.help-steps li { padding-left: 3px; }
+.help-link { color: var(--accent-2); text-decoration: underline; }
+
+/* Library system groups */
+.sysgroup + .sysgroup { margin-top: 16px; }
+.sysgroup-head {
+  align-items: center; gap: 7px;
+  padding-bottom: 6px; margin-bottom: 8px;
+  border-bottom: 2px solid #00000022;
+  font-family: var(--pixel); font-size: 9px; line-height: 1.6; color: var(--lcd-ink);
+}
+.sysgroup-count {
+  margin-left: 6px; padding: 2px 6px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-family: var(--pixel); font-size: 7px;
+}
+.badge {
+  display: inline-block; margin-top: 5px; padding: 3px 6px; border-radius: 4px;
+  font-family: var(--pixel); font-size: 7px; line-height: 1.5;
+}
+.badge.ok { background: #2e7d32; color: #fff; }
+.badge.none { background: #7d6b2e; color: #fff; }
+.badge.failed { background: #9b2226; color: #fff; }
+
+/* Progress bar (encode) */
+.progress { height: 16px; border: 2px solid var(--lcd-ink); border-radius: 6px; overflow: hidden; background: #00000022; }
+.progress > i { display: block; height: 100%; background: var(--accent); width: 0; transition: width 0.3s; }
+
+/* Icon + text alignment — flex-center everything so heights match exactly */
+.tab, .btn, .sys, .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+/* muted lines can be long text → keep inline so they wrap; align the icon */
+.muted svg, .muted .sys-ico { vertical-align: -2px; margin-right: 4px; }
+.tab svg, .btn svg, .sys svg, .badge svg, .dz-label svg,
+.chip svg, .sys-ico { flex: 0 0 auto; vertical-align: middle; }
+.sys-ico { image-rendering: auto; display: inline-block; }
+.sys-mono {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 1px 4px; border-radius: 4px; min-width: 16px;
+  font-family: var(--pixel); color: #fff; line-height: 1;
+  border: 1px solid #00000044; vertical-align: middle; flex: 0 0 auto;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+
+/* Inline loading indicator (tab data fetch) */
+.loading {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 28px 12px;
+  font-family: var(--pixel); font-size: 9px; line-height: 1.6;
+  color: var(--lcd-ink-dim);
+}
+.loading svg { color: var(--accent); }
+
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+/* Library action buttons — one line; scroll horizontally rather than wrapping. */
+.lib-actions {
+  display: flex; gap: 8px; align-items: center;
+  flex-wrap: nowrap; overflow-x: auto;
+  padding: 11px 9px 4px 0;  /* top/right room for the size-tag; no left indent */
+}
+.lib-actions .btn { flex: 0 0 auto; white-space: nowrap; padding: 10px 12px; }
+.lib-actions::-webkit-scrollbar { height: 6px; }
+.muted { color: var(--lcd-ink-dim); font-size: 11px; font-family: var(--body-font); line-height: 1.7; }
+.stack > * + * { margin-top: 12px; }
+/* a bit more breathing room above the in-place upload dropzone */
+.stack > .lib-upload-area { margin-top: 26px; }
+
+/* Mobile: keep the device shell + gold ring off the screen edges */
+@media (max-width: 640px) {
+  /* gold ring is now a real border (inside the box) → margin 8 everywhere makes
+     the device, tab card and top bar all line up at the same 8px edge. */
+  .topbar { margin: 14px 8px 10px; padding: 0 2px; flex-wrap: wrap; gap: 10px; }
+  /* tighter pad on phones — the G&W logo shouldn't crowd the controls */
+  .pad-logo { width: 40px; margin-bottom: 12px; }
+  /* shrink the whole control deck proportionally so it never overflows the window */
+  .emu-pad { gap: 8px; padding: 4px 6px 2px; }
+  .pad-dpad { grid-template-columns: repeat(3, 30px); grid-template-rows: repeat(3, 30px); margin-bottom: 12px; }
+  .dp { font-size: 10px; }
+  .dp-hub::after { width: 16px; height: 16px; }
+  .pad-right { gap: 12px; }
+  .pad-mid { width: 116px; padding: 3px 5px; }
+  .pad-pill { height: 11px; }
+  .pad-ss-labels em { font-size: 5.5px; }
+  .pad-face { gap: 16px; }
+  .pad-round { width: 42px; height: 42px; font-size: 12px; border-width: 3px; }
+  .pad-cap { gap: 10px; }
+  .pad-cap em { font-size: 9px; }
+  .topbar h1 { font-size: 13px; }
+  /* 탭바: 탭들은 한 줄, 전체선택+다운로드는 그 아래 한 줄 전체너비로 3:7 분할 */
+  .tabbar .tabs { flex: 1 0 100%; }
+  .tabbar-dl { flex: 1 0 100%; }
+  .tabbar-dl .tab-selall { flex: 3; justify-content: center; padding-top: 12px; padding-bottom: 12px; }
+  .tabbar-dl .tab-dl { flex: 7; justify-content: center; padding-top: 12px; padding-bottom: 12px; }
+  .device {
+    margin: 0 8px 16px;
+    padding: 12px;
+    border-width: 4px;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 2px #00000055, 0 10px 24px var(--shell-shadow);
+  }
+  .lcd { padding: 14px; }
+  .tabbar { margin: 0 8px 12px; gap: 6px; }
+  /* 3 dense columns on phones */
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .card { padding: 6px; }
+  .card .name { font-size: 9px; }
+  .card .shot, .cover-slot { margin-bottom: 5px; }
+  .card-actions { gap: 4px; padding-top: 6px; }
+  /* 드랍존: 좁은 화면에서 패딩을 줄이고 라벨이 자연스럽게 줄바꿈되게 */
+  .dropzone { padding: 22px 14px; min-height: 96px; line-height: 1.6; }
+  .dz-label { font-size: 10.5px; }
+}
+
+/* ── In-browser emulator ───────────────────────────────────────────────── */
+/* ▶ play button — tinted with the theme accent so it reads as the primary
+   action on the card. */
+/* ▶ pinned to the far right of the action row (download/edit stay put left). */
+.icon-btn.play-btn { margin-left: auto; background: var(--accent); color: #fff; border-color: #00000055; }
+.icon-btn.play-btn:hover { background: var(--accent-2); color: var(--accent-ink); }
+
+/* Cover-state badge — bottom-right corner of the cover image. */
+.cover-badge {
+  position: absolute; right: 5px; bottom: 5px; z-index: 2;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 3px; border-radius: 5px;
+  background: #000000b0; border: 1px solid #ffffff2e; box-shadow: 0 1px 3px #00000066;
+}
+.cover-badge .no-cover,
+.cover-badge .cover-manual,
+.cover-badge .cover-crop { opacity: 1; }
+.cover-badge .no-cover { color: #e6e6e6; }
+
+/* MEDIA tab — video converter + music store stacked, with a labelled divider. */
+.media-tab { gap: 14px; }
+.media-section { display: flex; flex-direction: column; gap: 10px; }
+.media-head {
+  margin: 0; display: flex; align-items: center; gap: 7px;
+  font-family: var(--pixel); font-size: 10px; color: var(--card-ink);
+}
+.media-head svg { color: var(--accent-2); flex: 0 0 auto; }   /* theme tint stays on the icon, text always legible */
+.media-divider { height: 2px; background: #ffffff1f; border-radius: 2px; margin: 2px 0; }
+
+/* MEDIA sub-tabs (영상 / 음악) — beveled keys like the nav tabs, active = theme */
+.media-subtabs { display: flex; gap: 8px; }
+.media-subtab {
+  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  font-family: var(--pixel); font-size: 10px; line-height: 1;
+  padding: 12px 12px; border: 2px solid #1c2027; border-radius: 8px;
+  background: linear-gradient(#646c79, #4c535e); color: #f1f3ee; cursor: pointer;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;
+  transition: background 0.12s, transform 0.05s;
+}
+.media-subtab:hover { background: linear-gradient(#727b88, #5a616d); }
+.media-subtab:active { transform: translateY(2px); }
+.media-subtab.on {
+  background: var(--accent); color: #fff;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff33;
+}
+.media-subtab svg { flex: 0 0 auto; }
+.media-count {
+  font-family: var(--pixel); font-size: 8px; line-height: 1;
+  background: #00000040; padding: 3px 5px; border-radius: 5px; min-width: 14px; text-align: center;
+}
+.media-grid { margin-top: 4px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+
+/* video thumbnail → click-to-play (no spinner; the <video> loads only on click) */
+.media-thumb-btn {
+  width: 100%; height: 100%; padding: 0; border: 0; cursor: pointer;
+  position: relative; display: block; background: #000;
+}
+.media-thumb-btn .media-cover { width: 100%; height: 100%; object-fit: cover; }
+.media-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: #fff; filter: drop-shadow(0 2px 6px #000000cc);
+  background: #00000026; transition: background 0.12s;
+}
+.media-thumb-btn:hover .media-play { background: #00000055; }
+
+/* MEDIA cards — YouTube-style: thumbnail/player on top, title + actions below */
+.media-card {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--card-bg); border: 2px solid #00000033; border-top: 2px solid var(--accent);
+  border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px #00000033;
+  font-family: var(--pixel);
+}
+.media-thumb {
+  position: relative; aspect-ratio: 16 / 9; background: #0a0c06;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.media-player { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+.media-cover { width: 100%; height: 100%; object-fit: cover; display: block; }
+.media-cover-fallback {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+  color: var(--accent-2); background: radial-gradient(120% 100% at 50% 0%, #1a1d10, #0d0f08);
+}
+.media-kind {
+  position: absolute; top: 6px; left: 6px; z-index: 2; pointer-events: none;
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--pixel); font-size: 7px; color: #fff;
+  background: #000000a6; border: 1px solid #ffffff26; border-radius: 4px; padding: 3px 5px;
+}
+.media-meta { display: flex; flex-direction: column; gap: 7px; padding: 8px 9px 9px; }
+.media-title {
+  font-size: 11px; color: var(--card-ink); line-height: 1.35;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  overflow: hidden; text-overflow: ellipsis; word-break: break-word;
+}
+.media-audio { width: 100%; height: 34px; }
+.media-actions { display: flex; align-items: center; gap: 6px; }
+.media-actions .icon-btn.danger { margin-left: auto; }
+.icon-btn.danger:hover { background: linear-gradient(#d4493a, #b5392b); color: #fff; }
+
+/* detail modal */
+.media-detail-player { width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: 8px; display: block; }
+.media-detail-audio { width: 100%; margin-bottom: 8px; }
+.media-detail-info { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; margin: 12px 0; font-size: 12px; }
+.media-detail-info dt { color: var(--card-dim); white-space: nowrap; }
+.media-detail-info dd { color: var(--card-ink); margin: 0; word-break: break-all; }
+
+/* Music library — one sticky player + clickable track rows (music-app style) */
+.music-lib { display: flex; flex-direction: column; gap: 8px; }
+.music-bar {
+  position: sticky; top: 6px; z-index: 3;
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 9px 11px; border-radius: 10px;
+  background: #161a0d; border: 2px solid var(--accent); box-shadow: 0 4px 12px #00000055;
+}
+.music-now { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--card-ink); }
+.music-now svg { color: var(--accent-2); flex: 0 0 auto; }
+.music-now span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.music-audio { width: 100%; height: 34px; }
+.music-list { display: flex; flex-direction: column; gap: 4px; }
+.music-row {
+  display: flex; align-items: center; gap: 9px;
+  padding: 8px 10px; border-radius: 8px; cursor: pointer;
+  background: #00000026; border: 1px solid #00000033; transition: background 0.1s;
+}
+.music-row:hover { background: #00000040; }
+.music-row.on { background: color-mix(in srgb, var(--accent) 26%, transparent); border-color: var(--accent); }
+.music-row-thumb {
+  flex: 0 0 auto; position: relative; width: 36px; height: 36px; border-radius: 5px;
+  overflow: hidden; background: #14160d; color: var(--accent-2);
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.music-row-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.music-row-icon { flex: 0 0 auto; color: var(--accent-2); display: inline-flex; }
+.music-row.on .music-row-icon { color: #fff; }
+.music-row-name { flex: 1; min-width: 0; font-size: 12px; color: var(--card-ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.music-row-size { flex: 0 0 auto; font-family: var(--pixel); font-size: 7px; color: var(--card-dim); }
+.music-row .icon-btn { flex: 0 0 auto; }
+
+
+/* The emulator runs "inside" a mini Game & Watch handheld: themed shell (edition
+   green/red) + gold ring + recessed olive-dark LCD, mirroring .device / .lcd.
+   Window mode = a little console floating over the dimmed library; max & OS
+   fullscreen drop the bezel for an edge-to-edge black screen. */
+.emu-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  touch-action: none; overscroll-behavior: none;   /* no page drag/overscroll while playing */
+  /* long-press a pad button = hold, not select/callout/drag */
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+}
+.emu-overlay img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+.emu-overlay.mode-window { background: rgba(0, 0, 0, 0.62); padding: 22px; }
+.emu-overlay.mode-window .emu-window {
+  position: relative;              /* anchors the control legend pinned below it */
+  width: min(620px, 94vw); height: min(86vh, 760px);
+  /* real Game & Watch look: the champagne-gold face is the SAME on both units —
+     only the bezel + rim follow the theme (--accent green=zelda / red=mario,
+     --shell = dark rim), exactly like the physical Zelda vs Mario devices. */
+  background:
+    repeating-linear-gradient(115deg, #ffffff14 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, #f0e4ba 0%, #ddca8a 52%, #cab06b 100%);
+  border: 7px solid var(--accent); border-radius: 22px;
+  padding: 14px 14px 6px; gap: 4px;
+  box-shadow:
+    0 0 0 2px var(--shell),            /* dark theme rim around the bezel */
+    inset 0 0 0 3px #a98f45,           /* gold groove between face and bezel */
+    inset 0 2px 5px #ffffff80,         /* sheen on the metal face */
+    inset 0 -3px 8px #00000033,
+    0 26px 60px rgba(0, 0, 0, 0.7);
+}
+/* on the gold face the gold title text/LED rail must flip to dark ink */
+.mode-window .emu-bar { color: #23303a; text-shadow: none; }
+.mode-window .emu-title {
+  color: #2a2010; background: #0000001a;
+  box-shadow: inset 0 0 0 1px #00000022;
+  font-family: var(--body-font); font-size: 11px; font-weight: 700;
+  letter-spacing: 0; padding: 3px 9px;
+}
+.mode-window .emu-bar .icon-btn {
+  background: #fbf7ec; color: #2a2010; border-color: #ffffff;
+  box-shadow: 0 2px 4px #00000038, inset 0 1px 0 #ffffff;
+}
+.mode-window .emu-bar .icon-btn:hover {
+  background: #fff; color: var(--accent); border-color: #fff;
+  box-shadow: 0 3px 7px #00000045, inset 0 1px 0 #ffffff;
+}
+.mode-window .emu-bar .icon-btn:active {
+  box-shadow: 0 1px 2px #00000038, inset 0 1px 2px #00000026;
+}
+/* fill the whole browser viewport (no bezel) */
+.emu-overlay.mode-max { background: #000; padding: 0; }
+.emu-overlay.mode-max .emu-window { width: 100%; height: 100%; background: #000; }
+
+.emu-window {
+  display: flex; flex-direction: column; min-height: 0;
+}
+/* in OS fullscreen the window fills the screen, bezel removed */
+.emu-window:fullscreen { width: 100vw; height: 100vh; padding: 0; gap: 0; border: 0; border-radius: 0; background: #000; }
+
+/* Title rail — pixel title in gold, a live power LED, themed controls. */
+.emu-bar {
+  display: flex; align-items: center; gap: 9px; flex: 0 0 auto;
+  padding: 2px 4px 6px;
+  font-family: var(--pixel); font-size: 11px; color: var(--gold);
+  text-shadow: 1px 1px 0 #00000088;
+}
+.emu-led {
+  flex: 0 0 auto; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--led); box-shadow: 0 0 7px var(--led), inset 0 0 2px #ffffffaa;
+  animation: emu-led-pulse 1.6s ease-in-out infinite;
+}
+@keyframes emu-led-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+.emu-bar.draggable { cursor: grab; touch-action: none; user-select: none; }
+.emu-bar.draggable:active { cursor: grabbing; }
+.emu-title {
+  flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: #ffe9a8; padding: 4px 9px; border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4); box-shadow: inset 0 0 0 1px #ffffff1a;
+}
+.emu-bar-right { display: flex; gap: 6px; flex: 0 0 auto; }
+/* max/fullscreen: rail becomes a slim dark strip so it reads over the game */
+.mode-max .emu-bar, .emu-window:fullscreen .emu-bar {
+  padding: 8px 12px; background: #0b0b0bcc; border-bottom: 1px solid #ffffff1f;
+}
+
+/* Keyboard cheatsheet — frosted-glass panel pinned just BELOW the device shell,
+   outside it, but a child of the window so it drags as one set with the device. */
+.emu-keys {
+  position: absolute; top: calc(100% + 22px); left: 50%; transform: translateX(-50%);
+  z-index: 5; width: max-content; max-width: min(680px, 92vw);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 7px 14px;
+  padding: 10px 16px; border-radius: 16px;
+  background: rgba(18, 22, 14, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 #ffffff1f, 0 10px 30px #00000066;
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+}
+/* max/fullscreen fills the viewport → no room below the shell, hide the legend */
+.mode-max .emu-keys, .emu-window:fullscreen .emu-keys { display: none; }
+.emu-key-grp { display: inline-flex; align-items: center; gap: 5px; }
+.emu-key-grp em {
+  font-style: normal; font-family: var(--body-font);
+  font-size: 11px; font-weight: 700; color: #ece8da; letter-spacing: .3px;
+  text-shadow: 0 1px 1px #00000066;
+}
+.emu-keys kbd {
+  font-family: var(--body-font); font-size: 11px; font-weight: 700; line-height: 1;
+  color: #f4f0e2;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  padding: 4px 7px; min-width: 13px; text-align: center;
+  box-shadow: inset 0 1px 0 #ffffff2e, 0 1px 2px #00000040;
+}
+/* touch devices use the on-screen pad, not a keyboard → hide the cheatsheet */
+@media (hover: none) and (pointer: coarse) { .emu-keys { display: none; } }
+
+/* The LCD — recessed olive-dark screen, the device's screen treatment. */
+.emu-stage {
+  flex: 1; min-height: 0; position: relative;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(130% 100% at 50% 0%, #11140a, #0a0c06);
+  border: 3px solid #3b3f28; border-radius: 10px; overflow: hidden;
+  box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.62), 0 1px 0 #ffffff14;
+}
+.mode-window .emu-stage { min-height: 120px; }
+.mode-max .emu-stage, .emu-window:fullscreen .emu-stage {
+  border: 0; border-radius: 0; box-shadow: none; background: #000;
+}
+.emu-canvas {
+  /* sized to its per-system aspect-ratio (set inline), fit within the LCD and
+     centered; object-fit:fill stretches the raw framebuffer to that display shape
+     so 8/16-bit cores aren't shown at their squarish pixel ratio. */
+  height: 100%; width: auto;
+  max-width: 100%; max-height: 100%;
+  object-fit: fill;
+  image-rendering: pixelated;            /* crisp 8/16-bit pixels, no blur */
+  background: transparent;
+}
+/* the Atari iframe fills the stage absolutely (flex centering mangles an iframe) */
+.emu-canvas:not(canvas) { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.emu-status {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+  color: #e8e8e8; font-family: var(--pixel); font-size: 11px; text-align: center; padding: 24px;
+}
+.emu-status.emu-error { color: #ff8a80; }
+.emu-note { font-family: inherit; font-size: 12px; color: #b9b9b9; max-width: 30ch; line-height: 1.6; }
+.emu-error .emu-note { color: #ffb4ab; }
+.emu-spinner {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 4px solid #ffffff22; border-top-color: var(--accent-2);
+  animation: emu-spin 0.8s linear infinite;
+}
+@keyframes emu-spin { to { transform: rotate(360deg); } }
+/* ── Virtual gamepad — the G&W control deck below the screen ───────────── */
+.emu-pad {
+  flex: 0 0 auto;
+  /* align d-pad bottom with the A/B buttons → same level; SELECT/START rise above */
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 12px;
+  padding: 4px 10px 2px;
+  touch-action: none; user-select: none;
+}
+.mode-max .emu-pad, .emu-window:fullscreen .emu-pad {
+  padding: 12px max(16px, env(safe-area-inset-left)) max(12px, env(safe-area-inset-bottom));
+  /* keep the Game & Watch champagne face under the deck even fullscreen, so the
+     logo + controls read as the device (not floating on black). */
+  background:
+    repeating-linear-gradient(115deg, #ffffff12 0 1px, transparent 1px 3px),
+    linear-gradient(160deg, #f0e4ba 0%, #ddca8a 52%, #cab06b 100%);
+  border-top: 3px solid var(--accent);
+}
+.pad-btn {
+  font-family: var(--pixel); color: #f2f2f2; cursor: pointer;
+  border: 2px solid #00000066; background: #2a2a2e;
+  box-shadow: 0 3px 0 #00000066; touch-action: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: transform 0.04s, box-shadow 0.04s, filter 0.1s;
+}
+.pad-btn.on { transform: translateY(2px); box-shadow: 0 1px 0 #00000066; filter: brightness(1.25); }
+
+/* D-pad — one continuous black Nintendo cross (arms touch, no seams), with a
+   dished center hub. Outer arm ends rounded; inner edges flush with the hub. */
+.pad-dpad {
+  display: grid; grid-template-columns: repeat(3, 40px); grid-template-rows: repeat(3, 40px);
+  gap: 0; flex: 0 0 auto;
+  margin-bottom: 16px;   /* lift the cross up, roughly level with the A/B buttons */
+  filter: drop-shadow(0 3px 4px #00000073);
+}
+/* every cell is the SAME flat color so the arms read as one seamless piece */
+.dp, .dp-hub {
+  background: #26262b; border: none; box-shadow: none;
+}
+.dp { font-size: 12px; color: #75757d; }
+.dp.on { transform: none; box-shadow: none; filter: brightness(1.5); }   /* press a single arm, cross stays put */
+.dp-up { grid-area: 1 / 2; border-radius: 6px 6px 0 0; }
+.dp-left { grid-area: 2 / 1; border-radius: 6px 0 0 6px; }
+.dp-right { grid-area: 2 / 3; border-radius: 0 6px 6px 0; }
+.dp-down { grid-area: 3 / 2; border-radius: 0 0 6px 6px; }
+.dp-hub {
+  grid-area: 2 / 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.dp-hub::after {   /* dished circle in the middle, like the Nintendo cross */
+  content: ""; width: 20px; height: 20px; border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #34343c, #141417);
+  box-shadow: inset 0 1px 3px #000000aa, 0 1px 0 #ffffff1f;
+}
+
+/* START / SELECT — slim angled pills */
+/* GAME & WATCH logo on its original brushed-silver plate, set in the empty space
+   between the d-pad and buttons */
+.pad-logo {
+  flex: 0 0 auto; align-self: flex-end;
+  margin-bottom: 32px;   /* drop down to roughly the A/B button line, not floating mid-height */
+  width: 58px; height: auto; object-fit: contain;
+  /* plate (white interior + black border) is baked into the PNG; just a soft shadow */
+  filter: drop-shadow(0 1px 2px #0000004d);
+  pointer-events: none; user-select: none;
+}
+
+/* right cluster: SELECT/START group stacked ABOVE the A/B buttons (real G&W) */
+.pad-right { display: flex; flex-direction: column; align-items: center; gap: 18px; flex: 0 0 auto; }
+.pad-ss { display: flex; flex-direction: column; align-items: stretch; gap: 3px; }
+/* SELECT/START text printed OUTSIDE the buttons, on the gold face above the bar */
+.pad-ss-labels { display: flex; justify-content: space-around; }
+.pad-ss-labels em, .pad-cap em {
+  font-family: var(--pixel); font-style: normal; font-size: 6px;
+  letter-spacing: 0.5px; color: #2a2010;   /* dark ink on the champagne face */
+}
+/* A / B labels sit below their red buttons, like the device print */
+.pad-cap em { font-size: 10px; }
+/* the whole bar is filled with the theme color, holding two gray buttons that
+   stretch to fill its width with a comfortable gap between them */
+.pad-mid {
+  display: flex; justify-content: space-between; align-items: center;
+  box-sizing: border-box; width: 146px;   /* total width = the A/B cluster width */
+  padding: 7px 6px; border-radius: 999px;
+  background: var(--accent); border: 1px solid #00000033;
+  box-shadow: inset 0 1px 2px #ffffff4d, 0 2px 4px #00000040;
+}
+.pad-pill {
+  flex: 0 0 54px; height: 13px; padding: 0;   /* width matches the red A/B button */
+  border-radius: 7px; box-shadow: 0 2px 0 #00000066;
+  background: linear-gradient(#7d8087, #54575d); border: 1px solid #00000073;
+}
+.pad-pill.on { transform: translateY(2px); box-shadow: 0 1px 0 #00000066; }
+.pad-cap { display: inline-flex; flex-direction: column; align-items: center; gap: 14px; }   /* A/B label below the button */
+
+/* A / B — round face buttons. ALWAYS red on the real Game & Watch, on both the
+   green (zelda) and red (mario) units, so these stay fixed red regardless of theme. */
+.pad-face { display: flex; align-items: center; gap: 22px; flex: 0 0 auto; }
+.pad-round {
+  width: 54px; height: 54px; border-radius: 50%; font-size: 15px; color: #fff;
+  background: radial-gradient(circle at 38% 34%, #f25b50, #c11f1f);
+  border: 4px solid var(--accent);   /* ring follows the theme frame color */
+}
+/* B and A sit level in a single row, like the landscape Game & Watch (no stagger) */
