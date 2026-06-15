@@ -148,6 +148,8 @@ export const EN = {
   "필터": "Filter",
   "커버 없는 롬만 보기": "Show only ROMs without covers",
   "한글명 아닌 롬만 보기 (영문·일본어 이름)": "Show only non-Korean-named ROMs (English/Japanese names)",
+  "커버 없음": "No cover",
+  "한글명 없음": "Non-Korean",
   "커버 누락 {n}개": "{n} missing covers",
   "한글 제목 없음 {n}개": "{n} without Korean titles",
   "다운로드 선택": "Select for download",

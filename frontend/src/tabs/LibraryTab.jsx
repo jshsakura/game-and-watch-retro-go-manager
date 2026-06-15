@@ -203,14 +203,14 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
               <button className={`scope-btn ${searchAll ? "on" : ""}`} onClick={() => setSearchAll(true)}>{t("전체")}</button>
             </span>
             <span className="search-scope" role="group" aria-label={t("필터")}>
-              <button className={`scope-btn icon-only ${missingOnly ? "on" : ""}`} onClick={() => setMissingOnly((m) => !m)}
+              <button className={`scope-btn ${missingOnly ? "on" : ""}`} onClick={() => setMissingOnly((m) => !m)}
                 title={t("커버 없는 롬만 보기")} aria-pressed={missingOnly}>
-                <ImageOff size={14} strokeWidth={2.5} />
+                <ImageOff size={13} strokeWidth={2.5} /> {t("커버 없음")}
               </button>
               {koFeature && (
-                <button className={`scope-btn icon-only ${nonKoOnly ? "on" : ""}`} onClick={() => setNonKoOnly((m) => !m)}
+                <button className={`scope-btn ${nonKoOnly ? "on" : ""}`} onClick={() => setNonKoOnly((m) => !m)}
                   title={t("한글명 아닌 롬만 보기 (영문·일본어 이름)")} aria-pressed={nonKoOnly}>
-                  <Languages size={14} strokeWidth={2.5} />
+                  <Languages size={13} strokeWidth={2.5} /> {t("한글명 없음")}
                 </button>
               )}
             </span>

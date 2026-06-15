@@ -808,15 +808,16 @@ body::before {
 }
 .scope-btn {
   font-family: var(--pixel); font-size: 9px; line-height: 1; cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center;
-  min-width: 38px; padding: 0 11px; border: none; border-radius: 5px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-width: 38px; padding: 10px 12px; border: none; border-radius: 6px;
   background: #ffffff14; color: var(--card-ink); white-space: nowrap;
   transition: background .12s, color .12s;
 }
 .scope-btn:hover { background: #ffffff26; }
 .scope-btn.on { background: var(--accent); color: #fff; box-shadow: 0 0 0 1px var(--accent), 0 1px 3px #0000006b; }
+.scope-btn svg { flex: 0 0 auto; }
 /* icon filters: same height, square-ish width */
-.scope-btn.icon-only { min-width: 0; width: 38px; padding: 0; }
+.scope-btn.icon-only { min-width: 0; width: 38px; padding: 0; gap: 0; }
 
 /* result count, sat with the results (not the search box) */
 .lib-result-count { text-align: center; font-size: 11px; margin-top: 2px; }
