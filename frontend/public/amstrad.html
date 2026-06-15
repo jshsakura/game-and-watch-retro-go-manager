@@ -6,75 +6,96 @@
   <title>Amstrad CPC</title>
   <style>
     html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
-    #game { width: 100%; height: 100%; }
+    #canvas { width: 100%; height: 100%; display: block; object-fit: contain; image-rendering: pixelated; }
     .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
            color: #ccc; font-family: sans-serif; font-size: 14px; text-align: center; padding: 12px; }
   </style>
 </head>
 <body>
   <div class="msg" id="msg">불러오는 중…</div>
-  <div id="game"></div>
+  <!-- CPCEC renders to a 2D canvas (native 768×576 = 4:3) -->
+  <canvas id="canvas" width="768" height="576" tabindex="1"></canvas>
   <script>
-    /* NOTE: "peek only" runner. The self-hosted cap32 core boots the Amstrad (BASIC
-       prompt) but ABORTS the moment it mounts a real .dsk (RuntimeError: unreachable
-       — reproduced across every cap32 wasm build we tried). So we intentionally let
-       EmulatorJS load the disk its default way: cap32 can't read that wrapper, leaves
-       drive A empty, and lands at the Amstrad BASIC screen WITHOUT crashing. That's
-       the "open it up and see the machine" level the feature is scoped to — the game
-       itself does not load. Do NOT add EJS_disableCue / m3u tricks here: forcing a
-       real disk mount is exactly what triggers the abort. */
+    /* Amstrad CPC in-browser play via CPCEC (CNGSoft), compiled to WASM and fully
+       self-hosted under /cpcec/ (cpcec.js + cpcec.wasm + cpcec.data firmware bundle —
+       no external CDN). CPCEC is a high-accuracy CPC emulator with a clean embedding
+       API: write the .dsk into MEMFS and call _em_load_file → it inserts + autoruns
+       the disk. (This replaces the earlier EmulatorJS+cap32 attempt, which aborted on
+       every disk mount.) Input: CPCEC uses SDL2, which auto-captures the physical
+       keyboard; the on-screen pad is bridged to synthetic KeyboardEvents below. */
 
-    /* resume suspended AudioContext on first gesture (autoplay policy) */
-    (function () {
-      var ctxs = [];
-      ["AudioContext", "webkitAudioContext"].forEach(function (n) {
-        var Orig = window[n]; if (!Orig) return;
-        function W(o) { var c = o ? new Orig(o) : new Orig(); ctxs.push(c); return c; }
-        W.prototype = Orig.prototype; window[n] = W;
-      });
-      function unlock() {
-        ctxs.forEach(function (c) { try { if (c.state === "suspended") c.resume(); } catch (e) {} });
-      }
-      ["pointerdown", "touchend", "mousedown", "keydown", "click"].forEach(function (ev) {
-        window.addEventListener(ev, unlock, true);
-      });
-    })();
-
+    var BASE = "/cpcec";
     var msg = document.getElementById("msg");
+    var canvas = document.getElementById("canvas");
     var romId = new URLSearchParams(location.search).get("rom");
 
-    // Virtual-pad input from the parent overlay → EmulatorJS via simulateInput.
-    // RetroPad indices: B=0, Select=2, Start=3, Up=4, Down=5, Left=6, Right=7, A=8.
-    var IDX = { up: 4, down: 5, left: 6, right: 7, a: 8, b: 0, start: 3, select: 2 };
+    // On-screen pad (parent overlay) → CPC keys via synthetic KeyboardEvents.
+    // Defaults cover the common CPC layout (cursor keys + Space/Shift); games that
+    // use bespoke keys still work through the real keyboard (SDL2 captures it).
+    var PAD2KEY = {
+      up:    { code: "ArrowUp",    key: "ArrowUp",    keyCode: 38 },
+      down:  { code: "ArrowDown",  key: "ArrowDown",  keyCode: 40 },
+      left:  { code: "ArrowLeft",  key: "ArrowLeft",  keyCode: 37 },
+      right: { code: "ArrowRight", key: "ArrowRight", keyCode: 39 },
+      a:     { code: "Space",      key: " ",          keyCode: 32 },
+      b:     { code: "ShiftLeft",  key: "Shift",      keyCode: 16 },
+      start: { code: "Enter",      key: "Enter",      keyCode: 13 },
+      select:{ code: "Escape",     key: "Escape",     keyCode: 27 },
+    };
+    function fireKey(type, m) {
+      [window, document, canvas].forEach(function (t) {
+        var ev = new KeyboardEvent(type, { code: m.code, key: m.key, keyCode: m.keyCode,
+          which: m.keyCode, bubbles: true, cancelable: true });
+        try { Object.defineProperty(ev, "keyCode", { value: m.keyCode }); } catch (_) {}
+        try { Object.defineProperty(ev, "which", { value: m.keyCode }); } catch (_) {}
+        t.dispatchEvent(ev);
+      });
+    }
     window.addEventListener("message", function (e) {
       var d = e.data;
-      if (!d || d.type !== "ejs-input" || !(d.btn in IDX)) return;
-      try { window.EJS_emulator.gameManager.simulateInput(0, IDX[d.btn], d.down ? 1 : 0); }
-      catch (err) { /* not started yet */ }
+      if (!d || d.type !== "ejs-input" || !(d.btn in PAD2KEY)) return;
+      fireKey(d.down ? "keydown" : "keyup", PAD2KEY[d.btn]);
     });
 
     if (!romId) { msg.textContent = "ROM이 지정되지 않았습니다."; }
-    else {
-      fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")
-        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
-        .then(function (blob) {
-          window.EJS_player = "#game";
-          window.EJS_core = "cap32";                 // Caprice32 (Amstrad CPC). EmulatorJS
-          // 4.2.3 has no "amstrad" alias; passing the core name directly works via the
-          // getCore() fallback and loads cores/cap32-*-wasm.data.
-          window.EJS_pathtodata = "/emulatorjs/data/";   // self-hosted, no external CDN
-          window.EJS_gameUrl = URL.createObjectURL(blob);
-          window.EJS_gameName = "game.dsk";
-          window.EJS_startOnLoaded = true;
-          window.EJS_disableDatabases = true;        // no external game-info DB calls
-          window.EJS_volume = 0.5;
-          window.EJS_onGameStart = function () { if (msg) msg.remove(); };
-          var s = document.createElement("script");
-          s.src = "/emulatorjs/data/loader.js";
-          s.onerror = function () { msg.textContent = "EmulatorJS 로드 실패"; };
-          document.body.appendChild(s);
-        })
-        .catch(function (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; });
+    else { boot(); }
+
+    async function boot() {
+      var dsk, wasmBinary;
+      try {
+        dsk = new Uint8Array(await (await fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")).arrayBuffer());
+        wasmBinary = await (await fetch(BASE + "/cpcec.wasm")).arrayBuffer();
+      } catch (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; return; }
+
+      var ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+      var Module = {
+        canvas: canvas, ctx: ctx, wasmBinary: wasmBinary,
+        arguments: ["-le", "-O", "-C1"],   // English, no overlay, dark CPC palette
+        locateFile: function (p) { return BASE + "/" + p; },
+        print: function () {}, printErr: function () {},
+        onAbort: function () { msg.textContent = "에뮬레이터 오류"; },
+        onRuntimeInitialized: function () {
+          // Wait until the core's main loop is live, then insert + autorun the disk.
+          var tries = 0;
+          var iv = setInterval(function () {
+            var running = false;
+            try { running = !!Module._em_is_running && Module._em_is_running(); } catch (e) {}
+            if (!running && tries < 40) { tries++; return; }
+            clearInterval(iv);
+            try {
+              Module.FS.writeFile("/program.dsk", dsk);
+              Module._em_load_file(Module.allocateUTF8("/program.dsk"));   // insert + autorun
+              if (msg) msg.remove();
+              canvas.focus();
+            } catch (e) { msg.textContent = "디스크 로드 실패 (" + e.message + ")"; }
+          }, 100);
+        },
+      };
+      window.Module = Module;
+      var s = document.createElement("script");
+      s.src = BASE + "/cpcec.js"; s.async = true;
+      s.onerror = function () { msg.textContent = "CPCEC 로드 실패"; };
+      document.head.appendChild(s);
     }
   </script>
 </body>

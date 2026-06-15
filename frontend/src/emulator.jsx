@@ -35,8 +35,7 @@ const CORE_MAP = {
   pico8: "retro8",
   // NOTE: Atari 2600/7800, Amstrad CPC have no Nostalgist-compatible core, so they
   // run via a self-hosted JS engine in an iframe instead (see JS_ENGINE — Amstrad
-  // uses EmulatorJS + cap32). Watara (wsv), Pokémon Mini, MSX have neither → device
-  // only.
+  // uses CPCEC). Watara (wsv), Pokémon Mini, MSX have neither → device only.
 };
 
 // Every core listed above is mirrored under /public/cores/<core>_libretro.{js,wasm}.
@@ -48,17 +47,16 @@ const CORE_BASE = "/cores";
 const JS_ENGINE = {
   a2600: { html: "javatari.html", pad: "jt" },   // Javatari (pure JS)
   a7800: { html: "js7800.html", pad: "js7800" },  // js7800 (ProSystem WASM)
-  // Amstrad CPC (EmulatorJS + self-hosted cap32). PEEK ONLY: the machine boots to the
-  // Amstrad BASIC screen, but cap32 aborts on any real .dsk mount (every wasm build we
-  // tried crashes), so the game itself never loads — ▶ just shows the powered-on
-  // Amstrad. Marked EXPERIMENTAL so the overlay warns before launch. See amstrad.html.
+  // Amstrad CPC via self-hosted CPCEC (CNGSoft, WASM). Inserts + autoruns the .dsk;
+  // pad bridged to CPC keys as synthetic KeyboardEvents. See amstrad.html. (cap32 via
+  // EmulatorJS was abandoned — it aborted on every disk mount.)
   amstrad: { html: "amstrad.html", pad: "ejs" },
 };
 export function jsEngineFor(systemKey) { return JS_ENGINE[systemKey] || null; }
 
 // Cores that exist but whose ROM format may differ from retro-go's packaging —
 // best-effort, may fail to boot. The overlay warns before launching.
-const EXPERIMENTAL = new Set(["gw", "pico8", "amstrad"]);
+const EXPERIMENTAL = new Set(["gw", "pico8"]);
 
 const MOBILE_QUERY = "(max-width: 640px)";
 
@@ -91,7 +89,7 @@ const KEY_HINTS = {
   gw:    [DPAD, { k: "X", b: "A" }, { k: "Z", b: "B" }, { k: "Enter", b: "START" }],
   tama:  [{ k: "Z", b: "A" }, { k: "X", b: "B" }, { k: "A", b: "C" }],
   pico8: [DPAD, { k: "Z", b: "O (○)" }, { k: "X", b: "X (✕)" }],
-  amstrad: [DPAD, { k: "Z", b: "발사 1" }, { k: "X", b: "발사 2" }, { k: "Enter", b: "START" }],
+  amstrad: [DPAD, { k: "Space", b: "발사" }, { k: "Shift", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
 };
 const DEFAULT_HINTS = [DPAD, ...AB, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "START" }];
 
