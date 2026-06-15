@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>MSX</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    #wmsx, #wmsx-screen { width: 100%; height: 100%; }
+    #wmsx-screen canvas { width: 100% !important; height: 100% !important; object-fit: contain; image-rendering: pixelated; }
+    .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+           color: #ccc; font-family: sans-serif; font-size: 14px; text-align: center; padding: 12px; z-index: 5; }
+  </style>
+</head>
+<body>
+  <div class="msg" id="msg">불러오는 중…</div>
+  <div id="wmsx"><div id="wmsx-screen"></div></div>
+
+  <script>
+    /* MSX in-browser play via WebMSX (Paulo Peccin), self-hosted at /webmsx/wmsx.js
+       (no external CDN; embedded build bundles BIOS + supports .dsk and MSX2). Boot
+       sequence that reliably AUTORUNS games: power on empty → once the room is live,
+       insert the ROM/disk via fileLoader.loadFromContent (Uint8Array + a name carrying
+       the real extension, explicit type) → cold power-cycle so the cart/disk boots
+       from reset. (Inserting into a running machine alone does NOT boot it; the URL
+       loaders fail on our extension-less raw-ROM endpoint — hence the bytes path.)
+       Input: on-screen pad → synthetic KeyboardEvents; physical keyboard works too. */
+    var _q = new URLSearchParams(location.search);
+    var romId = _q.get("rom");
+    var romExt = (_q.get("ext") || "").toLowerCase();
+    var msg = document.getElementById("msg");
+
+    var PAD2KEY = {
+      up:    { code: "ArrowUp",    key: "ArrowUp",    keyCode: 38 },
+      down:  { code: "ArrowDown",  key: "ArrowDown",  keyCode: 40 },
+      left:  { code: "ArrowLeft",  key: "ArrowLeft",  keyCode: 37 },
+      right: { code: "ArrowRight", key: "ArrowRight", keyCode: 39 },
+      a:     { code: "Space",      key: " ",          keyCode: 32 },
+      b:     { code: "ControlLeft",key: "Control",    keyCode: 17 },
+      start: { code: "Enter",      key: "Enter",      keyCode: 13 },
+      select:{ code: "Escape",     key: "Escape",     keyCode: 27 },
+    };
+    function fireKey(type, m) {
+      [window, document].forEach(function (t) {
+        var ev = new KeyboardEvent(type, { code: m.code, key: m.key, keyCode: m.keyCode,
+          which: m.keyCode, bubbles: true, cancelable: true });
+        try { Object.defineProperty(ev, "keyCode", { value: m.keyCode }); } catch (_) {}
+        try { Object.defineProperty(ev, "which", { value: m.keyCode }); } catch (_) {}
+        t.dispatchEvent(ev);
+      });
+    }
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || d.type !== "ejs-input" || !(d.btn in PAD2KEY)) return;
+      fireKey(d.down ? "keydown" : "keyup", PAD2KEY[d.btn]);
+    });
+
+    // Capture WebMSX's async "Could not load" popup into a flag (and suppress it) so we
+    // can detect a too-early insert and retry, instead of showing alerts to the user.
+    var loadErr = false;
+    var _alert = window.alert;
+    window.alert = function (m) {
+      if (m && /could not load/i.test(m)) { loadErr = true; return; }
+      return _alert.apply(window, arguments);
+    };
+
+    async function insertAndBoot() {
+      var bytes;
+      try {
+        bytes = new Uint8Array(await (await fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")).arrayBuffer());
+      } catch (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; return; }
+      var loader = WMSX.room.fileLoader, machine = WMSX.room.machine;
+      var isDisk = romExt === "dsk";
+      var type = isDisk ? "DISK" : "ROM";
+      var name = "game." + (romExt || (isDisk ? "dsk" : "rom"));
+      var tries = 0;
+      // The core rejects an insert until the BIOS has fully booted (timing varies), so
+      // retry until it sticks, then cold power-cycle so the cart/disk boots from reset.
+      (function attempt() {
+        loadErr = false;
+        try { loader.loadFromContent(name, bytes, type, 0, true); }
+        catch (e) { msg.textContent = "구동 실패 (" + e.message + ")"; return; }
+        setTimeout(function () {
+          if (loadErr) {
+            if (++tries < 30) attempt();
+            else msg.textContent = "구동 실패 (ROM 인식 불가)";
+          } else {
+            try { WMSX.room.machine.powerOff(); } catch (_) {}
+            setTimeout(function () { try { WMSX.room.machine.userPowerOn(); } catch (_) {} }, 300);
+            if (msg) msg.remove();
+          }
+        }, 500);
+      })();
+    }
+
+    // Start once the room + file loader exist (WebMSX has powered on the empty machine).
+    if (romId) {
+      var t0 = 0;
+      var iv = setInterval(function () {
+        if (window.WMSX && WMSX.room && WMSX.room.fileLoader && WMSX.room.machine) {
+          clearInterval(iv); insertAndBoot();
+        } else if (t0 > 200) { clearInterval(iv); msg.textContent = "에뮬레이터 초기화 시간 초과"; }
+        t0++;
+      }, 100);
+    }
+  </script>
+
+  <!-- Import the emulator, then (per WebMSX docs) set config in the next script. -->
+  <script src="/webmsx/wmsx.js"></script>
+  <script>
+    if (!window.WMSX) { document.getElementById("msg").textContent = "WebMSX 로드 실패"; }
+    else if (!romId) { document.getElementById("msg").textContent = "ROM이 지정되지 않았습니다."; }
+    else { WMSX.AUTO_START = true; }   // power on empty; insertAndBoot() loads the game
+  </script>
+</body>
+</html>

@@ -33,9 +33,9 @@ const CORE_MAP = {
   gw: "gw",
   tama: "tamalibretro",
   pico8: "retro8",
-  // NOTE: Atari 2600/7800, Amstrad CPC have no Nostalgist-compatible core, so they
-  // run via a self-hosted JS engine in an iframe instead (see JS_ENGINE — Amstrad
-  // uses CPCEC). Watara (wsv), Pokémon Mini, MSX have neither → device only.
+  // NOTE: Atari 2600/7800, Amstrad CPC, MSX have no Nostalgist-compatible core, so they
+  // run via a self-hosted JS engine in an iframe instead (see JS_ENGINE — Amstrad uses
+  // CPCEC, MSX uses WebMSX). Watara (wsv), Pokémon Mini have neither → device only.
 };
 
 // Every core listed above is mirrored under /public/cores/<core>_libretro.{js,wasm}.
@@ -51,6 +51,9 @@ const JS_ENGINE = {
   // pad bridged to CPC keys as synthetic KeyboardEvents. See amstrad.html. (cap32 via
   // EmulatorJS was abandoned — it aborted on every disk mount.)
   amstrad: { html: "amstrad.html", pad: "ejs" },
+  // MSX via self-hosted WebMSX (Paulo Peccin, WASM). Auto-detects cart/disk and boots
+  // via a cold power-cycle; pad → MSX keys as synthetic KeyboardEvents. See msx.html.
+  msx: { html: "msx.html", pad: "ejs" },
 };
 export function jsEngineFor(systemKey) { return JS_ENGINE[systemKey] || null; }
 
@@ -69,6 +72,7 @@ const SCREEN_ASPECT = {
   gb: "10 / 9", gbc: "10 / 9",
   pico8: "1 / 1", tama: "1 / 1",
   amstrad: "4 / 3",
+  msx: "4 / 3",
 };
 
 // Per-system keyboard cheatsheet. The keys are libretro's DEFAULT keyboard map
@@ -90,6 +94,7 @@ const KEY_HINTS = {
   tama:  [{ k: "Z", b: "A" }, { k: "X", b: "B" }, { k: "A", b: "C" }],
   pico8: [DPAD, { k: "Z", b: "O (○)" }, { k: "X", b: "X (✕)" }],
   amstrad: [DPAD, { k: "Space", b: "발사" }, { k: "Shift", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
+  msx:    [DPAD, { k: "Space", b: "발사 (스페이스)" }, { k: "Ctrl", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
 };
 const DEFAULT_HINTS = [DPAD, ...AB, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "START" }];
 
@@ -301,7 +306,7 @@ export function EmulatorOverlay({ rom, onClose }) {
               ref={iframeRef}
               className="emu-canvas"
               title={t("{title} 실행", { title })}
-              src={`/${jsEngineFor(rom.system_key).html}?rom=${encodeURIComponent(rom.id)}`}
+              src={`/${jsEngineFor(rom.system_key).html}?rom=${encodeURIComponent(rom.id)}&ext=${encodeURIComponent((rom.stored_name || "").split(".").pop().toLowerCase())}`}
               allow="autoplay; fullscreen; gamepad"
               onLoad={() => { try { iframeRef.current?.contentWindow?.focus(); } catch (_) {} }}
               style={{ border: 0, width: "100%", height: "100%", background: "#000" }}
