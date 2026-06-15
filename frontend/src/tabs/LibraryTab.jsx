@@ -162,7 +162,7 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   return (
     <div className="stack">
       <div className="muted">
-        <Library size={13} aria-hidden /> {t("보관 중")}: {lib.roms.length} ROM · {lib.videos.length} VIDEO · {lib.music?.length || 0} MUSIC{items.length > 0 ? ` · ${t("조회 {n}개", { n: items.length })}` : ""}
+        <Library size={13} aria-hidden /> {t("보관 중")}: {lib.roms.length} ROM · {lib.videos.length} VIDEO · {lib.music?.length || 0} MUSIC{(items.length > 0 || searching || missingOnly || nonKoOnly) ? ` · ${t("조회 {n}개", { n: items.length })}` : ""}
       </div>
 
       {error && <div className="badge failed">{error}</div>}

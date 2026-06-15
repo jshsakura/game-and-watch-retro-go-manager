@@ -13,26 +13,6 @@ import { useT, useI18n } from "./i18n.jsx";
 const THEME_KEY = "gnw_theme";
 
 // Edition mark — swaps with the theme (CSS hides the inactive one).
-// Zelda → gold Triforce · Mario → Super Mushroom.
-function EditionEmblem() {
-  return (
-    <span className="emblem" aria-hidden>
-      <svg className="emblem-zelda" viewBox="0 0 24 22" width="26" height="26">
-        <polygon points="12,1 17.5,10 6.5,10" fill="#f6d743" />
-        <polygon points="6,11 11.5,20 0.5,20" fill="#f6d743" />
-        <polygon points="18,11 23.5,20 12.5,20" fill="#f6d743" />
-      </svg>
-      <svg className="emblem-mario" viewBox="0 0 16 16" width="26" height="26">
-        <path d="M8 1.5A5.5 5.5 0 0 0 2.5 8h11A5.5 5.5 0 0 0 8 1.5Z" fill="#e23b2e" />
-        <circle cx="5.4" cy="5.6" r="1.5" fill="#fff" />
-        <circle cx="10.8" cy="5.9" r="1.1" fill="#fff" />
-        <rect x="5" y="8" width="6" height="6" rx="1.4" fill="#f3e2c0" />
-        <circle cx="6.7" cy="10.6" r="0.7" fill="#3a2a1a" />
-        <circle cx="9.3" cy="10.6" r="0.7" fill="#3a2a1a" />
-      </svg>
-    </span>
-  );
-}
 const TABS = [
   // Primary: LIBRARY (default landing) + UPLOAD. Secondary (gray): MEDIA + DATA + HELP.
   // MEDIA merges the old VIDEO + MUSIC converters into one tab.
@@ -155,10 +135,9 @@ export default function App() {
           onClick={() => setTab("library")}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setTab("library"); } }}
         >
-          <EditionEmblem />
           <div>
             <h1>GAME &amp; WATCH</h1>
-            <small>retro-go SD manager</small>
+            <small>Retro-Go SD Manager</small>
           </div>
         </div>
         <div className="topbar-actions">

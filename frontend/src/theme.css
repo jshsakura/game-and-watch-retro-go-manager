@@ -195,11 +195,6 @@ body::before {
 }
 
 /* Edition emblem — only the active theme's mark is shown */
-.emblem { display: inline-flex; flex: 0 0 auto; filter: drop-shadow(1px 1px 0 #00000066); }
-.emblem svg { shape-rendering: crispEdges; }
-.emblem-mario { display: none; }
-[data-theme="mario"] .emblem-zelda { display: none; }
-[data-theme="mario"] .emblem-mario { display: inline-block; }
 
 /* LCD screen — content lives "inside the screen" */
 .lcd {
@@ -802,14 +797,14 @@ body::before {
    button (text and icon) shares one uniform height */
 /* match the search input box exactly (same olive bg, border, inset shadow) */
 .search-scope {
-  flex: 0 0 auto; display: inline-flex; align-items: stretch; gap: 3px;
-  padding: 3px; border-radius: 9px;
+  flex: 0 0 auto; display: inline-flex; align-items: stretch; gap: 5px;
+  padding: 4px; border-radius: 9px;
   background: #161a0d; border: 2px solid #00000077; box-shadow: inset 0 2px 5px #00000077;
 }
 .scope-btn {
   font-family: var(--pixel); font-size: 9px; line-height: 1; cursor: pointer;
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  min-width: 38px; padding: 10px 12px; border: none; border-radius: 6px;
+  min-width: 38px; padding: 7px 12px; border: none; border-radius: 6px;
   background: #ffffff14; color: var(--card-ink); white-space: nowrap;
   transition: background .12s, color .12s;
 }

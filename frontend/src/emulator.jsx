@@ -411,7 +411,6 @@ function VirtualPad({ onDown, onUp }) {
         <PadButton btn="right" glyph="▶︎" label={t("오른쪽")} className="dp dp-right" {...p} />
         <PadButton btn="down" glyph="▼︎" label={t("아래")} className="dp dp-down" {...p} />
       </div>
-      <img className="pad-logo" src="/gamewatch-logo.png" alt="" aria-hidden />
       <div className="pad-right">
         <div className="pad-ss">
           <div className="pad-ss-labels"><em>SELECT</em><em>START</em></div>
