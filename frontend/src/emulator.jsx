@@ -48,19 +48,17 @@ const CORE_BASE = "/cores";
 const JS_ENGINE = {
   a2600: { html: "javatari.html", pad: "jt" },   // Javatari (pure JS)
   a7800: { html: "js7800.html", pad: "js7800" },  // js7800 (ProSystem WASM)
-  // Amstrad CPC (EmulatorJS + self-hosted cap32) is wired up in amstrad.html and
-  // boots the machine fine, but cap32 4.2.3 aborts (RuntimeError: unreachable)
-  // whenever it actually mounts a .dsk — reproducible on both the WebGL2 and legacy
-  // cores and every content format (.dsk / .m3u / .cue), so games never load. The
-  // play button is disabled until a working core lands; flip the line below back on
-  // to re-enable (it boots to Amstrad BASIC but can't run games).
-  // amstrad: { html: "amstrad.html", pad: "ejs" },
+  // Amstrad CPC (EmulatorJS + self-hosted cap32). PEEK ONLY: the machine boots to the
+  // Amstrad BASIC screen, but cap32 aborts on any real .dsk mount (every wasm build we
+  // tried crashes), so the game itself never loads — ▶ just shows the powered-on
+  // Amstrad. Marked EXPERIMENTAL so the overlay warns before launch. See amstrad.html.
+  amstrad: { html: "amstrad.html", pad: "ejs" },
 };
 export function jsEngineFor(systemKey) { return JS_ENGINE[systemKey] || null; }
 
 // Cores that exist but whose ROM format may differ from retro-go's packaging —
 // best-effort, may fail to boot. The overlay warns before launching.
-const EXPERIMENTAL = new Set(["gw", "pico8"]);
+const EXPERIMENTAL = new Set(["gw", "pico8", "amstrad"]);
 
 const MOBILE_QUERY = "(max-width: 640px)";
 

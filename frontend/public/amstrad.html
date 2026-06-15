@@ -15,6 +15,15 @@
   <div class="msg" id="msg">불러오는 중…</div>
   <div id="game"></div>
   <script>
+    /* NOTE: "peek only" runner. The self-hosted cap32 core boots the Amstrad (BASIC
+       prompt) but ABORTS the moment it mounts a real .dsk (RuntimeError: unreachable
+       — reproduced across every cap32 wasm build we tried). So we intentionally let
+       EmulatorJS load the disk its default way: cap32 can't read that wrapper, leaves
+       drive A empty, and lands at the Amstrad BASIC screen WITHOUT crashing. That's
+       the "open it up and see the machine" level the feature is scoped to — the game
+       itself does not load. Do NOT add EJS_disableCue / m3u tricks here: forcing a
+       real disk mount is exactly what triggers the abort. */
+
     /* resume suspended AudioContext on first gesture (autoplay policy) */
     (function () {
       var ctxs = [];
@@ -40,69 +49,26 @@
     window.addEventListener("message", function (e) {
       var d = e.data;
       if (!d || d.type !== "ejs-input" || !(d.btn in IDX)) return;
-      try {
-        window.EJS_emulator.gameManager.simulateInput(0, IDX[d.btn], d.down ? 1 : 0);
-      } catch (err) { /* not started yet */ }
+      try { window.EJS_emulator.gameManager.simulateInput(0, IDX[d.btn], d.down ? 1 : 0); }
+      catch (err) { /* not started yet */ }
     });
-
-    // EmulatorJS 4.2.3 has no Amstrad entry, so the cap32 fallback inherits a CD-core
-    // extension list and wraps our .dsk in a MODE1/2352 .cue caprice can't mount. We
-    // hijack its cue generator and emit an .m3u disk playlist instead — the canonical
-    // way a libretro disk core mounts a floppy into drive A.
-    function patchCueToM3u() {
-      var tries = 0;
-      var iv = setInterval(function () {
-        var gm = window.EJS_emulator && window.EJS_emulator.gameManager;
-        if (gm && typeof gm.createCueFile === "function" && !gm.__m3uPatched) {
-          gm.__m3uPatched = true;
-          gm.createCueFile = function (files) {
-            try {
-              var disks = files.filter(function (f) { return /\.dsk$/i.test(f); });
-              if (!disks.length) disks = files.slice();
-              this.FS.writeFile("/game.m3u", disks.join("\n") + "\n");
-              return "game.m3u";
-            } catch (err) { return null; }
-          };
-          clearInterval(iv);
-        }
-        if (++tries > 3000) clearInterval(iv);   // ~30s safety net
-      }, 5);
-    }
 
     if (!romId) { msg.textContent = "ROM이 지정되지 않았습니다."; }
     else {
-      // Fetch the ROM bytes ourselves so we can give EmulatorJS a proper ".dsk"
-      // filename (Caprice32 detects disks by extension) from a local blob URL.
       fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.blob(); })
         .then(function (blob) {
           window.EJS_player = "#game";
-          window.EJS_core = "cap32";                 // Caprice32 (Amstrad CPC). NOTE:
-          // EmulatorJS 4.2.3 has no "amstrad" alias, so pass the core name directly
-          // — getCore() falls back to it and loads cores/cap32-*-wasm.data.
+          window.EJS_core = "cap32";                 // Caprice32 (Amstrad CPC). EmulatorJS
+          // 4.2.3 has no "amstrad" alias; passing the core name directly works via the
+          // getCore() fallback and loads cores/cap32-*-wasm.data.
           window.EJS_pathtodata = "/emulatorjs/data/";   // self-hosted, no external CDN
           window.EJS_gameUrl = URL.createObjectURL(blob);
-          window.EJS_gameName = "game.dsk";          // ext so cap32 mounts it as a disk
+          window.EJS_gameName = "game.dsk";
           window.EJS_startOnLoaded = true;
           window.EJS_disableDatabases = true;        // no external game-info DB calls
-          // cap32 core options: auto-type RUN"DISC so games launch straight away
-          // instead of dropping the user at the BASIC "Ready" prompt.
-          // NOTE: EmulatorJS only honours EJS_defaultOptions when localStorage is
-          // disabled — otherwise a fresh load writes an empty core-options file and
-          // ignores them, so cap32 boots with autorun off. Disable it here.
-          window.EJS_disableLocalStorage = true;
-          window.EJS_defaultOptions = { cap32_autorun: "enabled" };
           window.EJS_volume = 0.5;
           window.EJS_onGameStart = function () { if (msg) msg.remove(); };
-
-          // EmulatorJS 4.2.3 has no Amstrad entry, so the cap32 fallback is treated as
-          // a CD core: it wraps our .dsk in a MODE1/2352 .cue that caprice misreads
-          // (drive A stays empty → "disc missing"), and feeding the raw .dsk crashes
-          // RetroArch's load path. The canonical way to mount a floppy in a libretro
-          // disk core is an .m3u playlist of .dsk files — so we hijack EmulatorJS's
-          // cue generation and emit an m3u pointing at the disk instead.
-          patchCueToM3u();
-
           var s = document.createElement("script");
           s.src = "/emulatorjs/data/loader.js";
           s.onerror = function () { msg.textContent = "EmulatorJS 로드 실패"; };
