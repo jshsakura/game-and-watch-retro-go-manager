@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<gameList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<game>
+		<path>./Alien 8.dsk</path>
+		<name>에일리언 8</name>
+	</game>
+	<game>
+		<path>./Batman.dsk</path>
+		<name>배트맨</name>
+	</game>
+	<game>
+		<path>./Bionic Commando.dsk</path>
+		<name>바이오닉 코만도</name>
+	</game>
+	<game>
+		<path>./Bomb Jack.dsk</path>
+		<name>봄 잭</name>
+	</game>
+	<game>
+		<path>./Boulder Dash.dsk</path>
+		<name>볼더 대시</name>
+	</game>
+	<game>
+		<path>./Bruce Lee.dsk</path>
+		<name>브루스 리</name>
+	</game>
+	<game>
+		<path>./Bubble Bobble.dsk</path>
+		<name>버블 보블</name>
+	</game>
+	<game>
+		<path>./Cauldron II.dsk</path>
+		<name>콜드론 II</name>
+	</game>
+	<game>
+		<path>./Chase HQ.dsk</path>
+		<name>체이스 HQ</name>
+	</game>
+	<game>
+		<path>./Chuckie Egg.dsk</path>
+		<name>처키 에그</name>
+	</game>
+	<game>
+		<path>./Combat School.dsk</path>
+		<name>컴뱃 스쿨</name>
+	</game>
+	<game>
+		<path>./Cybernoid.dsk</path>
+		<name>사이버노이드</name>
+	</game>
+	<game>
+		<path>./Dizzy.dsk</path>
+		<name>디지</name>
+	</game>
+	<game>
+		<path>./Double Dragon.dsk</path>
+		<name>더블 드래곤</name>
+	</game>
+	<game>
+		<path>./Elite.dsk</path>
+		<name>엘리트</name>
+	</game>
+	<game>
+		<path>./Exolon.dsk</path>
+		<name>엑솔론</name>
+	</game>
+	<game>
+		<path>./Fantasy World Dizzy.dsk</path>
+		<name>판타지 월드 디지</name>
+	</game>
+	<game>
+		<path>./Gauntlet.dsk</path>
+		<name>건틀릿</name>
+	</game>
+	<game>
+		<path>./Get Dexter.dsk</path>
+		<name>겟 덱스터</name>
+	</game>
+	<game>
+		<path>./Ghosts 'n Goblins.dsk</path>
+		<name>고스트 앤 고블린</name>
+	</game>
+	<game>
+		<path>./Green Beret.dsk</path>
+		<name>그린 베레</name>
+	</game>
+	<game>
+		<path>./Gryzor.dsk</path>
+		<name>그라이저</name>
+	</game>
+	<game>
+		<path>./Head over Heels.dsk</path>
+		<name>헤드 오버 힐스</name>
+	</game>
+	<game>
+		<path>./International Karate.dsk</path>
+		<name>인터내셔널 가라테</name>
+	</game>
+	<game>
+		<path>./Knight Lore.dsk</path>
+		<name>나이트 로어</name>
+	</game>
+	<game>
+		<path>./La Abadia del Crimen.dsk</path>
+		<name>범죄의 수도원</name>
+	</game>
+	<game>
+		<path>./Lotus Esprit Turbo Challenge.dsk</path>
+		<name>로터스 에스프리 터보 챌린지</name>
+	</game>
+	<game>
+		<path>./Match Day II.dsk</path>
+		<name>매치 데이 II</name>
+	</game>
+	<game>
+		<path>./Mr. Heli.dsk</path>
+		<name>미스터 헬리</name>
+	</game>
+	<game>
+		<path>./Nebulus.dsk</path>
+		<name>네뷸러스</name>
+	</game>
+	<game>
+		<path>./Operation Wolf.dsk</path>
+		<name>오퍼레이션 울프</name>
+	</game>
+	<game>
+		<path>./Pac-Mania.dsk</path>
+		<name>팩매니아</name>
+	</game>
+	<game>
+		<path>./Predator.dsk</path>
+		<name>프레데터</name>
+	</game>
+	<game>
+		<path>./Prince of Persia.dsk</path>
+		<name>페르시아의 왕자</name>
+	</game>
+	<game>
+		<path>./R-Type.dsk</path>
+		<name>R-타입</name>
+	</game>
+	<game>
+		<path>./Rainbow Islands.dsk</path>
+		<name>레인보우 아일랜드</name>
+	</game>
+	<game>
+		<path>./Rampage.dsk</path>
+		<name>램페이지</name>
+	</game>
+	<game>
+		<path>./Renegade.dsk</path>
+		<name>레니게이드</name>
+	</game>
+	<game>
+		<path>./Rick Dangerous.dsk</path>
+		<name>릭 데인저러스</name>
+	</game>
+	<game>
+		<path>./Robocop.dsk</path>
+		<name>로보캅</name>
+	</game>
+	<game>
+		<path>./Roland on the Ropes.dsk</path>
+		<name>롤랜드 온 더 로프스</name>
+	</game>
+	<game>
+		<path>./Saboteur.dsk</path>
+		<name>사보추어</name>
+	</game>
+	<game>
+		<path>./Shinobi.dsk</path>
+		<name>시노비</name>
+	</game>
+	<game>
+		<path>./Sorcery+.dsk</path>
+		<name>소서리+</name>
+	</game>
+	<game>
+		<path>./Spindizzy.dsk</path>
+		<name>스핀디지</name>
+	</game>
+	<game>
+		<path>./Stormlord.dsk</path>
+		<name>스톰로드</name>
+	</game>
+	<game>
+		<path>./Stunt Car Racer.dsk</path>
+		<name>스턴트 카 레이서</name>
+	</game>
+	<game>
+		<path>./Super Cars.dsk</path>
+		<name>슈퍼 카스</name>
+	</game>
+	<game>
+		<path>./Switchblade.dsk</path>
+		<name>스위치블레이드</name>
+	</game>
+	<game>
+		<path>./Target Renegade.dsk</path>
+		<name>타겟 레니게이드</name>
+	</game>
+	<game>
+		<path>./The Way of the Exploding Fist.dsk</path>
+		<name>익스플로딩 피스트</name>
+	</game>
+	<game>
+		<path>./Trailblazer.dsk</path>
+		<name>트레일블레이저</name>
+	</game>
+	<game>
+		<path>./Treasure Island Dizzy.dsk</path>
+		<name>트레저 아일랜드 디지</name>
+	</game>
+	<game>
+		<path>./WEC Le Mans.dsk</path>
+		<name>WEC 르망</name>
+	</game>
+	<game>
+		<path>./Wizball.dsk</path>
+		<name>위즈볼</name>
+	</game>
+	<game>
+		<path>./Zynaps.dsk</path>
+		<name>자이냅스</name>
+	</game>
+</gameList>

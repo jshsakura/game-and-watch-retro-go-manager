@@ -33,10 +33,14 @@ const CORE_MAP = {
   gw: "gw",
   tama: "tamalibretro",
   pico8: "retro8",
+  // Watara Supervision — potator core compiled from source for emscripten (MODULARIZE,
+  // Nostalgist-compatible). No prebuilt existed anywhere; built via emsdk + RetroArch.
+  wsv: "potator",
   // NOTE: Atari 2600/7800, Amstrad CPC, MSX, Pokémon Mini have no Nostalgist-compatible
   // core, so they run via a self-hosted JS engine in an iframe instead (see JS_ENGINE —
   // Amstrad uses CPCEC, MSX uses WebMSX, Poké Mini uses the webRcade PokeMini core).
-  // Watara (wsv) has none → device only.
+  // Watara (wsv→potator) had no prebuilt wasm anywhere, so its core was compiled from
+  // source (emsdk + RetroArch) into the Nostalgist format above. Every system now plays.
 };
 
 // Every core listed above is mirrored under /public/cores/<core>_libretro.{js,wasm}.
@@ -74,7 +78,7 @@ const SCREEN_ASPECT = {
   nes: "4 / 3", sms: "4 / 3", sg: "4 / 3", md: "4 / 3", pce: "4 / 3",
   col: "4 / 3", gw: "4 / 3", gg: "4 / 3",
   gb: "10 / 9", gbc: "10 / 9",
-  pico8: "1 / 1", tama: "1 / 1",
+  pico8: "1 / 1", tama: "1 / 1", wsv: "1 / 1",
   amstrad: "4 / 3",
   msx: "4 / 3",
   mini: "4 / 3",
@@ -98,6 +102,7 @@ const KEY_HINTS = {
   gw:    [DPAD, { k: "X", b: "A" }, { k: "Z", b: "B" }, { k: "Enter", b: "START" }],
   tama:  [{ k: "Z", b: "A" }, { k: "X", b: "B" }, { k: "A", b: "C" }],
   pico8: [DPAD, { k: "Z", b: "O (○)" }, { k: "X", b: "X (✕)" }],
+  wsv:   [DPAD, ...AB, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "START" }],
   amstrad: [DPAD, { k: "Space", b: "발사" }, { k: "Shift", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
   msx:    [DPAD, { k: "Space", b: "발사 (스페이스)" }, { k: "Ctrl", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
   mini:   [DPAD, { k: "X", b: "A" }, { k: "Z", b: "B" }, { k: "C", b: "C" }, { k: "Enter", b: "START" }],
