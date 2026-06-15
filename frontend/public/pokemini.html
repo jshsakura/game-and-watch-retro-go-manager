@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Pokémon Mini</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; }
+    body { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    /* Poké Mini LCD is 96×64; webRcade shows it 4:3. Letterbox to the viewport. */
+    #canvas { display: block; image-rendering: pixelated; width: 96vw; height: 96vh;
+              max-width: calc(96vh*1.333); max-height: calc(96vw/1.333); margin: auto; }
+    .msg { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+           color: #ccc; font-family: sans-serif; font-size: 14px; text-align: center; padding: 12px; z-index: 5; }
+  </style>
+</head>
+<body>
+  <div class="msg" id="msg">불러오는 중…</div>
+  <canvas id="canvas" tabindex="1"></canvas>
+  <script>
+    /* Pokémon Mini in-browser play via the webRcade-built PokeMini libretro core
+       (RetroArch/emscripten), self-hosted at /pokemini/ (no external CDN; the core
+       embeds FreeBIOS so no system ROM is needed). NOTE: this RetroArch build does not
+       self-pump — we drive one frame per rAF via _emscripten_mainloop (the webRcade
+       "wrc-audio" core stubs that out in favour of _wrc_step, so we detect either) and
+       feed input each frame via _wrc_set_input. Game runs from /home/web_user/retroarch
+       (the path RetroArch expects). On first boot the Poké Mini shows its date/time set
+       screen — navigate it with the pad, exactly like real hardware. */
+    var BASE = "/pokemini";
+    var msg = document.getElementById("msg");
+    var canvas = document.getElementById("canvas");
+    var romId = new URLSearchParams(location.search).get("rom");
+
+    // Input goes through the core's _wrc_set_input(controller, mask, ...) — webRcade's
+    // own bit layout (NOT RetroPad): LEFT=1 RIGHT=2 UP=4 DOWN=8 START=16 SELECT=32
+    // A=64 B=128 X(=Poké Mini C)=256. Maintain a held-button mask, fed every frame.
+    var INP = { left:1, right:2, up:4, down:8, start:16, select:32, a:64, b:128, c:256 };
+    var PAD2INP = { up:INP.up, down:INP.down, left:INP.left, right:INP.right,
+                    a:INP.a, b:INP.b, start:INP.start, select:INP.c };
+    var KEY2INP = { ArrowUp:INP.up, ArrowDown:INP.down, ArrowLeft:INP.left, ArrowRight:INP.right,
+                    KeyX:INP.a, KeyZ:INP.b, KeyC:INP.c, Enter:INP.start, ShiftRight:INP.select };
+    var mask = 0;
+    window.addEventListener("message", function (e) {
+      var d = e.data;
+      if (!d || d.type !== "ejs-input" || !(d.btn in PAD2INP)) return;
+      if (d.down) mask |= PAD2INP[d.btn]; else mask &= ~PAD2INP[d.btn];
+    });
+    addEventListener("keydown", function (e){ if (KEY2INP[e.code]){ mask |= KEY2INP[e.code]; e.preventDefault(); } });
+    addEventListener("keyup",   function (e){ if (KEY2INP[e.code]){ mask &= ~KEY2INP[e.code]; e.preventDefault(); } });
+
+    if (!romId) { msg.textContent = "ROM이 지정되지 않았습니다."; }
+    else { boot(); }
+
+    async function boot() {
+      var min, wasmBinary;
+      try {
+        min = new Uint8Array(await (await fetch("/api/sessions/public/roms/" + encodeURIComponent(romId) + "/rom")).arrayBuffer());
+        wasmBinary = await (await fetch(BASE + "/pokemini_libretro.wasm")).arrayBuffer();
+      } catch (e) { msg.textContent = "ROM 가져오기 실패 (" + e.message + ")"; return; }
+
+      var Module = {
+        canvas: canvas, wasmBinary: wasmBinary, noInitialRun: true,
+        locateFile: function (p) { return p.indexOf(".wasm") >= 0 ? BASE + "/pokemini_libretro.wasm" : p; },
+        print: function () {}, printErr: function () {},
+        onAbort: function () { msg.textContent = "에뮬레이터 오류"; },
+        onRuntimeInitialized: function () {
+          var FS = window.FS || Module.FS;
+          ["/home","/home/web_user","/home/web_user/retroarch","/home/web_user/retroarch/system",
+           "/home/web_user/retroarch/userdata","/home/web_user/retroarch/userdata/system",
+           "/home/web_user/retroarch/userdata/saves","/home/web_user/retroarch/userdata/states"
+          ].forEach(function (d) { try { FS.mkdir(d); } catch (e) {} });
+          var game = "/home/web_user/retroarch/game.min";
+          try { FS.writeFile(game, min); } catch (e) { msg.textContent = "쓰기 실패"; return; }
+          try { Module.callMain(["-v", game]); } catch (e) { msg.textContent = "구동 실패 (" + e.message + ")"; return; }
+          if (msg) msg.remove();
+          function fit(){ try { Module.setCanvasSize(canvas.offsetWidth, canvas.offsetHeight); } catch (e) {} }
+          [0,300,800,1500].forEach(function (d) { setTimeout(fit, d); });
+          addEventListener("resize", fit);
+          // Detect the per-frame pump exposed by this core.
+          var pump = null;
+          try { Module._emscripten_mainloop(); pump = "_emscripten_mainloop"; } catch (e) {}
+          if (!pump) { try { Module._wrc_step(); pump = "_wrc_step"; } catch (e) {} }
+          (function frame(){
+            try { Module._wrc_set_input(0, mask, 0, 0, 0, 0); } catch (e) {}
+            try { if (pump) Module[pump](); } catch (e) {}
+            requestAnimationFrame(frame);
+          })();
+        },
+      };
+      window.Module = Module;
+      var s = document.createElement("script");
+      s.src = BASE + "/pokemini_libretro.js"; s.async = true;
+      s.onerror = function () { msg.textContent = "코어 로드 실패"; };
+      document.body.appendChild(s);
+    }
+  </script>
+</body>
+</html>

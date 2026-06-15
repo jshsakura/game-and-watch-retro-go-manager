@@ -33,9 +33,10 @@ const CORE_MAP = {
   gw: "gw",
   tama: "tamalibretro",
   pico8: "retro8",
-  // NOTE: Atari 2600/7800, Amstrad CPC, MSX have no Nostalgist-compatible core, so they
-  // run via a self-hosted JS engine in an iframe instead (see JS_ENGINE — Amstrad uses
-  // CPCEC, MSX uses WebMSX). Watara (wsv), Pokémon Mini have neither → device only.
+  // NOTE: Atari 2600/7800, Amstrad CPC, MSX, Pokémon Mini have no Nostalgist-compatible
+  // core, so they run via a self-hosted JS engine in an iframe instead (see JS_ENGINE —
+  // Amstrad uses CPCEC, MSX uses WebMSX, Poké Mini uses the webRcade PokeMini core).
+  // Watara (wsv) has none → device only.
 };
 
 // Every core listed above is mirrored under /public/cores/<core>_libretro.{js,wasm}.
@@ -54,6 +55,9 @@ const JS_ENGINE = {
   // MSX via self-hosted WebMSX (Paulo Peccin, WASM). Auto-detects cart/disk and boots
   // via a cold power-cycle; pad → MSX keys as synthetic KeyboardEvents. See msx.html.
   msx: { html: "msx.html", pad: "ejs" },
+  // Pokémon Mini via self-hosted webRcade PokeMini core (RetroArch/WASM, FreeBIOS).
+  // Pumps _emscripten_mainloop per frame; pad → _wrc_set_input. See pokemini.html.
+  mini: { html: "pokemini.html", pad: "ejs" },
 };
 export function jsEngineFor(systemKey) { return JS_ENGINE[systemKey] || null; }
 
@@ -73,6 +77,7 @@ const SCREEN_ASPECT = {
   pico8: "1 / 1", tama: "1 / 1",
   amstrad: "4 / 3",
   msx: "4 / 3",
+  mini: "4 / 3",
 };
 
 // Per-system keyboard cheatsheet. The keys are libretro's DEFAULT keyboard map
@@ -95,6 +100,7 @@ const KEY_HINTS = {
   pico8: [DPAD, { k: "Z", b: "O (○)" }, { k: "X", b: "X (✕)" }],
   amstrad: [DPAD, { k: "Space", b: "발사" }, { k: "Shift", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
   msx:    [DPAD, { k: "Space", b: "발사 (스페이스)" }, { k: "Ctrl", b: "발사 2" }, { k: "Enter", b: "RETURN" }],
+  mini:   [DPAD, { k: "X", b: "A" }, { k: "Z", b: "B" }, { k: "C", b: "C" }, { k: "Enter", b: "START" }],
 };
 const DEFAULT_HINTS = [DPAD, ...AB, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "START" }];
 
