@@ -49,10 +49,6 @@ MEDIA_DIR_NAME = "media"
 MUSIC_DIR_NAME = "music"   # firmware Music app scans /music (MP3 played directly)
 
 # External metadata/art providers — keys via env only (security rule).
-SCREENSCRAPER_USER = os.getenv("SCREENSCRAPER_USER", "")
-SCREENSCRAPER_PASSWORD = os.getenv("SCREENSCRAPER_PASSWORD", "")
-SCREENSCRAPER_DEV_ID = os.getenv("SCREENSCRAPER_DEV_ID", "")
-SCREENSCRAPER_DEV_PASSWORD = os.getenv("SCREENSCRAPER_DEV_PASSWORD", "")
 IGDB_CLIENT_ID = os.getenv("IGDB_CLIENT_ID", "")
 IGDB_CLIENT_SECRET = os.getenv("IGDB_CLIENT_SECRET", "")
 # TheGamesDB (thegamesdb.net) — keyless-ish public API key, instant. Monthly quota.

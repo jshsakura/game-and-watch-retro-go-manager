@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Database, Upload, Download, Trash2 } from "lucide-react";
 import { getData, uploadData, deleteData, dataDownloadUrl } from "../api.js";
-import { Dropzone, Loading } from "../components.jsx";
+import { Dropzone } from "../components.jsx";
 import { useToast } from "../toast.jsx";
 import { useT } from "../i18n.jsx";
 
@@ -80,7 +80,16 @@ export default function DataTab({ onChanged }) {
       )}
 
       {loading ? (
-        <Loading text={t("자료 불러오는 중…")} />
+        <div className="data-list">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div className="skel-row" key={i}>
+              <div className="skel-line fill" />
+              <div className="skel-line w-sm" />
+              <div className="skel-line w-icon" />
+              <div className="skel-line w-icon" />
+            </div>
+          ))}
+        </div>
       ) : files.length === 0 ? (
         <div className="muted">{t("보관된 자료가 없습니다.")}</div>
       ) : (

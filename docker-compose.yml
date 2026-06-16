@@ -1,7 +1,9 @@
-version: "3.9"
-
 services:
-  gnw-retro-manager:
+  game-and-what:
+    container_name: game-and-what
+    # Pull the published multi-arch image, OR build locally (the `build:` below).
+    # With both set, `docker compose build` tags the build as this image name.
+    image: ghcr.io/jshsakura/game-and-what:latest
     build:
       context: .
       args:
@@ -21,11 +23,12 @@ services:
       - ${GNW_DATA_PATH:-./data}:/app/backend/data
     environment:
       # Override any config via env; defaults match the app's config.py.
+      # All keys are OPTIONAL — values come from a .env beside this file (compose
+      # auto-loads it). See .env.example. Empty = that provider disabled; app still works.
       GNW_DATA_DIR: /app/backend/data
-      # IGDB cover-search keys — put values in a .env next to this compose file
-      # (compose auto-loads it). Empty = cover 검색기 disabled, app still works.
       IGDB_CLIENT_ID: ${IGDB_CLIENT_ID:-}
       IGDB_CLIENT_SECRET: ${IGDB_CLIENT_SECRET:-}
-      # SCREENSCRAPER_USER: ""
-      # SCREENSCRAPER_PASSWORD: ""
+      TGDB_API_KEY: ${TGDB_API_KEY:-}
+      # Korea-specific features — public image keeps this off.
+      GNW_KOREAN_MODE: ${GNW_KOREAN_MODE:-false}
     restart: unless-stopped

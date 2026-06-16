@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FolderPlus, Upload, Download, Trash2 } from "lucide-react";
 import { getExtra, uploadExtra, deleteExtra, extraDownloadUrl, formatBytes } from "../api.js";
-import { Dropzone, Loading } from "../components.jsx";
+import { Dropzone } from "../components.jsx";
 import { useToast } from "../toast.jsx";
 import { useT } from "../i18n.jsx";
 
@@ -77,7 +77,16 @@ export default function ExtraTab({ onChanged }) {
       />
 
       {loading ? (
-        <Loading text={t("목록 불러오는 중…")} />
+        <div className="data-list">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div className="skel-row" key={i}>
+              <div className="skel-line fill" />
+              <div className="skel-line w-sm" />
+              <div className="skel-line w-icon" />
+              <div className="skel-line w-icon" />
+            </div>
+          ))}
+        </div>
       ) : files.length === 0 ? (
         <div className="muted">{t("올려둔 파일이 없습니다 (SD에 포함 안 됨).")}</div>
       ) : (

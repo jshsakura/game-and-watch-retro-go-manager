@@ -2,18 +2,18 @@ import React, { useEffect, useRef, useState } from "react";
 import Cropper from "react-easy-crop";
 import {
   Check, ImageOff, XCircle, ImagePlus, Loader, Play,
-  Download, MoreHorizontal, Trash2, X, Film, Music, ChevronDown, Pencil, Search, Hand, Crop, Upload, FolderPlus, Flag,
+  Download, MoreHorizontal, Trash2, X, Film, Music, ChevronDown, Pencil, Search, Hand, Crop, Upload, FolderPlus, Star,
+  AlertTriangle, HelpCircle, Timer,
 } from "lucide-react";
 import { EmulatorOverlay, canPlay, isExperimental } from "./emulator.jsx";
 import {
   uploadCover, coverUrl, deviceCoverUrl, originalCoverUrl, coverDownloadUrl, downloadRomUrl, downloadVideoUrl, downloadMusicUrl,
   videoThumbUrl, videoPreviewUrl, musicCoverUrl, streamMusicUrl, deleteRom, deleteVideo, deleteMusic,
-  renameRom, igdbSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setCoverFlag, setSdInclude,
-  addRomFile, deleteRomFile,
+  renameRom, igdbSearch, tgdbSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setSdInclude,
+  setFavorite, addRomFile, deleteRomFile, setPico8Compat,
 } from "./api.js";
 import { useToast } from "./toast.jsx";
-import { useKoreanMode } from "./config.jsx";
-import { useT, useI18n } from "./i18n.jsx";
+import { useT } from "./i18n.jsx";
 
 // System icon keyed 1:1 to the firmware folder name (dirname): the asset at
 // /system-icons/<dirname>.svg is THE icon for that system. Until that asset is
@@ -235,7 +235,7 @@ export function Dropzone({ accept, multiple, label, folder, onFiles }) {
 
 // Cover slot — shows the cover (or a beautiful centered placeholder when
 // missing/broken) and is clickable to upload your own cover image directly.
-export function CoverSlot({ romId, src: initialSrc, bust, alt = "", aspect = 3 / 4, onActivate, badge = null, status = null, overlay = null }) {
+export function CoverSlot({ romId, src: initialSrc, bust, alt = "", aspect = 3 / 4, onActivate, badge = null, cornerBL = null, gauge = null, status = null, overlay = null }) {
   const t = useT();
   const [src, setSrc] = useState(initialSrc || null);
   const [err, setErr] = useState(false);
@@ -302,7 +302,13 @@ export function CoverSlot({ romId, src: initialSrc, bust, alt = "", aspect = 3 /
         </div>
       )}
       {overlay && <span className="cover-corner">{overlay}</span>}
+      {cornerBL && <span className="cover-badge bl">{cornerBL}</span>}
       {badge && <span className="cover-badge">{badge}</span>}
+      {gauge && (
+        <span className="cover-gauge" title={gauge.title} aria-hidden>
+          <i className={`g-${gauge.cls}`} style={{ width: `${Math.min(100, gauge.pct)}%` }} />
+        </span>
+      )}
     </div>
   );
 }
@@ -375,41 +381,31 @@ function cleanTitle(name = "") {
     .trim();
 }
 
-// No-Intro region/dump tags — NOT titles (so "(USA, Europe)" / "(Japan)" never
-// become the search query).
-const REGION_RE = /^(japan|usa|world|europe|korea|asia|france|germany|spain|italy|netherlands|sweden|australia|brazil|china|taiwan|unl|proto|beta|sample|demo|pd|rev\b.*|en|jp|us|eu|ko|j|u|e|k)$/i;
-function isRegionTag(s) {
-  const parts = s.split(/[,/]/).map((p) => p.trim()).filter(Boolean);
-  return parts.length > 0 && parts.every((p) => REGION_RE.test(p));
-}
-
-// Default cover-search query. The "한글명 (English)" convention only holds when the
-// part BEFORE the parens is non-latin (Korean) AND it isn't a region tag —
-// otherwise the parens hold a region tag like "(USA, Europe)", so just use the
-// filename (tags stripped). e.g. "Untouchable (USA, Europe)" → "Untouchable".
-function englishTerm(rom) {
-  const stem = (rom.stored_name || "").replace(/\.[^.]+$/, "");
-  const m = stem.match(/\(([A-Za-z0-9][^)]*)\)/);
-  if (m && !/[A-Za-z]/.test(stem.slice(0, m.index)) && !isRegionTag(m[1].trim())) {
-    return m[1].trim();
-  }
-  return cleanTitle(stem);
-}
-
 function CoverSearch({ rom, onPick }) {
   const t = useT();
-  const [q, setQ] = useState(englishTerm(rom));
+  // Search query = the ORIGINAL file title as-is (extension + release tags
+  // stripped). No language-specific extraction — same for every locale. Uses the
+  // original upload name (stored_name may be the Korean-renamed file).
+  const [q, setQ] = useState(cleanTitle(rom.original_name || rom.stored_name));
   const [busy, setBusy] = useState(false);
   const [results, setResults] = useState(null);
   const [err, setErr] = useState("");
+  const [source, setSource] = useState("igdb");
 
   async function search() {
     const query = q.trim();
     if (!query || busy) return;
     setBusy(true); setErr(""); setResults(null);
     try {
-      const d = await igdbSearch(query, rom.system_key);
-      if (!d.available) setErr(t("IGDB 키가 설정되지 않았습니다"));
+      const searchFn = source === "igdb" ? igdbSearch : tgdbSearch;
+      const d = await searchFn(query, rom.system_key);
+      if (!d.available) {
+        setErr(source === "igdb"
+          ? t("IGDB 키가 설정되지 않았습니다")
+          : t("TheGamesDB 키가 설정되지 않았습니다"));
+      } else if (d.quota_exceeded) {
+        setErr(t("TheGamesDB 사용량 초과 — IGDB로 검색하거나 나중에 다시"));
+      }
       setResults(d.results || []);
     } catch (e) { setErr(e.message); }
     finally { setBusy(false); }
@@ -417,7 +413,11 @@ function CoverSearch({ rom, onPick }) {
 
   return (
     <div className="cover-search">
-      <div className="field-label">{t("커버 검색 (IGDB)")}</div>
+      <div className="field-label">{t("커버 검색")}</div>
+      <span className="search-scope" role="group">
+        <button className={`scope-btn ${source === "igdb" ? "on" : ""}`} onClick={() => setSource("igdb")}>IGDB</button>
+        <button className={`scope-btn ${source === "tgdb" ? "on" : ""}`} onClick={() => setSource("tgdb")}>TheGamesDB</button>
+      </span>
       <div className="rename-row">
         <input
           className="text-input"
@@ -432,8 +432,9 @@ function CoverSearch({ rom, onPick }) {
           {busy ? <Loader size={13} className="spin" /> : <Search size={13} strokeWidth={2.5} />} {t("검색")}
         </button>
       </div>
+      <div className="muted" style={{ fontSize: "11px" }}>{t("업로드 시 무료 소스로 자동 채움 · 못 찾으면 직접 검색하거나 이미지를 올리세요")}</div>
       {err && <div className="badge failed">{err}</div>}
-      {results && results.length === 0 && !busy && (
+      {results && results.length === 0 && !busy && !err && (
         <div className="muted">{t("검색 결과가 없습니다.")}</div>
       )}
       {results && results.length > 0 && (
@@ -631,33 +632,151 @@ const FLAG_OPTIONS = [
   { code: "eu", label: "유럽(EU)" },
 ];
 
+// PICO-8 cart runnability on the G&W z8lua engine (from the community sheet).
+// good = confirmed · partial = slow/occasional OOM · broken = doesn't run ·
+// (no status) = untested. Shown as a small icon on PICO-8 cards.
+const P8_COMPAT = {
+  good:    { cls: "good",    Icon: Check,         label: "실기(G&W) 호환: 정상 동작", short: "정상" },
+  slow:    { cls: "slow",    Icon: Timer,         label: "실기(G&W) 호환: 되지만 느림", short: "느림" },
+  partial: { cls: "partial", Icon: AlertTriangle, label: "실기(G&W) 호환: 불안정 (일부 문제/간헐 OOM)", short: "불안정" },
+  broken:  { cls: "broken",  Icon: XCircle,       label: "실기(G&W) 호환: 동작 안 함 (OOM 등)", short: "안됨" },
+};
+const P8_UNTESTED = { cls: "untested", Icon: HelpCircle, label: "실기(G&W) 호환: 미검증", short: "미검증" };
+const p8meta = (status) => (status && P8_COMPAT[status]) || P8_UNTESTED;
+// Statuses the user can assign in the ROM detail (null → clear back to untested).
+const P8_COMPAT_ORDER = ["good", "slow", "partial", "broken", null];
+
+function Pico8Compat({ status }) {
+  const t = useT();
+  const m = p8meta(status);
+  const Icon = m.Icon;
+  return (
+    <span className={`p8compat ${m.cls}`} title={t(m.label)}>
+      <Icon size={12} strokeWidth={2.8} aria-hidden />
+    </span>
+  );
+}
+
+// Rough static cart-complexity hint → 낮음/보통/높음 (NOT a real device figure).
+const p8memLevel = (pct) =>
+  pct >= 80 ? { cls: "high", label: "높음" }
+  : pct >= 50 ? { cls: "mid", label: "보통" }
+  : { cls: "low", label: "낮음" };
+
+// ROM-detail editor: let the user set a PICO-8 cart's real-device (G&W) status.
+// The compat sheet is hand-maintained, so this is a manual override per cart.
+function Pico8CompatEditor({ rom, onChanged }) {
+  const t = useT();
+  const toast = useToast();
+  const [busy, setBusy] = useState(false);
+  const current = rom.pico8_compat || null;
+  const hint = rom.pico8_mem_hint;
+  const lvl = hint != null ? p8memLevel(hint) : null;
+  async function pick(value) {
+    if (busy || value === current) return;
+    setBusy(true);
+    try {
+      await setPico8Compat(rom.id, value);
+      onChanged?.();
+    } catch (err) {
+      toast.error(err.message || t("호환 상태 설정 실패"));
+    } finally {
+      setBusy(false);
+    }
+  }
+  return (
+    <div className="p8compat-edit">
+      <label className="field-label">{t("실기(G&W) 호환 상태")}</label>
+      <div className="p8compat-opts">
+        {P8_COMPAT_ORDER.map((value) => {
+          const m = p8meta(value);
+          const Icon = m.Icon;
+          const active = (value || null) === current;
+          return (
+            <button key={m.cls} type="button" disabled={busy}
+              className={`p8opt ${m.cls} ${active ? "on" : ""}`}
+              onClick={() => pick(value)} title={t(m.label)}>
+              <Icon size={14} strokeWidth={2.6} aria-hidden />
+              <span>{t(m.short)}</span>
+            </button>
+          );
+        })}
+      </div>
+      {lvl && (
+        <div className="p8memhint">
+          <span>{t("코드 크기")}: <b className={`p8mem-${lvl.cls}`}>{t(lvl.label)}</b> ({hint}%)</span>
+          <span className="p8memhint-note">{t("PICO-8 코드 한도 대비 비율 (실기 메모리와는 다를 수 있어요)")}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Compat filter shown above the PICO-8 game list — 전체 + one chip per status,
+// each with its colored icon and a live count. Reuses the P8_COMPAT taxonomy.
+const P8_FILTER_OPTS = [
+  { v: "all", short: "전체" },
+  { v: "good", ...P8_COMPAT.good },
+  { v: "slow", ...P8_COMPAT.slow },
+  { v: "partial", ...P8_COMPAT.partial },
+  { v: "broken", ...P8_COMPAT.broken },
+  { v: "untested", ...P8_UNTESTED },
+];
+export function Pico8CompatFilter({ value, onChange, roms = [] }) {
+  const t = useT();
+  const counts = roms.reduce((acc, r) => {
+    const k = r.pico8_compat || "untested";
+    acc[k] = (acc[k] || 0) + 1;
+    return acc;
+  }, {});
+  return (
+    <span className="search-scope p8-filter" role="group" aria-label={t("호환 필터")}>
+      {P8_FILTER_OPTS.map((o) => {
+        const Icon = o.Icon;
+        const n = o.v === "all" ? roms.length : counts[o.v] || 0;
+        const on = value === o.v;
+        return (
+          <button key={o.v} className={`scope-btn ${on ? "on" : ""}`} aria-pressed={on}
+            onClick={() => onChange(o.v)} title={t(o.label || o.short)}>
+            {Icon && <span className={`p8compat ${o.cls}`}><Icon size={13} strokeWidth={2.6} /></span>}
+            {t(o.short)} <span className="scope-count">{n}</span>
+          </button>
+        );
+      })}
+    </span>
+  );
+}
+
 // ROM card: cover (click-to-upload) + name + per-card download + edit/delete popup.
 export function RomCard({ rom, previewSrc, onChanged }) {
   const toast = useToast();
   const t = useT();
-  const koreanMode = useKoreanMode();
-  const { lang } = useI18n();
-  // 한글패치 is Korea-specific → show only in Korean UI (Korean deploy + Korean lang).
-  const koFeature = koreanMode && lang === "ko";
   // Homebrew cards can hold extra files (e.g. smw_assets.dat). The badge counts
-  // only the real SD data files (.dat etc.) — .bin app payloads live in the
-  // firmware and aren't shown.
+  // the files that actually ship in the SD download: data files (.dat etc.) plus
+  // the .bin app itself once it's opted into the SD (sd_include).
   let extraFiles = [];
   try { extraFiles = JSON.parse(rom.extra_files || "[]"); } catch { extraFiles = []; }
   const dataFileCount = [rom.stored_name, ...extraFiles.map((f) => f.name)]
-    .filter((n) => n && !n.toLowerCase().endsWith(".bin")).length;
+    .filter((n) => n && (!n.toLowerCase().endsWith(".bin") || rom.sd_include)).length;
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
   const fileRef = useRef(null);
   const romFileRef = useRef(null);
   const dataFileRef = useRef(null);
-  const [name, setName] = useState(rom.stored_name);
+  // The rename field edits the BASE name only — the extension is locked (shown as
+  // a fixed suffix) so it can't be accidentally changed/removed.
+  const extDot = rom.stored_name.lastIndexOf(".");
+  const romExt = extDot > 0 ? rom.stored_name.slice(extDot) : "";        // e.g. ".sms"
+  const romBase = extDot > 0 ? rom.stored_name.slice(0, extDot) : rom.stored_name;
+  const [name, setName] = useState(romBase);
   const [nameErr, setNameErr] = useState("");
   const [coverV, setCoverV] = useState(0); // bumped on cover change → instant refresh
   const [cropper, setCropper] = useState(null); // { src, apply, revoke? }
   const [playing, setPlaying] = useState(false); // in-browser emulator overlay
   const dl = downloadRomUrl(rom.id);
-  const title = rom.display_name || rom.korean_name || rom.stored_name;
+  // Card title = the (normalized) filename base "한글명 (영어)" so a manual rename
+  // shows on the card instantly. (display_name is an explicit user override.)
+  const title = rom.display_name || romBase;
   const runnable = canPlay(rom.system_key);
 
   async function launch() {
@@ -676,7 +795,7 @@ export function RomCard({ rom, previewSrc, onChanged }) {
   function coverChanged() { setCoverV(Date.now()); onChanged?.(); }
 
   function openModal() {
-    setName(rom.stored_name);
+    setName(romBase);
     setNameErr("");
     setOpen(true);
   }
@@ -724,8 +843,9 @@ export function RomCard({ rom, previewSrc, onChanged }) {
     finally { setBusy(false); }
   }
   async function rename() {
-    const next = name.trim();
-    if (busy || !next || next === rom.stored_name) { setOpen(false); return; }
+    const base = name.trim();
+    const next = base + romExt;   // extension is locked — re-attach it on save
+    if (busy || !base || next === rom.stored_name) { setOpen(false); return; }
     setBusy(true); setNameErr("");
     try { await renameRom(rom.id, next); onChanged?.(); setOpen(false); toast.success(t("파일명을 변경했습니다")); }
     catch (e) { setNameErr(e.message); toast.error(e.message); }
@@ -767,20 +887,20 @@ export function RomCard({ rom, previewSrc, onChanged }) {
     try {
       await setRomLang(rom.id, !koPatched);
       onChanged?.();
-      toast.success(!koPatched ? t("한글패치로 표시했습니다") : t("한글패치 표시를 해제했습니다"));
+      toast.success(!koPatched ? t("유저 패치로 표시했습니다") : t("유저 패치 표시를 해제했습니다"));
     } catch (e) { toast.error(e.message || t("변경 실패")); }
     finally { setBusy(false); }
   }
 
-  // Pick the cover's corner flag/country explicitly (independent of 한글패치).
-  async function changeFlag(code) {
+  // Toggle favorite (★) — sorts to the front + shows a star on the cover.
+  async function toggleFavorite(e) {
+    e?.stopPropagation?.();
     if (busy) return;
     setBusy(true);
     try {
-      await setCoverFlag(rom.id, code);
-      coverChanged();   // re-bake done server-side → bust cover + refresh
-      toast.success(code ? t("국기를 변경했습니다") : t("국기를 제거했습니다"));
-    } catch (e) { toast.error(e.message || t("국기 변경 실패")); }
+      await setFavorite(rom.id, !rom.favorite);
+      onChanged?.();
+    } catch (e) { toast.error(e.message || t("즐겨찾기 설정 실패")); }
     finally { setBusy(false); }
   }
 
@@ -830,11 +950,24 @@ export function RomCard({ rom, previewSrc, onChanged }) {
     ) : null;
 
   return (
-    <div className="card" style={{ borderTopColor: systemColor(rom.system_key) }}>
+    <div className={`card ${rom.system_key === "pico8" && rom.pico8_compat === "broken" ? "card-broken" : ""}`}
+      style={{ borderTopColor: systemColor(rom.system_key) }}>
       <CoverSlot romId={rom.id} src={previewSrc} bust={coverV} alt={title}
         aspect={coverAspect(rom.system_key)} onActivate={openModal} badge={statusBadge}
+        cornerBL={rom.system_key === "pico8" ? <Pico8Compat status={rom.pico8_compat} /> : null}
+        gauge={rom.system_key === "pico8" && rom.pico8_mem_hint != null ? {
+          pct: rom.pico8_mem_hint, cls: p8memLevel(rom.pico8_mem_hint).cls,
+          title: `${t("코드 크기")}: ${t(p8memLevel(rom.pico8_mem_hint).label)} (${rom.pico8_mem_hint}%)`,
+        } : null}
         status={rom.cover_status}
-        overlay={rom.system_key ? <SystemIcon dirname={rom.system_key} size={14} /> : null} />
+        overlay={
+          <button type="button" className={`cover-fav ${rom.favorite ? "on" : ""}`} disabled={busy}
+            onClick={toggleFavorite} title={rom.favorite ? t("즐겨찾기 해제") : t("즐겨찾기")}>
+            {rom.favorite
+              ? <Star size={14} strokeWidth={2.5} fill="currentColor" aria-hidden />
+              : (rom.system_key ? <SystemIcon dirname={rom.system_key} size={14} /> : <Star size={14} strokeWidth={2.5} aria-hidden />)}
+          </button>
+        } />
       <div className="name">
         {title}
         {rom.system_key === "homebrew" && dataFileCount > 0 && (
@@ -872,7 +1005,7 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                   name must stay exact, so no rename field (managed via file list). */}
               {rom.system_key !== "homebrew" && (
                 <>
-                  <label className="field-label">{t("파일명 (확장자 포함)")}</label>
+                  <label className="field-label">{t("파일명")}</label>
                   <div className="rename-row">
                     {rom.system_key && <span className="path-prefix">/roms/{rom.system_key}/</span>}
                     <input
@@ -883,7 +1016,7 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                       onChange={(e) => setName(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && rename()}
                     />
-                    <button className="btn" disabled={busy || !name.trim() || name.trim() === rom.stored_name} onClick={rename}>
+                    <button className="btn" disabled={busy || !name.trim() || name.trim() === romBase} onClick={rename}>
                       <Pencil size={13} strokeWidth={2.5} /> {t("변경")}
                     </button>
                   </div>
@@ -891,31 +1024,19 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                 </>
               )}
 
-              {koFeature && (
-                <div className="lang-row">
-                  <label className="lang-toggle" title={t("이 롬이 한글패치 적용판인지 표시합니다 (자동 감지값을 직접 덮어씁니다)")}>
-                    <input type="checkbox" checked={koPatched} disabled={busy} onChange={togglePatch} />
-                    <span>{t("한글패치")}</span>
-                  </label>
-                  <span className="lang-info">
-                    {t("언어")}: {t(langLabel(rom.orig_lang))}{rom.play_lang && rom.play_lang !== rom.orig_lang ? ` → ${t(langLabel(rom.play_lang))}` : ""}
-                    {rom.lang_source === "manual" && <span className="lang-manual" title={t("직접 지정함")}> {t("(수동)")}</span>}
-                  </span>
-                </div>
-              )}
-
               <div className="lang-row">
-                <label className="flag-select" title={t("커버 우측상단에 표시할 국기를 직접 선택합니다 (한글패치와 별개)")}>
-                  {rom.cover_flag
-                    ? <img className="flag-preview" src={langFlagUrl(rom.cover_flag)} alt="" />
-                    : <Flag size={14} strokeWidth={2.5} aria-hidden />}
-                  <span>{t("국기")}</span>
-                  <select className="text-input" value={rom.cover_flag || ""} disabled={busy}
-                    onChange={(e) => changeFlag(e.target.value)}>
-                    {FLAG_OPTIONS.map((o) => <option key={o.code} value={o.code}>{t(o.label)}</option>)}
-                  </select>
+                <label className="lang-toggle" title={t("이 롬에 유저 패치(번역·개조 등)가 적용된 판인지 표시합니다")}>
+                  <input type="checkbox" checked={koPatched} disabled={busy} onChange={togglePatch} />
+                  <span>{t("유저 패치 적용")}</span>
                 </label>
+                <button type="button" className={`fav-toggle ${rom.favorite ? "on" : ""}`} disabled={busy}
+                  onClick={toggleFavorite} title={t("즐겨찾기 (정렬 시 앞으로 옵니다)")}>
+                  <Star size={14} strokeWidth={2.5} fill={rom.favorite ? "currentColor" : "none"} aria-hidden />
+                  <span>{t("즐겨찾기")}</span>
+                </button>
               </div>
+
+              {rom.system_key === "pico8" && <Pico8CompatEditor rom={rom} onChanged={onChanged} />}
 
               {rom.system_key === "homebrew" && (
                 <div className="file-list">
@@ -923,7 +1044,11 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                   <ul className="files">
                     <li className="file-row">
                       <span className="file-name">{rom.stored_name}</span>
-                      <span className="file-tag" title={t("이 파일은 펌웨어에 내장된 실행 항목이라 수정·다운로드되지 않습니다")}>{t("템플릿")}</span>
+                      <label className="file-sd" title={t("체크하면 이 실행 파일(.bin)이 SD 다운로드에 포함됩니다 (공유 라이브러리라 모두에게 적용)")}>
+                        <input type="checkbox" checked={!!rom.sd_include} disabled={busy}
+                          onChange={(e) => changeSdInclude(e.target.checked)} />
+                        {t("SD 포함")}
+                      </label>
                     </li>
                     {extraFiles.map((f) => (
                       <li className="file-row" key={f.name}>
@@ -935,33 +1060,46 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                       </li>
                     ))}
                   </ul>
-                  <button className="btn ghost" disabled={busy} onClick={() => dataFileRef.current?.click()}
-                    title={t("데이터 파일(.dat 등)을 추가하거나, 같은 이름으로 올리면 교체됩니다")}>
-                    <Upload size={13} strokeWidth={2.5} /> {t("데이터 파일 추가/교체")}
-                  </button>
                   <input ref={dataFileRef} type="file" hidden onChange={addFile} />
                 </div>
               )}
 
-              <div className="modal-actions">
-                {runnable && (
-                  <button className="btn play" disabled={busy} onClick={launch}
-                    title={isExperimental(rom.system_key) ? t("브라우저에서 바로 실행 (실험적 지원)") : t("브라우저에서 바로 실행")}>
-                    <Play size={13} strokeWidth={2.5} /> {t("웹에서 실행")}
+              {/* Homebrew: data-file add/replace + download share one 50/50 row */}
+              {rom.system_key === "homebrew" && (
+                <div className="modal-actions">
+                  <button className="btn ghost" disabled={busy} onClick={() => dataFileRef.current?.click()}
+                    title={t("데이터 파일(.dat 등)을 추가하거나, 같은 이름으로 올리면 교체됩니다")}>
+                    <Upload size={13} strokeWidth={2.5} /> {t("데이터 파일 추가/교체")}
                   </button>
-                )}
-                {rom.system_key !== "homebrew" && (
-                  <button className="btn ghost" disabled={busy} onClick={() => romFileRef.current?.click()}
-                    title={t("롬 파일 자체를 다른 파일로 교체 (이름·커버 유지)")}>
-                    <Upload size={13} strokeWidth={2.5} /> {t("롬 파일 교체")}
-                  </button>
-                )}
-                {dl && (
-                  <a className="btn ghost" href={dl} download title={t("롬+커버 ZIP 받기")}>
-                    <Download size={13} strokeWidth={2.5} /> {t("롬 다운로드")}
-                  </a>
-                )}
-              </div>
+                  {dl && (
+                    <a className="btn ghost" href={dl} download title={t("롬+커버 ZIP 받기")}>
+                      <Download size={13} strokeWidth={2.5} /> {t("다운로드")}
+                    </a>
+                  )}
+                </div>
+              )}
+
+              {(runnable || rom.system_key !== "homebrew") && (
+                <div className="modal-actions">
+                  {runnable && (
+                    <button className="btn play" disabled={busy} onClick={launch}
+                      title={isExperimental(rom.system_key) ? t("브라우저에서 바로 실행 (실험적 지원)") : t("브라우저에서 바로 실행")}>
+                      <Play size={13} strokeWidth={2.5} /> {t("웹에서 실행")}
+                    </button>
+                  )}
+                  {rom.system_key !== "homebrew" && (
+                    <button className="btn ghost" disabled={busy} onClick={() => romFileRef.current?.click()}
+                      title={t("롬 파일 자체를 다른 파일로 교체 (이름·커버 유지)")}>
+                      <Upload size={13} strokeWidth={2.5} /> {t("파일 교체")}
+                    </button>
+                  )}
+                  {dl && rom.system_key !== "homebrew" && (
+                    <a className="btn ghost" href={dl} download title={t("롬+커버 ZIP 받기")}>
+                      <Download size={13} strokeWidth={2.5} /> {t("다운로드")}
+                    </a>
+                  )}
+                </div>
+              )}
               <input ref={romFileRef} type="file" hidden onChange={replaceFile} />
 
               <CoverSearch rom={rom} onPick={pickIgdb} />

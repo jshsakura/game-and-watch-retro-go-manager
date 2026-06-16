@@ -19,3 +19,8 @@ frontend/dist/
 # scratch reference uploads
 _refs/*
 !_refs/README.md
+
+# Local dev tooling / WIP with absolute paths — not part of the public release
+backend/build_smw_kr.sh
+backend/kr_msg_exgfx.patch
+I18N_HANDOFF.md

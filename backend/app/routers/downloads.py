@@ -87,10 +87,14 @@ def download_rom(session_id: str, rom_id: str) -> Response:
 
     stem = Path(rom["stored_name"]).stem
     filename = f"{stem}.zip"
+    # Korean (non-latin-1) names crash a plain filename="…" header → RFC 5987:
+    # ASCII fallback + UTF-8 filename* (HTTP headers are latin-1 only).
+    ascii_name = filename.encode("ascii", "ignore").decode().strip() or "rom.zip"
     return Response(
         content=buf.getvalue(),
         media_type="application/zip",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        headers={"Content-Disposition":
+                 f"attachment; filename=\"{ascii_name}\"; filename*=UTF-8''{quote(filename)}"},
     )
 
 
@@ -151,7 +155,9 @@ def download_video(session_id: str, video_id: str) -> Response:
         _iter_file(avi_abs),
         media_type="video/avi",
         headers={
-            "Content-Disposition": f'attachment; filename="{video["avi_name"]}"',
+            "Content-Disposition":
+                f"attachment; filename=\"{(video['avi_name'].encode('ascii','ignore').decode().strip() or 'video.avi')}\"; "
+                f"filename*=UTF-8''{quote(video['avi_name'])}",
             "Content-Length": str(avi_abs.stat().st_size),
         },
     )

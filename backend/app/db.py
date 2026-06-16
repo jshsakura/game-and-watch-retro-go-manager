@@ -154,6 +154,19 @@ def _migrate(conn: sqlite3.Connection) -> None:
         # which may already carry the Korean name). NULL until hashed/backfilled.
         conn.execute("ALTER TABLE roms ADD COLUMN content_hash TEXT")
         conn.execute("CREATE INDEX IF NOT EXISTS idx_roms_hash ON roms(session_id, content_hash)")
+    if "favorite" not in cols:
+        # User-marked favorite (★) — purely a UI convenience for filtering/gathering
+        # the roms you care about. No effect on packaging/download.
+        conn.execute("ALTER TABLE roms ADD COLUMN favorite INTEGER NOT NULL DEFAULT 0")
+    if "pico8_compat" not in cols:
+        # PICO-8 only: known runnability on the G&W z8lua engine, from the community
+        # compatibility sheet — 'good' | 'partial' | 'broken' | NULL (untested).
+        conn.execute("ALTER TABLE roms ADD COLUMN pico8_compat TEXT")
+    if "pico8_mem_hint" not in cols:
+        # PICO-8 only: rough static cart-complexity hint (percent of PICO-8 code
+        # limits), computed at upload from the cart header. NOT the real device RAM
+        # figure — just a first-pass nudge alongside the manual compat status.
+        conn.execute("ALTER TABLE roms ADD COLUMN pico8_mem_hint INTEGER")
 
     # Multi-language prep: the name-mapping cache is currently Korean ('ko'). A
     # `lang` column lets other languages (en/ja…) coexist later without a rebuild.

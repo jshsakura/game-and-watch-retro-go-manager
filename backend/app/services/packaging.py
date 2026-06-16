@@ -1,7 +1,8 @@
 """Bundle a session's library into a ZIP that mirrors the SD card layout."""
 from __future__ import annotations
 
-import io
+import os
+import tempfile
 import zipfile
 from pathlib import Path
 
@@ -39,46 +40,62 @@ def _excluded(root: Path, path: Path, include_video: bool, systems: "set[str] | 
     return False
 
 
-def build_sd_zip(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
-                 homebrew_roms: "set[str] | None" = None) -> bytes:
-    """
-    Zip the session's /roms and /covers (and /media only if include_video) so the
-    archive unpacks straight onto the SD card root. Video is excluded by default.
-    Pass `systems` (a set of dirnames) to package only those systems.
-    `homebrew_roms` = relative paths of homebrew ROM files to include (default:
-    covers only for homebrew).
+def _write_sd_zip(zf: "zipfile.ZipFile", session_id: str, include_video: bool,
+                  systems: "set[str] | None", homebrew_roms: "set[str] | None") -> None:
+    """Write the SD-card layout (/roms, /covers, /media?, /cores, bios, firmware)
+    into an OPEN ZipFile. Shared by the in-memory and streamed-to-disk builders.
 
     Cover .img files already carry their baked-in language flag (applied at
     render_cover time), so they are copied as-is here.
     """
     root = storage.session_root(session_id)
-    buf = io.BytesIO()
-    with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as zf:
-        for path in sorted(root.rglob("*")):
-            if path.is_file() and not _excluded(root, path, include_video, systems, homebrew_roms):
-                zf.write(path, arcname=str(path.relative_to(root)))
-        # Bundle the PICO-8 core (required by the firmware to run .p8) when packaging
-        # everything, or whenever pico8 is among the selected systems.
-        if systems is None or "pico8" in systems:
-            cores = pico8core.ensure_cores_dir()
-            if cores and cores.exists():
-                for cp in sorted(cores.rglob("*")):
-                    if cp.is_file():
-                        zf.write(cp, arcname=f"cores/{cp.relative_to(cores)}")
-        # Extra passthrough files (bios/…) → SD root at their stored paths. Cores
-        # can't boot without their BIOS, so ship these with ANY selection — not just
-        # the full SD (was the bug: ALL-selection dropped bios + firmware).
-        extra = storage.extra_dir(session_id)
-        if extra.exists():
-            for ep in sorted(extra.rglob("*")):
-                if ep.is_file():
-                    zf.write(ep, arcname=str(ep.relative_to(extra)).replace("\\", "/"))
-        # Firmware update → SD ROOT, included with ANY download so the card is always
-        # complete (the device only flashes it when the user actually chooses to).
-        fw = storage.firmware_path(session_id)
-        if fw.exists():
-            zf.write(fw, arcname=storage.FIRMWARE_FILENAME)
-    return buf.getvalue()
+    for path in sorted(root.rglob("*")):
+        if path.is_file() and not _excluded(root, path, include_video, systems, homebrew_roms):
+            zf.write(path, arcname=str(path.relative_to(root)))
+    # Bundle the PICO-8 core (required by the firmware to run .p8) when packaging
+    # everything, or whenever pico8 is among the selected systems.
+    if systems is None or "pico8" in systems:
+        cores = pico8core.ensure_cores_dir()
+        if cores and cores.exists():
+            for cp in sorted(cores.rglob("*")):
+                if cp.is_file():
+                    zf.write(cp, arcname=f"cores/{cp.relative_to(cores)}")
+    # Extra passthrough files (bios/…) → SD root at their stored paths. Cores
+    # can't boot without their BIOS, so ship these with ANY selection — not just
+    # the full SD (was the bug: ALL-selection dropped bios + firmware).
+    extra = storage.extra_dir(session_id)
+    if extra.exists():
+        for ep in sorted(extra.rglob("*")):
+            if ep.is_file():
+                zf.write(ep, arcname=str(ep.relative_to(extra)).replace("\\", "/"))
+    # Firmware update → SD ROOT, included with ANY download so the card is always
+    # complete (the device only flashes it when the user actually chooses to).
+    fw = storage.firmware_path(session_id)
+    if fw.exists():
+        zf.write(fw, arcname=storage.FIRMWARE_FILENAME)
+
+
+def build_sd_zip_file(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
+                      homebrew_roms: "set[str] | None" = None) -> str:
+    """Build the SD zip to a TEMP FILE on disk and return its path. A full library
+    can be hundreds of MB — building it in RAM (the old `build_sd_zip`) OOM-killed
+    the worker. Writing to disk keeps memory bounded; the caller serves it streamed
+    and deletes it afterwards.
+    """
+    config.TMP_DIR.mkdir(parents=True, exist_ok=True)
+    fd, out_path = tempfile.mkstemp(prefix="gnw-sd-", suffix=".zip", dir=str(config.TMP_DIR))
+    os.close(fd)
+    try:
+        with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
+            _write_sd_zip(zf, session_id, include_video, systems, homebrew_roms)
+    except BaseException:
+        # don't leave a half-written temp zip behind on error
+        try:
+            os.unlink(out_path)
+        except OSError:
+            pass
+        raise
+    return out_path
 
 
 def sd_content_size(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,

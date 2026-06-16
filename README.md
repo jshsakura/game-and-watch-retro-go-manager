@@ -1,97 +1,116 @@
-# gnw-retro-manager
+# Game & What — Retro SD Manager
 
-Web converter & file manager for **Nintendo® Game & Watch™ Retro-Go SD**
-([sylverb/game-and-watch-retro-go-sd](https://github.com/sylverb/game-and-watch-retro-go-sd)).
+A self-hosted web app that prepares SD cards for **retro-go-sd** firmware on the
+Game & Watch handheld. Drop in ROMs, videos and music — it auto-adds names and
+device-spec covers, then packs everything into a single ZIP that matches the
+retro-go SD card layout. Ready to extract onto your card.
 
-Upload games and videos "무지성"으로 올리면 → 한글명 자동 변환 + 기기 규격 커버/영상으로
-변환 → SD카드 폴더 구조 그대로 ZIP으로 다시 받습니다. 올린 파일은 서버에 영구 보관됩니다.
+> Targets the [retro-go-sd](https://github.com/sylverb/game-and-watch-retro-go-sd)
+> firmware. The name "Game & What" is a play on words — this project ships **no
+> ROMs, BIOS or copyrighted assets** (see [Disclaimer](#disclaimer)).
 
-## Two pipelines
+---
 
-**A. ROM → cover**
-`기종 선택 → ROM 업로드 → 한글명 변환 → 커버 생성 → /roms + /covers ZIP`
-- Cover spec (ported from firmware `tools/gencovers.py`): max **186×100**, aspect
-  preserved, LANCZOS, **JPEG q85**, saved as `.img`. Cover path mirrors the ROM:
-  `/roms/<sys>/Name.<ext>` → `/covers/<sys>/Name.img`.
+## What it does
 
-**B. Video → /media**
-`영상 업로드 → ffmpeg MJPEG .avi 인코딩 → /media 보관 → 다운로드`
-- The chip has only a HW JPEG decoder → **MJPEG-in-.avi only** (no H.264/HEVC).
-  320×240, q:v 5, 30fps, PCM s16le mono 24k. Exact recipe in
-  `backend/app/services/video.py`. Requires `ffmpeg` on the server.
+- **ROM → cover.** Upload a ROM for any supported system; a cover is auto-fetched
+  (IGDB → TheGamesDB → libretro-thumbnails), rendered to the device spec
+  (**186×100 `.img`**, aspect-preserved), and filed as `/covers/<sys>/Name.img`
+  beside `/roms/<sys>/Name.<ext>`. Search/upload/crop covers manually too.
+- **Video → `/media`.** Re-encodes to the only format the chip's HW JPEG decoder
+  accepts — **MJPEG in `.avi`** (320×240, 30 fps, mono) — via `ffmpeg`.
+- **Music → `/music`.** MP3 kept as-is (or extracted from video); the firmware's
+  Music app reads ID3 tags + album art directly.
+- **One-click SD ZIP.** Download the whole card (`/roms`, `/covers`, `/cores`,
+  `/media`, `/music`) in the exact firmware layout — extract to the SD root, done.
+- **Play in browser.** Experimental in-page emulation (Nostalgist.js) for systems
+  that have a WASM core.
+- **18 systems:** NES, Game Boy / GB Color, Game Gear, Master System, Genesis,
+  SG-1000, PC Engine, ColecoVision, MSX, Atari 2600 / 7800, Amstrad CPC, Watara,
+  Tamagotchi, Pokémon Mini, Game & Watch, Homebrew, PICO-8.
+- **11-language UI** (ko, en, ja, zh-CN, zh-TW, de, es, fr, it, pt, ru, no) with
+  per-locale CJK/Cyrillic fonts lazy-loaded on demand.
+- **Optional Korean mode** (`GNW_KOREAN_MODE=true`) — Korean auto-naming, the
+  "Korean-patched" flag, and related filters. **Off by default** (international image).
+- Retro **pixel-art UI** with a Zelda ↔ Mario edition toggle.
 
-## Design
-
-Game & Watch hardware DNA with an **8-bit pixel-art** look. Theme switch:
-**🟩 Zelda Edition (green)** ↔ **🟥 Mario Edition (red)**.
-
-## Stack
-
-- Backend: **FastAPI** (`backend/`)
-- Frontend: **React + Vite** (`frontend/`)
-- Storage: server disk (persistent) + SQLite metadata
-
-## Run (dev — two terminals)
+## Quick start (Docker)
 
 ```bash
-# Terminal 1 – Backend (port 38080)
-cd backend
-GNW_API_PORT=38080 python3 -m uvicorn app.main:app --host 0.0.0.0 --port 38080
-# http://<tailscale-ip>:38080/api/health
+docker run -d --name game-and-what \
+  -p 38472:8080 \
+  -v "$PWD/data:/app/backend/data" \
+  ghcr.io/jshsakura/game-and-what:latest
+# → http://localhost:38472
+```
 
-# Terminal 2 – Frontend Vite dev server (port 38081, proxies /api → 38080)
+Or with compose (`docker compose up -d`). No API keys are required — cover search
+is just limited without them. Full deployment guide, env reference, publishing and
+**access/security** in **[DEPLOY.md](DEPLOY.md)**.
+
+## Configuration
+
+There is **no in-app settings screen** — everything is an environment variable
+(the Docker convention). Provide keys via `docker run -e`, a compose `.env`, or
+`backend/.env` for local dev. Nothing is required to boot. See
+**[`.env.example`](.env.example)** and the table in [DEPLOY.md](DEPLOY.md).
+
+| Variable | Purpose |
+|---|---|
+| `IGDB_CLIENT_ID` / `IGDB_CLIENT_SECRET` | IGDB cover search/auto-fill (optional) |
+| `TGDB_API_KEY` | TheGamesDB cover search/auto-fill (optional, monthly quota) |
+| `GNW_KOREAN_MODE` | Korea-specific features (default `false`) |
+| `GNW_CORS_ORIGINS` | CORS allow-list (default `*`) |
+
+## Security — no built-in login
+
+The app has **no authentication** (single shared workspace). **Do not expose it
+raw to the internet.** Put a Zero Trust layer in front (Cloudflare Tunnel +
+Access, or Tailscale). Details and setup steps in [DEPLOY.md](DEPLOY.md#access-control--no-login-use-zero-trust).
+
+## Develop from source
+
+```bash
+# Backend — FastAPI on :38080
+cd backend
+python3 -m pip install -r requirements.txt
+python3 -m uvicorn app.main:app --host 0.0.0.0 --port 38080
+
+# Frontend — Vite dev server on :38081 (proxies /api → :38080)
 cd frontend
 npm install
 npm run dev
-# http://<tailscale-ip>:38081
+# → http://localhost:38081
 ```
 
-Provider keys (optional, env only): `SCREENSCRAPER_*`, `IGDB_CLIENT_ID/SECRET`.
+Local secrets go in `backend/.env` (git-ignored, auto-loaded by `config.py`).
 
-## Run (Docker — production, single container)
+## Tech stack
 
-```bash
-# Build + start (host port 38472 by default).
-docker compose up -d
+- **Backend:** FastAPI (Python 3.12), SQLite, Pillow, `ffmpeg`.
+- **Frontend:** React 18 + Vite, lucide-react, Nostalgist.js, Press Start 2P +
+  Noto Sans (KR/JP/SC/TC) fonts.
+- **Packaging:** multi-stage Docker (Vite build → Python image serving the SPA +
+  API on one port). Multi-arch (amd64/arm64) image published to GHCR via GitHub
+  Actions on version tags.
 
-# Open the app.
-# http://<host>:38472
-# Attach a Cloudflare / ngrok / Tailscale Funnel tunnel to port 38472.
+## Credits
 
-# Override the host port without editing docker-compose.yml:
-GNW_HOST_PORT=12345 docker compose up -d
-```
+- [retro-go-sd](https://github.com/sylverb/game-and-watch-retro-go-sd) (sylverb) —
+  the firmware this tool targets, and the source of the card layout & cover spec.
+- [retro-go](https://github.com/ducalex/retro-go) (ducalex) — upstream.
+- The `smw` / `zelda3` reimplementation ports (snesrev) used by the homebrew apps.
+- Cover art: [IGDB](https://www.igdb.com/), [TheGamesDB](https://thegamesdb.net/),
+  [libretro-thumbnails](https://github.com/libretro-thumbnails).
 
-Uploaded files and the SQLite database are stored in the `gnw-data` named
-volume — they survive `docker compose down` and container restarts.
+## Disclaimer
 
-```bash
-# View logs
-docker compose logs -f
+This project ships **no ROMs, BIOS, or copyrighted game assets** — you supply your
+own legally-obtained files. "Game & Watch", game titles and related marks are
+trademarks of their respective owners; this project is **unaffiliated** with and
+**not endorsed** by Nintendo or any rights holder. Provided for use with content
+you are legally entitled to.
 
-# Stop without removing data
-docker compose down
+## License
 
-# Remove everything including data (파일 전부 삭제 — 주의!)
-docker compose down -v
-```
-
-## API endpoints (new in backlog)
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/sessions/{sid}/roms/{id}/download` | ROM + cover as ZIP |
-| GET | `/api/sessions/{sid}/videos/{id}/download` | Encoded .avi file |
-| GET | `/api/sessions/{sid}/roms/{id}/cover` | Preview current cover |
-| POST | `/api/sessions/{sid}/roms/{id}/cover` | Upload user cover image |
-| POST | `/api/sessions/{sid}/roms/{id}/cover/regenerate` | Re-fetch art for cover |
-| POST | `/api/sessions/{sid}/uploads` | Init chunked upload |
-| PUT | `/api/sessions/{sid}/uploads/{uid}/chunk?index=N` | Send chunk |
-| GET | `/api/sessions/{sid}/uploads/{uid}` | Upload status |
-| POST | `/api/sessions/{sid}/uploads/{uid}/complete` | Finalise upload |
-
-## Status
-
-Scaffolded: system table, cover & video conversion cores, FastAPI app.
-Some system `dirname`/`ext` rows are marked `verified=False` in
-`backend/app/systems.py` — confirm against the device before trusting them.
+[MIT](LICENSE) © 2026 jshsakura.

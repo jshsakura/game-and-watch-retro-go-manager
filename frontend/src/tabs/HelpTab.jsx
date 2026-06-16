@@ -56,6 +56,15 @@ const SECTIONS = [
   },
 ];
 
+// GitHub mark (Octocat) — lucide-react dropped brand icons, so inline the mark.
+function GithubMark({ size = 15 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 16 16" fill="currentColor" aria-hidden>
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+    </svg>
+  );
+}
+
 function Combo({ combo }) {
   const keys = combo.split("+").map((k) => k.trim());
   return (
@@ -75,7 +84,7 @@ export default function HelpTab() {
   return (
     <div className="stack help-tab">
       <div className="muted">
-        <Info size={13} aria-hidden /> {t("이 도구는 롬·영상을 올리면 한글명·커버를 자동으로 붙이고 Game & Watch (retro-go SD) 카드 구조 그대로 ZIP으로 묶어줍니다.")}
+        <Info size={13} aria-hidden /> {t("롬·영상을 올리면 한글명·커버를 자동으로 붙여, retro-go SD 카드 구조 그대로 ZIP으로 묶어줍니다.")}
       </div>
 
       {/* 사용법 */}
@@ -114,12 +123,13 @@ export default function HelpTab() {
         </div>
       ))}
 
-      <div className="muted">
-        {t("MSX·Amstrad는 PAUSE/SET 메뉴에서 가상 키보드 입력이 가능하고, 젤다3·슈퍼마리오월드는 마리오/젤다 기기 버전에 따라 버튼 매핑이 다릅니다. · 출처:")}{" "}
-        <a className="help-link" href="https://github.com/sylverb/game-and-watch-retro-go-sd" target="_blank" rel="noreferrer">
-          game-and-watch-retro-go-sd
-        </a>
+      <div className="muted help-note">
+        {t("MSX·Amstrad는 PAUSE/SET 메뉴에서 가상 키보드 입력이 가능하고, 젤다3·슈퍼마리오월드는 마리오/젤다 기기 버전에 따라 버튼 매핑이 다릅니다. · 출처:")}
       </div>
+      <a className="help-project" href="https://github.com/sylverb/game-and-watch-retro-go-sd" target="_blank" rel="noreferrer">
+        <GithubMark size={18} />
+        <span className="help-project-name">game-and-watch-retro-go-sd</span>
+      </a>
     </div>
   );
 }

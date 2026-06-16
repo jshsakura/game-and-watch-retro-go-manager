@@ -1,11 +1,20 @@
 // English translations keyed by the Korean source string (the value used in code
 // via t("…")). Missing keys fall back to the Korean source. Keys must EXACTLY
 // equal the in-code Korean literal (including punctuation/ellipsis/{placeholders}).
-export const EN = {
+// English dictionary (full). See i18n.locales.js for the locale set.
+export default {
   // ── App shell / header ─────────────────────────────────────────────────────
+  // Tab labels
+  "라이브러리": "Library",
+  "엑스트라": "Extra",
+  "미디어": "Media",
+  "데이터": "Data",
+  "정보": "Info",
   "메인으로": "Home",
+  "G&W Retro Manager": "G&W Retro Manager",
   "에디션: {ed} · 클릭해 전환": "Edition: {ed} · click to switch",
-  "언어: 한국어 · 클릭해 English로": "Language: 한국어 · click for English",
+  "언어 선택": "Language",
+  "retro-go SD 프로젝트 (GitHub)": "retro-go SD project (GitHub)",
   "모든 플랫폼 선택 / 해제": "Select / clear all platforms",
   "전체 SD(펌웨어·바이오스 포함) ZIP으로 받기": "Download the full SD (incl. firmware & BIOS) as ZIP",
   "체크한 플랫폼을 SD ZIP으로 받기": "Download the checked platforms as an SD ZIP",
@@ -43,7 +52,11 @@ export const EN = {
   "커버 추가": "Add cover",
   "불러오는 중…": "Loading…",
   "IGDB 키가 설정되지 않았습니다": "IGDB key is not set",
+  "TheGamesDB 키가 설정되지 않았습니다": "TheGamesDB key is not set",
+  "TheGamesDB 사용량 초과 — IGDB로 검색하거나 나중에 다시": "TheGamesDB quota exceeded — use IGDB or try later",
   "커버 검색 (IGDB)": "Cover search (IGDB)",
+  "커버 검색": "Cover search",
+  "업로드 시 무료 소스로 자동 채움 · 못 찾으면 직접 검색하거나 이미지를 올리세요": "Auto-filled from free sources on upload · search here or upload an image if missing",
   "게임 이름": "Game name",
   "검색 결과가 없습니다.": "No results found.",
   "실기기 표시 (정확히 {w}×{h})": "Device preview (exactly {w}×{h})",
@@ -101,6 +114,7 @@ export const EN = {
   "브라우저에서 바로 실행 (실험적 지원)": "Run directly in browser (experimental support)",
   "브라우저에서 바로 실행": "Run directly in browser",
   "롬 파일 자체를 다른 파일로 교체 (이름·커버 유지)": "Replace the ROM file itself with another (keeps name and cover)",
+  "파일 교체": "Replace file",
   "롬 파일 교체": "Replace ROM file",
   "롬+커버 ZIP 받기": "Download ROM + cover ZIP",
   "롬 다운로드": "Download ROM",
@@ -199,6 +213,7 @@ export const EN = {
 
   // ── HelpTab ────────────────────────────────────────────────────────────────
   "이 도구는 롬·영상을 올리면 한글명·커버를 자동으로 붙이고 Game & Watch (retro-go SD) 카드 구조 그대로 ZIP으로 묶어줍니다.": "Upload ROMs and videos and this tool automatically adds Korean names and covers, then packs everything into a ZIP matching the Game & Watch (retro-go SD) card structure.",
+  "롬·영상을 올리면 한글명·커버를 자동으로 붙여, retro-go SD 카드 구조 그대로 ZIP으로 묶어줍니다.": "Upload ROMs & videos — Korean names and covers are added automatically and packed into a ZIP in the retro-go SD card layout.",
   "기본 사용법": "Basic Usage",
   "SD 카드 / 폴더 구조": "SD Card / Folder Structure",
   "UPLOAD 탭(또는 빈 라이브러리)에서 플랫폼을 고르고 롬을 끌어다 놓습니다.": "In the UPLOAD tab (or an empty library), pick a platform and drag in your ROMs.",
@@ -280,4 +295,26 @@ export const EN = {
   "준비 중…": "Preparing…",
   "다운로드 중…": "Downloading…",
   "{size} 받는 중…": "Receiving {size}…",
+
+  // ── PICO-8 compatibility + code-size hint ──────────────────────────────────
+  "실기(G&W) 호환 상태": "Compatibility (real G&W)",
+  "실기(G&W) 호환: 정상 동작": "Compatibility (real G&W): runs fine",
+  "실기(G&W) 호환: 되지만 느림": "Compatibility (real G&W): runs, but slow",
+  "실기(G&W) 호환: 불안정 (일부 문제/간헐 OOM)": "Compatibility (real G&W): unstable (some issues / occasional OOM)",
+  "실기(G&W) 호환: 동작 안 함 (OOM 등)": "Compatibility (real G&W): doesn't run (OOM, etc.)",
+  "실기(G&W) 호환: 미검증": "Compatibility (real G&W): untested",
+  "정상": "OK",
+  "느림": "Slow",
+  "불안정": "Unstable",
+  "안됨": "Broken",
+  "미검증": "Untested",
+  "호환 필터": "Compatibility filter",
+  "호환 상태 설정 실패": "Failed to set status",
+  "코드 크기": "Code size",
+  "PICO-8 코드 한도 대비 비율 (실기 메모리와는 다를 수 있어요)": "Share of the PICO-8 code limit (not on-device memory)",
+  "낮음": "Low",
+  "보통": "Medium",
+  "높음": "High",
+  "파일명 복사": "Copy filename",
+  "파일명 복사됨": "Filename copied",
 };

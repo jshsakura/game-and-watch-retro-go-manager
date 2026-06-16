@@ -10,16 +10,16 @@ from fastapi import APIRouter, Body, HTTPException
 
 from .. import db
 from ..services import langtag
-from .sessions import require_korean_mode, require_session
+from .sessions import require_session
 
 router = APIRouter(prefix="/api", tags=["lang"])
 
 
 @router.patch("/sessions/{session_id}/roms/{rom_id}/lang")
 def set_lang(session_id: str, rom_id: str, payload: dict = Body(...)) -> dict:
-    """Manual override of a rom's Korean-patch flag. Marks lang_source='manual' so
-    a later scan won't revert it. Body: {"is_korean_patched": true|false}."""
-    require_korean_mode()
+    """Manual override of a rom's user-patch flag. Marks lang_source='manual' so
+    a later scan won't revert it. Body: {"is_korean_patched": true|false}.
+    (Generic "user patch applied" toggle — not gated to Korean deploys.)"""
     if "is_korean_patched" not in payload:
         raise HTTPException(status_code=400, detail="is_korean_patched 값이 필요합니다")
     patched = bool(payload["is_korean_patched"])

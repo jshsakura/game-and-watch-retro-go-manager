@@ -36,11 +36,11 @@ async def cover_url(name: str, system_key: str) -> str | None:
     return cands[0][1] if cands else None
 
 
-async def cover_candidates(name: str, system_key: str) -> list[tuple[str, str]]:
-    """(game_title, front_boxart_url) pairs in TGDB best-match order, so the caller
-    can verify the title actually matches before using a cover. Never raises."""
+async def _request(name: str, system_key: str) -> tuple[int, list[tuple[str, str]]]:
+    """Low-level call → (http_status, candidates). status 0 = network/parse error,
+    429 = monthly quota exhausted. Never raises."""
     if not config.TGDB_API_KEY or not name.strip():
-        return []
+        return (0, [])
     params = {
         "apikey": config.TGDB_API_KEY,
         "name": name,
@@ -54,17 +54,17 @@ async def cover_candidates(name: str, system_key: str) -> list[tuple[str, str]]:
         async with httpx.AsyncClient(timeout=_TIMEOUT) as client:
             resp = await client.get(f"{_BASE}/Games/ByGameName", params=params)
         if resp.status_code != 200:
-            return []
+            return (resp.status_code, [])
         data = resp.json()
     except (httpx.HTTPError, ValueError):
-        return []
+        return (0, [])
 
     games = (data.get("data") or {}).get("games") or []
     boxart = (data.get("include") or {}).get("boxart") or {}
     base = (boxart.get("base_url") or {}).get("original") or ""
     images = boxart.get("data") or {}
     if not games or not base:
-        return []
+        return (200, [])
     out: list[tuple[str, str]] = []
     for game in games:
         gid = str(game.get("id"))
@@ -75,4 +75,18 @@ async def cover_candidates(name: str, system_key: str) -> list[tuple[str, str]]:
                 if fn:
                     out.append((title, base + fn))
                     break
+    return (200, out)
+
+
+async def cover_candidates(name: str, system_key: str) -> list[tuple[str, str]]:
+    """(game_title, front_boxart_url) pairs in TGDB best-match order, so the caller
+    can verify the title actually matches before using a cover. Never raises."""
+    _, out = await _request(name, system_key)
     return out
+
+
+async def search(name: str, system_key: str) -> dict:
+    """Interactive search: candidates plus a quota flag so the UI can tell the user
+    when TheGamesDB's monthly allowance is exhausted (HTTP 429) vs a genuine miss."""
+    status, out = await _request(name, system_key)
+    return {"candidates": out, "quota_exceeded": status == 429}

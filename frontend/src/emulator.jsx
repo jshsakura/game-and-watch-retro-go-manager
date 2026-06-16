@@ -12,7 +12,7 @@
 // anywhere, so they can't run in a browser — canPlay() returns false and the UI
 // hides the ▶ button for them.
 import React, { useEffect, useRef, useState } from "react";
-import { X, Maximize2, Minimize2, Monitor } from "lucide-react";
+import { X, Maximize2, Minimize2, Monitor, Copy, Check } from "lucide-react";
 import { romFileUrl, extraDownloadUrl } from "./api.js";
 import { useT } from "./i18n.jsx";
 
@@ -285,6 +285,17 @@ export function EmulatorOverlay({ rom, onClose }) {
 
   const title = rom.korean_name || rom.stored_name;
 
+  // Copy the on-device filename to the clipboard — handy for matching the cart on
+  // the SD card. Icon flips to a check for a moment so the click feels confirmed.
+  const [copied, setCopied] = useState(false);
+  async function copyName() {
+    try {
+      await navigator.clipboard.writeText(rom.stored_name || "");
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (_) {}
+  }
+
   return (
     <div className={`emu-overlay mode-${mode}`} role="dialog" aria-modal="true" aria-label={t("{title} 실행", { title })}>
       <div className="emu-window" ref={windowRef}
@@ -293,6 +304,10 @@ export function EmulatorOverlay({ rom, onClose }) {
           <span className="emu-led" aria-hidden />
           <span className="emu-title">{title}</span>
           <span className="emu-bar-right">
+            <button className="icon-btn" onClick={copyName}
+              title={copied ? t("파일명 복사됨") : t("파일명 복사")}>
+              {copied ? <Check size={15} strokeWidth={2.5} /> : <Copy size={15} strokeWidth={2.5} />}
+            </button>
             {mode === "window" ? (
               <button className="icon-btn" onClick={() => setMode("max")} title={t("브라우저 가득")}>
                 <Maximize2 size={15} strokeWidth={2.5} />

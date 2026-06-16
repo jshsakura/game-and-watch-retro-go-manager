@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import RomTab from "./tabs/RomTab.jsx";
 import ExtraTab from "./tabs/ExtraTab.jsx";
 import MediaTab from "./tabs/MediaTab.jsx";
@@ -9,6 +9,7 @@ import { Upload, Clapperboard, Library, Download, Database, Info, Check, X, Hard
 import { getLibrary, packageUrl, packageSize, formatBytes } from "./api.js";
 import { useDownload } from "./download.jsx";
 import { useT, useI18n } from "./i18n.jsx";
+import { LOCALES } from "./i18n.locales.js";
 
 const THEME_KEY = "gnw_theme";
 
@@ -16,12 +17,13 @@ const THEME_KEY = "gnw_theme";
 const TABS = [
   // Primary: LIBRARY (default landing) + UPLOAD. Secondary (gray): MEDIA + DATA + HELP.
   // MEDIA merges the old VIDEO + MUSIC converters into one tab.
-  { key: "library", label: "LIBRARY", Icon: Library },
-  { key: "rom", label: "UPLOAD", Icon: Upload },
-  { key: "extra", label: "EXTRA", Icon: HardDrive },
-  { key: "media", label: "MEDIA", Icon: Clapperboard, secondary: true, media: true },
-  { key: "data", label: "DATA", Icon: Database, secondary: true, data: true },
-  { key: "help", label: "INFO", Icon: Info, secondary: true, help: true },
+  // label is a Korean i18n key — rendered via t(tab.label) in JSX.
+  { key: "library", label: "라이브러리", Icon: Library },
+  { key: "rom", label: "업로드", Icon: Upload },
+  { key: "extra", label: "엑스트라", Icon: HardDrive },
+  { key: "media", label: "미디어", Icon: Clapperboard, secondary: true, media: true },
+  { key: "data", label: "데이터", Icon: Database, secondary: true, data: true },
+  { key: "help", label: "정보", Icon: Info, secondary: true, help: true },
 ];
 
 // 8-bit pixel heart (Zelda life heart) — used as the toggle knob.
@@ -34,6 +36,29 @@ function PixelHeart({ size = 14 }) {
           c === "1" ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" /> : null
         )
       )}
+    </svg>
+  );
+}
+
+// Edition emblem shown to the LEFT of the title — swaps with the theme:
+// Zelda → Triforce (gold), Mario → a generic ("fake", non-Nintendo) mushroom.
+function EditionEmblem({ theme, size = 26 }) {
+  if (theme === "mario") {
+    return (
+      <svg className="edition-emblem mushroom" width={size} height={size} viewBox="0 0 24 24" aria-hidden>
+        <path d="M3 13a9 9 0 0 1 18 0v1.2H3z" fill="#e0504a" />
+        <rect x="8.5" y="14" width="7" height="8" rx="2" fill="#f4ead2" stroke="#c98b6a" strokeWidth="0.6" />
+        <circle cx="8.3" cy="9.6" r="1.9" fill="#fff" />
+        <circle cx="15.7" cy="9.6" r="1.9" fill="#fff" />
+        <circle cx="12" cy="6.4" r="1.2" fill="#fff" />
+      </svg>
+    );
+  }
+  return (
+    <svg className="edition-emblem triforce" width={size} height={size} viewBox="0 0 24 22" aria-hidden>
+      <polygon points="12,1 6.4,10.6 17.6,10.6" fill="#e8c349" />
+      <polygon points="6,11.6 0.4,21 11.6,21" fill="#e8c349" />
+      <polygon points="18,11.6 12.4,21 23.6,21" fill="#e8c349" />
     </svg>
   );
 }
@@ -57,21 +82,74 @@ function ThemeToggle({ theme, onToggle }) {
   );
 }
 
-// UI language toggle (KO ↔ EN), shown as the current language's flag, in the
-// header next to the edition toggle.
+// Flag image with graceful fallback: some locales have no bundled flag PNG yet
+// (e.g. tw, pt, ru, no) → show a short text code badge instead of a broken image.
+function LangFlag({ locale }) {
+  const [broken, setBroken] = useState(false);
+  if (broken) return <span className="lang-code">{locale.code.toUpperCase()}</span>;
+  return (
+    <img
+      src={`/flags/${locale.flag}.png`}
+      alt={locale.label}
+      onError={() => setBroken(true)}
+    />
+  );
+}
+
+// UI language picker (11 locales mirroring the retro-go-sd firmware set), shown as
+// the current language's flag in the header. Opens a dropdown; closes on outside
+// click / Escape — same idiom as SystemSelect.
 function LangToggle() {
   const { lang, setLang } = useI18n();
-  const isKo = lang === "ko";
+  const t = useT();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const current = LOCALES.find((l) => l.code === lang) || LOCALES[0];
+
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDoc);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
   return (
-    <button
-      type="button"
-      className="lang-switch"
-      onClick={() => setLang(isKo ? "en" : "ko")}
-      title={isKo ? "언어: 한국어 · 클릭해 English로" : "Language: English · click for 한국어"}
-      aria-label="language"
-    >
-      <img src={`/flags/${isKo ? "kr" : "us"}.png`} alt={isKo ? "한국어" : "English"} />
-    </button>
+    <div className={`lang-switch ${open ? "open" : ""}`} ref={ref}>
+      <button
+        type="button"
+        className="lang-switch-trigger"
+        onClick={() => setOpen((o) => !o)}
+        title={t("언어 선택")}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="language"
+      >
+        <LangFlag locale={current} />
+      </button>
+      {open && (
+        <div className="lang-panel" role="listbox">
+          {LOCALES.map((l) => (
+            <button
+              key={l.code}
+              type="button"
+              role="option"
+              aria-selected={l.code === lang}
+              className={`lang-opt ${l.code === lang ? "on" : ""}`}
+              onClick={() => { setLang(l.code); setOpen(false); }}
+            >
+              <LangFlag locale={l} />
+              <span className="lang-opt-name">{l.label}</span>
+              {l.code === lang && <Check size={13} strokeWidth={3} aria-hidden />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -135,10 +213,8 @@ export default function App() {
           onClick={() => setTab("library")}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setTab("library"); } }}
         >
-          <div>
-            <h1>GAME &amp; WATCH</h1>
-            <small>Retro-Go SD Manager</small>
-          </div>
+          <EditionEmblem theme={theme} />
+          <h1 title={t("Game & What — Retro SD Manager")}>{t("Game & What")}</h1>
         </div>
         <div className="topbar-actions">
           <LangToggle />
@@ -148,26 +224,31 @@ export default function App() {
 
       <div className="tabbar">
         <nav className="tabs">
-          {TABS.map((t, i) => (
-            <React.Fragment key={t.key}>
-              {t.secondary && !TABS[i - 1]?.secondary && <span className="tab-divider" aria-hidden />}
+          {TABS.map((tabDef, i) => (
+            <React.Fragment key={tabDef.key}>
+              {tabDef.secondary && !TABS[i - 1]?.secondary && <span className="tab-divider" aria-hidden />}
               <button
-                className={`tab ${tab === t.key ? "active" : ""} ${t.secondary ? "tab-secondary" : ""} ${t.media ? "tab-media" : ""} ${t.help ? "tab-help" : ""} ${t.data ? "tab-data" : ""}`}
-                onClick={() => setTab(t.key)}
-                title={t.label}
+                className={`tab ${tab === tabDef.key ? "active" : ""} ${tabDef.secondary ? "tab-secondary" : ""} ${tabDef.media ? "tab-media" : ""} ${tabDef.help ? "tab-help" : ""} ${tabDef.data ? "tab-data" : ""}`}
+                onClick={() => setTab(tabDef.key)}
+                title={t(tabDef.label)}
               >
-                <t.Icon size={15} strokeWidth={2.5} aria-hidden /> {t.label}
+                <tabDef.Icon size={15} strokeWidth={2.5} aria-hidden /> {t(tabDef.label)}
               </button>
             </React.Fragment>
           ))}
         </nav>
         {count > 0 && (
           <div className="tabbar-dl">
-            {tab === "library" && libKeys.length > 0 && (
-              <button className={`btn tab-selall ${allSelected ? "on" : ""}`} onClick={toggleAll} title={t("모든 플랫폼 선택 / 해제")}>
+            {tab === "library" && (
+              <button
+                className={`btn tab-selall ${allSelected ? "on" : ""}`}
+                onClick={toggleAll}
+                disabled={libKeys.length === 0}
+                title={t("모든 플랫폼 선택 / 해제")}
+              >
                 {allSelected
-                  ? <><X size={14} strokeWidth={3} aria-hidden /> ALL</>
-                  : <><Check size={14} strokeWidth={3} aria-hidden /> ALL</>}
+                  ? <><X size={14} strokeWidth={3} aria-hidden /> {t("전체")}</>
+                  : <><Check size={14} strokeWidth={3} aria-hidden /> {t("전체")}</>}
               </button>
             )}
             <button className="btn tab-dl has-size" disabled={!hasSel || dl.busy}

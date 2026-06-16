@@ -1,0 +1,526 @@
+{
+ "muse": {
+  "status": "good",
+  "note": ""
+ },
+ "20406": {
+  "status": "good",
+  "note": ""
+ },
+ "amidar": {
+  "status": "good",
+  "note": "working"
+ },
+ "amstradchips1": {
+  "status": "good",
+  "note": "works but has problems"
+ },
+ "emulatedamstradcpcchiptunes": {
+  "status": "good",
+  "note": "works but has problems"
+ },
+ "archeos": {
+  "status": "good",
+  "note": "can get  OOM sometimes"
+ },
+ "arkonids": {
+  "status": "good",
+  "note": "special cart modified for G&W"
+ },
+ "arkonids1": {
+  "status": "good",
+  "note": "special cart modified for G&W"
+ },
+ "ascent": {
+  "status": "good",
+  "note": ""
+ },
+ "asteroidsdemake": {
+  "status": "good",
+  "note": ""
+ },
+ "asteroidsdemake2022": {
+  "status": "good",
+  "note": ""
+ },
+ "astrox": {
+  "status": "good",
+  "note": ""
+ },
+ "bas": {
+  "status": "good",
+  "note": ""
+ },
+ "beckonthehellspawn": {
+  "status": "good",
+  "note": ""
+ },
+ "beckonhellspawn": {
+  "status": "good",
+  "note": ""
+ },
+ "birdandbeans": {
+  "status": "good",
+  "note": ""
+ },
+ "birdswithguns": {
+  "status": "good",
+  "note": ""
+ },
+ "bocroygbiv": {
+  "status": "good",
+  "note": ""
+ },
+ "boardsofcanadaroygbiv": {
+  "status": "good",
+  "note": ""
+ },
+ "bombjack": {
+  "status": "partial",
+  "note": "slow down generally"
+ },
+ "bombjack0gnw": {
+  "status": "good",
+  "note": "slow down on title screen"
+ },
+ "boulderrun": {
+  "status": "good",
+  "note": ""
+ },
+ "breakouthero": {
+  "status": "good",
+  "note": ""
+ },
+ "breakoutlaserjump": {
+  "status": "good",
+  "note": ""
+ },
+ "bubblebee": {
+  "status": "good",
+  "note": ""
+ },
+ "bubblebobblegnw": {
+  "status": "good",
+  "note": ""
+ },
+ "bubblebobble": {
+  "status": "good",
+  "note": ""
+ },
+ "burgerking": {
+  "status": "good",
+  "note": ""
+ },
+ "bufaghyu": {
+  "status": "good",
+  "note": ""
+ },
+ "buildajetpack": {
+  "status": "good",
+  "note": ""
+ },
+ "buildjetpack": {
+  "status": "good",
+  "note": ""
+ },
+ "bunbunsamurai": {
+  "status": "good",
+  "note": ""
+ },
+ "bunnysurvivor": {
+  "status": "good",
+  "note": ""
+ },
+ "calico": {
+  "status": "good",
+  "note": ""
+ },
+ "caravanangel": {
+  "status": "good",
+  "note": ""
+ },
+ "cattlecrisis": {
+  "status": "good",
+  "note": ""
+ },
+ "celeste": {
+  "status": "good",
+  "note": ""
+ },
+ "celeste2": {
+  "status": "good",
+  "note": ""
+ },
+ "cherrybomb": {
+  "status": "good",
+  "note": ""
+ },
+ "combopool": {
+  "status": "good",
+  "note": ""
+ },
+ "cyberlike1101": {
+  "status": "good",
+  "note": ""
+ },
+ "cyberlike": {
+  "status": "good",
+  "note": ""
+ },
+ "cryomancer": {
+  "status": "good",
+  "note": ""
+ },
+ "bubbleboy": {
+  "status": "good",
+  "note": ""
+ },
+ "ddbubbleboy": {
+  "status": "good",
+  "note": ""
+ },
+ "digger": {
+  "status": "good",
+  "note": ""
+ },
+ "dinkykong": {
+  "status": "good",
+  "note": ""
+ },
+ "dominionex": {
+  "status": "good",
+  "note": ""
+ },
+ "dragondot": {
+  "status": "good",
+  "note": ""
+ },
+ "dragondot3": {
+  "status": "good",
+  "note": ""
+ },
+ "driftmania": {
+  "status": "broken",
+  "note": "Out of memory"
+ },
+ "duckhunt": {
+  "status": "good",
+  "note": ""
+ },
+ "elfcannon": {
+  "status": "good",
+  "note": ""
+ },
+ "exterra": {
+  "status": "good",
+  "note": ""
+ },
+ "floodedcaves": {
+  "status": "partial",
+  "note": "it slows down when there are two or more flood branches"
+ },
+ "galagamu": {
+  "status": "good",
+  "note": ""
+ },
+ "gemdredging": {
+  "status": "good",
+  "note": ""
+ },
+ "grippy": {
+  "status": "partial",
+  "note": "extremely slow during gameplay"
+ },
+ "gesadupito": {
+  "status": "good",
+  "note": "(it draws middle frame)"
+ },
+ "picovox": {
+  "status": "good",
+  "note": "(it draws middle frame)"
+ },
+ "golfsunday": {
+  "status": "partial",
+  "note": "slow down"
+ },
+ "gonefission": {
+  "status": "good",
+  "note": ""
+ },
+ "haroldsbadday": {
+  "status": "good",
+  "note": ""
+ },
+ "harold": {
+  "status": "good",
+  "note": ""
+ },
+ "highstakes": {
+  "status": "good",
+  "note": ""
+ },
+ "hotwax": {
+  "status": "good",
+  "note": "some slow down whenbmany candles are lit"
+ },
+ "hugarena": {
+  "status": "good",
+  "note": ""
+ },
+ "iii": {
+  "status": "partial",
+  "note": "works but with slow downs"
+ },
+ "intoruins": {
+  "status": "broken",
+  "note": "Out of memory"
+ },
+ "iroban": {
+  "status": "good",
+  "note": ""
+ },
+ "jungleping": {
+  "status": "good",
+  "note": ""
+ },
+ "justoneboss": {
+  "status": "good",
+  "note": ""
+ },
+ "kalikan": {
+  "status": "good",
+  "note": "some slow downs"
+ },
+ "kalikanmenu": {
+  "status": "good",
+  "note": "some slow downs"
+ },
+ "loongtriune": {
+  "status": "partial",
+  "note": "not running at 100% speed, too heavy"
+ },
+ "luckyjump": {
+  "status": "good",
+  "note": ""
+ },
+ "luckystack": {
+  "status": "good",
+  "note": ""
+ },
+ "mariowithluigi": {
+  "status": "broken",
+  "note": "Out of memory during level load"
+ },
+ "meascastle": {
+  "status": "good",
+  "note": "some slow downs when there are too many sprites moving on the screen"
+ },
+ "merork": {
+  "status": "broken",
+  "note": "Out of memory"
+ },
+ "mine1k": {
+  "status": "good",
+  "note": ""
+ },
+ "moonpatrol": {
+  "status": "good",
+  "note": ""
+ },
+ "moonrace": {
+  "status": "partial",
+  "note": "slow downs"
+ },
+ "motsgrandprix": {
+  "status": "good",
+  "note": ""
+ },
+ "motgrandprix2": {
+  "status": "good",
+  "note": ""
+ },
+ "mrrobot": {
+  "status": "good",
+  "note": ""
+ },
+ "mspacman": {
+  "status": "good",
+  "note": ""
+ },
+ "nemonemo": {
+  "status": "good",
+  "note": ""
+ },
+ "nest2": {
+  "status": "good",
+  "note": ""
+ },
+ "ninjacat": {
+  "status": "good",
+  "note": ""
+ },
+ "ninjacatclassic": {
+  "status": "good",
+  "note": ""
+ },
+ "oblivioneve": {
+  "status": "good",
+  "note": ""
+ },
+ "37086": {
+  "status": "good",
+  "note": ""
+ },
+ "omegazone": {
+  "status": "good",
+  "note": ""
+ },
+ "orbys": {
+  "status": "good",
+  "note": "(Demo) slows down in some effects"
+ },
+ "outvain1": {
+  "status": "good",
+  "note": ""
+ },
+ "outvain": {
+  "status": "good",
+  "note": ""
+ },
+ "pacman": {
+  "status": "good",
+  "note": ""
+ },
+ "pakpok": {
+  "status": "good",
+  "note": ""
+ },
+ "pengo": {
+  "status": "good",
+  "note": ""
+ },
+ "peral": {
+  "status": "broken",
+  "note": "OOM on level load"
+ },
+ "phoenix08": {
+  "status": "good",
+  "note": ""
+ },
+ "phoenix": {
+  "status": "good",
+  "note": ""
+ },
+ "picoball": {
+  "status": "good",
+  "note": ""
+ },
+ "picocheckmatepng": {
+  "status": "good",
+  "note": ""
+ },
+ "picocheckmate": {
+  "status": "good",
+  "note": ""
+ },
+ "picobreed": {
+  "status": "good",
+  "note": ""
+ },
+ "piconiccc": {
+  "status": "partial",
+  "note": "(Demo) slow downs"
+ },
+ "picodino": {
+  "status": "good",
+  "note": ""
+ },
+ "picokaiju": {
+  "status": "good",
+  "note": ""
+ },
+ "picooffroad": {
+  "status": "partial",
+  "note": "slows down a lot when there are other cars on screen"
+ },
+ "picowars": {
+  "status": "good",
+  "note": ""
+ },
+ "picowarsadvancewarsdemake": {
+  "status": "good",
+  "note": ""
+ },
+ "picozombiegarden": {
+  "status": "good",
+  "note": ""
+ },
+ "fsgupicozombiegarden121": {
+  "status": "good",
+  "note": ""
+ },
+ "pigments": {
+  "status": "good",
+  "note": ""
+ },
+ "rtype": {
+  "status": "good",
+  "note": ""
+ },
+ "sewersofdoh": {
+  "status": "good",
+  "note": ""
+ },
+ "46281": {
+  "status": "good",
+  "note": ""
+ },
+ "slimeyjump": {
+  "status": "good",
+  "note": ""
+ },
+ "soulbound": {
+  "status": "good",
+  "note": ""
+ },
+ "starjump": {
+  "status": "partial",
+  "note": "it slows down if there are too many platforms on screen that \"wobble\""
+ },
+ "superdiscbox": {
+  "status": "good",
+  "note": ""
+ },
+ "spaz48tetyis": {
+  "status": "partial",
+  "note": "slow during gameplay"
+ },
+ "tetyistetrisclone": {
+  "status": "partial",
+  "note": "slow during gameplay"
+ },
+ "tinygolfpuzzles": {
+  "status": "good",
+  "note": ""
+ },
+ "tostarling": {
+  "status": "good",
+  "note": ""
+ },
+ "toastarlingv11": {
+  "status": "good",
+  "note": ""
+ },
+ "littlespacerangers": {
+  "status": "good",
+  "note": ""
+ },
+ "werugipano": {
+  "status": "good",
+  "note": ""
+ },
+ "wobblepaint": {
+  "status": "partial",
+  "note": "controls do not work properly , can't draw"
+ }
+}

@@ -20,7 +20,10 @@
   /* English glyphs -> Press Start 2P (pixel); Korean glyphs fall back to
      Noto Sans KR automatically (per-glyph). 영문=픽셀, 한글=noto cjk. */
   --pixel: "Press Start 2P", "Noto Sans KR", sans-serif;
-  --body-font: "Noto Sans KR", "Press Start 2P", system-ui, sans-serif;
+  /* No pixel font in the body fallback: "Press Start 2P" ships Cyrillic glyphs,
+     so any Cyrillic missing from Noto Sans KR (e.g. Русский) would render in the
+     arcade pixel font — huge and bold. Fall back to system sans instead. */
+  --body-font: "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   /* Shared frame geometry — device gold ring overhangs the box by --ring, so
      sibling cards add it back to keep every panel's outer edge aligned. */
   --frame: 920px;
@@ -73,6 +76,15 @@
   --tile-bot: #361e18;
 }
 
+/* Per-locale body font overrides — lazy-loaded CJK/Cyrillic web fonts apply here.
+   Script-specific Noto variant leads the stack so correct regional glyphs are used.
+   Noto Sans KR is kept as a fallback (shared CJK base); Press Start 2P stays out
+   of --body-font (Cyrillic pixel-font bloat fix — see :root comment above). */
+html[lang="ja"]    { --body-font: "Noto Sans JP",  "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+html[lang="zh-CN"] { --body-font: "Noto Sans SC",  "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+html[lang="zh-TW"] { --body-font: "Noto Sans TC",  "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+html[lang="ru"]    { --body-font: "Noto Sans",      system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
 * { box-sizing: border-box; }
 
 /* Themed scrollbars */
@@ -92,13 +104,13 @@ html {
   background-color: var(--shell);
   background-image: radial-gradient(circle at 50% 0%, var(--shell-2), var(--shell));
   background-attachment: fixed;
-  overscroll-behavior: none;
+  overscroll-behavior-x: none; /* lock horizontal; allow vertical pull-to-refresh */
 }
 body {
   margin: 0;
   font-family: var(--body-font);
   color: #f4f1e6;
-  overscroll-behavior: none;
+  overscroll-behavior-x: none; /* lock horizontal; allow vertical pull-to-refresh */
 }
 /* Site-wide CRT scanlines — sells the 8-bit/LCD feel across the whole page */
 body::before {
@@ -137,16 +149,27 @@ body::before {
   justify-content: space-between;
   gap: 12px;
 }
-.brand-id { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+.brand-id { display: flex; align-items: center; gap: 12px; cursor: pointer; min-width: 0; }
+.brand-text { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .topbar h1 {
   font-family: var(--pixel);
-  font-size: 15px;
-  letter-spacing: 1px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
   margin: 0;
   color: var(--gold);
   text-shadow: 2px 2px 0 #00000088;
+  white-space: nowrap; /* keep the brand on one line (never wrap) */
 }
-.topbar small { font-family: var(--pixel); font-size: 8px; opacity: 0.75; }
+/* retro-go SD project link (GitHub Octocat) under the title */
+.brand-gh {
+  display: inline-flex; align-items: center; gap: 5px; width: fit-content;
+  font-family: var(--pixel); font-size: 8px; line-height: 1;
+  color: var(--lcd-ink-dim, #cbd2bb); opacity: 0.8; text-decoration: none;
+  transition: color 0.15s, opacity 0.15s;
+}
+.brand-gh:hover { opacity: 1; color: var(--gold); }
+.brand-gh svg { flex: 0 0 auto; }
 
 /* Edition toggle — on/off switch, edition = background colour, heart knob */
 .theme-switch {
@@ -181,20 +204,51 @@ body::before {
 .pixheart rect { fill: var(--accent); }
 
 /* UI language toggle — current language's flag, sized to match the theme switch */
-.lang-switch {
+/* Language picker — flag trigger + dropdown of the 11 supported locales. */
+.lang-switch { position: relative; display: inline-flex; }
+/* Flag-only trigger — no select-box chrome; the flag itself is the button. */
+.lang-switch-trigger {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 34px; height: 28px; padding: 0;
-  border: 2px solid #00000066; border-radius: 7px; cursor: pointer;
-  background: #fdf6e3; box-shadow: inset 0 2px 4px #00000033;
-  transition: filter 0.15s ease;
+  padding: 0; border: 0; background: none; box-shadow: none; cursor: pointer;
+  transition: filter 0.15s ease, transform 0.1s ease;
 }
-.lang-switch:hover { filter: brightness(1.06); }
+.lang-switch-trigger:hover { filter: brightness(1.08); }
+.lang-switch-trigger:active { transform: scale(0.94); }
+.lang-switch-trigger:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 3px; }
 .lang-switch img {
   width: 22px; height: 15px; object-fit: cover;
   border-radius: 2px; border: 1px solid #00000055; display: block;
 }
+/* Text fallback when a locale's flag PNG isn't bundled yet. */
+.lang-code {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 22px; height: 15px; padding: 0 3px;
+  font-family: var(--body-font); font-size: 9px; font-weight: 700; line-height: 1; color: #2c2c2c;
+  background: #e8dfc4; border: 1px solid #00000055; border-radius: 2px;
+}
+.lang-panel {
+  position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+  min-width: 156px; max-height: 60vh; overflow-y: auto; padding: 5px;
+  background: #fdf6e3; border: 2px solid #00000066; border-radius: 9px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+  -webkit-overflow-scrolling: touch;
+}
+.lang-opt {
+  display: flex; align-items: center; gap: 9px; width: 100%;
+  padding: 7px 8px; border: 0; border-radius: 6px; cursor: pointer;
+  background: transparent; text-align: left;
+  font-family: var(--body-font); font-size: 13px; color: #2c2c2c;
+}
+.lang-opt:hover { background: #00000010; }
+.lang-opt.on { background: #00000018; font-weight: 700; }
+.lang-opt-name { flex: 1; min-width: 0; }
+.lang-opt svg { color: #2e7d32; flex: 0 0 auto; }
 
-/* Edition emblem — only the active theme's mark is shown */
+/* Edition emblem — sits left of the title, swaps Triforce ↔ mushroom per theme */
+.edition-emblem {
+  flex: 0 0 auto; display: block; width: 26px; height: 26px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.45));
+}
 
 /* LCD screen — content lives "inside the screen" */
 .lcd {
@@ -213,9 +267,9 @@ body::before {
 /* Tabs */
 .tabs { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
 .tab {
-  font-family: var(--pixel);
-  font-size: 9px;
-  padding: 10px 12px;
+  font-family: var(--body-font);
+  font-size: 11px;
+  padding: 13px 11px;
   border: 2px solid #1c2027;
   /* same beveled raised key as the buttons (gradient + top sheen + bottom lip) */
   background: linear-gradient(#646c79, #4c535e);
@@ -240,15 +294,15 @@ body::before {
    .danger = red (delete), .on = brighter accent-2 (toggled/active). */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  font-family: var(--pixel);
-  font-size: 9px; line-height: 1.4;
-  padding: 11px 14px;
+  font-family: var(--body-font);
+  font-size: 12px; line-height: 1.4;
+  padding: 12px 14px;
   border: 2px solid #1c2027;
   border-radius: 8px;
   /* beveled raised key: top sheen + bottom lip so adjacent buttons read separately */
   background: linear-gradient(#646c79, #4c535e);
   color: #f1f3ee;
-  cursor: pointer;
+  cursor: pointer; text-decoration: none;
   box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;   /* soft, natural lift */
   transition: transform 0.05s, filter 0.12s, background 0.12s, box-shadow 0.12s;
 }
@@ -274,8 +328,8 @@ body::before {
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-family: var(--pixel);
-  font-size: 11px;
+  font-family: var(--body-font);
+  font-size: 13px;
   line-height: 1.85;
   color: var(--lcd-ink);
   cursor: pointer;
@@ -363,8 +417,8 @@ body::before {
   border-top: 2px solid var(--accent);
   border-radius: 8px;
   padding: 9px;
-  font-family: var(--pixel);
-  font-size: 7px;
+  font-family: var(--body-font);
+  font-size: 10px;
   line-height: 1.7;
   color: var(--card-ink);
   box-shadow: 0 4px 10px #00000033, inset 0 1px 0 #ffffff14;
@@ -393,10 +447,15 @@ body::before {
 .lang-info { font-size: 10px; color: var(--card-dim); }
 .lang-manual { color: var(--accent-2); }
 
-/* Cover-flag (corner country) picker in the rom edit modal */
-.flag-select { display: inline-flex; align-items: center; gap: 6px; }
-.flag-select > span { font-size: 11px; }
-.flag-select select { width: auto; padding: 2px 6px; font-size: 11px; }
+/* Favorite (★) toggle in the rom edit modal — sits next to the user-patch toggle */
+.fav-toggle {
+  display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
+  padding: 3px 8px; border: 1px solid #ffffff22; border-radius: 6px;
+  background: #00000033; color: var(--card-dim); font-size: 11px;
+}
+.fav-toggle.on { color: var(--gold); border-color: var(--gold); }
+.fav-toggle:hover { filter: brightness(1.12); }
+.fav-toggle:disabled { opacity: 0.6; cursor: default; }
 .flag-preview {
   width: 21px; height: 14px; object-fit: cover;
   border-radius: 2px; border: 1px solid rgba(0, 0, 0, 0.35);
@@ -416,14 +475,60 @@ body::before {
   flex: 0 0 auto; font-family: var(--pixel); font-size: 7px; line-height: 1;
   padding: 3px 5px; border-radius: 4px; background: #ffffff1a; color: var(--card-dim);
 }
+/* Homebrew .bin "include on SD download" checkbox (replaces the old 템플릿 tag). */
+.file-row .file-sd {
+  flex: 0 0 auto; display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--body-font); font-size: 10px; line-height: 1;
+  color: var(--gold); cursor: pointer; user-select: none;
+}
+.file-row .file-sd input { width: 13px; height: 13px; margin: 0; accent-color: var(--gold); cursor: pointer; }
 
 /* file-count badge next to a multi-file (homebrew) card title */
 .file-count {
   display: inline-block; margin-left: 5px; vertical-align: middle;
-  font-family: var(--pixel); font-size: 7px; line-height: 1;
+  font-family: var(--body-font); font-size: 10px; font-weight: 700; line-height: 1;
   padding: 3px 5px; border-radius: 5px;
   background: var(--gold); color: #1a1206; border: 1px solid #00000055;
 }
+
+/* PICO-8 compatibility icon (G&W z8lua engine) — shown before the title. */
+.p8compat {
+  display: inline-flex; vertical-align: middle; margin-right: 4px;
+  line-height: 0; border-radius: 50%; padding: 1px;
+}
+.p8compat.good     { color: #4cc94c; }   /* confirmed working */
+.p8compat.slow     { color: #6ea8fe; }   /* runs but slow */
+.p8compat.partial  { color: #e8b339; }   /* unstable / occasional OOM */
+.p8compat.broken   { color: #e2503b; }   /* doesn't run */
+.p8compat.untested { color: #7d8694; }   /* not in the compat sheet */
+
+/* ROM-detail editor — pick the real-device (G&W) compat status per cart. */
+.p8compat-edit { display: flex; flex-direction: column; gap: 5px; }
+.p8compat-opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.p8opt {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 5px 9px; border-radius: 7px; cursor: pointer;
+  font-size: 12px; line-height: 1; color: var(--card-ink);
+  background: var(--input-bg, #00000010); border: 1px solid #00000022;
+}
+.p8opt:hover:not(:disabled) { filter: brightness(1.06); }
+.p8opt:disabled { cursor: default; opacity: 0.6; }
+.p8opt.on { border-color: currentColor; box-shadow: inset 0 0 0 1px currentColor; font-weight: 600; }
+.p8opt.good.on     { color: #3aa83a; }
+.p8opt.slow.on     { color: #3f7fe0; }
+.p8opt.partial.on  { color: #c8941f; }
+.p8opt.broken.on   { color: #d23f2c; }
+.p8opt.untested.on { color: #5f6873; }
+
+/* Broken PICO-8 carts stand out in the grid (won't run on the real device). */
+.card.card-broken { border-color: #e2503b66; background: #e2503b12; }
+
+/* Static cart-complexity hint under the compat editor (rough, not device RAM). */
+.p8memhint { display: flex; flex-direction: column; gap: 2px; font-size: 12px; }
+.p8memhint-note { font-size: 11px; color: var(--card-dim); }
+.p8mem-low  { color: #4cc94c; }
+.p8mem-mid  { color: #e8b339; }
+.p8mem-high { color: #e2503b; }
 
 /* Empty search/filter result — bigger + left-aligned so it doesn't look broken */
 .lib-empty {
@@ -447,6 +552,15 @@ body::before {
 /* override .cover-slot img {width:100%} which was blowing these up full-size */
 .cover-corner .sys-ico { width: 14px; height: 14px; object-fit: contain; }
 .cover-corner .sys-mono { width: 14px; height: 14px; }
+/* Favorite toggle living in the corner overlay (parent is pointer-events:none). */
+.cover-corner .cover-fav {
+  pointer-events: auto; cursor: pointer; line-height: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; border: 0; background: none; color: #fff;
+}
+.cover-corner .cover-fav.on { color: var(--gold); }
+.cover-corner .cover-fav:hover { filter: brightness(1.2); }
+.cover-corner .cover-fav:disabled { cursor: default; opacity: 0.6; }
 /* Language flag (small, rounded, top-right) is composited at REQUEST time by the
    server's render_display (the default /cover view) from the CLEAN stored preview —
    non-destructive: the 원본/full preview is never modified. The device .img bakes
@@ -458,7 +572,7 @@ body::before {
 }
 /* Name: up to 2 lines then ellipsis, on a FIXED height so every card lines up. */
 .card .name {
-  color: var(--card-ink); font-size: 9.5px; line-height: 1.5;
+  color: var(--card-ink); font-size: 11px; line-height: 1.5;
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
   overflow: hidden; text-overflow: ellipsis; word-break: break-word;
   height: 3em; /* 2 × line-height → uniform card heights regardless of title */
@@ -518,16 +632,43 @@ body::before {
 }
 .modal {
   background: var(--shell); border: 3px solid var(--gold); border-radius: 14px;
-  padding: 16px; width: 460px; max-width: 92vw;   /* fixed width → title can't stretch it */
+  width: 460px; max-width: 92vw;   /* fixed width → title can't stretch it */
   box-shadow: 0 22px 55px rgba(0, 0, 0, 0.6);
+  /* No padding on the shell itself — the header and body own their padding, so the
+     header bar spans edge-to-edge and the body's scrollbar hugs the border. */
+  padding: 0; overflow: hidden;
+  /* Cap to the viewport so a tall modal never overflows off-screen; the body
+     scrolls instead (backdrop has 16px padding top+bottom → subtract 32). */
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  display: flex; flex-direction: column;
 }
 .modal-head {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  margin-bottom: 14px; font-family: var(--pixel); font-size: 10px; color: var(--gold);
+  font-family: var(--body-font); font-size: 13px; font-weight: 700; color: var(--gold);
+  flex: 0 0 auto;   /* header stays put; only the body scrolls */
+  /* Distinct beveled header bar (matches the 8-bit raised-key look): full-width
+     gradient + top sheen + a hairline divider. */
+  padding: 13px 16px;
+  background: linear-gradient(180deg, #ffffff14, #0000001f);
+  border-bottom: 1px solid #ffffff1f;
+  text-shadow: 0 1px 0 #00000055;
 }
 .modal-title { min-width: 0; word-break: break-word; line-height: 1.5; }
 .modal-head .icon-btn { flex: 0 0 auto; }
-.modal-body { display: flex; flex-direction: column; gap: 10px; }
+/* min-height:0 is required for an overflow child inside a flex column to scroll.
+   Own padding → content is inset while the scrollbar sits at the modal edge. */
+.modal-body {
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 14px 16px;
+  scrollbar-width: thin; scrollbar-color: #ffffff40 transparent;
+}
+.modal-body::-webkit-scrollbar { width: 7px; }
+.modal-body::-webkit-scrollbar-track { background: transparent; }
+.modal-body::-webkit-scrollbar-thumb { background: #ffffff40; border-radius: 7px; }
+.modal-body::-webkit-scrollbar-thumb:hover { background: #ffffff66; }
 /* bottom action buttons — one even row */
 .modal-actions { display: flex; gap: 10px; }
 .modal-actions .btn { flex: 1; justify-content: center; padding: 11px 8px; }
@@ -622,7 +763,7 @@ body::before {
   cursor: pointer; transition: background 0.12s;
 }
 .cmp-dl-overlay:hover { background: var(--accent); }
-.cover-compare figcaption { font-family: var(--pixel); font-size: 7px; color: var(--card-dim); }
+.cover-compare figcaption { font-family: var(--body-font); font-size: 11px; color: var(--card-dim); }
 .cover-compare.empty {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 18px 12px; text-align: center;
@@ -637,7 +778,7 @@ body::before {
 .data-filter { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 4px; }
 
 /* Firmware upload date in the data-row */
-.data-date { font-family: var(--pixel); font-size: 7px; color: #cfcfcf; white-space: nowrap; }
+.data-date { font-family: var(--body-font); font-size: 11px; color: #cfcfcf; white-space: nowrap; }
 
 /* Firmware tab current-file row */
 .fw-current {
@@ -645,13 +786,13 @@ body::before {
   padding: 10px 12px; border: 2px solid var(--gold); border-radius: 6px;
   background: #00000022; color: var(--accent-2);
 }
-.fw-name { font-family: var(--pixel); font-size: 9px; color: var(--ink, #fff); }
+.fw-name { font-family: var(--body-font); font-size: 13px; color: var(--ink, #fff); }
 .fw-current .icon-btn { margin-left: auto; }
 
 /* Dropzone upload busy state */
 .dropzone.busy { cursor: progress; pointer-events: none; border-color: var(--gold); }
 .dz-busy { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; max-width: 280px; }
-.dz-busy-label { display: inline-flex; align-items: center; gap: 7px; font-family: var(--pixel); font-size: 11px; color: #fff; }
+.dz-busy-label { display: inline-flex; align-items: center; gap: 7px; font-family: var(--body-font); font-size: 13px; color: #fff; }
 .dz-busy .dl-bar { width: 100%; }
 
 /* Music card inline player */
@@ -668,7 +809,7 @@ body::before {
   padding: 22px 24px 18px; min-width: 290px; max-width: 90vw; text-align: center;
   box-shadow: 0 0 0 3px #000, 7px 7px 0 #00000088; image-rendering: pixelated;
 }
-.dl-title { font-family: var(--pixel); font-size: 11px; color: #fff; letter-spacing: 1px; margin-bottom: 16px; }
+.dl-title { font-family: var(--body-font); font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0; margin-bottom: 16px; }
 .dl-bar {
   height: 18px; border: 2px solid #fff; background: #000; padding: 2px;
   position: relative; overflow: hidden; image-rendering: pixelated;
@@ -685,9 +826,9 @@ body::before {
 }
 .dl-bar.err .dl-fill { background: var(--danger, #e0403a); width: 100%; }
 @keyframes dl-indet { 0% { transform: translateX(-110%); } 100% { transform: translateX(300%); } }
-.dl-meta { font-family: var(--pixel); font-size: 8px; color: #fff; margin-top: 13px; line-height: 1.5; }
+.dl-meta { font-family: var(--body-font); font-size: 12px; color: #fff; margin-top: 13px; line-height: 1.5; }
 .dl-cancel {
-  margin-top: 14px; font-family: var(--pixel); font-size: 8px; color: #fff;
+  margin-top: 14px; font-family: var(--body-font); font-size: 12px; color: #fff;
   background: #00000066; border: 2px solid #ffffff66; border-radius: 4px;
   padding: 5px 12px; cursor: pointer; transition: background 0.12s;
 }
@@ -732,7 +873,7 @@ body::before {
   border-radius: 6px; border: 2px solid var(--gold); background: #00000055;
   image-rendering: auto;
 }
-.cropper-preview span { font-family: var(--pixel); font-size: 7px; color: var(--card-dim); }
+.cropper-preview span { font-family: var(--body-font); font-size: 11px; color: var(--card-dim); }
 .cropper-actions { display: flex; gap: 8px; }
 .cropper-actions .btn { flex: 1; justify-content: center; }
 
@@ -779,7 +920,7 @@ body::before {
 /* selected-platform count, pinned to the search bar's top-right corner */
 .sel-count-badge {
   position: absolute; top: -11px; right: 10px;
-  font-family: var(--pixel); font-size: 9px; line-height: 1; white-space: nowrap;
+  font-family: var(--body-font); font-size: 11px; font-weight: 700; line-height: 1; white-space: nowrap;
   padding: 4px 8px; border-radius: 6px;
   background: var(--gold); color: #1a1206; border: 1px solid #00000066;
   box-shadow: 0 2px 5px #0000005c;
@@ -802,7 +943,7 @@ body::before {
   background: #161a0d; border: 2px solid #00000077; box-shadow: inset 0 2px 5px #00000077;
 }
 .scope-btn {
-  font-family: var(--pixel); font-size: 9px; line-height: 1; cursor: pointer;
+  font-family: var(--body-font); font-size: 12px; line-height: 1; cursor: pointer;
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   min-width: 38px; padding: 7px 12px; border: none; border-radius: 6px;
   background: #ffffff14; color: var(--card-ink); white-space: nowrap;
@@ -813,6 +954,25 @@ body::before {
 .scope-btn svg { flex: 0 0 auto; }
 /* icon filters: same height, square-ish width */
 .scope-btn.icon-only { min-width: 0; width: 38px; padding: 0; gap: 0; }
+
+/* PICO-8 compat filter — own row above the grid. Constrained to the container so
+   it never widens the page; wraps on desktop, scrolls sideways on mobile. */
+.lib-compat-filter { display: flex; max-width: 100%; }
+.search-scope.p8-filter {
+  flex: 1 1 auto; min-width: 0; max-width: 100%; box-sizing: border-box;
+  flex-wrap: wrap;
+}
+.p8-filter .scope-btn { flex: 0 0 auto; gap: 4px; }
+.p8-filter .scope-btn .p8compat { margin-right: 0; padding: 0; }
+.p8-filter .scope-count {
+  font-size: 11px; font-variant-numeric: tabular-nums; opacity: 0.7;
+  padding: 1px 5px; border-radius: 999px; background: #00000033;
+}
+.p8-filter .scope-btn.on .scope-count { background: #ffffff33; opacity: 0.95; }
+@media (max-width: 640px) {
+  /* one scrollable strip instead of wrapping — keeps the page from stretching */
+  .search-scope.p8-filter { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
 
 /* result count, sat with the results (not the search box) */
 .lib-result-count { text-align: center; font-size: 11px; margin-top: 2px; }
@@ -851,8 +1011,8 @@ body::before {
 }
 .lib-chip .sys-ico, .lib-chip .sys-mono { width: 30px; height: 30px; }
 .lib-chip-name {
-  font-family: var(--pixel); font-size: 8px; line-height: 1.4; text-align: center;
-  word-break: keep-all; text-shadow: 1px 1px 0 #00000055;
+  font-family: var(--pixel); font-size: 8px; line-height: 1.5; text-align: center;
+  word-break: break-word; text-shadow: 1px 1px 0 #00000055;
 }
 /* download-select checkbox — top-right of each chip (replaces the old /dir path) */
 .lib-chip-check {
@@ -894,31 +1054,76 @@ body::before {
   background: #d9871f; color: #fff; box-shadow: inset 0 0 0 1px #00000033;
 }
 
-/* Image loading skeleton (shimmer) */
-.skeleton {
-  position: absolute; inset: 0; border-radius: 4px;
-  background: linear-gradient(100deg, #2a2f1e 30%, #3a4029 50%, #2a2f1e 70%);
-  background-size: 200% 100%;
-  animation: shimmer 1.1s linear infinite;
+/* Image loading skeleton (shimmer). The sweep animates `transform` on an overlay
+   pseudo-element (GPU-composited, no per-frame repaint) instead of
+   `background-position`, which repainted every frame and stuttered on mobile. */
+.skeleton, .skel-line, .skel-ico {
+  position: relative; overflow: hidden;
+  background: #2a2f1e; /* static base — no animated paint */
 }
-@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.skeleton { position: absolute; inset: 0; border-radius: 4px; }
+.skeleton::after, .skel-line::after, .skel-ico::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 20%, #3a4029 50%, transparent 80%);
+  transform: translateX(-100%);
+  animation: shimmer 1.1s linear infinite;
+  will-change: transform;
+}
+@keyframes shimmer { to { transform: translateX(100%); } }
 
-/* Skeleton card (library loading) — shimmer cover + name lines */
+/* Skeleton card (library loading) — shimmer cover + name lines. Dimensions must
+   match the real .card so swapping in loaded content causes no layout shift. */
 .skel-card { pointer-events: none; }
 .skel-card .cover-slot { position: relative; aspect-ratio: 3 / 4; }
-.skel-line {
-  height: 11px; border-radius: 4px; margin-top: 7px;
-  background: linear-gradient(100deg, #2a2f1e 30%, #3a4029 50%, #2a2f1e 70%);
-  background-size: 200% 100%; animation: shimmer 1.1s linear infinite;
-}
+/* Skeleton platform chip — reuses .lib-chip dimensions so the real chips swap in
+   with no layout shift; just a shimmer icon + name line inside. */
+.skel-chip { pointer-events: none; }
+.skel-ico { width: 30px; height: 30px; border-radius: 6px; }
+.skel-chip .skel-line { width: 64%; margin-top: 0; }
+.skel-line { height: 11px; border-radius: 4px; margin-top: 7px; }
 .skel-line.short { width: 58%; }
+/* The cover already carries margin-bottom: 8px; drop the first line's top margin
+   so the two-line block (≈29px) matches the real .name block (3em ≈ 28.5px) and
+   the grid doesn't settle when skeletons swap to loaded cards. */
+.skel-card .skel-line:first-of-type { margin-top: 0; }
+
+/* Skeleton list-row (data/extra loading) — matches .data-row height/padding so
+   swapping skeleton → real rows causes no layout shift. */
+.skel-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: 8px;
+  background: #2a2d28; border: 2px solid #00000033; border-left: 3px solid #3a3f32;
+  pointer-events: none;
+}
+.skel-row .skel-line { margin-top: 0; }
+.skel-row .skel-line.fill { flex: 1; }
+.skel-row .skel-line.w-sm { width: 48px; flex: 0 0 auto; }
+.skel-row .skel-line.w-icon { width: 28px; height: 26px; border-radius: 8px; flex: 0 0 auto; }
+
+/* Skeleton system-selector (rom-tab loading) — matches .sysselect-trigger height. */
+.skel-sysselect {
+  display: flex; align-items: center; gap: 9px;
+  padding: 6px 6px 6px 10px; border-radius: 8px; max-width: 360px; margin-bottom: 14px;
+  background: #1e2416; border: 2px solid #00000077;
+  box-shadow: inset 0 2px 6px #00000088; pointer-events: none;
+}
+.skel-sysselect .skel-line { margin-top: 0; }
+.skel-sysselect .skel-line.tag { width: 52px; height: 22px; border-radius: 4px; flex: 0 0 auto; }
+.skel-sysselect .skel-line.cart { width: 28px; height: 28px; border-radius: 5px; flex: 0 0 auto; }
+.skel-sysselect .skel-line.name { flex: 1; }
+.skel-sysselect .skel-line.chev { width: 30px; height: 100%; border-radius: 5px; flex: 0 0 auto; }
+
+/* Reduced-motion: hold a static skeleton, no sweep. */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton::after, .skel-line::after { animation: none; }
+}
 
 
 .lib-pager {
   display: flex; align-items: center; justify-content: center; gap: 12px;
   margin-top: 6px;
 }
-.lib-pager-info { font-family: var(--pixel); font-size: 9px; color: var(--lcd-ink); }
+.lib-pager-info { font-family: var(--body-font); font-size: 12px; color: var(--lcd-ink); }
 
 /* Tab bar — a CARD that sits OUTSIDE the LCD (right-aligned ZIP download) */
 .tabbar {
@@ -935,7 +1140,8 @@ body::before {
 .tabs { margin-bottom: 0; }
 /* 전체 선택 + 다운로드 grouped at the right (PC: auto width, right-aligned). */
 .tabbar-dl { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
-.tab-dl, .tab-selall { white-space: nowrap; }
+/* match the tab labels (라이브러리 등) — 11px, not the default .btn 12px */
+.tab-dl, .tab-selall { white-space: nowrap; font-size: 11px; }
 /* icon-only secondary tabs (VIDEO/MUSIC/DATA/HELP) — square, no label */
 .tabbar .tab.tab-icononly { padding: 9px 11px; }
 /* Secondary tabs (VIDEO, DATA) — a gray cluster, split from primary UPLOAD/LIBRARY */
@@ -987,7 +1193,7 @@ body::before {
 /* Dropzone "폴더 통째로" button */
 .dz-folder-btn {
   display: inline-flex; align-items: center; gap: 5px; margin-top: 9px;
-  font-family: var(--pixel); font-size: 8px; color: #fff;
+  font-family: var(--body-font); font-size: 12px; color: #fff;
   background: #00000044; border: 2px solid var(--accent); border-radius: 5px;
   padding: 5px 10px; cursor: pointer; transition: background 0.12s;
 }
@@ -1035,7 +1241,7 @@ body::before {
 .help-section { margin-top: 4px; }
 .help-head {
   display: flex; align-items: center; gap: 7px;
-  font-family: var(--pixel); font-size: 11px; color: var(--lcd-ink); line-height: 1.5;
+  font-family: var(--body-font); font-size: 14px; font-weight: 700; color: var(--lcd-ink); line-height: 1.5;
   padding-bottom: 7px; margin-bottom: 8px; border-bottom: 2px solid #00000022;
 }
 /* INFO is read-heavy → bump the body text off the tiny defaults. */
@@ -1060,6 +1266,22 @@ body::before {
 }
 .help-steps li { padding-left: 3px; }
 .help-link { color: var(--accent-2); text-decoration: underline; }
+/* Emphasized retro-go SD project link (cat icon + name) at the bottom of INFO */
+.help-note { margin-bottom: 2px; }
+.help-project {
+  display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+  margin-top: 2px; padding: 8px 13px;
+  background: var(--accent); color: #fff; text-decoration: none;
+  border: 2px solid #00000055; border-radius: 9px;
+  box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;
+  transition: filter 0.12s, transform 0.05s;
+}
+.help-project:hover { filter: brightness(1.07); }
+.help-project:active { transform: translateY(1px); }
+.help-project svg { flex: 0 0 auto; }
+.help-project-name {
+  font-family: var(--body-font); font-size: 13px; font-weight: 700; line-height: 1.4; letter-spacing: 0;
+}
 
 /* Library system groups */
 .sysgroup + .sysgroup { margin-top: 16px; }
@@ -1067,7 +1289,7 @@ body::before {
   align-items: center; gap: 7px;
   padding-bottom: 6px; margin-bottom: 8px;
   border-bottom: 2px solid #00000022;
-  font-family: var(--pixel); font-size: 9px; line-height: 1.6; color: var(--lcd-ink);
+  font-family: var(--pixel); font-size: 9px; font-weight: normal; line-height: 1.6; color: var(--lcd-ink);
 }
 .sysgroup-count {
   margin-left: 6px; padding: 2px 6px; border-radius: 999px;
@@ -1075,7 +1297,7 @@ body::before {
 }
 .badge {
   display: inline-block; margin-top: 5px; padding: 3px 6px; border-radius: 4px;
-  font-family: var(--pixel); font-size: 7px; line-height: 1.5;
+  font-family: var(--body-font); font-size: 10px; font-weight: 700; line-height: 1.5;
 }
 .badge.ok { background: #2e7d32; color: #fff; }
 .badge.none { background: #7d6b2e; color: #fff; }
@@ -1111,7 +1333,7 @@ body::before {
 .loading {
   display: flex; align-items: center; justify-content: center; gap: 8px;
   padding: 28px 12px;
-  font-family: var(--pixel); font-size: 9px; line-height: 1.6;
+  font-family: var(--body-font); font-size: 13px; line-height: 1.6;
   color: var(--lcd-ink-dim);
 }
 .loading svg { color: var(--accent); }
@@ -1134,7 +1356,9 @@ body::before {
 @media (max-width: 640px) {
   /* gold ring is now a real border (inside the box) → margin 8 everywhere makes
      the device, tab card and top bar all line up at the same 8px edge. */
-  .topbar { margin: 14px 8px 10px; padding: 0 2px; flex-wrap: wrap; gap: 10px; }
+  .topbar { margin: 14px 8px 10px; padding: 0 2px; gap: 10px; flex-wrap: nowrap; }
+  /* "Game & Wares" + the toggles all fit on one line on phones — no wrapping. */
+  .topbar .brand-id { flex: 0 1 auto; min-width: 0; }
   /* tighter pad on phones — the G&W logo shouldn't crowd the controls */
   .pad-logo { width: 40px; margin-bottom: 12px; }
   /* shrink the whole control deck proportionally so it never overflows the window */
@@ -1154,8 +1378,10 @@ body::before {
   /* 탭바: 탭들은 한 줄, 전체선택+다운로드는 그 아래 한 줄 전체너비로 3:7 분할 */
   .tabbar .tabs { flex: 1 0 100%; }
   .tabbar-dl { flex: 1 0 100%; }
-  .tabbar-dl .tab-selall { flex: 3; justify-content: center; padding-top: 12px; padding-bottom: 12px; }
-  .tabbar-dl .tab-dl { flex: 7; justify-content: center; padding-top: 12px; padding-bottom: 12px; }
+  .tabbar-dl .tab-selall { flex: 3; justify-content: center; padding-top: 13px; padding-bottom: 13px; }
+  .tabbar-dl .tab-dl { flex: 7; justify-content: center; padding-top: 13px; padding-bottom: 13px; }
+  /* Localized tab labels may be longer — slightly smaller font on phones */
+  .tab { font-size: 10px; padding: 12px 9px; }
   .device {
     margin: 0 8px 16px;
     padding: 12px;
@@ -1168,7 +1394,7 @@ body::before {
   /* 3 dense columns on phones */
   .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .card { padding: 6px; }
-  .card .name { font-size: 9px; }
+  .card .name { font-size: 10.5px; }
   .card .shot, .cover-slot { margin-bottom: 5px; }
   .card-actions { gap: 4px; padding-top: 6px; }
   /* 드랍존: 좁은 화면에서 패딩을 줄이고 라벨이 자연스럽게 줄바꿈되게 */
@@ -1194,13 +1420,26 @@ body::before {
 .cover-badge .cover-manual,
 .cover-badge .cover-crop { opacity: 1; }
 .cover-badge .no-cover { color: #e6e6e6; }
+/* Bottom-LEFT badge (PICO-8 실기 호환 아이콘) — mirrors the bottom-right one. */
+.cover-badge.bl { left: 5px; right: auto; }
+.cover-badge.bl .p8compat { margin-right: 0; padding: 0; }
+
+/* PICO-8 cart-complexity gauge — thin bar along the poster's bottom edge. */
+.cover-gauge {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 4px; z-index: 1;
+  background: #00000059; overflow: hidden;
+}
+.cover-gauge i { display: block; height: 100%; }
+.cover-gauge .g-low  { background: #4cc94c; }
+.cover-gauge .g-mid  { background: #e8b339; }
+.cover-gauge .g-high { background: #e2503b; }
 
 /* MEDIA tab — video converter + music store stacked, with a labelled divider. */
 .media-tab { gap: 14px; }
 .media-section { display: flex; flex-direction: column; gap: 10px; }
 .media-head {
   margin: 0; display: flex; align-items: center; gap: 7px;
-  font-family: var(--pixel); font-size: 10px; color: var(--card-ink);
+  font-family: var(--body-font); font-size: 13px; font-weight: 700; color: var(--card-ink);
 }
 .media-head svg { color: var(--accent-2); flex: 0 0 auto; }   /* theme tint stays on the icon, text always legible */
 .media-divider { height: 2px; background: #ffffff1f; border-radius: 2px; margin: 2px 0; }
@@ -1209,7 +1448,7 @@ body::before {
 .media-subtabs { display: flex; gap: 8px; }
 .media-subtab {
   flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
-  font-family: var(--pixel); font-size: 10px; line-height: 1;
+  font-family: var(--body-font); font-size: 13px; line-height: 1;
   padding: 12px 12px; border: 2px solid #1c2027; border-radius: 8px;
   background: linear-gradient(#646c79, #4c535e); color: #f1f3ee; cursor: pointer;
   box-shadow: 0 2px 5px #00000047, inset 0 1px 0 #ffffff2e;
@@ -1246,7 +1485,7 @@ body::before {
   position: relative; display: flex; flex-direction: column;
   background: var(--card-bg); border: 2px solid #00000033; border-top: 2px solid var(--accent);
   border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px #00000033;
-  font-family: var(--pixel);
+  font-family: var(--body-font);
 }
 .media-thumb {
   position: relative; aspect-ratio: 16 / 9; background: #0a0c06;
@@ -1462,7 +1701,7 @@ body::before {
 .emu-status {
   position: absolute; inset: 0;
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
-  color: #e8e8e8; font-family: var(--pixel); font-size: 11px; text-align: center; padding: 24px;
+  color: #e8e8e8; font-family: var(--body-font); font-size: 13px; text-align: center; padding: 24px;
 }
 .emu-status.emu-error { color: #ff8a80; }
 .emu-note { font-family: inherit; font-size: 12px; color: #b9b9b9; max-width: 30ch; line-height: 1.6; }

@@ -238,6 +238,14 @@ export async function igdbSearch(query, system) {
   return res.json();
 }
 
+export async function tgdbSearch(query, system) {
+  const params = new URLSearchParams({ q: query });
+  if (system) params.set("system", system);
+  const res = await fetch(`/api/tgdb/search?${params}`);
+  if (!res.ok) throw new Error("TheGamesDB 검색 실패");
+  return res.json();
+}
+
 export async function setCoverFromUrl(romId, url, crop) {
   const res = await withSession((sid) =>
     fetch(`/api/sessions/${sid}/roms/${romId}/cover/from-url`, {
@@ -456,6 +464,29 @@ export async function setSdInclude(romId, include) {
       body: JSON.stringify({ include: !!include }),
     }));
   if (!res.ok) throw new Error((await res.json()).detail || "SD 포함 설정 실패");
+  return res.json();
+}
+
+// Mark/unmark a rom as favorite (★) — UI sort + cover star.
+export async function setFavorite(romId, favorite) {
+  const res = await withSession((sid) =>
+    fetch(`/api/sessions/${sid}/roms/${romId}/favorite`, {
+      method: "PATCH", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ favorite: !!favorite }),
+    }));
+  if (!res.ok) throw new Error((await res.json()).detail || "즐겨찾기 설정 실패");
+  return res.json();
+}
+
+// Manually set a PICO-8 cart's real-device (G&W) compatibility.
+// status: "good" | "partial" | "broken" | null (null clears → untested).
+export async function setPico8Compat(romId, status) {
+  const res = await withSession((sid) =>
+    fetch(`/api/sessions/${sid}/roms/${romId}/pico8-compat`, {
+      method: "PATCH", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: status || null }),
+    }));
+  if (!res.ok) throw new Error((await res.json()).detail || "호환 상태 설정 실패");
   return res.json();
 }
 

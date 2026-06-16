@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from . import config, db
-from .routers import covers, data, downloads, extra, firmware, gamelist, igdb, jobs, lang, manage, music, package, roms, sessions, uploads, videos
+from .routers import covers, data, downloads, extra, firmware, gamelist, igdb, jobs, lang, manage, music, package, roms, sessions, tgdb, uploads, videos
 from .services.video import ffmpeg_available
 from .systems import SYSTEMS
 
@@ -37,6 +37,7 @@ app.include_router(music.router)
 app.include_router(firmware.router)
 app.include_router(extra.router)
 app.include_router(igdb.router)
+app.include_router(tgdb.router)
 app.include_router(data.router)
 app.include_router(gamelist.router)
 app.include_router(lang.router)

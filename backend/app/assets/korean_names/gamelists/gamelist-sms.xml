@@ -1115,6 +1115,15 @@
         <video>./media/video/Bubble Bobble.mp4</video>
         <marquee>./media/marquee/Bubble Bobble.png</marquee>
     </game>
+    <game source="manual">
+        <path>./Final Bubble Bobble.zip</path>
+        <name>파이널 버블 보블</name>
+        <desc>세가 마스터 시스템용 '버블 보블'의 일본판 타이틀. 거품을 뿜어 적을 가두고 터뜨리는 협력 플랫폼 액션으로, 공룡 버브와 밥의 모험을 그린다.</desc>
+        <developer>Taito</developer>
+        <publisher>Sega</publisher>
+        <genre>Platform</genre>
+        <players>1-2</players>
+    </game>
     <game id="78355" source="ScreenScraper.fr">
         <path>./Bobble Bobble (Korea) (Unl).zip</path>
         <name>보블 보블</name>

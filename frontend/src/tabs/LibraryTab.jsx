@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Library, Inbox, ChevronLeft, ChevronRight, ImageOff, Languages, Search, Upload, Check } from "lucide-react";
 import { getLibrary, getSystems, coverUrl, uploadRoms } from "../api.js";
-import { RomCard, SystemIcon, systemColor, Dropzone } from "../components.jsx";
+import { RomCard, SystemIcon, systemColor, Dropzone, Pico8CompatFilter } from "../components.jsx";
 import { useToast } from "../toast.jsx";
 import { useKoreanMode } from "../config.jsx";
 import { useI18n } from "../i18n.jsx";
@@ -17,6 +17,9 @@ const byName = (a, b) =>
   (a.korean_name || a.stored_name || "").localeCompare(
     b.korean_name || b.stored_name || "", "ko", { numeric: true }
   );
+
+// Favorites (★) bubble to the front; ties broken by display name.
+const byFav = (a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0) || byName(a, b);
 
 const HANGUL_RE = /[가-힣]/;
 // Homebrew / Pico-8 are indie carts with no Korean release → never "missing".
@@ -63,6 +66,7 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   const [searchAll, setSearchAll] = useState(false); // search scope: this system vs all
   const [missingOnly, setMissingOnly] = useState(false); // show only cover-missing roms
   const [nonKoOnly, setNonKoOnly] = useState(false); // show only NON-Korean-named roms
+  const [compatFilter, setCompatFilter] = useState("all"); // PICO-8 호환 상태 필터
   const pageSize = usePageSize();
 
   const [busy, setBusy] = useState(false);
@@ -123,7 +127,7 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   // with a 0 count so the full supported lineup is always visible. Chips are
   // ordered by system name; each system's roms by display name (Korean-aware).
   const groups = useMemo(() => systems
-    .map((s) => ({ key: s.key, system: s, roms: [...(bySystem[s.key] ?? [])].sort(byName) }))
+    .map((s) => ({ key: s.key, system: s, roms: [...(bySystem[s.key] ?? [])].sort(byFav) }))
     .sort((a, b) => a.system.name.localeCompare(b.system.name, "en")), [systems, bySystem]);
   const nonEmpty = useMemo(() => groups.filter((g) => g.roms.length), [groups]);
 
@@ -145,37 +149,53 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   const matchName = (r) =>
     (r.stored_name || r.original_name || "").toLowerCase().includes(q);
   let items = searching
-    ? searchPool.filter(matchName).sort(byName)
+    ? searchPool.filter(matchName).sort(byFav)
     : (activeGroup?.roms ?? []);
   // 커버 누락 필터: 커버 없는 롬만
   if (missingOnly) items = items.filter((r) => r.cover_status !== "ok");
   // 한글명 아님 필터: 한글 없는 번역대상 롬만 (숫자전용 '1942'류 제외 — 칩 배지와 동일 기준)
   // Korea-specific → only active in Korean mode (others detect cover-missing only).
   if (nonKoOnly && koFeature) items = items.filter(needsKorean);
+  // PICO-8 호환 상태 필터 (pico8 보기에서만 적용; 미설정 = untested)
+  if (current === "pico8" && compatFilter !== "all") {
+    items = items.filter((r) => (r.pico8_compat || "untested") === compatFilter);
+  }
   const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
   const safePage = Math.min(page, totalPages);
   const pageItems = items.slice((safePage - 1) * pageSize, safePage * pageSize);
   useEffect(() => { setPage(1); }, [q]);
   useEffect(() => { setPage(1); }, [pageSize]);
-  useEffect(() => { setPage(1); }, [missingOnly, nonKoOnly]);
+  useEffect(() => { setPage(1); }, [missingOnly, nonKoOnly, compatFilter]);
 
   return (
     <div className="stack">
       <div className="muted">
-        <Library size={13} aria-hidden /> {t("보관 중")}: {lib.roms.length} ROM · {lib.videos.length} VIDEO · {lib.music?.length || 0} MUSIC{(items.length > 0 || searching || missingOnly || nonKoOnly) ? ` · ${t("조회 {n}개", { n: items.length })}` : ""}
+        <Library size={13} aria-hidden /> {t("보관 중")}: {lib.roms.length} ROM · {lib.videos.length} VIDEO · {lib.music?.length || 0} MUSIC{(items.length > 0 || searching || missingOnly || nonKoOnly || (current === "pico8" && compatFilter !== "all")) ? ` · ${t("조회 {n}개", { n: items.length })}` : ""}
       </div>
 
       {error && <div className="badge failed">{error}</div>}
       {loading && (
-        <div className="grid">
-          {Array.from({ length: pageSize }).map((_, i) => (
-            <div className="card skel-card" key={i}>
-              <div className="shot cover-slot"><div className="skeleton" /></div>
-              <div className="skel-line" />
-              <div className="skel-line short" />
-            </div>
-          ))}
-        </div>
+        <>
+          {/* Platform list is a fixed lineup → skeleton chips while loading
+              (use the known system count, falling back to the full lineup). */}
+          <div className="lib-chips">
+            {Array.from({ length: systems.length || 18 }).map((_, i) => (
+              <div className="lib-chip skel-chip" key={i}>
+                <div className="skel-ico" />
+                <div className="skel-line" />
+              </div>
+            ))}
+          </div>
+          <div className="grid">
+            {Array.from({ length: pageSize }).map((_, i) => (
+              <div className="card skel-card" key={i}>
+                <div className="shot cover-slot"><div className="skeleton" /></div>
+                <div className="skel-line" />
+                <div className="skel-line short" />
+              </div>
+            ))}
+          </div>
+        </>
       )}
       {!loading && empty && (
         <div className="muted"><Inbox size={13} aria-hidden /> {t("아직 보관된 파일이 없습니다. 플랫폼을 고르고 아래에 롬을 올리세요.")}</div>
@@ -210,11 +230,19 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
               {koFeature && (
                 <button className={`scope-btn ${nonKoOnly ? "on" : ""}`} onClick={() => setNonKoOnly((m) => !m)}
                   title={t("한글명 아닌 롬만 보기 (영문·일본어 이름)")} aria-pressed={nonKoOnly}>
-                  <Languages size={13} strokeWidth={2.5} /> {t("한글명 없음")}
+                  <Languages size={13} strokeWidth={2.5} /> {t("한글")}
                 </button>
               )}
             </span>
           </div>
+        </div>
+      )}
+
+      {/* PICO-8 전용: 게임 목록 위 호환 상태 필터 (전체 + 상태별) */}
+      {!empty && current === "pico8" && !(searching && searchAll) && (
+        <div className="lib-compat-filter">
+          <Pico8CompatFilter value={compatFilter} onChange={setCompatFilter}
+            roms={activeGroup?.roms ?? []} />
         </div>
       )}
 

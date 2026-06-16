@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Gamepad2, Upload } from "lucide-react";
 import { getSystems, uploadRomset, coverUrl } from "../api.js";
-import { Dropzone, SystemSelect, RomCard, Loading } from "../components.jsx";
+import { Dropzone, SystemSelect, RomCard } from "../components.jsx";
 import { useT } from "../i18n.jsx";
 
 export default function RomTab({ onChanged }) {
@@ -48,7 +48,12 @@ export default function RomTab({ onChanged }) {
       </div>
 
       {systems.length === 0 && !error ? (
-        <Loading text={t("플랫폼 목록 불러오는 중…")} />
+        <div className="skel-sysselect">
+          <div className="skel-line tag" />
+          <div className="skel-line cart" />
+          <div className="skel-line name" />
+          <div className="skel-line chev" />
+        </div>
       ) : (
         <SystemSelect systems={systems} value={active} onChange={setActive} />
       )}

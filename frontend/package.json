@@ -1,5 +1,5 @@
 {
-  "name": "gnw-retro-manager-frontend",
+  "name": "game-and-what-frontend",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -9,7 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/noto-sans": "^5.2.10",
+    "@fontsource/noto-sans-jp": "^5.2.9",
     "@fontsource/noto-sans-kr": "^5.2.9",
+    "@fontsource/noto-sans-sc": "^5.2.9",
+    "@fontsource/noto-sans-tc": "^5.2.9",
     "@fontsource/press-start-2p": "^5.2.7",
     "lucide-react": "^1.17.0",
     "nostalgist": "^0.21.1",

@@ -10,17 +10,22 @@ frontend/dist
 .venv
 venv
 
-# Persistent data (mounted as a volume at runtime)
-backend/data/library
-backend/data/tmp
-backend/data/*.db
+# Persistent data — ALL of it (DB, backups, recovery, uploads, name_map). The
+# image must ship empty; the Dockerfile recreates the mount point. Never bake the
+# local library/backups into a published image.
+backend/data
+data
+
+# Secrets — never bake .env into the image (matches nested too, e.g. backend/.env)
+**/.env
+**/*.env
+.env
+.env.*
 
 # Dev / editor artefacts
 .git
 .gitignore
 *.md
-*.env
-.env*
 *.log
 
 # Test artefacts
