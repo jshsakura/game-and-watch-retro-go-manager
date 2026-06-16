@@ -1,11 +1,8 @@
 """Download the session library as an SD-ready ZIP."""
 from __future__ import annotations
 
-import os
-
-from fastapi import APIRouter, Body, HTTPException
+from fastapi import APIRouter, Body, HTTPException, Request
 from fastapi.responses import FileResponse, Response
-from starlette.background import BackgroundTask
 
 from .. import db
 from ..services import packaging
@@ -100,10 +97,14 @@ def package_size(session_id: str, video: bool = False, system: str | None = None
 
 
 @router.get("/sessions/{session_id}/package")
-def download_package(session_id: str, video: bool = False, system: str | None = None) -> Response:
+def download_package(request: Request, session_id: str, video: bool = False,
+                     system: str | None = None) -> Response:
     """ZIP mirroring the SD card (/roms, /covers). Video (/media) is excluded by
     default — pass ?video=1 to include it. Pass ?system=<dirname> (or a
-    comma-separated list) to package only those systems."""
+    comma-separated list) to package only those systems.
+
+    Cached & ETagged: the zip is built to disk only when the library/params change
+    (not on every download), and an unchanged client gets a 304."""
     with db.connect() as conn:
         require_session(conn, session_id)
         homebrew = _homebrew_roms(conn, session_id)
@@ -111,10 +112,16 @@ def download_package(session_id: str, video: bool = False, system: str | None = 
     if not packaging.session_has_content(session_id, include_video=video, systems=systems):
         raise HTTPException(status_code=404, detail="Nothing to package yet")
 
-    # Built to a temp file on disk (NOT in RAM) and streamed — a full library is
-    # hundreds of MB and the old in-memory build OOM-killed the worker.
-    zip_path = packaging.build_sd_zip_file(session_id, include_video=video, systems=systems,
-                                           homebrew_roms=homebrew)
+    # ETag = content fingerprint. If the client already has this exact build, skip.
+    etag = packaging.sd_fingerprint(session_id, include_video=video, systems=systems,
+                                    homebrew_roms=homebrew)
+    cache_headers = {"ETag": f'"{etag}"', "Cache-Control": "private, no-cache"}
+    if (request.headers.get("if-none-match") or "").strip('"') == etag:
+        return Response(status_code=304, headers=cache_headers)
+
+    # Built to a disk cache (NOT RAM → no OOM), reused until the content changes.
+    zip_path, _ = packaging.build_sd_zip_cached(session_id, include_video=video, systems=systems,
+                                                homebrew_roms=homebrew)
     # filename suffix: single system → its name; multiple → "-selected"; full → none
     if systems and len(systems) == 1:
         suffix = f"-{next(iter(systems))}"
@@ -126,11 +133,5 @@ def download_package(session_id: str, video: bool = False, system: str | None = 
         zip_path,
         media_type="application/zip",
         filename=f"gnw-sd{suffix}-{session_id[:8]}.zip",
-        # delete the temp zip after the response is fully sent
-        background=BackgroundTask(os.unlink, zip_path),
-        headers={
-            # Freshly built every time; never serve a stale cached zip (an old copy
-            # could still carry pre-fix NFD filenames → broken names on the device).
-            "Cache-Control": "no-store, must-revalidate",
-        },
+        headers=cache_headers,
     )

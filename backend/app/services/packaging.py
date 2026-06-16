@@ -1,6 +1,7 @@
 """Bundle a session's library into a ZIP that mirrors the SD card layout."""
 from __future__ import annotations
 
+import hashlib
 import os
 import tempfile
 import zipfile
@@ -40,62 +41,105 @@ def _excluded(root: Path, path: Path, include_video: bool, systems: "set[str] | 
     return False
 
 
-def _write_sd_zip(zf: "zipfile.ZipFile", session_id: str, include_video: bool,
-                  systems: "set[str] | None", homebrew_roms: "set[str] | None") -> None:
-    """Write the SD-card layout (/roms, /covers, /media?, /cores, bios, firmware)
-    into an OPEN ZipFile. Shared by the in-memory and streamed-to-disk builders.
+# Bump when the zip-building logic changes so old cached zips are invalidated.
+_SD_CACHE_VERSION = "1"
+_SD_CACHE_KEEP = 5   # most-recent cached zips to retain (LRU prune)
+
+
+def _sd_entries(session_id: str, include_video: bool, systems: "set[str] | None",
+                homebrew_roms: "set[str] | None"):
+    """Yield (abs_path, arcname) for every file that belongs in the SD zip. Single
+    source of truth so the zip writer and the cache fingerprint never drift.
 
     Cover .img files already carry their baked-in language flag (applied at
-    render_cover time), so they are copied as-is here.
+    render_cover time), so they are copied as-is.
     """
     root = storage.session_root(session_id)
     for path in sorted(root.rglob("*")):
         if path.is_file() and not _excluded(root, path, include_video, systems, homebrew_roms):
-            zf.write(path, arcname=str(path.relative_to(root)))
-    # Bundle the PICO-8 core (required by the firmware to run .p8) when packaging
-    # everything, or whenever pico8 is among the selected systems.
+            yield path, str(path.relative_to(root))
+    # PICO-8 core (needed to run .p8) when packaging everything or pico8 is selected.
     if systems is None or "pico8" in systems:
         cores = pico8core.ensure_cores_dir()
         if cores and cores.exists():
             for cp in sorted(cores.rglob("*")):
                 if cp.is_file():
-                    zf.write(cp, arcname=f"cores/{cp.relative_to(cores)}")
-    # Extra passthrough files (bios/…) → SD root at their stored paths. Cores
-    # can't boot without their BIOS, so ship these with ANY selection — not just
-    # the full SD (was the bug: ALL-selection dropped bios + firmware).
+                    yield cp, f"cores/{cp.relative_to(cores)}"
+    # Extra passthrough files (bios/…) → SD root. Cores can't boot without their
+    # BIOS, so ship these with ANY selection (not just the full SD).
     extra = storage.extra_dir(session_id)
     if extra.exists():
         for ep in sorted(extra.rglob("*")):
             if ep.is_file():
-                zf.write(ep, arcname=str(ep.relative_to(extra)).replace("\\", "/"))
-    # Firmware update → SD ROOT, included with ANY download so the card is always
-    # complete (the device only flashes it when the user actually chooses to).
+                yield ep, str(ep.relative_to(extra)).replace("\\", "/")
+    # Firmware update → SD ROOT, included with ANY download so the card is complete.
     fw = storage.firmware_path(session_id)
     if fw.exists():
-        zf.write(fw, arcname=storage.FIRMWARE_FILENAME)
+        yield fw, storage.FIRMWARE_FILENAME
 
 
-def build_sd_zip_file(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
-                      homebrew_roms: "set[str] | None" = None) -> str:
-    """Build the SD zip to a TEMP FILE on disk and return its path. A full library
-    can be hundreds of MB — building it in RAM (the old `build_sd_zip`) OOM-killed
-    the worker. Writing to disk keeps memory bounded; the caller serves it streamed
-    and deletes it afterwards.
-    """
-    config.TMP_DIR.mkdir(parents=True, exist_ok=True)
-    fd, out_path = tempfile.mkstemp(prefix="gnw-sd-", suffix=".zip", dir=str(config.TMP_DIR))
+def _write_sd_zip(zf: "zipfile.ZipFile", session_id: str, include_video: bool,
+                  systems: "set[str] | None", homebrew_roms: "set[str] | None") -> None:
+    """Write the SD-card layout into an OPEN ZipFile."""
+    for abs_path, arcname in _sd_entries(session_id, include_video, systems, homebrew_roms):
+        zf.write(abs_path, arcname=arcname)
+
+
+def sd_fingerprint(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
+                   homebrew_roms: "set[str] | None" = None) -> str:
+    """A cheap content key (no file reads — stat only) over exactly the files that
+    would go in the zip + params + cache version. Changes iff the resulting zip
+    would change → used as the cache key and HTTP ETag."""
+    h = hashlib.sha1()
+    h.update(_SD_CACHE_VERSION.encode())
+    h.update(f"|video={include_video}|sys={sorted(systems) if systems else None}"
+             f"|hb={sorted(homebrew_roms) if homebrew_roms else None}|".encode())
+    for abs_path, arcname in _sd_entries(session_id, include_video, systems, homebrew_roms):
+        st = abs_path.stat()
+        h.update(f"{arcname}|{st.st_size}|{st.st_mtime_ns}\n".encode())
+    return h.hexdigest()
+
+
+def build_sd_zip_cached(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
+                        homebrew_roms: "set[str] | None" = None) -> tuple[str, str]:
+    """Return (zip_path, etag). The zip is CACHED on disk keyed by its content
+    fingerprint — rebuilt only when the library/params change (was: rebuilt on
+    every download, ~hundreds of MB). Built to disk, never in RAM (no OOM).
+    Returns the cached path (do NOT delete it) + the fingerprint as an ETag."""
+    key = sd_fingerprint(session_id, include_video, systems, homebrew_roms)
+    cache_dir = config.DATA_DIR / "_cache"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cached = cache_dir / f"sd-{key}.zip"
+    if cached.exists():
+        os.utime(cached, None)   # mark recently used (for LRU prune)
+        return str(cached), key
+
+    # Build to a temp file in the same dir, then atomically rename into place so a
+    # concurrent request never sees a half-written cache file.
+    fd, tmp = tempfile.mkstemp(prefix="sd-", suffix=".zip.tmp", dir=str(cache_dir))
     os.close(fd)
     try:
-        with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
+        with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zf:
             _write_sd_zip(zf, session_id, include_video, systems, homebrew_roms)
+        os.replace(tmp, cached)
     except BaseException:
-        # don't leave a half-written temp zip behind on error
         try:
-            os.unlink(out_path)
+            os.unlink(tmp)
         except OSError:
             pass
         raise
-    return out_path
+    _prune_sd_cache(cache_dir)
+    return str(cached), key
+
+
+def _prune_sd_cache(cache_dir: Path) -> None:
+    """Keep only the most-recently-used cached zips (LRU by mtime)."""
+    zips = sorted(cache_dir.glob("sd-*.zip"), key=lambda p: p.stat().st_mtime, reverse=True)
+    for stale in zips[_SD_CACHE_KEEP:]:
+        try:
+            stale.unlink()
+        except OSError:
+            pass
 
 
 def sd_content_size(session_id: str, include_video: bool = False, systems: "set[str] | None" = None,
