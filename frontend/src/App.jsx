@@ -159,6 +159,7 @@ export default function App() {
   const [tab, setTab] = useState("library");
   const [reloadKey, setReloadKey] = useState(0);
   const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);   // first library fetch — show button skeletons
   const [sdSize, setSdSize] = useState(null);
   const [libKeys, setLibKeys] = useState([]);        // system keys that have roms (selectable)
   const [selected, setSelected] = useState(() => new Set()); // checked systems for download
@@ -176,7 +177,8 @@ export default function App() {
         setCount(l.roms.length + l.videos.length + (l.music?.length || 0));
         setLibKeys([...new Set(l.roms.map((r) => r.system_key))].sort());
       })
-      .catch(() => { setCount(0); setLibKeys([]); });
+      .catch(() => { setCount(0); setLibKeys([]); })
+      .finally(() => setLoading(false));   // stays false after first settle (no skeleton flash on reloads)
     packageSize().then(setSdSize).catch(() => setSdSize(null));
   }, [reloadKey]);
 
@@ -217,8 +219,17 @@ export default function App() {
           <h1 title={t("Game & What — Retro SD Manager")}>{t("Game & What")}</h1>
         </div>
         <div className="topbar-actions">
-          <LangToggle />
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
+          {loading ? (
+            <>
+              <span className="is-skel tg-skel lang" aria-hidden />
+              <span className="is-skel tg-skel theme" aria-hidden />
+            </>
+          ) : (
+            <>
+              <LangToggle />
+              <ThemeToggle theme={theme} onToggle={toggleTheme} />
+            </>
+          )}
         </div>
       </header>
 
@@ -228,7 +239,7 @@ export default function App() {
             <React.Fragment key={tabDef.key}>
               {tabDef.secondary && !TABS[i - 1]?.secondary && <span className="tab-divider" aria-hidden />}
               <button
-                className={`tab ${tab === tabDef.key ? "active" : ""} ${tabDef.secondary ? "tab-secondary" : ""} ${tabDef.media ? "tab-media" : ""} ${tabDef.help ? "tab-help" : ""} ${tabDef.data ? "tab-data" : ""}`}
+                className={`tab ${tab === tabDef.key ? "active" : ""} ${tabDef.secondary ? "tab-secondary" : ""} ${tabDef.media ? "tab-media" : ""} ${tabDef.help ? "tab-help" : ""} ${tabDef.data ? "tab-data" : ""} ${loading ? "is-skel" : ""}`}
                 onClick={() => setTab(tabDef.key)}
                 title={t(tabDef.label)}
               >
@@ -237,7 +248,13 @@ export default function App() {
             </React.Fragment>
           ))}
         </nav>
-        {count > 0 && (
+        {loading ? (
+          // Fixed-position button set — show skeletons in place so they don't pop in.
+          <div className="tabbar-dl">
+            {tab === "library" && <span className="btn-skel sel" aria-hidden />}
+            <span className="btn-skel dl" aria-hidden />
+          </div>
+        ) : count > 0 ? (
           <div className="tabbar-dl">
             {tab === "library" && (
               <button
@@ -264,7 +281,7 @@ export default function App() {
               )}
             </button>
           </div>
-        )}
+        ) : null}
       </div>
 
       <div className="device">

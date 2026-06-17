@@ -3,17 +3,31 @@ import Cropper from "react-easy-crop";
 import {
   Check, ImageOff, XCircle, ImagePlus, Loader, Play,
   Download, MoreHorizontal, Trash2, X, Film, Music, ChevronDown, Pencil, Search, Hand, Crop, Upload, FolderPlus, Star,
-  AlertTriangle, HelpCircle, Timer,
+  AlertTriangle, HelpCircle, Timer, Copy, Files, ArrowDownUp,
 } from "lucide-react";
 import { EmulatorOverlay, canPlay, isExperimental } from "./emulator.jsx";
 import {
   uploadCover, coverUrl, deviceCoverUrl, originalCoverUrl, coverDownloadUrl, downloadRomUrl, downloadVideoUrl, downloadMusicUrl,
   videoThumbUrl, videoPreviewUrl, musicCoverUrl, streamMusicUrl, deleteRom, deleteVideo, deleteMusic,
-  renameRom, igdbSearch, tgdbSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setSdInclude,
-  setFavorite, addRomFile, deleteRomFile, setPico8Compat,
+  renameRom, igdbSearch, tgdbSearch, sgdbSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setSdInclude,
+  setFavorite, addRomFile, deleteRomFile, setPico8Compat, setCoverFlag,
 } from "./api.js";
 import { useToast } from "./toast.jsx";
 import { useT } from "./i18n.jsx";
+
+// NEW = uploaded TODAY (the viewer's local calendar day). created_at is stored
+// UTC; we compare against local "today" so a fresh batch is easy to spot and
+// organize before it blends into the list. Sorting is newest-first separately.
+export function isNewRom(rom) {
+  const ts = rom?.created_at;
+  if (!ts) return false;
+  const d = new Date(ts.replace(" ", "T") + "Z"); // parse as UTC
+  if (Number.isNaN(d.getTime())) return false;
+  const now = new Date();
+  return d.getFullYear() === now.getFullYear()
+      && d.getMonth() === now.getMonth()
+      && d.getDate() === now.getDate();
+}
 
 // System icon keyed 1:1 to the firmware folder name (dirname): the asset at
 // /system-icons/<dirname>.svg is THE icon for that system. Until that asset is
@@ -397,12 +411,14 @@ function CoverSearch({ rom, onPick }) {
     if (!query || busy) return;
     setBusy(true); setErr(""); setResults(null);
     try {
-      const searchFn = source === "igdb" ? igdbSearch : tgdbSearch;
+      const searchFn = source === "igdb" ? igdbSearch : source === "tgdb" ? tgdbSearch : sgdbSearch;
       const d = await searchFn(query, rom.system_key);
       if (!d.available) {
         setErr(source === "igdb"
           ? t("IGDB 키가 설정되지 않았습니다")
-          : t("TheGamesDB 키가 설정되지 않았습니다"));
+          : source === "tgdb"
+          ? t("TheGamesDB 키가 설정되지 않았습니다")
+          : t("SteamGridDB 키가 설정되지 않았습니다"));
       } else if (d.quota_exceeded) {
         setErr(t("TheGamesDB 사용량 초과 — IGDB로 검색하거나 나중에 다시"));
       }
@@ -417,6 +433,7 @@ function CoverSearch({ rom, onPick }) {
       <span className="search-scope" role="group">
         <button className={`scope-btn ${source === "igdb" ? "on" : ""}`} onClick={() => setSource("igdb")}>IGDB</button>
         <button className={`scope-btn ${source === "tgdb" ? "on" : ""}`} onClick={() => setSource("tgdb")}>TheGamesDB</button>
+        <button className={`scope-btn ${source === "sgdb" ? "on" : ""}`} onClick={() => setSource("sgdb")}>SteamGridDB</button>
       </span>
       <div className="rename-row">
         <input
@@ -748,7 +765,47 @@ export function Pico8CompatFilter({ value, onChange, roms = [] }) {
 }
 
 // ROM card: cover (click-to-upload) + name + per-card download + edit/delete popup.
-export function RomCard({ rom, previewSrc, onChanged }) {
+// Library sort picker — a compact select box (sort icon + current label + caret)
+// with a dropdown, same open/close idiom as the language switch. One icon, not a
+// row of buttons.
+export function SortSelect({ value, options, onChange }) {
+  const t = useT();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const onDoc = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", onDoc);
+    document.addEventListener("keydown", onKey);
+    return () => { document.removeEventListener("mousedown", onDoc); document.removeEventListener("keydown", onKey); };
+  }, [open]);
+  const cur = options.find((o) => o.key === value) || options[0];
+  return (
+    <div className={`sort-select ${open ? "open" : ""}`} ref={ref}>
+      <button type="button" className="sort-select-trigger" onClick={() => setOpen((o) => !o)}
+        title={t("정렬")} aria-haspopup="listbox" aria-expanded={open}>
+        <ArrowDownUp size={14} strokeWidth={2.5} aria-hidden />
+        <span className="sort-select-cur">{t(cur?.label ?? "")}</span>
+        <ChevronDown size={13} strokeWidth={2.5} className="sort-caret" aria-hidden />
+      </button>
+      {open && (
+        <div className="sort-panel" role="listbox">
+          {options.map((o) => (
+            <button key={o.key} type="button" role="option" aria-selected={o.key === value}
+              className={`sort-opt ${o.key === value ? "on" : ""}`}
+              onClick={() => { onChange(o.key); setOpen(false); }}>
+              <span className="sort-opt-name">{t(o.label)}</span>
+              {o.key === value && <Check size={13} strokeWidth={3} aria-hidden />}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function RomCard({ rom, previewSrc, onChanged, dupes = [] }) {
   const toast = useToast();
   const t = useT();
   // Homebrew cards can hold extra files (e.g. smw_assets.dat). The badge counts
@@ -773,7 +830,21 @@ export function RomCard({ rom, previewSrc, onChanged }) {
   const [coverV, setCoverV] = useState(0); // bumped on cover change → instant refresh
   const [cropper, setCropper] = useState(null); // { src, apply, revoke? }
   const [playing, setPlaying] = useState(false); // in-browser emulator overlay
+  const [copied, setCopied] = useState(false);   // content-hash copy feedback
   const dl = downloadRomUrl(rom.id);
+
+  // Copy the raw SHA-256 content hash so the user can diff look-alike dumps
+  // (same game, "부제 있고 없고" 차이) outside the app.
+  async function copyHash() {
+    if (!rom.content_hash) return;
+    try {
+      await navigator.clipboard.writeText(rom.content_hash);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      toast.warn(t("복사하지 못했습니다"));
+    }
+  }
   // Card title = the (normalized) filename base "한글명 (영어)" so a manual rename
   // shows on the card instantly. (display_name is an explicit user override.)
   const title = rom.display_name || romBase;
@@ -839,7 +910,7 @@ export function RomCard({ rom, previewSrc, onChanged }) {
     if (busy) return;
     setBusy(true);
     try { await cropper.apply(box); coverChanged(); closeCropper(); setOpen(false); toast.success(t("커버를 적용했습니다")); }
-    catch (e) { toast.error(e.message || t("커버 적용 실패")); }
+    catch (e) { toast.error((e.message && t(e.message)) || t("커버 적용 실패")); }
     finally { setBusy(false); }
   }
   async function rename() {
@@ -902,6 +973,19 @@ export function RomCard({ rom, previewSrc, onChanged }) {
       onChanged?.();
     } catch (e) { toast.error(e.message || t("즐겨찾기 설정 실패")); }
     finally { setBusy(false); }
+  }
+
+  // Set the cover's corner flag (baked into the device .img). Independent of the
+  // 한글패치 toggle — purely which country flag shows on the cover.
+  async function changeFlag(code) {
+    if (busy || (rom.cover_flag || "") === (code || "")) return;
+    setBusy(true);
+    try {
+      await setCoverFlag(rom.id, code);
+      coverChanged();   // rebaked device .img → refresh preview + library
+    } catch (e) {
+      toast.error(e.message || t("국기 설정 실패"));
+    } finally { setBusy(false); }
   }
 
   // Homebrew only: opt this ROM file into the SD ZIP (default = cover only).
@@ -969,9 +1053,17 @@ export function RomCard({ rom, previewSrc, onChanged }) {
           </button>
         } />
       <div className="name">
+        {isNewRom(rom) && (
+          <span className="new-badge" title={t("오늘 추가됨")}>NEW</span>
+        )}
         {title}
         {rom.system_key === "homebrew" && dataFileCount > 0 && (
           <span className="file-count" title={t("파일 {n}개", { n: dataFileCount })}>{dataFileCount}</span>
+        )}
+        {dupes.length > 0 && (
+          <span className="dup-badge" title={t("내용(해시)이 같은 롬이 {n}개 더 있습니다", { n: dupes.length })}>
+            <Files size={11} strokeWidth={2.5} aria-hidden /> {t("중복")}
+          </span>
         )}
       </div>
       <div className="card-actions">
@@ -1024,6 +1116,41 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                 </>
               )}
 
+              {rom.original_name && rom.original_name !== romBase && (
+                <div className="orig-name-row" title={t("업로드 당시 원본 파일명 — No-Intro 지역·덤프·버전 정보 보존")}>
+                  <span className="orig-name-label">{t("원본명")}</span>
+                  <code className="orig-name-val">{rom.original_name}</code>
+                </div>
+              )}
+
+              {rom.patch_ver && (
+                <div className="patch-ver-row" title={t("파일명에서 추출한 한글패치 버전 — 같은 게임의 신·구판 판별 기준")}>
+                  <span className="patch-ver-label">{t("패치 버전")}</span>
+                  <code className="patch-ver-val">{rom.patch_ver}</code>
+                </div>
+              )}
+
+              {rom.content_hash && (
+                <div className="hash-section">
+                  <label className="field-label">{t("내용 해시 (SHA-256)")}</label>
+                  <div className="hash-row">
+                    <code className="hash-value" title={rom.content_hash}>{rom.content_hash}</code>
+                    <button className="btn ghost hash-copy" disabled={busy} onClick={copyHash}
+                      title={t("해시 복사")}>
+                      {copied
+                        ? <><Check size={13} strokeWidth={2.5} /> {t("복사됨")}</>
+                        : <><Copy size={13} strokeWidth={2.5} /> {t("복사")}</>}
+                    </button>
+                  </div>
+                  {dupes.length > 0 && (
+                    <div className="hash-dups" title={t("바이트가 완전히 같은 파일입니다 — 부제만 다른 중복일 수 있어요")}>
+                      <AlertTriangle size={13} strokeWidth={2.5} aria-hidden />
+                      <span>{t("내용이 동일한 롬 {n}개", { n: dupes.length })}: {dupes.map((d) => d.name).join(", ")}</span>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="lang-row">
                 <label className="lang-toggle" title={t("이 롬에 유저 패치(번역·개조 등)가 적용된 판인지 표시합니다")}>
                   <input type="checkbox" checked={koPatched} disabled={busy} onChange={togglePatch} />
@@ -1035,6 +1162,26 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                   <span>{t("즐겨찾기")}</span>
                 </button>
               </div>
+
+              {rom.system_key !== "homebrew" && (
+                <div className="flag-row">
+                  <span className="flag-row-label" title={t("커버 우상단에 표시할 국기 — 한글패치 여부와 별개")}>{t("커버 국기")}</span>
+                  <div className="flag-opts" role="group" aria-label={t("커버 국기")}>
+                    {FLAG_OPTIONS.map((opt) => {
+                      const on = (rom.cover_flag || "") === opt.code;
+                      const url = langFlagUrl(opt.code);
+                      return (
+                        <button key={opt.code || "none"} type="button"
+                          className={`flag-opt ${on ? "on" : ""} ${opt.code ? "" : "flag-opt-none"}`}
+                          disabled={busy} onClick={() => changeFlag(opt.code)}
+                          title={t(opt.label)} aria-pressed={on}>
+                          {url ? <img src={url} alt={t(opt.label)} /> : <X size={13} strokeWidth={2.5} aria-hidden />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               {rom.system_key === "pico8" && <Pico8CompatEditor rom={rom} onChanged={onChanged} />}
 
@@ -1060,6 +1207,9 @@ export function RomCard({ rom, previewSrc, onChanged }) {
                       </li>
                     ))}
                   </ul>
+                  <p className="hb-bin-note">
+                    {t("⚠ 실행 파일(.bin)은 펌웨어 빌드와 한 쌍입니다. 여기 .bin 대신 기기에 플래시한 펌웨어에서 추출한 .bin을 쓰세요 — 버전이 다르면 실행 시 크래시합니다.")}
+                  </p>
                   <input ref={dataFileRef} type="file" hidden onChange={addFile} />
                 </div>
               )}
@@ -1219,6 +1369,7 @@ export function VideoCard({ video, onChanged }) {
             </button>
           )}
         <span className="media-kind"><Film size={11} strokeWidth={2.5} aria-hidden /> {t("영상")}</span>
+        {video.size_bytes != null && <span className="media-size">{formatBytes(video.size_bytes)}</span>}
       </div>
       <div className="media-meta">
         <div className="media-title" title={title}>{title}</div>
@@ -1234,7 +1385,7 @@ export function VideoCard({ video, onChanged }) {
           <dl className="media-detail-info">
             <dt>{t("원본")}</dt><dd>{video.original_name || "—"}</dd>
             <dt>{t("기기 파일")}</dt><dd>{video.avi_name}</dd>
-            <dt>{t("포맷")}</dt><dd>{t("MJPEG · AVI · 320px · 30fps · mono (기기용)")}</dd>
+            <dt>{t("포맷")}</dt><dd>{t("MJPEG · AVI · 320×240 · 24fps · MP3 mono (기기용)")}</dd>
             <dt>{t("용량")}</dt><dd>{video.size_bytes != null ? formatBytes(video.size_bytes) : "—"}</dd>
           </dl>
           <div className="modal-actions">

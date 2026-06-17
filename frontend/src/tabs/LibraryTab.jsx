@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Library, Inbox, ChevronLeft, ChevronRight, ImageOff, Languages, Search, Upload, Check } from "lucide-react";
 import { getLibrary, getSystems, coverUrl, uploadRoms } from "../api.js";
-import { RomCard, SystemIcon, systemColor, Dropzone, Pico8CompatFilter } from "../components.jsx";
+import { RomCard, SystemIcon, systemColor, Dropzone, Pico8CompatFilter, SortSelect } from "../components.jsx";
 import { useToast } from "../toast.jsx";
 import { useKoreanMode } from "../config.jsx";
 import { useI18n } from "../i18n.jsx";
@@ -19,7 +19,19 @@ const byName = (a, b) =>
   );
 
 // Favorites (★) bubble to the front; ties broken by display name.
-const byFav = (a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0) || byName(a, b);
+// Favorites are always pinned to the top; the chosen sort orders the rest.
+const favFirst = (a, b) => (b.favorite ? 1 : 0) - (a.favorite ? 1 : 0);
+const byDateDesc = (a, b) => (b.created_at || "").localeCompare(a.created_at || "");
+const byDateAsc = (a, b) => (a.created_at || "").localeCompare(b.created_at || "");
+// Available sort modes (the segmented control in the toolbar). Default = recent
+// so a freshly-uploaded batch floats to the top, easy to find and organize.
+const SORTS = {
+  recent: (a, b) => favFirst(a, b) || byDateDesc(a, b) || byName(a, b),
+  name:   (a, b) => favFirst(a, b) || byName(a, b),
+  oldest: (a, b) => favFirst(a, b) || byDateAsc(a, b) || byName(a, b),
+};
+const SORT_ORDER = ["recent", "name", "oldest"];
+const SORT_LABELS = { recent: "최신순", name: "이름순", oldest: "오래된순" };
 
 const HANGUL_RE = /[가-힣]/;
 // Homebrew / Pico-8 are indie carts with no Korean release → never "missing".
@@ -66,6 +78,8 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   const [searchAll, setSearchAll] = useState(false); // search scope: this system vs all
   const [missingOnly, setMissingOnly] = useState(false); // show only cover-missing roms
   const [nonKoOnly, setNonKoOnly] = useState(false); // show only NON-Korean-named roms
+  const [sortMode, setSortMode] = useState("recent"); // recent | name | oldest
+  const sortCmp = SORTS[sortMode] || SORTS.recent;
   const [compatFilter, setCompatFilter] = useState("all"); // PICO-8 호환 상태 필터
   const pageSize = usePageSize();
 
@@ -116,6 +130,27 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
     return acc;
   }, {}), [lib.roms]);
 
+  // Exact-content duplicates: roms sharing one SHA-256 across the WHOLE library
+  // (a game and its "부제 있고 없고" twin often turn out to be the same bytes).
+  // Each rom maps to the OTHER roms with its hash → shown as a badge + in detail.
+  const dupesById = useMemo(() => {
+    const byHash = new Map();
+    for (const r of lib.roms) {
+      if (!r.content_hash) continue;
+      (byHash.get(r.content_hash) ?? byHash.set(r.content_hash, []).get(r.content_hash)).push(r);
+    }
+    const out = {};
+    for (const group of byHash.values()) {
+      if (group.length < 2) continue;
+      for (const r of group) {
+        out[r.id] = group
+          .filter((o) => o.id !== r.id)
+          .map((o) => ({ id: o.id, name: o.display_name || o.stored_name }));
+      }
+    }
+    return out;
+  }, [lib.roms]);
+
   // Total rom files across the checked systems — shown in the selection badge
   // ("N플랫폼 · M파일 선택됨"). selected holds system keys; sum their rom counts.
   const selectedFileCount = useMemo(
@@ -127,8 +162,8 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   // with a 0 count so the full supported lineup is always visible. Chips are
   // ordered by system name; each system's roms by display name (Korean-aware).
   const groups = useMemo(() => systems
-    .map((s) => ({ key: s.key, system: s, roms: [...(bySystem[s.key] ?? [])].sort(byFav) }))
-    .sort((a, b) => a.system.name.localeCompare(b.system.name, "en")), [systems, bySystem]);
+    .map((s) => ({ key: s.key, system: s, roms: [...(bySystem[s.key] ?? [])].sort(sortCmp) }))
+    .sort((a, b) => a.system.name.localeCompare(b.system.name, "en")), [systems, bySystem, sortCmp]);
   const nonEmpty = useMemo(() => groups.filter((g) => g.roms.length), [groups]);
 
   // Media (videos + music) is managed in the MEDIA tab, not here — LIBRARY is roms only.
@@ -149,7 +184,7 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
   const matchName = (r) =>
     (r.stored_name || r.original_name || "").toLowerCase().includes(q);
   let items = searching
-    ? searchPool.filter(matchName).sort(byFav)
+    ? searchPool.filter(matchName).sort(sortCmp)
     : (activeGroup?.roms ?? []);
   // 커버 누락 필터: 커버 없는 롬만
   if (missingOnly) items = items.filter((r) => r.cover_status !== "ok");
@@ -217,6 +252,11 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
+          <SortSelect
+            value={sortMode}
+            onChange={setSortMode}
+            options={SORT_ORDER.map((m) => ({ key: m, label: SORT_LABELS[m] }))}
+          />
           <div className="lib-filters">
             <span className="search-scope" role="group" aria-label={t("검색 범위")}>
               <button className={`scope-btn ${!searchAll ? "on" : ""}`} onClick={() => setSearchAll(false)}>{t("현재")}</button>
@@ -310,6 +350,7 @@ export default function LibraryTab({ reloadKey, onChanged, selected, onToggleSel
                   rom={r}
                   previewSrc={r.cover_status === "ok" ? coverUrl(r.id) : null}
                   onChanged={refresh}
+                  dupes={dupesById[r.id] || []}
                 />
               ))}
         </div>

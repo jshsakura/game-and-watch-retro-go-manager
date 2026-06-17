@@ -246,6 +246,14 @@ export async function tgdbSearch(query, system) {
   return res.json();
 }
 
+export async function sgdbSearch(query, system) {
+  const params = new URLSearchParams({ q: query });
+  if (system) params.set("system", system);
+  const res = await fetch(`/api/sgdb/search?${params}`);
+  if (!res.ok) throw new Error("SteamGridDB 검색 실패");
+  return res.json();
+}
+
 export async function setCoverFromUrl(romId, url, crop) {
   const res = await withSession((sid) =>
     fetch(`/api/sessions/${sid}/roms/${romId}/cover/from-url`, {
