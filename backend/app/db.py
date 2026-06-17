@@ -167,6 +167,13 @@ def _migrate(conn: sqlite3.Connection) -> None:
         # limits), computed at upload from the cart header. NOT the real device RAM
         # figure — just a first-pass nudge alongside the manual compat status.
         conn.execute("ALTER TABLE roms ADD COLUMN pico8_mem_hint INTEGER")
+    if "patch_ver" not in cols:
+        # Korean-patch version/date parsed from the ORIGINAL filename's
+        # 'Korea-patch …vYYYYMMDD vX.Y' tag (preserved in original_name even after
+        # the stored_name is cleaned). Sortable string "YYYY-MM-DD vX.Y" so the
+        # newest patch of the same game can be picked objectively (vs upload time).
+        # NULL = no patch-version tag found. See services/patchver.py.
+        conn.execute("ALTER TABLE roms ADD COLUMN patch_ver TEXT")
 
     # Multi-language prep: the name-mapping cache is currently Korean ('ko'). A
     # `lang` column lets other languages (en/ja…) coexist later without a rebuild.

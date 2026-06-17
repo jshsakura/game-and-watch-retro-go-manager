@@ -53,6 +53,9 @@ IGDB_CLIENT_ID = os.getenv("IGDB_CLIENT_ID", "")
 IGDB_CLIENT_SECRET = os.getenv("IGDB_CLIENT_SECRET", "")
 # TheGamesDB (thegamesdb.net) — keyless-ish public API key, instant. Monthly quota.
 TGDB_API_KEY = os.getenv("TGDB_API_KEY", "")
+# SteamGridDB (steamgriddb.com) — community box-art, broad coverage. Bearer token.
+# Used as an extra cover-search source when TheGamesDB's monthly quota is spent.
+STEAMGRIDDB_API_KEY = os.getenv("STEAMGRIDDB_API_KEY", "")
 
 # Upload limits.
 MAX_VIDEO_BYTES = int(os.getenv("GNW_MAX_VIDEO_BYTES", str(512 * 1024 * 1024)))

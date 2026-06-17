@@ -9,7 +9,7 @@ from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 
 from .. import config, db
 from ..systems import accepts_extension, get_system
-from ..services import artfetch, covers, covers_pico8, gamelist, langtag, metadata, name_index, pico8_compat, pico8_memhint, romtag, storage
+from ..services import artfetch, covers, covers_pico8, gamelist, langtag, metadata, name_index, patchver, pico8_compat, pico8_memhint, romtag, storage
 from .sessions import require_session
 
 router = APIRouter(prefix="/api", tags=["roms"])
@@ -143,14 +143,15 @@ async def upload_roms(
                 """INSERT INTO roms (id, session_id, system_key, original_name,
                        stored_name, korean_name, rom_path, cover_path, cover_status,
                        orig_lang, play_lang, is_korean_patched, lang_source, region, cover_flag,
-                       content_hash, pico8_compat, pico8_mem_hint)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                       content_hash, pico8_compat, pico8_mem_hint, patch_ver)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (rom_id, session_id, sys_obj.key, storage.nfc(meta.original_name), stored_name,
                  storage.nfc(meta.korean_name), storage.relative_to_session(session_id, rom_path),
                  cover_rel, cover_status,
                  li.orig_lang, li.play_lang, int(ko_patched), li.source, region, cover_flag,
                  chash, pico8_compat.lookup(stored_name) if sys_obj.pico8 else None,
-                 pico8_memhint.estimate(rom_path) if sys_obj.pico8 else None),
+                 pico8_memhint.estimate(rom_path) if sys_obj.pico8 else None,
+                 patchver.parse(original)),
             )
         if cover_status != "ok" and not sys_obj.pico8:
             pending_cover.append({

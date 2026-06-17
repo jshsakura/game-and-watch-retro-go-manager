@@ -9,7 +9,7 @@ Device constraint (do not change without checking the firmware):
   - same-system covers should share dimensions or the "CoverLight H" view
     misaligns — callers should keep one target size per system.
 
-Inputs accepted: .png .jpg .jpeg .bmp  (matches gencovers.py)
+Inputs accepted: .png .jpg .jpeg .bmp .webp  (matches gencovers.py)
 """
 from __future__ import annotations
 
@@ -36,7 +36,13 @@ DEFAULT_QUALITY = 85
 # The firmware caches one cover per slot at COVER_SIZE = 10 KB (gui.c). Keep the
 # encoded .img at or under this so the device can cache it; drop quality to fit.
 COVER_MAX_BYTES = 10 * 1024
-SUPPORTED_INPUT_SUFFIXES = (".png", ".jpg", ".jpeg", ".bmp")
+# Broad hint list — actual acceptance is decode-based (Pillow), not extension-gated.
+SUPPORTED_INPUT_SUFFIXES = (
+    ".png", ".apng", ".jpg", ".jpeg", ".jpe", ".jfif", ".webp", ".bmp", ".dib",
+    ".gif", ".tif", ".tiff", ".ico", ".cur", ".ppm", ".pgm", ".pbm", ".pnm",
+    ".tga", ".jp2", ".j2k", ".jpx", ".qoi", ".pcx", ".sgi", ".rgb", ".xbm",
+    ".xpm", ".psd", ".dds", ".icns",
+)
 
 
 # JPEG encode loop — same logic/params as gencovers.py _save_jpeg_rgb

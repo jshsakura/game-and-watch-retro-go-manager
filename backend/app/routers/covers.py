@@ -6,6 +6,7 @@ POST /sessions/{sid}/roms/{rom_id}/cover/regenerate   → re-attempt art fetch (
 """
 from __future__ import annotations
 
+import logging
 from pathlib import Path
 
 import json
@@ -22,9 +23,25 @@ from .sessions import require_korean_mode, require_session
 
 _HANGUL = re.compile(r"[가-힣]")
 
+log = logging.getLogger(__name__)
+
 router = APIRouter(prefix="/api", tags=["covers"])
 
-_ALLOWED_COVER_SUFFIXES = {".png", ".jpg", ".jpeg", ".bmp"}
+# Cover uploads are validated by actually DECODING the bytes (Pillow), not by
+# trusting the extension — "whatever comes in" works as long as Pillow can read
+# it. This list is just a friendly hint / fast-path for common types; an unknown
+# extension is NOT rejected here, the decode step is the real gate.
+_ALLOWED_COVER_SUFFIXES = {
+    ".png", ".apng", ".jpg", ".jpeg", ".jpe", ".jfif", ".webp", ".bmp", ".dib",
+    ".gif", ".tif", ".tiff", ".ico", ".cur", ".ppm", ".pgm", ".pbm", ".pnm",
+    ".tga", ".jp2", ".j2k", ".jpx", ".jpf", ".jpc", ".j2c", ".qoi", ".pcx",
+    ".sgi", ".rgb", ".rgba", ".bw", ".xbm", ".xpm", ".psd", ".dds", ".icns",
+    ".im", ".ftc", ".ftu", ".blp", ".pxr", ".ras",
+}
+
+# Hard ceiling on a single cover upload (pre-resize source). Generous — a phone
+# photo or hi-res box scan fits easily; blocks accidental multi-hundred-MB files.
+_MAX_COVER_UPLOAD_BYTES = 40 * 1024 * 1024
 
 
 def _parse_crop(crop) -> tuple[float, float, float, float] | None:
@@ -215,31 +232,41 @@ async def upload_cover(
     file: UploadFile = File(...),
     crop: str | None = Form(None),
 ) -> dict:
-    """Replace/set the cover from a user-supplied image (png/jpg/jpeg/bmp).
+    """Replace/set the cover from ANY user-supplied image.
+
+    The format is validated by actually decoding the bytes (Pillow), so any
+    raster image Pillow can read works — png, jpg, webp, gif, bmp, tiff, ico,
+    heic-via-plugin, etc. — regardless of (or without) a file extension.
 
     Default fit-within (186x100); pass `crop` JSON {x,y,width,height} (0..1) to
     use a hand-picked crop region. Overwrites the .img, sets cover_status='ok'.
     """
-    suffix = Path(file.filename or "").suffix.lower()
-    if suffix not in _ALLOWED_COVER_SUFFIXES:
-        raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported image type. Allowed: {sorted(_ALLOWED_COVER_SUFFIXES)}",
-        )
-
     with db.connect() as conn:
         require_session(conn, session_id)
         rom = _require_rom(conn, session_id, rom_id)
 
+    # Reject oversized uploads before slurping the whole thing into memory when
+    # the client gave us a size; otherwise check after read as a backstop.
+    if file.size is not None and file.size > _MAX_COVER_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail="이미지가 너무 큽니다 (최대 40MB)")
+
     raw = await file.read()
     if not raw:
-        raise HTTPException(status_code=400, detail="Empty file")
+        raise HTTPException(status_code=400, detail="빈 파일입니다")
+    if len(raw) > _MAX_COVER_UPLOAD_BYTES:
+        raise HTTPException(status_code=413, detail="이미지가 너무 큽니다 (최대 40MB)")
 
     crop_box = _parse_crop(crop)
     try:
         cover_bytes = _render_cover(rom, raw, crop_box=crop_box)
     except covers.CoverError as exc:
-        raise HTTPException(status_code=422, detail=f"Cannot process image: {exc}") from exc
+        # Stable Korean string = the frontend i18n key; technical cause is logged,
+        # not shown, so the message stays translatable.
+        log.info("cover render failed for rom %s: %s", rom_id, exc)
+        raise HTTPException(
+            status_code=422,
+            detail="이미지를 읽을 수 없습니다 — 지원하지 않는 형식이거나 손상된 파일입니다",
+        ) from exc
 
     cover_rel = _save_cover(session_id, rom, cover_bytes, raw)
 
