@@ -1,47 +1,17 @@
-### Attribution Information for Libretro icons
+### Attribution for system icons
 
-The following files found in this folder are sourced from the Libretro/Retroarch project, which is licensed under CC BY 4.0
-The original license can be found at https://git.libretro.com/libretro-assets/retroarch-assets/-/blob/master/COPYING
-For more information about the Creative Commons Attribution 4.0 International License, visit https://creativecommons.org/licenses/by/4.0/
+The console/system icons in this folder are sourced from the Libretro / RetroArch
+assets project (also used by the RomM project), licensed under
+Creative Commons Attribution 4.0 International (CC BY 4.0).
 
-appleii.ico
-arcadia-2001.ico
-astrocade.ico
-atari-st.ico
-atari8bit.ico
-atomiswave.ico
-bbcmicro.ico
-beena.ico
-c-plus-4.ico
-chihiro.ico
-colecovision.ico
-creativision.ico
-e-reader.ico
-fairchild-channel-f.ico
-gizmondo.ico
-hyperscan.ico
-leappad.ico
-loopy.ico
-new-nintendo-3ds.ico
-nuon.ico
-pc-fx.ico
-pocket-challenge-v2.ico
-pocket-challenge-w.ico
-pv-1000.ico
-sg1000.ico
-sharp-x68000.ico
-studio-II.ico
-study-box.ico
-turbografx-cd.ico
-vic-20.ico
-videopac-plus.ico
-vsmile.ico
-wasm-4.ico
-supervision.ico
-zod.ico
-zxs.ico
+  Source:  https://git.libretro.com/libretro-assets/retroarch-assets
+  License: https://creativecommons.org/licenses/by/4.0/
 
-ps5.ico was created by Zacksly (Licensed under CC BY 3.0) - https://zacksly.itch.io
+Files covered (the icons actually shipped in this folder):
 
-The RomM Project
-July 28, 2024
+  a2600.svg   a7800.svg   amstrad.svg   col.svg      gb.svg
+  gbc.svg     gg.svg      gw.svg        homebrew.svg md.svg
+  mini.png    msx.png     nes.svg       pce.png      pico8.png
+  sg.png      sms.png     tama.svg      wsv.png
+
+See ../../../THIRD-PARTY-NOTICES.md for the project-wide third-party license list.

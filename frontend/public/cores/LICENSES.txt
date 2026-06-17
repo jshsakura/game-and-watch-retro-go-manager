@@ -1,0 +1,29 @@
+Emulator cores — third-party license notice
+============================================
+
+These pre-compiled libretro WASM cores are redistributed under their OWN
+licenses (NOT the MIT license of the host project). They are loaded in the
+browser as separate modules and are not statically linked into the host
+project's code.
+
+For the GPL'd cores below, the linked upstream repository is the offer of
+corresponding source required by the GNU GPL.
+
+core (*_libretro.{js,wasm})   system(s)                          license          upstream / corresponding source
+---------------------------   --------------------------------   --------------   -------------------------------
+fceumm                        NES                                GPLv2            https://github.com/libretro/libretro-fceumm
+gambatte                      Game Boy / GB Color                GPLv2            https://github.com/libretro/gambatte-libretro
+mednafen_pce_fast             PC Engine                          GPLv2            https://github.com/libretro/beetle-pce-fast-libretro
+gearcoleco                    ColecoVision                       GPLv3            https://github.com/libretro/gearcoleco
+genesis_plus_gx               Genesis/MD, SMS, Game Gear, SG-1000  NON-COMMERCIAL https://github.com/libretro/Genesis-Plus-GX
+gw_libretro                   Game & Watch                       zlib             https://github.com/libretro/gw-libretro
+potator                       Watara Supervision                 Public Domain    https://github.com/libretro/potator
+retro8                        PICO-8                             GPLv3            https://github.com/libretro/retro8
+tamalibretro                  Tamagotchi                         GPLv2            https://github.com/celerizer/tamalibretro (based on jcrona/tamalib, GPLv2)
+
+IMPORTANT — NON-COMMERCIAL: The Genesis Plus GX core is released under a
+non-commercial license. Any distribution that bundles it (including this one)
+may not be used or redistributed for commercial purposes.
+
+Full GPL text (v2 / v3) and per-file copyright headers are in each upstream
+repository above.

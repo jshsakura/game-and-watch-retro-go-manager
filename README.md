@@ -113,4 +113,15 @@ you are legally entitled to.
 
 ## License
 
-[MIT](LICENSE) © 2026 jshsakura.
+This project's **own source code** is [MIT](LICENSE) © 2026 jshsakura.
+
+It **bundles third-party components** (libretro emulator cores under
+`frontend/public/cores/`, system icons, fonts) that retain their **own licenses**
+— GPLv2/GPLv3, zlib, Public Domain, and CC BY 4.0. See
+**[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md)** for the full per-component list
+and corresponding-source links.
+
+> ⚠️ **Non-commercial as distributed.** The bundled **Genesis Plus GX** core
+> (Genesis/MD, Master System, Game Gear, SG-1000) is under a **non-commercial**
+> license. The project **as assembled and distributed** therefore may not be used
+> or redistributed commercially. The MIT grant covers the author's own code only.
