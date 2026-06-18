@@ -1,4 +1,4 @@
-# Game & What — Retro SD Manager
+# 🎮 Game & What — Retro SD Manager
 
 **English** · [한국어](README.ko.md)
 
@@ -18,7 +18,7 @@ with sample data (no backend; uploads/edits are disabled).
 
 ---
 
-## What it does
+## ✨ What it does
 
 - **ROM → cover.** Upload a ROM for any supported system; a cover is auto-fetched
   (IGDB → TheGamesDB → libretro-thumbnails), rendered to the device spec
@@ -41,7 +41,7 @@ with sample data (no backend; uploads/edits are disabled).
   "Korean-patched" flag, and related filters. **Off by default** (international image).
 - Retro **pixel-art UI** with a Zelda ↔ Mario edition toggle.
 
-## Screenshots
+## 📸 Screenshots
 
 *(from the [live demo](https://jshsakura.github.io/game-and-what/) — sample data)*
 
@@ -67,7 +67,7 @@ Or with compose (`docker compose up -d`). No API keys are required — cover sea
 is just limited without them. Full deployment guide, env reference, publishing and
 **access/security** in **[DEPLOY.md](DEPLOY.md)**.
 
-## Configuration
+## ⚙️ Configuration
 
 There is **no in-app settings screen** — everything is an environment variable
 (the Docker convention). Provide keys via `docker run -e`, a compose `.env`, or
@@ -81,13 +81,13 @@ There is **no in-app settings screen** — everything is an environment variable
 | `GNW_KOREAN_MODE` | Korea-specific features (default `false`) |
 | `GNW_CORS_ORIGINS` | CORS allow-list (default `*`) |
 
-## Security — no built-in login
+## 🔒 Security — no built-in login
 
 The app has **no authentication** (single shared workspace). **Do not expose it
 raw to the internet.** Put a Zero Trust layer in front (Cloudflare Tunnel +
 Access, or Tailscale). Details and setup steps in [DEPLOY.md](DEPLOY.md#access-control--no-login-use-zero-trust).
 
-## Develop from source
+## 🛠️ Develop from source
 
 ```bash
 # Backend — FastAPI on :38080
@@ -104,7 +104,7 @@ npm run dev
 
 Local secrets go in `backend/.env` (git-ignored, auto-loaded by `config.py`).
 
-## Tech stack
+## 🧱 Tech stack
 
 - **Backend:** FastAPI (Python 3.12), SQLite, Pillow, `ffmpeg`.
 - **Frontend:** React 18 + Vite, lucide-react, Nostalgist.js, Press Start 2P +
@@ -113,7 +113,7 @@ Local secrets go in `backend/.env` (git-ignored, auto-loaded by `config.py`).
   API on one port). Multi-arch (amd64/arm64) image published to GHCR via GitHub
   Actions on version tags.
 
-## Credits
+## 🙏 Credits
 
 - [retro-go-sd](https://github.com/sylverb/game-and-watch-retro-go-sd) (sylverb) —
   the firmware this tool targets, and the source of the card layout & cover spec.
@@ -130,7 +130,7 @@ trademarks of their respective owners; this project is **unaffiliated** with and
 **not endorsed** by Nintendo or any rights holder. Provided for use with content
 you are legally entitled to.
 
-## License
+## 📜 License
 
 This project's **own source code** is [MIT](LICENSE) © 2026 jshsakura.
 
