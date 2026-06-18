@@ -53,26 +53,31 @@ def media_dir(session_id: str) -> Path:
     return session_root(session_id) / config.MEDIA_DIR_NAME
 
 
-# Transient upload name: `.src_<id>` in a session's media dir, written before an
-# encode and removed in the encoder's `finally`. See video/upload routers.
-TEMP_UPLOAD_GLOB = ".src_*"
+# Transient encode/extract names, written before an ffmpeg run and removed in the
+# caller's `finally`: `.src_*` (input) in the media dir (video) AND the music dir
+# (audio extraction), plus `.out_*` (output) in the music dir. See the video /
+# upload / music routers.
+TEMP_GLOBS = (".src_*", ".out_*")
+_TEMP_DIRS = (config.MEDIA_DIR_NAME, config.MUSIC_DIR_NAME)
 
 
 def sweep_temp_uploads() -> int:
-    """Delete orphaned `.src_*` upload temp files left by an encode that never
-    finished (hard crash / OOM / container stop → the normal `finally` cleanup
-    didn't run). Safe at startup: a `.src_*` exists only DURING an encode, so any
-    present after a restart is guaranteed an orphan. Returns the count removed."""
+    """Delete orphaned encode/extract temp files (`.src_*` / `.out_*`) left when an
+    ffmpeg run was killed mid-way (hard crash / OOM / container stop → the normal
+    `finally` cleanup didn't run). Safe at startup: these exist only DURING a run,
+    so any present after a restart is guaranteed an orphan. Returns count removed."""
     removed = 0
     if not config.LIBRARY_DIR.exists():
         return 0
-    for media in config.LIBRARY_DIR.glob(f"*/{config.MEDIA_DIR_NAME}"):
-        for f in media.glob(TEMP_UPLOAD_GLOB):
-            try:
-                f.unlink()
-                removed += 1
-            except OSError:
-                pass
+    for sub in _TEMP_DIRS:
+        for d in config.LIBRARY_DIR.glob(f"*/{sub}"):
+            for pat in TEMP_GLOBS:
+                for f in d.glob(pat):
+                    try:
+                        f.unlink()
+                        removed += 1
+                    except OSError:
+                        pass
     return removed
 
 

@@ -42,16 +42,22 @@ def test_result_is_nfc_normalized():
 def test_sweep_temp_uploads_removes_orphans_keeps_real(tmp_path, monkeypatch):
     monkeypatch.setattr(config, "LIBRARY_DIR", tmp_path)
     media = tmp_path / "public" / config.MEDIA_DIR_NAME
+    music = tmp_path / "public" / config.MUSIC_DIR_NAME
     media.mkdir(parents=True)
-    (media / ".src_abc").write_bytes(b"x")
-    (media / ".src_def").write_bytes(b"y")
-    (media / "keep.avi").write_bytes(b"z")
+    music.mkdir(parents=True)
+    (media / ".src_abc").write_bytes(b"x")          # video input temp
+    (media / "keep.avi").write_bytes(b"z")          # real deliverable
+    (music / ".src_def.mp4").write_bytes(b"y")      # audio-extract input temp
+    (music / ".out_ghi.mp3").write_bytes(b"w")      # audio-extract output temp
+    (music / "song.mp3").write_bytes(b"k")          # real track
 
     removed = storage.sweep_temp_uploads()
 
-    assert removed == 2
+    assert removed == 3
     assert not list(media.glob(".src_*"))
+    assert not list(music.glob(".src_*")) and not list(music.glob(".out_*"))
     assert (media / "keep.avi").exists()
+    assert (music / "song.mp3").exists()
 
 
 def test_sweep_temp_uploads_no_library_dir(tmp_path, monkeypatch):
