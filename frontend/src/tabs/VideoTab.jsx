@@ -49,7 +49,7 @@ export default function VideoTab({ onChanged }) {
   return (
     <div className="stack">
       <div className="muted">
-        <Clapperboard size={13} aria-hidden /> {t("Video → encoded to MJPEG .avi (320×240·30fps·mono) and stored in /media")}
+        <Clapperboard size={13} aria-hidden /> {t("Video → encoded to MJPEG .avi (320×240·24fps·mono) and stored in /media")}
       </div>
       {!ffmpeg && (
         <div className="badge failed">

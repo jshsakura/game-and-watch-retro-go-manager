@@ -12,7 +12,7 @@ from .routers import covers, data, downloads, extra, firmware, gamelist, igdb, j
 from .services.video import ffmpeg_available
 from .systems import SYSTEMS
 
-app = FastAPI(title="gnw-retro-manager", version="0.1.0")
+app = FastAPI(title="gnw-retro-manager", version="1.0.7")
 
 # No cookies/auth, so wildcard origins are fine (credentials must be off with "*").
 app.add_middleware(

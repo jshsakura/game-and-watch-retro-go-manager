@@ -5,20 +5,20 @@ Hard hardware fact: the chip has NO H.264/HEVC decoder, only a hardware JPEG
 decoder. So the ONLY playable video is MJPEG inside an .avi container. This
 is the EXACT command build_command() emits (default 'fit' mode shown):
 
-  ffmpeg -hide_banner -y -i input -c:v mjpeg -q:v 8 \
-    -vf scale=320:240:force_original_aspect_ratio=decrease,pad=320:240:-1:-1:color=black,fps=30 \
+  ffmpeg -hide_banner -y -i input -c:v mjpeg -q:v 10 \
+    -vf scale=320:240:force_original_aspect_ratio=decrease,pad=320:240:-1:-1:color=black,fps=24 \
     -c:a libmp3lame -ac 1 -b:a 96k -ar 44100 output.avi
 
 Only the -vf filter changes with the screen-fit mode (see _VIDEO_FILTERS):
-  fit     scale=320:240:force_original_aspect_ratio=decrease,pad=320:240:-1:-1:color=black,fps=30
-  fill    scale=320:240:force_original_aspect_ratio=increase,crop=320:240,fps=30
-  stretch scale=320:240,fps=30
+  fit     scale=320:240:force_original_aspect_ratio=decrease,pad=320:240:-1:-1:color=black,fps=24
+  fill    scale=320:240:force_original_aspect_ratio=increase,crop=320:240,fps=24
+  stretch scale=320:240,fps=24
 
 Audio = MP3 mono, NOT raw PCM: the SD card is the bottleneck. MP3 mono 96k is
 ~12 KB/s and reuses the device's existing minimp3 decoder (shared with the
 music app) — no new audio path. The device downmixes/resamples to its 48kHz
 mono output internally, so source channels/rate don't matter. Video is
-320x240 MJPEG q8 @ 30fps (~250 KB/s); the on-device player drops video frames
+320x240 MJPEG q10 @ 24fps (~130 KB/s); the on-device player drops video frames
 when the SD can't keep up so audio stays locked in sync. Screen is 320x240.
 """
 from __future__ import annotations
@@ -30,9 +30,10 @@ from pathlib import Path
 # Device-verified encode parameters (bench-tested on hardware).
 SCREEN_WIDTH = 320
 SCREEN_HEIGHT = 240
-VIDEO_QSCALE = 8          # -q:v 8 (smaller frames -> less SD load; offsets 30fps)
-FRAME_RATE = 30           # fps=30 — the device decodes via the HW JPEG codec now
-                          # (~few ms/frame), so 30fps is smooth; q8 keeps SD load flat
+VIDEO_QSCALE = 10         # -q:v 10 (smaller frames -> fewer sectors per read)
+FRAME_RATE = 24           # fps=24 — fewer frames/s = fewer SD reads. per-read latency
+                          # is the bottleneck, so fps↓ (read count) + q↑ (sectors/read)
+                          # both cut SD load directly. Target ~250→~130 KB/s.
 AUDIO_BITRATE = "96k"     # MP3 mono — minimal SD load, reuses minimp3 on device
 AUDIO_RATE = 44100        # -ar 44100 (device resamples to 48k mono internally)
 OUTPUT_SUFFIX = ".avi"

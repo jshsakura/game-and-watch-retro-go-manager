@@ -23,7 +23,6 @@ export default function ExtraTab({ onChanged }) {
   async function handleFiles(list, onProgress) {
     const arr = Array.from(list);
     if (!arr.length) return;
-    const dir = folder.replace(/^\/+|\/+$/g, "");           // trim slashes
     const total = arr.reduce((s, f) => s + f.size, 0) || 1;
     let done = 0;
     for (const f of arr) {
@@ -39,6 +38,8 @@ export default function ExtraTab({ onChanged }) {
     await reload();
     onChanged?.();
   }
+
+  const dir = folder.replace(/^\/+|\/+$/g, "");   // trimmed folder; empty = SD root
 
   async function remove(path) {
     if (!(await toast.confirm(t("Delete the file '/{path}'?", { path }), { confirmText: t("Delete") }))) return;
@@ -65,12 +66,15 @@ export default function ExtraTab({ onChanged }) {
         />
         <span className="path-trail">/…</span>
       </div>
+      <div className="muted path-hint">{t("Leave empty to save to the SD root.")}</div>
 
       <Dropzone
         multiple
         label={
           <span className="dz-label">
-            <Upload size={16} aria-hidden /> {t("Drag & drop files or click →")} <b>/{(folder.replace(/^\/+|\/+$/g, "") || "")}/</b> {t("to save")}
+            <Upload size={16} aria-hidden /> {t("Drag & drop files or click →")}{" "}
+            {dir ? <b>/{dir}/</b> : <b>{t("the SD root")}</b>}{" "}
+            {t("to save")}
           </span>
         }
         onFiles={handleFiles}

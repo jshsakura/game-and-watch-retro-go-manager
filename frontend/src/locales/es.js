@@ -250,7 +250,7 @@ export default {
   "Loading list…": "Cargando lista…",
   "No files uploaded (not included in SD).": "No hay archivos subidos (no incluidos en la SD).",
   "Music": "Música",
-  "Video → encoded to MJPEG .avi (320×240·30fps·mono) and stored in /media": "Vídeo → codificado a MJPEG .avi (320×240·30fps·mono) y guardado en /media",
+  "Video → encoded to MJPEG .avi (320×240·24fps·mono) and stored in /media": "Vídeo → codificado a MJPEG .avi (320×240·24fps·mono) y guardado en /media",
   "Demo preview — sample data only. A retro SD-card manager for the Game & Watch handheld.": "Vista previa demo — solo datos de ejemplo. Gestor de tarjetas SD retro para la Game & Watch.",
   "Screen fit": "Ajuste de pantalla",
   "Fit (letterbox)": "Ajustar (barras)",

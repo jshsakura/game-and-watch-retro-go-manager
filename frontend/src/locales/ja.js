@@ -248,7 +248,7 @@ export default {
   "Loading list…": "一覧を読み込み中…",
   "No files uploaded (not included in SD).": "アップロードしたファイルがありません（SDに含まれません）。",
   "Music": "音楽",
-  "Video → encoded to MJPEG .avi (320×240·30fps·mono) and stored in /media": "動画 → MJPEG .avi (320×240·30fps·mono) にエンコードして/mediaに保管",
+  "Video → encoded to MJPEG .avi (320×240·24fps·mono) and stored in /media": "動画 → MJPEG .avi (320×240·24fps·mono) にエンコードして/mediaに保管",
   "Demo preview — sample data only. A retro SD-card manager for the Game & Watch handheld.": "デモプレビュー — サンプルデータです。Game & Watch 携帯機向けレトロSDカードマネージャー。",
   "Screen fit": "画面フィット",
   "Fit (letterbox)": "フィット（レターボックス）",

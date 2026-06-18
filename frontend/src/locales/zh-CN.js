@@ -248,7 +248,7 @@ export default {
   "Loading list…": "加载列表中…",
   "No files uploaded (not included in SD).": "没有上传的文件（不含于 SD）。",
   "Music": "音乐",
-  "Video → encoded to MJPEG .avi (320×240·30fps·mono) and stored in /media": "视频 → 编码为 MJPEG .avi (320×240·30fps·mono) 并保存到 /media",
+  "Video → encoded to MJPEG .avi (320×240·24fps·mono) and stored in /media": "视频 → 编码为 MJPEG .avi (320×240·24fps·mono) 并保存到 /media",
   "Demo preview — sample data only. A retro SD-card manager for the Game & Watch handheld.": "演示预览 — 仅为示例数据。Game & Watch 掌机的复古 SD 卡管理器。",
   "Screen fit": "屏幕填充",
   "Fit (letterbox)": "适应（黑边）",
