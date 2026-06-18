@@ -67,14 +67,14 @@ export default function VideoTab({ onChanged }) {
         onFiles={handleFiles}
       />
 
-      <label className="row" style={{ gap: 6 }}>
+      <div className="row" style={{ gap: 9, alignItems: "center" }}>
         <span className="muted">{t("Screen fit")}</span>
-        <select value={mode} onChange={(e) => setMode(e.target.value)}>
-          <option value="fit">{t("Fit (letterbox)")}</option>
-          <option value="fill">{t("Fill (crop)")}</option>
-          <option value="stretch">{t("Stretch (distort)")}</option>
-        </select>
-      </label>
+        <span className="search-scope" role="group" aria-label={t("Screen fit")}>
+          <button type="button" className={`scope-btn ${mode === "fit" ? "on" : ""}`} onClick={() => setMode("fit")}>{t("Fit (letterbox)")}</button>
+          <button type="button" className={`scope-btn ${mode === "fill" ? "on" : ""}`} onClick={() => setMode("fill")}>{t("Fill (crop)")}</button>
+          <button type="button" className={`scope-btn ${mode === "stretch" ? "on" : ""}`} onClick={() => setMode("stretch")}>{t("Stretch (distort)")}</button>
+        </span>
+      </div>
 
       {job && (
         <div className="stack">
