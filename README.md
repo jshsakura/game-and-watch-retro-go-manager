@@ -1,5 +1,7 @@
 # Game & What — Retro SD Manager
 
+**English** · [한국어](README.ko.md)
+
 A self-hosted web app that prepares SD cards for **retro-go-sd** firmware on the
 Game & Watch handheld. Drop in ROMs, videos and music — it auto-adds names and
 device-spec covers, then packs everything into a single ZIP that matches the
@@ -45,7 +47,7 @@ with sample data (no backend; uploads/edits are disabled).
 
 | Library — per-system grid, covers, one-click SD ZIP | Built-in guide & SD spec reference |
 |---|---|
-| ![Library](docs/preview.png) | ![Info & spec](docs/screen-info.png) |
+| ![Library](docs/screen-library.png) | ![Info & spec](docs/screen-info.png) |
 
 **Pick your edition** — the whole UI reskins between a Zelda (green) and Mario (red) theme:
 
