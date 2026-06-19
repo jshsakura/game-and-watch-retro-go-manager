@@ -36,6 +36,10 @@ const CORE_MAP = {
   // Watara Supervision — potator core compiled from source for emscripten (MODULARIZE,
   // Nostalgist-compatible). No prebuilt existed anywhere; built via emsdk + RetroArch.
   wsv: "potator",
+  // Neo Geo Pocket (mono+Color) and WonderSwan (mono+Color) via Mednafen cores,
+  // self-hosted from arianrhodsandlot/retroarch-emscripten-build (Nostalgist format).
+  ngp: "mednafen_ngp",
+  ws: "mednafen_wswan",
   // NOTE: Atari 2600/7800, Amstrad CPC, MSX, Pokémon Mini have no Nostalgist-compatible
   // core, so they run via a self-hosted JS engine in an iframe instead (see JS_ENGINE —
   // Amstrad uses CPCEC, MSX uses WebMSX, Poké Mini uses the webRcade PokeMini core).
