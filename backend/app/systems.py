@@ -55,6 +55,13 @@ SYSTEMS: tuple[System, ...] = (
     System("a7800", "Atari 7800", "a7800", ("a78", "bin")),
     System("amstrad", "Amstrad CPC", "amstrad", ("dsk", "cdk")),
     System("wsv", "Watara", "wsv", ("wsv", "sv", "bin")),
+    # Neo Geo Pocket (mono + Color share one core). NOT yet in rg_emulators.c —
+    # added for library collection (original No-Intro names, no Korean conversion);
+    # all NGP/NGPC exts go in the single /roms/ngp/ folder. On-device play needs a
+    # firmware build that includes the core. Few ROMs each, so mono+Color are kept
+    # as ONE combined folder per family (NOT split like gb/gbc).
+    System("ngp", "Neo Geo Pocket", "ngp", ("ngp", "ngc", "ngpc")),
+    System("ws", "WonderSwan", "ws", ("ws", "wsc")),
     System("tama", "Tamagotchi", "tama", ("b",)),
     System("mini", "Pokémon Mini", "mini", ("min",)),
     # Firmware registers ext "gw"; many G&W rom packs ship as ".mgw" — accept both.
