@@ -1095,6 +1095,10 @@ body::before {
 @media (max-width: 640px) {
   /* one scrollable strip instead of wrapping — keeps the page from stretching */
   .search-scope.p8-filter { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Video "Screen fit": 3 long-labelled buttons — let them wrap and share the row
+     width instead of overflowing the screen. */
+  .row > .search-scope.fit-scope { flex: 1 1 100%; flex-wrap: wrap; }
+  .search-scope.fit-scope .scope-btn { flex: 1 1 0; min-width: 0; padding: 7px 8px; }
 }
 
 /* result count, sat with the results (not the search box) */

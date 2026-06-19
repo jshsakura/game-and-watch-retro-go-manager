@@ -69,7 +69,7 @@ export default function VideoTab({ onChanged }) {
 
       <div className="row" style={{ gap: 9, alignItems: "center" }}>
         <span className="muted">{t("Screen fit")}</span>
-        <span className="search-scope" role="group" aria-label={t("Screen fit")}>
+        <span className="search-scope fit-scope" role="group" aria-label={t("Screen fit")}>
           <button type="button" className={`scope-btn ${mode === "fit" ? "on" : ""}`} onClick={() => setMode("fit")}>{t("Fit (letterbox)")}</button>
           <button type="button" className={`scope-btn ${mode === "fill" ? "on" : ""}`} onClick={() => setMode("fill")}>{t("Fill (crop)")}</button>
           <button type="button" className={`scope-btn ${mode === "stretch" ? "on" : ""}`} onClick={() => setMode("stretch")}>{t("Stretch (distort)")}</button>
