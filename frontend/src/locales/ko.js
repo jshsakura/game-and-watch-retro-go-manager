@@ -340,4 +340,7 @@ export default {
   "Excluded from the SD download (kept in library)": "SD 다운로드에서 제외됨 (라이브러리엔 유지)",
   "{n} excluded from SD": "SD 제외 {n}개",
   "Kept in the library, not included in the SD download": "라이브러리엔 유지, SD 다운로드엔 미포함",
+  "IGDB rating": "IGDB 평점",
+  "{n} votes": "{n}표",
+  "No IGDB rating": "IGDB 평점 없음",
 };

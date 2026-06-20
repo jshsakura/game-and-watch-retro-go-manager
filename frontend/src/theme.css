@@ -1584,19 +1584,56 @@ body::before {
 .icon-btn.play-btn { margin-left: auto; background: var(--accent); color: #fff; border-color: #00000055; }
 .icon-btn.play-btn:hover { background: var(--accent-2); color: var(--accent-ink); }
 
-/* Cover-state badge — bottom-right corner of the cover image. */
+/* Cover-state badge — bottom-right corner of the cover image. The container is a
+   bare flex track; each child carries its OWN chip (status icons = dark, the IGDB
+   score = its color tier) so a lone colored score isn't double-boxed. */
 .cover-badge {
   position: absolute; right: 5px; bottom: 5px; z-index: 2;
+  display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px;
+}
+/* bottom-right status icons (no-cover / crop / manual) get their own dark chip. */
+.cover-badge:not(.bl) > .no-cover,
+.cover-badge:not(.bl) > .cover-crop,
+.cover-badge:not(.bl) > .cover-manual {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 3px; border-radius: 5px;
+  height: 18px; box-sizing: border-box; padding: 0 3px; border-radius: 5px;
   background: #000000b0; border: 1px solid #ffffff2e; box-shadow: 0 1px 3px #00000066;
 }
+/* IGDB score pill (bottom-right). Color band by quality tier. Height matches the
+   status-icon chip beside it so the bottom-right row is even. */
+.cover-score {
+  display: inline-flex; align-items: center; justify-content: center; gap: 2px;
+  height: 18px; box-sizing: border-box; padding: 0 6px; min-width: 24px; border-radius: 5px;
+  font-family: var(--body-font); font-size: 11px; line-height: 18px; font-weight: 500;
+  color: #fff; letter-spacing: 0;
+}
+.cover-score svg { width: 9px; height: 9px; flex: none; opacity: 0.95; }
+/* Retro diagonal-hatch texture over the tier color (same DNA as the G&W face) +
+   a subtle bevel so the pill reads as a raised label, not a flat sticker. */
+.cover-score {
+  background-image: repeating-linear-gradient(45deg, #ffffff26 0 1px, transparent 1px 4px);
+  box-shadow: inset 0 1px 0 #ffffff33, inset 0 -1px 1px #00000033, 0 1px 2px #00000059;
+  text-shadow: 0 1px 1px #0000003d;
+}
+.cover-score.hi  { background-color: #2faa55; }
+.cover-score.mid { background-color: #6f9f2f; }
+.cover-score.lo  { background-color: #c98a1e; }
+.cover-score.vlo { background-color: #b5483a; }
+/* IGDB rating line in the detail modal. */
+.igdb-line { display: flex; align-items: center; gap: 8px; margin: 2px 0 4px; }
+.igdb-line .cover-score { font-size: 11px; height: auto; padding: 4px 7px; border-radius: 4px; gap: 3px; }
+.igdb-line .cover-score svg { width: 11px; height: 11px; }
+.igdb-line .muted { font-size: 12px; }
 .cover-badge .no-cover,
 .cover-badge .cover-manual,
 .cover-badge .cover-crop { opacity: 1; }
 .cover-badge .no-cover { color: #e6e6e6; }
 /* Bottom-LEFT badge (PICO-8 실기 호환 아이콘) — mirrors the bottom-right one. */
-.cover-badge.bl { left: 5px; right: auto; }
+.cover-badge.bl {
+  left: 5px; right: auto;
+  padding: 3px; border-radius: 5px;
+  background: #000000b0; border: 1px solid #ffffff2e; box-shadow: 0 1px 3px #00000066;
+}
 .cover-badge.bl .p8compat { margin-right: 0; padding: 0; }
 
 /* PICO-8 cart-complexity gauge — thin bar along the poster's bottom edge. */

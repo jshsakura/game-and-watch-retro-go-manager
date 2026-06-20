@@ -12,4 +12,7 @@ export default {
   "Keep this ROM in the library but exclude it from the SD download": "Keep this ROM in the library but exclude it from the SD download",
   "{n} excluded from SD": "{n} excluded from SD",
   "Kept in the library, not included in the SD download": "Kept in the library, not included in the SD download",
+  "IGDB rating": "IGDB rating",
+  "{n} votes": "{n} votes",
+  "No IGDB rating": "No IGDB rating",
 };

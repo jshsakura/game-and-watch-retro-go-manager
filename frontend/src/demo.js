@@ -45,8 +45,12 @@ function fakeRom(i) {
     cover_source: "auto",
     crop_box: null,
     is_korean_patched: 0, lang_source: "auto", region: null, cover_flag: null,
-    sd_include: 0, extra_files: null, favorite: i % 6 === 0 ? 1 : 0,
+    sd_include: 0, sd_exclude: i % 7 === 0 ? 1 : 0, extra_files: null, favorite: i % 6 === 0 ? 1 : 0,
     pico8_compat: null, patch_ver: null,
+    // IGDB score spread so the preview shows every tier (null = unfetched,
+    // -1 = no rating, else the 0-100 score).
+    igdb_score: [88, 73, 56, 42, null, -1, 81][i % 7],
+    igdb_votes: [1700, 240, 35, 12, 0, 0, 96][i % 7],
     display_name: name, display_region: null,
   };
 }

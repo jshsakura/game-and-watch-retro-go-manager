@@ -32,6 +32,10 @@ with sample data (no backend; uploads/edits are disabled).
   `/media`, `/music`) in the exact firmware layout — extract to the SD root, done.
 - **Play in browser.** Experimental in-page emulation (Nostalgist.js) for systems
   that have a WASM core.
+- **Curate a bloated set.** Each ROM shows its **IGDB rating** (0-100, color-tiered
+  badge on the cover's bottom-right) so you can judge quality at a glance, and a
+  per-ROM **"Exclude from SD"** toggle drops a ROM from the SD download while
+  keeping it in the library — slim the device menu without deleting anything.
 - **18 systems:** NES, Game Boy / GB Color, Game Gear, Master System, Genesis,
   SG-1000, PC Engine, ColecoVision, MSX, Atari 2600 / 7800, Amstrad CPC, Watara,
   Tamagotchi, Pokémon Mini, Game & Watch, Homebrew, PICO-8.

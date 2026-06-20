@@ -142,6 +142,13 @@ def _migrate(conn: sqlite3.Connection) -> None:
         # The user can opt a specific homebrew ROM in: sd_include=1 → its ROM file
         # is included. Ignored for non-homebrew systems (those always ship).
         conn.execute("ALTER TABLE roms ADD COLUMN sd_include INTEGER NOT NULL DEFAULT 0")
+    if "igdb_score" not in cols:
+        # IGDB total_rating (0-100, combined user+critic) for the matched game, used
+        # to rank/curate a bloated set. NULL = not yet fetched; -1 = fetched but IGDB
+        # has no rating; 0-100 = the score. igdb_votes = total_rating_count (a 92 from
+        # 3 votes is noisier than a 92 from 1700 — kept so curation can weight by it).
+        conn.execute("ALTER TABLE roms ADD COLUMN igdb_score INTEGER")
+        conn.execute("ALTER TABLE roms ADD COLUMN igdb_votes INTEGER")
     if "sd_exclude" not in cols:
         # The inverse of sd_include, for NON-homebrew ROMs (which ship by default):
         # sd_exclude=1 drops this ROM's file + cover from the SD ZIP while KEEPING it

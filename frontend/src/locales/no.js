@@ -302,4 +302,7 @@ export default {
   "Keep this ROM in the library but exclude it from the SD download": "Behold denne ROM-en i biblioteket, men utelat den fra SD-nedlastingen",
   "{n} excluded from SD": "{n} utelatt fra SD",
   "Kept in the library, not included in the SD download": "Beholdt i biblioteket, ikke inkludert i SD-nedlastingen",
+  "IGDB rating": "IGDB-vurdering",
+  "{n} votes": "{n} stemmer",
+  "No IGDB rating": "Ingen IGDB-vurdering",
 };

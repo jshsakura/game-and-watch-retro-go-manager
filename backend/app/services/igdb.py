@@ -5,6 +5,7 @@ the ROM's system platform) and return cover image URLs to pick from.
 """
 from __future__ import annotations
 
+import difflib
 import re
 import time
 
@@ -23,6 +24,7 @@ _PLATFORM: dict[str, tuple[int, ...]] = {
     "nes": (18, 99, 51), "gb": (33,), "gbc": (22,), "gg": (35,), "sms": (64,),
     "md": (29,), "sg": (84,), "pce": (86, 128), "col": (68,), "msx": (27,),
     "a2600": (59,), "a7800": (60,), "amstrad": (25,), "mini": (166,), "gw": (307,),
+    "ws": (57, 123), "ngp": (119, 120), "wsv": (415,),
 }
 
 
@@ -133,4 +135,58 @@ async def resolve(query: str, system: str | None = None) -> dict | None:
         "name": game.get("name"),
         "korean": korean,
         "cover_url": f"https://images.igdb.com/igdb/image/upload/t_cover_big/{image_id}.jpg" if image_id else None,
+    }
+
+
+_RATING_FIELDS = ("name,total_rating,total_rating_count,aggregated_rating,"
+                  "rating,alternative_names.name")
+
+
+def _match_key(s: str) -> str:
+    """Normalize a title for similarity matching: drop region/edition/() tags +
+    punctuation, lowercase (keep Hangul)."""
+    s = re.sub(r"\([^)]*\)", " ", s or "")
+    s = re.sub(r"\[[^\]]*\]", " ", s)
+    s = re.sub(r"[^a-z0-9가-힣]+", " ", s.lower())
+    return re.sub(r"\s+", " ", s).strip()
+
+
+async def fetch_rating(query: str, system: str | None = None) -> dict | None:
+    """Best IGDB rating for a title on its platform (nes also covers Famicom/FDS).
+    Returns {score:int|None, votes:int, name:str, confidence:float} — score=None
+    means a confident match but IGDB carries no rating. None = no usable match."""
+    query = (query or "").strip()
+    if not query:
+        return None
+    token = await _token()
+    if not token:
+        return None
+    headers = {"Client-ID": config.IGDB_CLIENT_ID, "Authorization": f"Bearer {token}"}
+    pf = _platform_filter(system)
+    where = (f" where{pf[2:]};" if pf else ";")
+    body = f'search "{_esc(query)}"; fields {_RATING_FIELDS}; limit 6;{where}'
+    try:
+        async with httpx.AsyncClient(timeout=20) as client:
+            resp = await client.post(f"{_BASE}/games", headers=headers, content=body)
+    except httpx.HTTPError:
+        return None
+    if resp.status_code != 200 or not isinstance(resp.json(), list) or not resp.json():
+        return None
+    qkey = _match_key(query)
+    best, best_sim = None, 0.0
+    for g in resp.json():
+        names = [g.get("name", "")] + [a.get("name", "")
+                                       for a in (g.get("alternative_names") or [])]
+        sim = max((difflib.SequenceMatcher(None, qkey, _match_key(n)).ratio()
+                   for n in names if n), default=0.0)
+        if sim > best_sim:
+            best, best_sim = g, sim
+    if not best or best_sim < 0.5:
+        return None
+    score = best.get("total_rating") or best.get("aggregated_rating") or best.get("rating")
+    return {
+        "score": round(score) if score is not None else None,
+        "votes": best.get("total_rating_count") or 0,
+        "name": best.get("name"),
+        "confidence": round(best_sim, 2),
     }

@@ -300,4 +300,7 @@ export default {
   "Keep this ROM in the library but exclude it from the SD download": "在库中保留此ROM，但从SD下载中排除",
   "{n} excluded from SD": "{n} 个已从SD排除",
   "Kept in the library, not included in the SD download": "保留在库中，不含于SD下载",
+  "IGDB rating": "IGDB评分",
+  "{n} votes": "{n} 票",
+  "No IGDB rating": "无IGDB评分",
 };

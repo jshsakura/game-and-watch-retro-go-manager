@@ -300,4 +300,7 @@ export default {
   "Keep this ROM in the library but exclude it from the SD download": "このROMをライブラリに残しつつ、SDダウンロードから除外します",
   "{n} excluded from SD": "{n}件をSDから除外",
   "Kept in the library, not included in the SD download": "ライブラリには保持、SDダウンロードには含めません",
+  "IGDB rating": "IGDB評価",
+  "{n} votes": "{n}票",
+  "No IGDB rating": "IGDB評価なし",
 };

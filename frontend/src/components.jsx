@@ -56,6 +56,14 @@ export function systemColor(key) {
   return SYS_PALETTE[key] || `hsl(${hueFor(key || "x")} 62% 52%)`;
 }
 
+// IGDB score → quality tier (color band): 80+ great, 65+ good, 45+ ok, else low.
+export function scoreTier(score) {
+  if (score >= 80) return "hi";
+  if (score >= 65) return "mid";
+  if (score >= 45) return "lo";
+  return "vlo";
+}
+
 // Try the real asset (svg first, then png — RomM ico-derived), then fall back
 // to the colored monogram chip when no asset exists (tama/gw/homebrew).
 const ICON_EXTS = ["svg", "png"];
@@ -1044,11 +1052,22 @@ export function RomCard({ rom, previewSrc, onChanged, dupes = [] }) {
       <span className="no-cover" title={t("No cover")}><ImageOff size={12} strokeWidth={2.5} aria-hidden /></span>
     ) : null;
 
+  // IGDB score (0-100) pinned at the cover's bottom-right. NULL = not fetched,
+  // -1 = fetched but unrated → both hidden. Color tiers by quality.
+  const hasScore = rom.igdb_score != null && rom.igdb_score >= 0;
+  const scoreBadge = hasScore ? (
+    <span className={`cover-score ${scoreTier(rom.igdb_score)}`}
+      title={`${t("IGDB rating")}: ${rom.igdb_score}/100${rom.igdb_votes ? ` · ${t("{n} votes", { n: rom.igdb_votes })}` : ""}`}>
+      <Star size={8} strokeWidth={3} fill="currentColor" aria-hidden />{rom.igdb_score}
+    </span>
+  ) : null;
+
   return (
     <div className={`card ${rom.system_key === "pico8" && rom.pico8_compat === "broken" ? "card-broken" : ""} ${rom.sd_exclude ? "card-sd-out" : ""}`}
       style={{ borderTopColor: systemColor(rom.system_key) }}>
       <CoverSlot romId={rom.id} src={previewSrc} bust={coverV} alt={title}
-        aspect={coverAspect(rom.system_key)} onActivate={openModal} badge={statusBadge}
+        aspect={coverAspect(rom.system_key)} onActivate={openModal}
+        badge={(scoreBadge || statusBadge) ? <>{scoreBadge}{statusBadge}</> : null}
         cornerBL={rom.sd_exclude
           ? <span className="sd-out" title={t("Excluded from the SD download (kept in library)")}>
               <HardDriveDownload size={11} strokeWidth={2.5} aria-hidden /> {t("Not on SD")}
@@ -1107,6 +1126,22 @@ export function RomCard({ rom, previewSrc, onChanged, dupes = [] }) {
           ) : (
             <>
               <CoverCompare rom={rom} bust={coverV} onRecrop={rom.cover_status === "ok" ? reCrop : null} />
+
+              {/* IGDB rating line — shown once the score has been fetched. */}
+              {rom.igdb_score != null && (
+                <div className="igdb-line">
+                  {rom.igdb_score >= 0 ? (
+                    <>
+                      <span className={`cover-score ${scoreTier(rom.igdb_score)}`}>
+                        <Star size={11} strokeWidth={3} fill="currentColor" aria-hidden />{rom.igdb_score}
+                      </span>
+                      <span className="muted">{t("IGDB rating")}: {rom.igdb_score}/100{rom.igdb_votes ? ` · ${t("{n} votes", { n: rom.igdb_votes })}` : ""}</span>
+                    </>
+                  ) : (
+                    <span className="muted">{t("No IGDB rating")}</span>
+                  )}
+                </div>
+              )}
 
               {/* Homebrew entries are fixed firmware launch templates — the .bin
                   name must stay exact, so no rename field (managed via file list). */}
