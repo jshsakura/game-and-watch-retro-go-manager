@@ -28,6 +28,24 @@ import asyncio
 import shutil
 from pathlib import Path
 
+# ── Encoder settings (what you can tune) ────────────────────────────────────
+# One line: video codec is LOCKED to MJPEG/.avi (the chip only has a HW JPEG
+# decoder — no H.264/HEVC); the only knobs are -q:v (quality↔size) and fps (SD
+# load), audio is mono MP3, resolution is fixed 320×240.
+#
+#   option            current   meaning
+#   ----------------- --------- ----------------------------------------------
+#   -q:v N            17        MJPEG quality 2(best)–31(worst); lower = sharper
+#                               + bigger files (more SD reads)
+#   fps=N  (in -vf)   20        frame rate; lower = fewer SD reads (the bottleneck)
+#   -c:a libmp3lame   mono MP3  audio; firmware expects MP3 (reuses minimp3)
+#   -ac 1
+#   resolution        320×240   the screen — fixed
+#
+# Tuning: sharper (SD has headroom) -q:v 10–12 / fps 24; smoother (SD-bound)
+# -q:v 20 / fps 16–18. Codec/container can't change — anything but baseline
+# MJPEG in .avi won't play on the device.
+
 # Device-verified encode parameters (bench-tested on hardware).
 SCREEN_WIDTH = 320
 SCREEN_HEIGHT = 240

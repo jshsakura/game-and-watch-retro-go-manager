@@ -11,6 +11,12 @@ export default defineConfig({
     port: 38081,
     host: true,            // listen on 0.0.0.0 — reachable via Tailscale IP
     allowedHosts: true,    // allow Tailscale hostname/IP Host headers
+    // Cross-origin isolation → SharedArrayBuffer for the ffmpeg.wasm MT core.
+    // credentialless so cross-origin cover-search <img> still load.
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "credentialless",
+    },
     proxy: {
       "/api": {
         target: "http://127.0.0.1:38080",

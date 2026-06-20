@@ -23,6 +23,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.middleware("http")
+async def _cross_origin_isolation(request, call_next):
+    """Make the page cross-origin isolated so the in-browser ffmpeg.wasm
+    MULTI-THREAD core can use SharedArrayBuffer (2–4× faster video convert).
+    `credentialless` (not require-corp) keeps cross-origin <img> — e.g. the
+    IGDB/TGDB cover-search thumbnails — loading without CORP headers."""
+    response = await call_next(request)
+    response.headers["Cross-Origin-Opener-Policy"] = "same-origin"
+    response.headers["Cross-Origin-Embedder-Policy"] = "credentialless"
+    return response
+
 # API routers — must be registered BEFORE the SPA catch-all below.
 app.include_router(sessions.router)
 app.include_router(roms.router)

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Music, Upload, Loader, CheckCircle2, XCircle } from "lucide-react";
+import { Music, Upload, Loader, CheckCircle2, XCircle, Info } from "lucide-react";
 import { uploadMusic } from "../api.js";
 import { Dropzone } from "../components.jsx";
 import { useT } from "../i18n.jsx";
@@ -32,6 +32,9 @@ export default function MusicTab({ onChanged }) {
     <div className="stack">
       <div className="muted">
         <Music size={13} aria-hidden /> {t("Keep MP3 as-is,")} <b>{t("extract MP3 from video")}</b>{t(" and store in /music (the device's Music app reads ID3 tags and album art directly)")}
+      </div>
+      <div className="vtab-safe">
+        <Info size={13} strokeWidth={2.5} aria-hidden /> {t("Regular MP3 files play as-is — no conversion needed (unlike video, audio doesn't have to be converted).")}
       </div>
 
       <Dropzone

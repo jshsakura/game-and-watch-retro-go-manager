@@ -1,16 +1,58 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Clapperboard, Upload, Loader, CheckCircle2, XCircle, AlertTriangle } from "lucide-react";
+import { Clapperboard, Upload, Loader, CheckCircle2, XCircle, AlertTriangle, Download, Server, ShieldCheck } from "lucide-react";
 import { uploadVideo, getJob, getHealth } from "../api.js";
 import { Dropzone, ProgressBar } from "../components.jsx";
+import { convertToDeviceAvi, downloadBlob, aviName, preloadEncoder, isMultiThread } from "../localencode.js";
 import { useT } from "../i18n.jsx";
+
+// Screen-fit selector — shared by both sections (it's about how the source maps
+// onto the 320×240 screen, the same either way).
+function FitSelect({ mode, setMode, t }) {
+  return (
+    <div className="row" style={{ gap: 9, alignItems: "center" }}>
+      <span className="muted">{t("Screen fit")}</span>
+      <span className="search-scope fit-scope" role="group" aria-label={t("Screen fit")}>
+        <button type="button" className={`scope-btn ${mode === "fit" ? "on" : ""}`} onClick={() => setMode("fit")}>{t("Fit (letterbox)")}</button>
+        <button type="button" className={`scope-btn ${mode === "fill" ? "on" : ""}`} onClick={() => setMode("fill")}>{t("Fill (crop)")}</button>
+        <button type="button" className={`scope-btn ${mode === "stretch" ? "on" : ""}`} onClick={() => setMode("stretch")}>{t("Stretch (distort)")}</button>
+      </span>
+    </div>
+  );
+}
+
+function JobStatus({ job, name, busyLabel, doneLabel, t }) {
+  if (!job) return null;
+  return (
+    <div className="stack">
+      <div className="row">
+        <span className="muted">{name}</span>
+        <span className="muted">
+          {job.status === "done" ? (
+            <><CheckCircle2 size={13} strokeWidth={2.5} aria-hidden /> {doneLabel}</>
+          ) : job.status === "failed" ? (
+            <><XCircle size={13} strokeWidth={2.5} aria-hidden /> {t("Failed")}</>
+          ) : (
+            <><Loader size={13} strokeWidth={2.5} className="spin" aria-hidden /> {busyLabel}</>
+          )}
+        </span>
+      </div>
+      <ProgressBar value={job.status === "done" ? 1 : job.progress} />
+      {job.status === "failed" && <div className="badge failed">{job.message}</div>}
+    </div>
+  );
+}
 
 export default function VideoTab({ onChanged }) {
   const t = useT();
-  const [job, setJob] = useState(null);
-  const [name, setName] = useState("");
-  const [error, setError] = useState("");
+  const [mode, setMode] = useState("fit");      // fit | fill | stretch (shared)
   const [ffmpeg, setFfmpeg] = useState(true);
-  const [mode, setMode] = useState("fit");  // fit | fill | stretch
+  // Browser-convert section (local → download, no upload)
+  const [localJob, setLocalJob] = useState(null);
+  const [localName, setLocalName] = useState("");
+  // Shared-storage section (upload → server ffmpeg → /media)
+  const [srvJob, setSrvJob] = useState(null);
+  const [srvName, setSrvName] = useState("");
+  const [srvError, setSrvError] = useState("");
   const timer = useRef(null);
 
   useEffect(() => {
@@ -18,15 +60,35 @@ export default function VideoTab({ onChanged }) {
     return () => clearInterval(timer.current);
   }, []);
 
-  async function handleFiles(files, onProgress) {
+  // Browser: convert with ffmpeg.wasm and download the .avi — no upload.
+  async function handleLocal(files) {
     const file = files[0];
     if (!file) return;
-    setError(""); setName(file.name); setJob({ status: "encoding", progress: 0.05 });
+    setLocalName(file.name);
+    setLocalJob({ status: "encoding", progress: 0.02 });
+    try {
+      const blob = await convertToDeviceAvi(file, mode, {
+        onProgress: (p) => setLocalJob({ status: "encoding", progress: Math.max(0.02, p) }),
+      });
+      downloadBlob(blob, aviName(file.name));
+      setLocalJob({ status: "done", progress: 1 });
+    } catch (e) {
+      setLocalJob({ status: "failed", message: e.message || String(e) });
+    }
+  }
+
+  // Shared storage: upload the source, the server encodes it into /media (visible
+  // to everyone using this library).
+  async function handleServer(files, onProgress) {
+    const file = files[0];
+    if (!file) return;
+    setSrvError(""); setSrvName(file.name);
+    setSrvJob({ status: "encoding", progress: 0.05 });
     try {
       const res = await uploadVideo(file, onProgress, { mode });
       poll(res.job_id);
     } catch (e) {
-      setError(e.message); setJob(null);
+      setSrvError(e.message); setSrvJob(null);
     }
   }
 
@@ -35,7 +97,7 @@ export default function VideoTab({ onChanged }) {
     timer.current = setInterval(async () => {
       try {
         const j = await getJob(jobId);
-        setJob(j);
+        setSrvJob(j);
         if (j.status === "done" || j.status === "failed") {
           clearInterval(timer.current);
           onChanged?.();
@@ -49,53 +111,55 @@ export default function VideoTab({ onChanged }) {
   return (
     <div className="stack">
       <div className="muted">
-        <Clapperboard size={13} aria-hidden /> {t("Video → encoded to MJPEG .avi (320×240·24fps·mono) and stored in /media")}
+        <Clapperboard size={13} aria-hidden /> {t("Video → MJPEG .avi (320×240·mono) for the device's /media player")}
       </div>
-      {!ffmpeg && (
-        <div className="badge failed">
-          <AlertTriangle size={11} strokeWidth={2.5} aria-hidden /> {t("ffmpeg is not available on the server")}
-        </div>
-      )}
 
-      <Dropzone
-        accept="video/*"
-        label={
-          <span className="dz-label">
-            <Upload size={16} aria-hidden /> {t("Drag a video here or click (mp4/mov/mkv…)")}
+      <FitSelect mode={mode} setMode={setMode} t={t} />
+
+      {/* ── TOP: convert in the browser, download the .avi (no upload) ── */}
+      <section className="vtab-section" onMouseEnter={preloadEncoder}>
+        <div className="vtab-head">
+          <Download size={14} strokeWidth={2.5} aria-hidden /> {t("Convert in browser (download)")}
+          <span className={`vtab-mode ${isMultiThread() ? "fast" : ""}`}>
+            {isMultiThread() ? t("fast (multi-thread)") : t("compatibility mode")}
           </span>
-        }
-        onFiles={handleFiles}
-      />
-
-      <div className="row" style={{ gap: 9, alignItems: "center" }}>
-        <span className="muted">{t("Screen fit")}</span>
-        <span className="search-scope fit-scope" role="group" aria-label={t("Screen fit")}>
-          <button type="button" className={`scope-btn ${mode === "fit" ? "on" : ""}`} onClick={() => setMode("fit")}>{t("Fit (letterbox)")}</button>
-          <button type="button" className={`scope-btn ${mode === "fill" ? "on" : ""}`} onClick={() => setMode("fill")}>{t("Fill (crop)")}</button>
-          <button type="button" className={`scope-btn ${mode === "stretch" ? "on" : ""}`} onClick={() => setMode("stretch")}>{t("Stretch (distort)")}</button>
-        </span>
-      </div>
-
-      {job && (
-        <div className="stack">
-          <div className="row">
-            <span className="muted">{name}</span>
-            <span className="muted">
-              {job.status === "done" ? (
-                <><CheckCircle2 size={13} strokeWidth={2.5} aria-hidden /> {t("Done")}</>
-              ) : job.status === "failed" ? (
-                <><XCircle size={13} strokeWidth={2.5} aria-hidden /> {t("Failed")}</>
-              ) : (
-                <><Loader size={13} strokeWidth={2.5} className="spin" aria-hidden /> {t("Encoding…")}</>
-              )}
-            </span>
-          </div>
-          <ProgressBar value={job.status === "done" ? 1 : job.progress} />
-          {job.status === "failed" && <div className="badge failed">{job.message}</div>}
         </div>
-      )}
+        <div className="vtab-safe">
+          <ShieldCheck size={13} strokeWidth={2.5} aria-hidden /> {t("Your video is NOT uploaded — it's processed entirely in your browser and only the .avi downloads.")}
+        </div>
+        <div className="muted vtab-note">
+          {t("Very large files may hit the browser's memory limit — use Shared storage below for those. After it downloads, copy the .avi into the SD card's /media folder.")}
+        </div>
+        <Dropzone
+          accept="video/*"
+          busyLabel={t("Converting…")}
+          label={<span className="dz-label"><Upload size={16} aria-hidden /> {t("Drag a video here or click (mp4/mov/mkv…)")}</span>}
+          onFiles={handleLocal}
+        />
+        <JobStatus job={localJob} name={localName} busyLabel={t("Converting…")} doneLabel={t("Downloaded")} t={t} />
+      </section>
 
-      {error && <div className="badge failed">{error}</div>}
+      {/* ── BOTTOM: upload to the shared library (server encodes into /media) ── */}
+      <section className="vtab-section">
+        <div className="vtab-head">
+          <Server size={14} strokeWidth={2.5} aria-hidden /> {t("Shared storage (saved to /media)")}
+        </div>
+        <div className="muted vtab-note">
+          {t("Uploads the source; the server encodes it into the shared /media library (everyone sees it).")}
+        </div>
+        {!ffmpeg && (
+          <div className="badge failed">
+            <AlertTriangle size={11} strokeWidth={2.5} aria-hidden /> {t("ffmpeg is not available on the server")}
+          </div>
+        )}
+        <Dropzone
+          accept="video/*"
+          label={<span className="dz-label"><Upload size={16} aria-hidden /> {t("Drag a video here or click (mp4/mov/mkv…)")}</span>}
+          onFiles={handleServer}
+        />
+        <JobStatus job={srvJob} name={srvName} busyLabel={t("Encoding…")} doneLabel={t("Done")} t={t} />
+        {srvError && <div className="badge failed">{srvError}</div>}
+      </section>
     </div>
   );
 }

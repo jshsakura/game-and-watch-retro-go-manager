@@ -64,6 +64,16 @@ export function scoreTier(score) {
   return "vlo";
 }
 
+// Score → face, a finer 6-step gradient from a medal (great) to a crying face (bad).
+export function scoreFace(score) {
+  if (score >= 90) return "🏅";
+  if (score >= 80) return "😄";
+  if (score >= 70) return "🙂";
+  if (score >= 60) return "😐";
+  if (score >= 50) return "🙁";
+  return "😢";
+}
+
 // Try the real asset (svg first, then png — RomM ico-derived), then fall back
 // to the colored monogram chip when no asset exists (tama/gw/homebrew).
 const ICON_EXTS = ["svg", "png"];
@@ -195,7 +205,7 @@ async function filesFromDrop(dt) {
 
 // Drag-and-drop + click-to-pick file zone. Shows a busy overlay while onFiles
 // runs. `folder` adds a button to pick a whole folder (subfolders included).
-export function Dropzone({ accept, multiple, label, folder, onFiles }) {
+export function Dropzone({ accept, multiple, label, folder, onFiles, busyLabel }) {
   const t = useT();
   const inputRef = useRef(null);
   const folderRef = useRef(null);
@@ -228,7 +238,7 @@ export function Dropzone({ accept, multiple, label, folder, onFiles }) {
         <div className="dz-busy">
           <span className="dz-busy-label">
             <Loader size={15} className="spin" aria-hidden />
-            {pct == null ? ` ${t("Uploading…")}` : processing ? ` ${t("Processing…")}` : ` ${t("Uploading… {pct}%", { pct })}`}
+            {pct == null ? ` ${busyLabel || t("Uploading…")}` : processing ? ` ${t("Processing…")}` : ` ${t("Uploading… {pct}%", { pct })}`}
           </span>
           <div className={`dl-bar ${pct == null || processing ? "indet" : ""}`}>
             <div className="dl-fill" style={pct == null || processing ? undefined : { width: `${pct}%` }} />
@@ -1058,7 +1068,7 @@ export function RomCard({ rom, previewSrc, onChanged, dupes = [] }) {
   const scoreBadge = hasScore ? (
     <span className={`cover-score ${scoreTier(rom.igdb_score)}`}
       title={`${t("IGDB rating")}: ${rom.igdb_score}/100${rom.igdb_votes ? ` · ${t("{n} votes", { n: rom.igdb_votes })}` : ""}`}>
-      <Star size={8} strokeWidth={3} fill="currentColor" aria-hidden />{rom.igdb_score}
+      <span className="score-face" aria-hidden>{scoreFace(rom.igdb_score)}</span>{rom.igdb_score}
     </span>
   ) : null;
 
@@ -1133,7 +1143,7 @@ export function RomCard({ rom, previewSrc, onChanged, dupes = [] }) {
                   {rom.igdb_score >= 0 ? (
                     <>
                       <span className={`cover-score ${scoreTier(rom.igdb_score)}`}>
-                        <Star size={11} strokeWidth={3} fill="currentColor" aria-hidden />{rom.igdb_score}
+                        <span className="score-face" aria-hidden>{scoreFace(rom.igdb_score)}</span>{rom.igdb_score}
                       </span>
                       <span className="muted">{t("IGDB rating")}: {rom.igdb_score}/100{rom.igdb_votes ? ` · ${t("{n} votes", { n: rom.igdb_votes })}` : ""}</span>
                     </>
