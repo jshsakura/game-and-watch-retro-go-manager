@@ -1131,6 +1131,16 @@ body::before {
 .vtab-mode { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: #5b616833; color: var(--card-dim); }
 .vtab-mode.fast { background: #2faa5526; color: #79c98e; }
 .vtab-note { font-size: 12px; }
+/* Browser-convert queue (many files at once → one-by-one). */
+.vtab-qlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; max-height: 220px; overflow-y: auto; }
+.vtab-qitem { display: flex; align-items: center; gap: 7px; font-size: 12px; padding: 4px 7px; border-radius: 6px; background: #00000026; }
+.vtab-qitem.done { color: #79c98e; }
+.vtab-qitem.failed { color: #e2776b; }
+.vtab-qitem.pending { opacity: 0.55; }
+.vtab-qicon { flex: none; display: inline-flex; }
+.vtab-qname { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vtab-qpct { flex: none; font-variant-numeric: tabular-nums; color: var(--card-dim); }
+.vtab-qpct.err { color: #e2776b; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* reassurance / info line (privacy: no upload · MP3 needs no conversion). */
 .vtab-safe {
   display: flex; align-items: center; gap: 6px; font-size: 12px;

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Clapperboard, Upload, Loader, CheckCircle2, XCircle, AlertTriangle, Download, Server, ShieldCheck } from "lucide-react";
+import { Clapperboard, Upload, Loader, CheckCircle2, XCircle, AlertTriangle, Download, Server, ShieldCheck, Clock } from "lucide-react";
 import { uploadVideo, getJob, getHealth } from "../api.js";
 import { Dropzone, ProgressBar } from "../components.jsx";
 import { convertToDeviceAvi, downloadBlob, aviName, preloadEncoder, isMultiThread } from "../localencode.js";
@@ -16,6 +16,38 @@ function FitSelect({ mode, setMode, t }) {
         <button type="button" className={`scope-btn ${mode === "fill" ? "on" : ""}`} onClick={() => setMode("fill")}>{t("Fill (crop)")}</button>
         <button type="button" className={`scope-btn ${mode === "stretch" ? "on" : ""}`} onClick={() => setMode("stretch")}>{t("Stretch (distort)")}</button>
       </span>
+    </div>
+  );
+}
+
+// Browser-convert queue list — many files dropped at once convert one-by-one
+// (ffmpeg.wasm is a single instance) and each .avi downloads as it finishes.
+function QueueList({ queue, t }) {
+  if (!queue.length) return null;
+  const done = queue.filter((i) => i.status === "done").length;
+  const failed = queue.filter((i) => i.status === "failed").length;
+  const finished = done + failed === queue.length;
+  return (
+    <div className="vtab-queue stack">
+      <div className="row">
+        <span className="muted">{finished ? t("Done") : t("Converting…")}</span>
+        <span className="muted">{done}/{queue.length}{failed ? ` · ${failed} ${t("failed")}` : ""}</span>
+      </div>
+      <ul className="vtab-qlist">
+        {queue.map((it, i) => (
+          <li key={i} className={`vtab-qitem ${it.status}`}>
+            <span className="vtab-qicon">
+              {it.status === "done" ? <CheckCircle2 size={12} strokeWidth={2.5} aria-hidden />
+                : it.status === "failed" ? <XCircle size={12} strokeWidth={2.5} aria-hidden />
+                : it.status === "converting" ? <Loader size={12} strokeWidth={2.5} className="spin" aria-hidden />
+                : <Clock size={12} strokeWidth={2.5} aria-hidden />}
+            </span>
+            <span className="vtab-qname" title={it.name}>{it.name}</span>
+            {it.status === "converting" && <span className="vtab-qpct">{Math.round((it.progress || 0) * 100)}%</span>}
+            {it.status === "failed" && <span className="vtab-qpct err">{it.error || t("Failed")}</span>}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
@@ -46,9 +78,9 @@ export default function VideoTab({ onChanged }) {
   const t = useT();
   const [mode, setMode] = useState("fit");      // fit | fill | stretch (shared)
   const [ffmpeg, setFfmpeg] = useState(true);
-  // Browser-convert section (local → download, no upload)
-  const [localJob, setLocalJob] = useState(null);
-  const [localName, setLocalName] = useState("");
+  // Browser-convert section (local → download, no upload). queue = many files
+  // dropped at once, converted sequentially.
+  const [queue, setQueue] = useState([]);  // [{name, status:'pending'|'converting'|'done'|'failed', progress, error}]
   // Shared-storage section (upload → server ffmpeg → /media)
   const [srvJob, setSrvJob] = useState(null);
   const [srvName, setSrvName] = useState("");
@@ -60,20 +92,25 @@ export default function VideoTab({ onChanged }) {
     return () => clearInterval(timer.current);
   }, []);
 
-  // Browser: convert with ffmpeg.wasm and download the .avi — no upload.
+  // Browser: convert every dropped file with ffmpeg.wasm and download each .avi —
+  // no upload. Sequential (one wasm instance); each file's FS is freed after, so
+  // even 10+ files at once stay within memory.
   async function handleLocal(files) {
-    const file = files[0];
-    if (!file) return;
-    setLocalName(file.name);
-    setLocalJob({ status: "encoding", progress: 0.02 });
-    try {
-      const blob = await convertToDeviceAvi(file, mode, {
-        onProgress: (p) => setLocalJob({ status: "encoding", progress: Math.max(0.02, p) }),
-      });
-      downloadBlob(blob, aviName(file.name));
-      setLocalJob({ status: "done", progress: 1 });
-    } catch (e) {
-      setLocalJob({ status: "failed", message: e.message || String(e) });
+    const list = Array.from(files);
+    if (!list.length) return;
+    setQueue(list.map((f) => ({ name: f.name, status: "pending", progress: 0 })));
+    const set = (i, patch) => setQueue((q) => q.map((it, idx) => (idx === i ? { ...it, ...patch } : it)));
+    for (let i = 0; i < list.length; i++) {
+      set(i, { status: "converting", progress: 0.02 });
+      try {
+        const blob = await convertToDeviceAvi(list[i], mode, {
+          onProgress: (p) => set(i, { progress: Math.max(0.02, p) }),
+        });
+        downloadBlob(blob, aviName(list[i].name));
+        set(i, { status: "done", progress: 1 });
+      } catch (e) {
+        set(i, { status: "failed", error: e.message || String(e) });
+      }
     }
   }
 
@@ -111,7 +148,7 @@ export default function VideoTab({ onChanged }) {
   return (
     <div className="stack">
       <div className="muted">
-        <Clapperboard size={13} aria-hidden /> {t("Video → MJPEG .avi (320×240·mono) for the device's /media player")}
+        <Clapperboard size={13} aria-hidden /> {t("For the device's /media player")} · <b>MJPEG · AVI · 320×240 · 20fps · mono MP3 (q17)</b>
       </div>
 
       <FitSelect mode={mode} setMode={setMode} t={t} />
@@ -132,11 +169,12 @@ export default function VideoTab({ onChanged }) {
         </div>
         <Dropzone
           accept="video/*"
+          multiple
           busyLabel={t("Converting…")}
-          label={<span className="dz-label"><Upload size={16} aria-hidden /> {t("Drag a video here or click (mp4/mov/mkv…)")}</span>}
+          label={<span className="dz-label"><Upload size={16} aria-hidden /> {t("Drag videos here or click — multiple at once (mp4/mov/mkv…)")}</span>}
           onFiles={handleLocal}
         />
-        <JobStatus job={localJob} name={localName} busyLabel={t("Converting…")} doneLabel={t("Downloaded")} t={t} />
+        <QueueList queue={queue} t={t} />
       </section>
 
       {/* ── BOTTOM: upload to the shared library (server encodes into /media) ── */}

@@ -1453,7 +1453,7 @@ export function VideoCard({ video, onChanged }) {
           <dl className="media-detail-info">
             <dt>{t("Original")}</dt><dd>{video.original_name || "—"}</dd>
             <dt>{t("Device file")}</dt><dd>{video.avi_name}</dd>
-            <dt>{t("Format")}</dt><dd>{t("MJPEG · AVI · 320×240 · 24fps · MP3 mono (for device)")}</dd>
+            <dt>{t("Format")}</dt><dd>{t("MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)")}</dd>
             <dt>{t("Size")}</dt><dd>{video.size_bytes != null ? formatBytes(video.size_bytes) : "—"}</dd>
           </dl>
           <div className="modal-actions">

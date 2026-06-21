@@ -7,7 +7,7 @@
 // otherwise falls back to the single-thread core (/public/ffmpeg) — e.g. Safari,
 // which doesn't support COEP credentialless. Both are self-hosted.
 import { FFmpeg } from "@ffmpeg/ffmpeg";
-import { fetchFile } from "@ffmpeg/util";
+import { fetchFile, toBlobURL } from "@ffmpeg/util";
 
 // SharedArrayBuffer (hence the MT core) only works on a cross-origin-isolated page.
 const MT = typeof globalThis !== "undefined" && globalThis.crossOriginIsolated === true;
@@ -37,16 +37,21 @@ async function getFFmpeg() {
     ff.on("progress", ({ progress }) => {
       if (_onProgress) _onProgress(Math.max(0, Math.min(1, progress || 0)));
     });
+    // Load the core as BLOB urls (toBlobURL fetches the static /public file and
+    // wraps it in a blob:) — a plain path would be intercepted by Vite's module
+    // transform (`?import`) and fail. Blob urls bypass that in dev AND prod.
     const base = MT ? "/ffmpeg-mt" : "/ffmpeg";
     const opts = {
-      coreURL: base + "/ffmpeg-core.js",
-      wasmURL: base + "/ffmpeg-core.wasm",
+      coreURL: await toBlobURL(`${base}/ffmpeg-core.js`, "text/javascript"),
+      wasmURL: await toBlobURL(`${base}/ffmpeg-core.wasm`, "application/wasm"),
     };
-    if (MT) opts.workerURL = base + "/ffmpeg-core.worker.js";   // emscripten pthread worker
+    if (MT) {  // emscripten pthread worker (MT core only)
+      opts.workerURL = await toBlobURL(`${base}/ffmpeg-core.worker.js`, "text/javascript");
+    }
     await ff.load(opts);
     _ff = ff;
     return ff;
-  })();
+  })().catch((e) => { _loading = null; throw e; });   // failed load → allow retry
   return _loading;
 }
 

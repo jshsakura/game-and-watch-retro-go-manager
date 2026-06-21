@@ -321,4 +321,8 @@ export default {
   "fast (multi-thread)": "rask (flertråd)",
   "compatibility mode": "kompatibilitetsmodus",
   "Very large files may hit the browser's memory limit — use Shared storage below for those. After it downloads, copy the .avi into the SD card's /media folder.": "Svært store filer kan nå nettleserens minnegrense — bruk delt lagring nedenfor for de tilfellene. Etter nedlasting, kopier .avi til SD-kortets /media-mappe.",
+  "failed": "mislyktes",
+  "Drag videos here or click — multiple at once (mp4/mov/mkv…)": "Dra videoer hit eller klikk — flere samtidig (mp4/mov/mkv…)",
+  "For the device's /media player": "For enhetens /media-spiller",
+  "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for enhet)",
 };

@@ -319,4 +319,8 @@ export default {
   "fast (multi-thread)": "高速（多執行緒）",
   "compatibility mode": "相容模式",
   "Very large files may hit the browser's memory limit — use Shared storage below for those. After it downloads, copy the .avi into the SD card's /media folder.": "超大檔案可能達到瀏覽器記憶體上限——這種情況請用下方的共用儲存。下載後將.avi複製到SD卡的/media資料夾。",
+  "failed": "失敗",
+  "Drag videos here or click — multiple at once (mp4/mov/mkv…)": "將影片拖到這裡或點擊 — 可一次多個 (mp4/mov/mkv…)",
+  "For the device's /media player": "用於裝置/media播放器",
+  "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3（裝置用）",
 };

@@ -359,4 +359,8 @@ export default {
   "fast (multi-thread)": "고속 (멀티스레드)",
   "compatibility mode": "호환 모드",
   "Very large files may hit the browser's memory limit — use Shared storage below for those. After it downloads, copy the .avi into the SD card's /media folder.": "아주 큰 파일은 브라우저 메모리 한계에 걸릴 수 있어요 — 그럴 땐 아래 공유 저장소를 쓰세요. 다운로드되면 .avi를 SD 카드의 /media 폴더에 넣으세요.",
+  "failed": "실패",
+  "Drag videos here or click — multiple at once (mp4/mov/mkv…)": "여기로 영상을 끌어다 놓거나 클릭 — 여러 개 한 번에 (mp4/mov/mkv…)",
+  "For the device's /media player": "기기 /media 플레이어용",
+  "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3 (기기용)",
 };

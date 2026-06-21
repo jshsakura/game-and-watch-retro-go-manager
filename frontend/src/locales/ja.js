@@ -319,4 +319,8 @@ export default {
   "fast (multi-thread)": "高速 (マルチスレッド)",
   "compatibility mode": "互換モード",
   "Very large files may hit the browser's memory limit — use Shared storage below for those. After it downloads, copy the .avi into the SD card's /media folder.": "非常に大きいファイルはブラウザのメモリ上限に達することがあります — その場合は下の共有ストレージを使ってください。ダウンロード後、.aviをSDカードの/mediaフォルダに入れてください。",
+  "failed": "失敗",
+  "Drag videos here or click — multiple at once (mp4/mov/mkv…)": "動画をここにドラッグまたはクリック — 複数同時OK (mp4/mov/mkv…)",
+  "For the device's /media player": "端末の/mediaプレーヤー用",
+  "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3 (端末用)",
 };
