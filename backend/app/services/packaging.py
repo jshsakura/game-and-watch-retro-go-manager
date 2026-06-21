@@ -48,7 +48,8 @@ def _excluded(root: Path, path: Path, include_video: bool, systems: "set[str] | 
 
 # Bump when the zip-building logic changes so old cached zips are invalidated.
 _SD_CACHE_VERSION = "2"
-_SD_CACHE_KEEP = 5   # most-recent cached zips to retain (LRU prune)
+_SD_CACHE_KEEP = 2                    # max cached zips to retain (LRU)
+_SD_CACHE_MAX_BYTES = 1_200_000_000  # ~1.2 GB total budget across cached zips
 
 
 def _sd_entries(session_id: str, include_video: bool, systems: "set[str] | None",
@@ -140,12 +141,35 @@ def build_sd_zip_cached(session_id: str, include_video: bool = False, systems: "
     return str(cached), key
 
 
+def prune_cache() -> int:
+    """Tidy the SD-zip cache (e.g. at startup) so it never lingers oversized after
+    the budget shrinks. Returns the number of zips removed."""
+    cache_dir = config.DATA_DIR / "_cache"
+    if not cache_dir.exists():
+        return 0
+    before = len(list(cache_dir.glob("sd-*.zip")))
+    _prune_sd_cache(cache_dir)
+    return before - len(list(cache_dir.glob("sd-*.zip")))
+
+
 def _prune_sd_cache(cache_dir: Path) -> None:
-    """Keep only the most-recently-used cached zips (LRU by mtime)."""
+    """Keep the SD-zip cache from piling up: most-recently-used first, bounded by
+    BOTH a count cap AND a total-size budget, so it can never balloon (these zips
+    are ~hundreds of MB each). The newest zip — the one just built/served — is
+    always kept so its returned path stays valid."""
     zips = sorted(cache_dir.glob("sd-*.zip"), key=lambda p: p.stat().st_mtime, reverse=True)
-    for stale in zips[_SD_CACHE_KEEP:]:
+    total = 0
+    for i, z in enumerate(zips):
         try:
-            stale.unlink()
+            size = z.stat().st_size
+        except OSError:
+            size = 0
+        keep = i == 0 or (i < _SD_CACHE_KEEP and total + size <= _SD_CACHE_MAX_BYTES)
+        if keep:
+            total += size
+            continue
+        try:
+            z.unlink()
         except OSError:
             pass
 
