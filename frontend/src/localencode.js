@@ -12,6 +12,12 @@ import { fetchFile, toBlobURL } from "@ffmpeg/util";
 // SharedArrayBuffer (hence the MT core) only works on a cross-origin-isolated page.
 const MT = typeof globalThis !== "undefined" && globalThis.crossOriginIsolated === true;
 
+// How many worker threads ffmpeg may use. Without an explicit -threads the MT core
+// decodes/encodes effectively single-threaded (the slow path the user hit on an
+// 11MB clip) — H.264 frame-decode in particular scales with this. Cap at 8 so we
+// don't oversubscribe the emscripten pthread pool; the single-thread core is 1.
+const THREADS = String(MT ? Math.min(navigator.hardwareConcurrency || 4, 8) : 1);
+
 // Screen-fit filters — kept byte-identical to the server's _VIDEO_FILTERS.
 const FILTERS = {
   fit: "scale=320:240:force_original_aspect_ratio=decrease,pad=320:240:-1:-1:color=black,fps=20",
@@ -93,9 +99,11 @@ export async function convertToDeviceAvi(file, mode = "fit", { onProgress, onLog
     await ff.writeFile(inName, await fetchFile(file));
     const code = await ff.exec([
       "-hide_banner", "-y",
+      "-threads", THREADS,           // decode threads (H.264 → big win on the MT core)
       "-i", inName,
       ...VIDEO_ARGS,
       "-vf", FILTERS[mode] || FILTERS.fit,
+      "-threads", THREADS,           // encode/output threads
       ...AUDIO_ARGS,
       outName,
     ]);
