@@ -325,4 +325,6 @@ export default {
   "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3（设备用）",
   "Stop": "停止",
   "cancelled": "已取消",
+  "Stop all": "全部停止",
+  "Cancel this one": "取消此项",
 };

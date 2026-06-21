@@ -327,4 +327,6 @@ export default {
   "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for enhet)",
   "Stop": "Stopp",
   "cancelled": "avbrutt",
+  "Stop all": "Stopp alle",
+  "Cancel this one": "Avbryt denne",
 };

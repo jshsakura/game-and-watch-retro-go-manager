@@ -365,4 +365,6 @@ export default {
   "MJPEG · AVI · 320×240 · 20fps · mono MP3 (for device)": "MJPEG · AVI · 320×240 · 20fps · mono MP3 (기기용)",
   "Stop": "중단",
   "cancelled": "중단됨",
+  "Stop all": "전체 중단",
+  "Cancel this one": "이 항목 중단",
 };

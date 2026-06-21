@@ -1142,6 +1142,8 @@ body::before {
 .vtab-qpct { flex: none; font-variant-numeric: tabular-nums; color: var(--card-dim); }
 .vtab-qpct.err { color: #e2776b; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .vtab-qitem.cancelled { opacity: 0.6; }
+.vtab-qcancel { flex: none; display: inline-flex; padding: 2px; margin: -2px -1px; border: 0; background: none; color: var(--card-dim); cursor: pointer; border-radius: 4px; }
+.vtab-qcancel:hover { color: #e2776b; background: #e2503b1f; }
 .vtab-stop {
   display: inline-flex; align-items: center; gap: 4px; cursor: pointer;
   font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 6px;
