@@ -32,6 +32,7 @@ _LIBRETRO_REPO = {
     "md": "Sega - Mega Drive - Genesis",
     "sg": "Sega - SG-1000",
     "pce": "NEC - PC Engine - TurboGrafx 16",
+    "pcecd": "NEC - PC Engine CD - TurboGrafx-CD",
     "col": "Coleco - ColecoVision",
     "msx": "Microsoft - MSX",
     "a2600": "Atari - 2600",
