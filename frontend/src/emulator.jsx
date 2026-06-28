@@ -84,7 +84,7 @@ const CORE_BASE = "/cores";
 // the machine up during disk access then drops back, so games load fast while
 // true-drive emulation stays on for loader/protection compatibility.
 const CORE_CONFIG = {
-  c64: { vice_autoloadwarp: "enabled" },
+  c64: { vice_autoloadwarp: "enabled", vice_warp_boost: "enabled" },
 };
 
 // Systems with NO libretro WASM core, but a standalone JS emulator we self-host
