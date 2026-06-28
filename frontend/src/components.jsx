@@ -48,12 +48,15 @@ function hueFor(key) {
 }
 
 // Distinct vivid accent per system (the hash hues were too similar).
+// Palette derived by max-min ΔE optimization (farthest-point + swap) so every
+// pair is ≥31.6 ΔE apart (the old hand-picked set had pairs as close as 7.6,
+// e.g. wsv≈gw). Hues still roughly track each system's identity where possible.
 const SYS_PALETTE = {
-  nes: "#e23b3b", gb: "#6ab02c", gbc: "#7b3ff2", gg: "#13a8c4", sms: "#2c7be0",
-  md: "#e07a1a", sg: "#13a07a", pce: "#d61f6b", pcecd: "#a61e5d", col: "#d94f2b", msx: "#3b5bdb",
-  a2600: "#9b59b6", a7800: "#b5651d", amstrad: "#0f9d58", wsv: "#d4a017",
-  tama: "#1fc4a8", mini: "#e84393", gw: "#c9a227", homebrew: "#6b7280", pico8: "#ff77a8",
-  lynx: "#82c91e", videopac: "#d921cc", zxs: "#d9d921", c64: "#1b27b2",
+  nes: "#e62222", gb: "#22e622", gbc: "#ab67e6", gg: "#2297e6", sms: "#2270e6",
+  md: "#8c5515", sg: "#22e6be", pce: "#8c2a3e", pcecd: "#e62263", col: "#e67022", msx: "#2222e6",
+  a2600: "#cb22e6", a7800: "#e6ab67", amstrad: "#3f8c6d", wsv: "#45e67a",
+  tama: "#22cbe6", mini: "#e622a4", gw: "#e6be22", homebrew: "#6b7280", pico8: "#e67067",
+  lynx: "#588c2a", videopac: "#8c3f82", zxs: "#b0e645", c64: "#3e2a8c",
 };
 export function systemColor(key) {
   return SYS_PALETTE[key] || `hsl(${hueFor(key || "x")} 62% 52%)`;
