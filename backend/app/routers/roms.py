@@ -357,6 +357,56 @@ async def upload_cd_folder(
     }]}
 
 
+@router.post("/sessions/{session_id}/roms/{rom_id}/cdtracks")
+async def add_cd_tracks(
+    session_id: str, rom_id: str, files: list[UploadFile] = File(...)
+) -> dict:
+    """Add track file(s) to an existing CD game's folder — one (small) request at a
+    time. CD folders total hundreds of MB, but the public tunnel (Cloudflare) caps
+    a single request body at ~100 MB, so the client uploads the .cue via /cdfolder
+    then streams each track here separately. Files land in the rom's OWN folder
+    (rom_path's parent) with EXACT names (so the .cue's FILE refs resolve) and are
+    appended to extra_files."""
+    with db.connect() as conn:
+        require_session(conn, session_id)
+        row = conn.execute("SELECT * FROM roms WHERE id=? AND session_id=?",
+                           (rom_id, session_id)).fetchone()
+        if row is None:
+            raise HTTPException(status_code=404, detail="ROM을 찾을 수 없습니다")
+        rom = dict(row)
+
+    base = storage.session_root(session_id) / Path(rom["rom_path"]).parent
+    base.mkdir(parents=True, exist_ok=True)
+    primary_name = Path(rom["rom_path"]).name
+    extra = _extra_list(rom)
+    added = []
+    for upload in files:
+        name = _basename(upload.filename)
+        if "/" in name or "\\" in name or name in ("", ".", ".."):
+            raise HTTPException(status_code=400, detail=f"잘못된 파일명: {name}")
+        if name == primary_name:
+            continue                                   # never clobber the .cue/.chd
+        target = base / name
+        size = 0
+        with target.open("wb") as out:
+            while True:
+                chunk = await upload.read(1 << 20)
+                if not chunk:
+                    break
+                size += len(chunk)
+                if size > config.MAX_CD_FILE_BYTES:
+                    out.close(); target.unlink(missing_ok=True)
+                    raise HTTPException(status_code=413, detail=f"파일이 너무 큽니다: {name}")
+                out.write(chunk)
+        extra = [e for e in extra if e.get("name") != name]   # replace if re-sent
+        extra.append({"name": name, "size": size})
+        added.append(name)
+
+    with db.connect() as conn:
+        conn.execute("UPDATE roms SET extra_files=? WHERE id=?", (json.dumps(extra), rom_id))
+    return {"rom_id": rom_id, "added": added, "tracks": len(extra)}
+
+
 @router.post("/sessions/{session_id}/roms/{rom_id}/replace")
 async def replace_rom_file(
     session_id: str, rom_id: str, file: UploadFile = File(...)

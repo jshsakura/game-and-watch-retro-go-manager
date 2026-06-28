@@ -94,22 +94,51 @@ export async function uploadRoms(systemKey, files, onProgress) {
   return { session_id: SESSION_ID, stored, results };
 }
 
-// Folder-per-game upload for CD systems (PC Engine CD): send a whole game folder
-// (.cue + track .bin/.iso… or a single .chd) and the backend stores it intact as
-// one library entry. Relative paths (webkitRelativePath) carry the folder name.
+// Folder-per-game upload for CD systems (PC Engine CD): a game is a .cue + many
+// track files (or a single .chd), stored intact as ONE library entry.
+//
+// Each file is sent in its OWN request: the public tunnel (Cloudflare) caps a
+// single request body at ~100 MB, but a whole CD is hundreds of MB. So we POST
+// the .cue/.chd first (creates the entry), then stream each track separately —
+// every request stays small. Progress aggregates bytes across all requests.
+const EXT = (n) => (n.includes(".") ? n.split(".").pop().toLowerCase() : "");
+
 export async function uploadCdFolder(systemKey, files, onProgress) {
   const sid = getSessionId();
   if (!sid) throw new Error("No session");
   const arr = Array.from(files);
+  if (!arr.length) throw new Error("No files");
+
+  // Primary = the .cue (preferred) or a single .chd — the entry is built on it.
+  let primIdx = arr.findIndex((f) => EXT(f.name) === "cue");
+  if (primIdx < 0) primIdx = arr.findIndex((f) => EXT(f.name) === "chd");
+  if (primIdx < 0) throw new Error("No .cue or .chd found in the folder");
+
+  const totalBytes = arr.reduce((s, f) => s + (f.size || 0), 0);
+  let doneBytes = 0;
+  const report = (loaded) => onProgress?.(doneBytes + loaded, totalBytes);
+
+  // 1) Create the game from the .cue/.chd.
+  const primary = arr[primIdx];
   const form = new FormData();
   form.append("system", systemKey);
-  const paths = [];
-  for (const f of arr) {
-    form.append("files", f);
-    paths.push(f.webkitRelativePath || f.name);
+  form.append("files", primary);
+  form.append("paths", JSON.stringify([primary.webkitRelativePath || primary.name]));
+  const created = await xhrUpload(`/api/sessions/${sid}/roms/cdfolder`, form, report);
+  doneBytes += primary.size || 0;
+  const res = created.results?.[0];
+  if (!res?.ok) return created;   // duplicate / error → nothing more to send
+
+  // 2) Stream each remaining track file as its own small request.
+  for (let i = 0; i < arr.length; i++) {
+    if (i === primIdx) continue;
+    const tf = new FormData();
+    tf.append("files", arr[i]);
+    await xhrUpload(`/api/sessions/${sid}/roms/${res.id}/cdtracks`, tf, report);
+    doneBytes += arr[i].size || 0;
   }
-  form.append("paths", JSON.stringify(paths));
-  return xhrUpload(`/api/sessions/${sid}/roms/cdfolder`, form, onProgress);
+  onProgress?.(totalBytes, totalBytes);
+  return { ...created, results: [{ ...res, tracks: arr.length - 1 }] };
 }
 
 // Systems managed as a folder-per-game (disc images: .cue + tracks, or .chd).
