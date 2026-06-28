@@ -79,6 +79,11 @@ export function scoreFace(score) {
 // Try the real asset (svg first, then png — RomM ico-derived), then fall back
 // to the colored monogram chip when no asset exists (tama/gw/homebrew).
 const ICON_EXTS = ["svg", "png"];
+// Cache-buster for the static /system-icons assets. They live under a fixed URL,
+// so a browser/Cloudflare cache serves the OLD file after we swap an icon (no
+// Cache-Control on the origin → CF caches .svg by default). Bump this whenever a
+// shipped icon changes so the URL differs and clients refetch.
+const ICON_VER = "20260628";
 export function SystemIcon({ dirname, size = 16 }) {
   const [extIdx, setExtIdx] = useState(0);
   const imgRef = useRef(null);
@@ -99,7 +104,7 @@ export function SystemIcon({ dirname, size = 16 }) {
       <img
         ref={imgRef}
         className="sys-ico"
-        src={`${import.meta.env.BASE_URL}system-icons/${dirname}.${ICON_EXTS[extIdx]}`}
+        src={`${import.meta.env.BASE_URL}system-icons/${dirname}.${ICON_EXTS[extIdx]}?v=${ICON_VER}`}
         width={size}
         height={size}
         alt=""
