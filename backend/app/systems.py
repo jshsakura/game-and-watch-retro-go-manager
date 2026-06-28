@@ -73,6 +73,11 @@ SYSTEMS: tuple[System, ...] = (
     # firmware that registers it can play these on-device; added here for library
     # collection with original No-Intro names. Standard extension is ".lnx".
     System("lynx", "Atari Lynx", "lynx", ("lnx",)),
+    # Magnavox Odyssey² / Philips Videopac (same hardware). The firmware has a
+    # videopac core (main_videopac.c) but its add_emulator is commented out, so
+    # it's library-collection only for now (TOSEC .bin names). dirname "videopac"
+    # matches the firmware folder so it lines up if that core is ever enabled.
+    System("videopac", "Odyssey²", "videopac", ("bin",)),
     System("tama", "Tamagotchi", "tama", ("b",)),
     System("mini", "Pokémon Mini", "mini", ("min",)),
     # Firmware registers ext "gw"; many G&W rom packs ship as ".mgw" — accept both.
