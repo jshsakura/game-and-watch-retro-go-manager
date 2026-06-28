@@ -170,19 +170,22 @@ const BIOS = {
 };
 const FDS_BIOS = { fileName: "disksys.rom", path: "bios/nes/disksys.rom" };
 
-// Fetch the BIOS file(s) this ROM needs from the Extra folder. Missing BIOS is
-// non-fatal — we just launch without it (the core reports its own error).
+// Fetch the BIOS file(s) this ROM needs from the Extra folder. These cores can't
+// boot without their BIOS, so we report which are MISSING and the launcher shows a
+// clear "upload it" message instead of failing cryptically.
 async function loadBios(rom) {
   const needed = [...(BIOS[rom.system_key] || [])];
   if (rom.system_key === "nes" && /\.fds$/i.test(rom.stored_name)) needed.push(FDS_BIOS);
-  const out = [];
+  const files = [];
+  const missing = [];
   for (const b of needed) {
     try {
       const r = await fetch(extraDownloadUrl(b.path));
-      if (r.ok) out.push({ fileName: b.fileName, fileContent: await r.blob() });
-    } catch (_) { /* BIOS absent → launch anyway */ }
+      if (r.ok) files.push({ fileName: b.fileName, fileContent: await r.blob() });
+      else missing.push(b);
+    } catch (_) { missing.push(b); }
   }
-  return out;
+  return { files, missing };
 }
 
 export function coreFor(systemKey) {
@@ -205,6 +208,7 @@ export function EmulatorOverlay({ rom, onClose }) {
   const nostRef = useRef(null);
   const iframeRef = useRef(null);
   const [status, setStatus] = useState("loading"); // loading | running | error
+  const [loadMsg, setLoadMsg] = useState("");       // progress text while loading
   const [err, setErr] = useState("");
   const [mode, setMode] = useState(
     () => (window.matchMedia(MOBILE_QUERY).matches ? "max" : "window")
@@ -269,23 +273,36 @@ export function EmulatorOverlay({ rom, onClose }) {
         const core = coreFor(rom.system_key);
         if (!core) throw new Error(t("This platform can't run in the browser."));
 
+        // BIOS gate: these cores can't boot without it — say so plainly (with the
+        // exact file + where to put it) instead of launching into a silent failure.
+        const { files: bios, missing } = await loadBios(rom);
+        if (missing.length) {
+          throw new Error(t("This game needs a BIOS file: upload {files} to the Extra (추가파일) tab, then try again.",
+            { files: missing.map((b) => `${b.fileName} (${b.path})`).join(", ") }));
+        }
+        if (cancelled) return;
+
+        setLoadMsg(t("Loading ROM…"));
         const res = await fetch(romFileUrl(rom.id));
         if (!res.ok) throw new Error(t("Failed to load the ROM file."));
         const fileContent = await res.blob();
         // CD games (PC Engine CD) are a .cue + track files: hand the core the WHOLE
         // set so it can mount the disc (the .cue references the tracks by name).
-        // NOTE: this pulls every track into browser memory — fine for small discs,
-        // but a large CD (hundreds of MB of CDDA) can exhaust the tab.
+        // Fetched ONE AT A TIME so we can show progress (a big CD takes a while) and
+        // keep peak memory down. Large multi-hundred-MB discs are still heavy.
         const tracks = parseExtraFiles(rom.extra_files);
-        const romArg = tracks.length
-          ? [{ fileName: rom.stored_name, fileContent },
-             ...await Promise.all(tracks.map(async (tName) => {
-               const r = await fetch(cdTrackUrl(rom.id, tName));
-               if (!r.ok) throw new Error(t("Failed to load the ROM file."));
-               return { fileName: tName, fileContent: await r.blob() };
-             }))]
-          : { fileName: rom.stored_name, fileContent };
-        const bios = await loadBios(rom);
+        let romArg = { fileName: rom.stored_name, fileContent };
+        if (tracks.length) {
+          romArg = [{ fileName: rom.stored_name, fileContent }];
+          for (let i = 0; i < tracks.length; i++) {
+            setLoadMsg(t("Loading track {n}/{total}…", { n: i + 1, total: tracks.length }));
+            const r = await fetch(cdTrackUrl(rom.id, tracks[i]));
+            if (!r.ok) throw new Error(t("Failed to load the ROM file."));
+            romArg.push({ fileName: tracks[i], fileContent: await r.blob() });
+            if (cancelled) return;
+          }
+        }
+        setLoadMsg(t("Starting core…"));
         if (cancelled) return;
 
         const { Nostalgist } = await import("nostalgist");
@@ -415,7 +432,7 @@ export function EmulatorOverlay({ rom, onClose }) {
           {status === "loading" && (
             <div className="emu-status">
               <div className="emu-spinner" aria-hidden />
-              {t("Loading core…")}
+              {loadMsg || t("Loading core…")}
               {isExperimental(rom.system_key) && (
                 <div className="emu-note">{t("This platform has experimental support and may not run correctly.")}</div>
               )}
