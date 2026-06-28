@@ -277,8 +277,10 @@ export function EmulatorOverlay({ rom, onClose }) {
         // exact file + where to put it) instead of launching into a silent failure.
         const { files: bios, missing } = await loadBios(rom);
         if (missing.length) {
-          throw new Error(t("This game needs a BIOS file: upload {files} to the Extra (추가파일) tab, then try again.",
-            { files: missing.map((b) => `${b.fileName} (${b.path})`).join(", ") }));
+          // Show the EXACT Extra path to upload to (folder + filename) — that's the
+          // actionable instruction; the core's internal BIOS name is irrelevant here.
+          throw new Error(t("This game needs a BIOS. Upload it to the Extra (추가파일) tab at this exact path: {files}",
+            { files: missing.map((b) => b.path).join(", ") }));
         }
         if (cancelled) return;
 
