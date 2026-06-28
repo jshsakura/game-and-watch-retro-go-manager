@@ -16,7 +16,8 @@ Files covered (the icons actually shipped in this folder):
   ngp.svg     ws.svg
 
 ngp.svg (Neo Geo Pocket Color), ws.svg (WonderSwan Color), lynx.svg (Atari
-Lynx) and pcecd.svg (PC Engine CD / TurboGrafx-CD; from turbografx-cd.svg) are
+Lynx) and pcecd.svg (PC Engine CD; uses the TurboGrafx-16 console art from tg16.svg, to
+read distinct from the white PC Engine icon) are
 from the RomM project's platform icon set (rommapp/romm,
 frontend/assets/platforms), same Libretro/CC BY 4.0 lineage.
   Source:  https://github.com/rommapp/romm
