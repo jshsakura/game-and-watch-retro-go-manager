@@ -35,7 +35,7 @@ export function isNewRom(rom) {
 // never look identical).
 const SYS_ABBREV = {
   nes: "NES", gb: "GB", gbc: "GBC", gg: "GG", sms: "SMS", md: "MD", sg: "SG",
-  pce: "PCE", col: "COL", msx: "MSX", a2600: "A26", a7800: "A78", amstrad: "CPC",
+  pce: "PCE", pcecd: "PCD", col: "COL", msx: "MSX", a2600: "A26", a7800: "A78", amstrad: "CPC",
   wsv: "WSV", tama: "TAM", mini: "MIN", gw: "GW", homebrew: "HB", pico8: "P8",
   lynx: "LNX",
 };
@@ -49,7 +49,7 @@ function hueFor(key) {
 // Distinct vivid accent per system (the hash hues were too similar).
 const SYS_PALETTE = {
   nes: "#e23b3b", gb: "#6ab02c", gbc: "#7b3ff2", gg: "#13a8c4", sms: "#2c7be0",
-  md: "#e07a1a", sg: "#13a07a", pce: "#d61f6b", col: "#d94f2b", msx: "#3b5bdb",
+  md: "#e07a1a", sg: "#13a07a", pce: "#d61f6b", pcecd: "#a61e5d", col: "#d94f2b", msx: "#3b5bdb",
   a2600: "#9b59b6", a7800: "#b5651d", amstrad: "#0f9d58", wsv: "#d4a017",
   tama: "#1fc4a8", mini: "#e84393", gw: "#c9a227", homebrew: "#6b7280", pico8: "#ff77a8",
   lynx: "#82c91e",
