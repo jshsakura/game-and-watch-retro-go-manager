@@ -44,6 +44,7 @@ _LIBRETRO_REPO = {
     "amstrad": "Amstrad - CPC",
     "wsv": "Watara - Supervision",
     "mini": "Nintendo - Pokemon Mini",
+    "gamecom": "Tiger - Game.com",
     # gw / tama / videopac / pico8: no standard libretro thumbnail repo
 }
 

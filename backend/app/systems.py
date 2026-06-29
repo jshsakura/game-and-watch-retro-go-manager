@@ -82,6 +82,9 @@ SYSTEMS: tuple[System, ...] = (
     # yet). Z80/6502 home computers with huge libraries; common emulator formats.
     System("zxs", "ZX Spectrum", "zxs", ("z80", "tap", "tzx", "sna", "szx")),
     System("c64", "Commodore 64", "c64", ("d64", "t64", "prg", "crt", "g64", "tap")),
+    # Tiger Game.com — cartridge handheld (Sharp SM8500). dirname "gamecom"
+    # matches the firmware /roms/gamecom folder; carts are ".bin"/".tgc".
+    System("gamecom", "Tiger Game.com", "gamecom", ("bin", "tgc")),
     System("tama", "Tamagotchi", "tama", ("b",)),
     System("mini", "Pokémon Mini", "mini", ("min",)),
     # Firmware registers ext "gw"; many G&W rom packs ship as ".mgw" — accept both.

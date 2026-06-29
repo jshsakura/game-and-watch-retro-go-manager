@@ -26,6 +26,10 @@ platform icon set (rommapp/romm, frontend/assets/platforms), same Libretro/CC BY
 zxs.png (Sinclair ZX Spectrum) and c64.png (Commodore 64) are converted from the
 RomM platform icons (zxs.ico / c64.ico), same Libretro/CC BY 4.0 lineage.
 
+gamecom.svg (Tiger Game.com) is from the Libretro / RetroArch assets project
+(src/xmb/monochrome/"Tiger - Game.com.svg"), same Libretro/CC BY 4.0 lineage.
+  Source:  https://git.libretro.com/libretro-assets/retroarch-assets
+
 chip8.svg (CHIP-8) is an original icon made for this project (no attribution
 required).
 

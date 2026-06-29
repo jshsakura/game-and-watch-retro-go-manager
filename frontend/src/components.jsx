@@ -38,7 +38,7 @@ const SYS_ABBREV = {
   nes: "NES", gb: "GB", gbc: "GBC", gg: "GG", sms: "SMS", md: "MD", sg: "SG",
   pce: "PCE", pcecd: "PCD", col: "COL", msx: "MSX", a2600: "A26", a7800: "A78", amstrad: "CPC",
   wsv: "WSV", tama: "TAM", mini: "MIN", gw: "GW", homebrew: "HB", pico8: "P8",
-  lynx: "LNX", videopac: "ODY", zxs: "ZX", c64: "C64",
+  lynx: "LNX", videopac: "ODY", zxs: "ZX", c64: "C64", gamecom: "GCM",
 };
 
 function hueFor(key) {
@@ -56,7 +56,7 @@ const SYS_PALETTE = {
   md: "#8c5515", sg: "#22e6be", pce: "#8c2a3e", pcecd: "#e62263", col: "#e67022", msx: "#2222e6",
   a2600: "#cb22e6", a7800: "#e6ab67", amstrad: "#3f8c6d", wsv: "#45e67a",
   tama: "#22cbe6", mini: "#e622a4", gw: "#e6be22", homebrew: "#6b7280", pico8: "#e67067",
-  lynx: "#588c2a", videopac: "#8c3f82", zxs: "#b0e645", c64: "#3e2a8c",
+  lynx: "#588c2a", videopac: "#8c3f82", zxs: "#b0e645", c64: "#3e2a8c", gamecom: "#1f9e8c",
 };
 export function systemColor(key) {
   return SYS_PALETTE[key] || `hsl(${hueFor(key || "x")} 62% 52%)`;
