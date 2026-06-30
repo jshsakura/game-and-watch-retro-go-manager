@@ -74,6 +74,10 @@ const CORE_MAP = {
   // Amstrad uses CPCEC, MSX uses WebMSX, Poké Mini uses the webRcade PokeMini core).
   // Watara (wsv→potator) had no prebuilt wasm anywhere, so its core was compiled from
   // source (emsdk + RetroArch) into the Nostalgist format above. Every system now plays.
+  // ZX Spectrum via fuse — like potator, NO prebuilt wasm exists (absent from every
+  // emscripten core set), so it was compiled from source (emsdk + RetroArch). fuse
+  // bundles the 48K/128K system ROMs internally, so no external BIOS is needed.
+  zxs: "fuse",
 };
 
 // Every core listed above is mirrored under /public/cores/<core>_libretro.{js,wasm}.
@@ -85,6 +89,9 @@ const CORE_BASE = "/cores";
 // true-drive emulation stays on for loader/protection compatibility.
 const CORE_CONFIG = {
   c64: { vice_autoloadwarp: "enabled", vice_warp_boost: "enabled" },
+  // ZX Spectrum (fuse): auto-start tapes/snapshots and use the accelerated loader
+  // so .tap/.tzx games boot without the user typing LOAD "".
+  zxs: { fuse_fast_load: "enabled", fuse_auto_load: "enabled" },
 };
 
 // Systems with NO libretro WASM core, but a standalone JS emulator we self-host
@@ -108,7 +115,7 @@ export function jsEngineFor(systemKey) { return JS_ENGINE[systemKey] || null; }
 
 // Cores that exist but whose ROM format may differ from retro-go's packaging —
 // best-effort, may fail to boot. The overlay warns before launching.
-const EXPERIMENTAL = new Set(["gw", "pico8", "pcecd", "videopac", "c64"]);
+const EXPERIMENTAL = new Set(["gw", "pico8", "pcecd", "videopac", "c64", "zxs"]);
 
 const MOBILE_QUERY = "(max-width: 640px)";
 
@@ -117,7 +124,7 @@ const MOBILE_QUERY = "(max-width: 640px)";
 // the rest are 4:3. Atari runs in an iframe and is intentionally left alone.
 const SCREEN_ASPECT = {
   nes: "4 / 3", sms: "4 / 3", sg: "4 / 3", md: "4 / 3", pce: "4 / 3",
-  pcecd: "4 / 3", videopac: "4 / 3", c64: "4 / 3", col: "4 / 3", gw: "4 / 3", gg: "4 / 3",
+  pcecd: "4 / 3", videopac: "4 / 3", c64: "4 / 3", zxs: "4 / 3", col: "4 / 3", gw: "4 / 3", gg: "4 / 3",
   gb: "10 / 9", gbc: "10 / 9",
   pico8: "1 / 1", tama: "1 / 1", wsv: "1 / 1",
   amstrad: "4 / 3",
@@ -161,6 +168,9 @@ const KEY_HINTS = {
   pcecd: [DPAD, { k: "Z", b: "II" }, { k: "X", b: "I" }, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "RUN" }],
   videopac: [DPAD, { k: "Z", b: "Action" }, { k: "Enter", b: "Reset" }],
   c64: [DPAD, { k: "Z", b: "Fire" }, { k: "Space", b: "Space" }, { k: "Enter", b: "RETURN" }],
+  // ZX Spectrum (fuse): D-pad+Z map to a Kempston joystick; many games also need
+  // the real keys (fuse maps the RetroPad to keyboard for menu/typing too).
+  zxs: [DPAD, { k: "Z", b: "Fire" }, { k: "Enter", b: "ENTER" }, { k: "Space", b: "Space" }],
   col:   [DPAD, { k: "Z", b: "Left fire" }, { k: "X", b: "Right fire" }, { k: "1~9 0 * #", b: "Keypad" }],
   gw:    [DPAD, { k: "X", b: "A" }, { k: "Z", b: "B" }, { k: "Enter", b: "START" }],
   tama:  [{ k: "Z", b: "A" }, { k: "X", b: "B" }, { k: "A", b: "C" }],
@@ -186,6 +196,21 @@ const BIOS = {
   pcecd: [{ fileName: "syscard3.pce", path: "bios/pce/syscard3.pce" }],
   // Odyssey²/Videopac: o2em needs the o2rom.bin system BIOS in the system dir.
   videopac: [{ fileName: "o2rom.bin", path: "bios/videopac/o2rom.bin" }],
+  // Commodore 64: the C64 system ROMs (copyright Commodore, user-supplied). The SD
+  // firmware (Frodo) reads them from bios/c64/ as basic.bin / kernal.bin / chargen.bin;
+  // VICE (x64sc) wants them as kernal/basic/chargen. Without them the core can't boot.
+  c64: [
+    { fileName: "basic",   path: "bios/c64/basic.bin"   },
+    { fileName: "kernal",  path: "bios/c64/kernal.bin"  },
+    { fileName: "chargen", path: "bios/c64/chargen.bin" },
+  ],
+  // Tiger Game.com: the device boots its built-in OS (Tiger logo → PDA menu) then runs
+  // the cart, so the firmware needs the internal OS + external/kernel ROM in bios/gamecom/
+  // (internal.bin 4KB, external.bin 256KB; copyright Tiger, user-supplied).
+  gamecom: [
+    { fileName: "internal.bin", path: "bios/gamecom/internal.bin" },
+    { fileName: "external.bin", path: "bios/gamecom/external.bin" },
+  ],
 };
 const FDS_BIOS = { fileName: "disksys.rom", path: "bios/nes/disksys.rom" };
 
