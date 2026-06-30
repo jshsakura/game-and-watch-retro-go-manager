@@ -327,6 +327,8 @@ export default {
   "Flag shown at the cover's top-right — independent of the Korean-patch toggle": "커버 우상단에 표시할 국기 — 한글패치 여부와 별개",
   "Failed to set flag": "국기 설정 실패",
   "SteamGridDB key is not configured": "SteamGridDB 키가 설정되지 않았습니다",
+  "No libretro box art for this system": "이 기종은 libretro 박스아트가 없습니다",
+  "API key not configured": "API 키가 설정되지 않았습니다",
   "Marked as user-patched": "유저 패치로 표시했습니다",
   "User-patch mark removed": "유저 패치 표시를 해제했습니다",
   "Failed to set favorite": "즐겨찾기 설정 실패",

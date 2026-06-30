@@ -10,11 +10,12 @@ import { useDownload } from "./download.jsx";
 import {
   uploadCover, coverUrl, deviceCoverUrl, originalCoverUrl, coverDownloadUrl, downloadRomUrl, downloadVideoUrl, downloadMusicUrl,
   videoThumbUrl, videoPreviewUrl, musicCoverUrl, streamMusicUrl, deleteRom, deleteVideo, deleteMusic,
-  renameRom, igdbSearch, tgdbSearch, sgdbSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setSdInclude, setSdExclude,
+  renameRom, igdbSearch, tgdbSearch, sgdbSearch, libretroSearch, setCoverFromUrl, deleteCover, recropCover, replaceRomFile, formatBytes, setRomLang, setSdInclude, setSdExclude,
   setFavorite, addRomFile, deleteRomFile, setPico8Compat, setCoverFlag,
 } from "./api.js";
 import { useToast } from "./toast.jsx";
 import { useT } from "./i18n.jsx";
+import { useCoverSources } from "./config.jsx";
 
 // NEW = uploaded TODAY (the viewer's local calendar day). created_at is stored
 // UTC; we compare against local "today" so a fresh batch is easy to spot and
@@ -433,20 +434,28 @@ function CoverSearch({ rom, onPick }) {
   const [busy, setBusy] = useState(false);
   const [results, setResults] = useState(null);
   const [err, setErr] = useState("");
-  const [source, setSource] = useState("igdb");
+  // Default to libretro: it's keyless/free (public GitHub raw), unlike IGDB/
+  // TheGamesDB/SteamGridDB which need API keys and have quotas.
+  const [source, setSource] = useState("libretro");
+  const avail = useCoverSources();
 
   async function search() {
     const query = q.trim();
     if (!query || busy) return;
     setBusy(true); setErr(""); setResults(null);
     try {
-      const searchFn = source === "igdb" ? igdbSearch : source === "tgdb" ? tgdbSearch : sgdbSearch;
+      const searchFn = source === "igdb" ? igdbSearch
+        : source === "tgdb" ? tgdbSearch
+        : source === "libretro" ? libretroSearch
+        : sgdbSearch;
       const d = await searchFn(query, rom.system_key);
       if (!d.available) {
         setErr(source === "igdb"
           ? t("IGDB key is not set")
           : source === "tgdb"
           ? t("TheGamesDB key is not set")
+          : source === "libretro"
+          ? t("No libretro box art for this system")
           : t("SteamGridDB key is not configured"));
       } else if (d.quota_exceeded) {
         setErr(t("TheGamesDB quota exceeded — use IGDB or try later"));
@@ -460,9 +469,18 @@ function CoverSearch({ rom, onPick }) {
     <div className="cover-search">
       <div className="field-label">{t("Cover search")}</div>
       <span className="search-scope" role="group">
-        <button className={`scope-btn ${source === "igdb" ? "on" : ""}`} onClick={() => setSource("igdb")}>IGDB</button>
-        <button className={`scope-btn ${source === "tgdb" ? "on" : ""}`} onClick={() => setSource("tgdb")}>TheGamesDB</button>
-        <button className={`scope-btn ${source === "sgdb" ? "on" : ""}`} onClick={() => setSource("sgdb")}>SteamGridDB</button>
+        {[["libretro", "libretro"], ["igdb", "IGDB"], ["tgdb", "TheGamesDB"], ["sgdb", "SteamGridDB"]].map(([key, label]) => {
+          const off = !avail[key];   // no API key configured → can't select
+          return (
+            <button
+              key={key}
+              className={`scope-btn ${source === key ? "on" : ""}`}
+              disabled={off}
+              title={off ? t("API key not configured") : undefined}
+              onClick={() => setSource(key)}
+            >{label}{off ? " 🔒" : ""}</button>
+          );
+        })}
       </span>
       <div className="rename-row">
         <input

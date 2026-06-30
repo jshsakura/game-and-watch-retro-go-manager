@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 from . import config, db
-from .routers import covers, data, downloads, events, extra, firmware, gamelist, igdb, jobs, lang, manage, music, package, roms, scores, sessions, sgdb, tgdb, uploads, videos
+from .routers import covers, data, downloads, events, extra, firmware, gamelist, igdb, jobs, lang, libretro, manage, music, package, roms, scores, sessions, sgdb, tgdb, uploads, videos
 from .services.video import ffmpeg_available
 from .systems import SYSTEMS
 
@@ -52,6 +52,7 @@ app.include_router(extra.router)
 app.include_router(igdb.router)
 app.include_router(tgdb.router)
 app.include_router(sgdb.router)
+app.include_router(libretro.router)
 app.include_router(data.router)
 app.include_router(gamelist.router)
 app.include_router(lang.router)
@@ -98,8 +99,18 @@ def health() -> dict:
 @app.get("/api/config")
 def client_config() -> dict:
     """Runtime feature flags the frontend reads at startup. korean_mode gates the
-    Korea-specific UI (한글패치 toggle, Korean-name resolve/gamelist)."""
-    return {"korean_mode": config.KOREAN_MODE}
+    Korea-specific UI (한글패치 toggle, Korean-name resolve/gamelist). cover_sources
+    tells the cover-search popup which providers are configured, so it can disable
+    the ones without an API key (libretro is keyless → always on)."""
+    return {
+        "korean_mode": config.KOREAN_MODE,
+        "cover_sources": {
+            "libretro": True,
+            "igdb": bool(config.IGDB_CLIENT_ID and config.IGDB_CLIENT_SECRET),
+            "tgdb": bool(config.TGDB_API_KEY),
+            "sgdb": bool(config.STEAMGRIDDB_API_KEY),
+        },
+    }
 
 
 @app.get("/api/systems")

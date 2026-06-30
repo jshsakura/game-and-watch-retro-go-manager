@@ -68,7 +68,7 @@ SYSTEMS: tuple[System, ...] = (
     # firmware build that includes the core. Few ROMs each, so mono+Color are kept
     # as ONE combined folder per family (NOT split like gb/gbc).
     System("ngp", "NEOGEO Pocket", "ngp", ("ngp", "ngc", "ngpc")),
-    System("ws", "Wonder Swan", "ws", ("ws", "wsc")),
+    System("ws", "WonderSwan", "ws", ("ws", "wsc")),
     # Atari Lynx. The SD build ships the handy-go core (external/handy-go), so a
     # firmware that registers it can play these on-device; added here for library
     # collection with original No-Intro names. Standard extension is ".lnx".

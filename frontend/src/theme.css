@@ -1162,6 +1162,8 @@ body::before {
 }
 .scope-btn:hover { background: #ffffff26; }
 .scope-btn.on { background: var(--accent); color: #fff; box-shadow: 0 0 0 1px var(--accent), 0 1px 3px #0000006b; }
+.scope-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.scope-btn:disabled:hover { background: inherit; }
 /* Sort select box — compact trigger (dark pill, matches the toolbar) + a
    parchment dropdown like the language picker. */
 .sort-select { position: relative; display: inline-flex; flex: 0 0 auto; }

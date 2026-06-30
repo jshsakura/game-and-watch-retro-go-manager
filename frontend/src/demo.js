@@ -66,7 +66,7 @@ const LIBRARY = {
 function route(path) {
   if (path.endsWith("/api/systems")) return { systems: SYSTEMS };
   if (path.endsWith("/api/health")) return { status: "ok", ffmpeg: true };
-  if (path.endsWith("/api/config")) return { korean_mode: false };
+  if (path.endsWith("/api/config")) return { korean_mode: false, cover_sources: { libretro: true, igdb: false, tgdb: false, sgdb: false } };
   if (path.endsWith("/library")) return LIBRARY;
   if (path.endsWith("/firmware")) return { present: false };
   if (path.endsWith("/extra")) return { files: [] };

@@ -49,11 +49,12 @@ export async function getHealth() {
 
 // Runtime feature flags (korean_mode gates the Korea-specific UI).
 export async function getConfig() {
+  const fallback = { korean_mode: false, cover_sources: { libretro: true, igdb: false, tgdb: false, sgdb: false } };
   try {
     const res = await fetch("/api/config");
-    return res.ok ? res.json() : { korean_mode: false };
+    return res.ok ? res.json() : fallback;
   } catch (_) {
-    return { korean_mode: false };
+    return fallback;
   }
 }
 
@@ -329,6 +330,14 @@ export async function sgdbSearch(query, system) {
   if (system) params.set("system", system);
   const res = await fetch(`/api/sgdb/search?${params}`);
   if (!res.ok) throw new Error("SteamGridDB search failed");
+  return res.json();
+}
+
+export async function libretroSearch(query, system) {
+  const params = new URLSearchParams({ q: query });
+  if (system) params.set("system", system);
+  const res = await fetch(`/api/libretro/search?${params}`);
+  if (!res.ok) throw new Error("libretro search failed");
   return res.json();
 }
 

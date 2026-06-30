@@ -6,9 +6,10 @@ from pathlib import Path
 
 
 def _load_env_file() -> None:
-    """Lightweight .env loader (no dependency). Reads backend/.env if present;
-    does NOT override variables already set in the real environment."""
-    env_path = Path(__file__).resolve().parent.parent / ".env"
+    """Lightweight .env loader (no dependency). Reads the project-root .env — the
+    single source of truth, also what docker-compose injects — if present; does
+    NOT override variables already set in the real environment (e.g. by compose)."""
+    env_path = Path(__file__).resolve().parent.parent.parent / ".env"
     if not env_path.exists():
         return
     for line in env_path.read_text().splitlines():
