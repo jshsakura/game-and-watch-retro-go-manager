@@ -6,11 +6,12 @@ import { useToast } from "../toast.jsx";
 import { useT } from "../i18n.jsx";
 import { BIOS_CATALOG } from "../bios.js";
 
-// Distinct BIOS target folders (bios/nes, bios/coleco, …) derived from the shared
-// catalog — offered as one-click example chips so users don't guess the path.
-const BIOS_FOLDERS = [
-  ...new Set(BIOS_CATALOG.flatMap((b) => b.files.map((f) => f.sdPath.replace(/\/[^/]+$/, "")))),
-];
+// Every BIOS file's FULL SD path (folder + exact filename) from the shared
+// catalog — offered as one-click example chips. The filename matters as much as
+// the folder (the file must be named exactly this), so we show the whole path;
+// clicking sets the target folder to its parent dir.
+const BIOS_FILES = BIOS_CATALOG.flatMap((b) => b.files.map((f) => f.sdPath));
+const parentDir = (p) => p.replace(/\/[^/]+$/, "");
 
 // Arbitrary passthrough files → SD root verbatim. Pick a target folder (e.g.
 // bios/nes) and the files land at <folder>/<name> in the SD ZIP.
@@ -74,19 +75,20 @@ export default function ExtraTab({ onChanged }) {
         <span className="path-trail">/…</span>
       </div>
       <div className="extra-examples">
-        <span className="extra-examples-label">{t("BIOS folders:")}</span>
-        {BIOS_FOLDERS.map((f) => (
+        <span className="extra-examples-label">{t("BIOS files:")}</span>
+        {BIOS_FILES.map((p) => (
           <button
             type="button"
-            key={f}
-            className={`extra-chip ${dir === f ? "on" : ""}`}
-            onClick={() => setFolder(f)}
+            key={p}
+            className={`extra-chip ${dir === parentDir(p) ? "on" : ""}`}
+            onClick={() => setFolder(parentDir(p))}
+            title={t("Set the folder — then name your file exactly: {name}", { name: p.split("/").pop() })}
           >
-            {f}
+            {p}
           </button>
         ))}
       </div>
-      <div className="muted path-hint">{t("Leave empty to save to the SD root.")}</div>
+      <div className="muted path-hint">{t("Click a file to fill its folder — your uploaded file must be named exactly as shown (e.g. disksys.rom). Leave the folder empty to save to the SD root.")}</div>
 
       <Dropzone
         multiple
