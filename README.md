@@ -45,6 +45,28 @@ with sample data (no backend; uploads/edits are disabled).
   "Korean-patched" flag, and related filters. **Off by default** (international image).
 - Retro **pixel-art UI** with a Zelda ↔ Mario edition toggle.
 
+## 💾 BIOS / system ROMs
+
+A few systems need a copyrighted BIOS that we can't ship. Upload each file in the
+**Extra (추가파일)** tab at the exact **SD path** below (the INFO tab lists these
+too, with one-click copy). The file then rides along in the SD ZIP at that path,
+where **both** the device firmware and the in-browser player load it. BIOS files
+are user-supplied — grab your own dumps; the sizes below are the standard ones.
+
+| System | SD path (upload target) | Size | Notes |
+|--------|-------------------------|------|-------|
+| Famicom Disk System | `bios/nes/disksys.rom` | 8 KB | Only `.fds` disk images need it; `.nes` carts boot without. |
+| ColecoVision | `bios/coleco/coleco.bin` | 8 KB | System ROM — every game needs it. |
+| PC Engine CD | `bios/pce/syscard3.pce` | 256 KB | System Card 3.0 — boots essentially the whole CD library. |
+| Odyssey² / Videopac | `bios/videopac/o2rom.bin` | 1 KB | o2rom system BIOS for the o2em core. |
+| Commodore 64 | `bios/c64/basic.bin`, `bios/c64/kernal.bin`, `bios/c64/chargen.bin` | 8 / 8 / 4 KB | The three C64 system ROMs (© Commodore). |
+| Tiger Game.com | `bios/gamecom/internal.bin`, `bios/gamecom/external.bin` | 4 / 256 KB | Internal OS + external/kernel ROM (© Tiger). |
+
+> The browser core may look for a slightly different filename than the SD stores
+> (e.g. ColecoVision's core wants `colecovision.rom` for the same bytes) — the app
+> handles that remap for you. The canonical list lives in
+> [`frontend/src/bios.js`](frontend/src/bios.js).
+
 ## 📸 Screenshots
 
 *(from the [live demo](https://jshsakura.github.io/game-and-what/) — sample data)*

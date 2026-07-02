@@ -14,6 +14,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { X, Maximize2, Minimize2, Monitor, Copy, Check } from "lucide-react";
 import { romFileUrl, cdTrackUrl, extraDownloadUrl } from "./api.js";
+import { BIOS_CATALOG, BIOS_BY_KEY } from "./bios.js";
 
 // extra_files (CD track sidecars) may arrive as a JSON string or array; return
 // the list of track filenames (empty for non-CD roms).
@@ -192,35 +193,22 @@ const KEY_HINTS = {
 };
 const DEFAULT_HINTS = [DPAD, ...AB, { k: "Shift", b: "SELECT" }, { k: "Enter", b: "START" }];
 
-// Cores that need a BIOS in the RetroArch system dir to boot. `path` is where
-// the file lives in the Extra folder (named for the SD firmware); `fileName` is
-// what the libretro CORE looks for — they differ! gearcoleco wants
-// "colecovision.rom", not the SD's "coleco.bin" (same bytes).
-const BIOS = {
-  col: [{ fileName: "colecovision.rom", path: "bios/coleco/coleco.bin" }],
-  // PC Engine CD: beetle-pce-fast needs the System Card 3.0 ROM to boot CD games.
-  // syscard3.pce runs essentially the whole library; upload it to the Extra
-  // folder at bios/pce/syscard3.pce. Absent BIOS → the core errors out.
-  pcecd: [{ fileName: "syscard3.pce", path: "bios/pce/syscard3.pce" }],
-  // Odyssey²/Videopac: o2em needs the o2rom.bin system BIOS in the system dir.
-  videopac: [{ fileName: "o2rom.bin", path: "bios/videopac/o2rom.bin" }],
-  // Commodore 64: the C64 system ROMs (copyright Commodore, user-supplied). The SD
-  // firmware (Frodo) reads them from bios/c64/ as basic.bin / kernal.bin / chargen.bin;
-  // VICE (x64sc) wants them as kernal/basic/chargen. Without them the core can't boot.
-  c64: [
-    { fileName: "basic",   path: "bios/c64/basic.bin"   },
-    { fileName: "kernal",  path: "bios/c64/kernal.bin"  },
-    { fileName: "chargen", path: "bios/c64/chargen.bin" },
-  ],
-  // Tiger Game.com: the device boots its built-in OS (Tiger logo → PDA menu) then runs
-  // the cart, so the firmware needs the internal OS + external/kernel ROM in bios/gamecom/
-  // (internal.bin 4KB, external.bin 256KB; copyright Tiger, user-supplied).
-  gamecom: [
-    { fileName: "internal.bin", path: "bios/gamecom/internal.bin" },
-    { fileName: "external.bin", path: "bios/gamecom/external.bin" },
-  ],
-};
-const FDS_BIOS = { fileName: "disksys.rom", path: "bios/nes/disksys.rom" };
+// Cores that need a BIOS in the RetroArch system dir to boot, derived from the
+// shared BIOS_CATALOG (bios.js) so the loader, the INFO tab table and the docs
+// never drift apart. `path` is where the file lives in the Extra folder (named
+// for the SD firmware); `fileName` is what the libretro CORE looks for — they
+// can differ (gearcoleco wants "colecovision.rom", not the SD's "coleco.bin").
+// NES is excluded here because FDS is disk-conditional (see FDS_BIOS below).
+const BIOS = Object.fromEntries(
+  BIOS_CATALOG
+    .filter((b) => b.key !== "nes")
+    .map((b) => [b.key, b.files.map((f) => ({ fileName: f.coreName, path: f.sdPath }))]),
+);
+// Famicom Disk System: only .fds disk images need disksys.rom (not .nes carts).
+const FDS_BIOS = (() => {
+  const f = BIOS_BY_KEY.nes.files[0];
+  return { fileName: f.coreName, path: f.sdPath };
+})();
 
 // Fetch the BIOS file(s) this ROM needs from the Extra folder. These cores can't
 // boot without their BIOS, so we report which are MISSING and the launcher shows a

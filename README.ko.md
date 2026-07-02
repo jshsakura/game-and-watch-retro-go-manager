@@ -39,6 +39,27 @@ ROM·영상·음악을 올리면 이름과 기기 규격 커버를 자동으로 
   관련 필터. **기본 비활성**(국제판 이미지).
 - 레트로 **픽셀아트 UI**, Zelda ↔ Mario 에디션 토글.
 
+## 💾 BIOS / 시스템 롬
+
+일부 기종은 저작권 있는 BIOS가 필요해 기본 제공하지 않습니다. 아래 정확한
+**SD 경로**로 **추가파일** 탭에 각 파일을 올리세요(정보 탭에도 목록이 있고,
+클릭하면 경로가 복사됩니다). 그러면 그 경로 그대로 SD ZIP에 담기고, **실기
+펌웨어와 브라우저 플레이어 모두** 여기서 읽어 옵니다. BIOS는 직접 준비해야
+하며, 아래 용량은 표준 크기입니다.
+
+| 기종 | SD 경로 (업로드 위치) | 용량 | 비고 |
+|------|----------------------|------|------|
+| 패미컴 디스크 시스템 | `bios/nes/disksys.rom` | 8 KB | `.fds` 디스크 이미지에만 필요, `.nes` 카트리지는 불필요. |
+| 콜레코비전 | `bios/coleco/coleco.bin` | 8 KB | 시스템 롬 — 모든 게임에 필요. |
+| PC엔진 CD | `bios/pce/syscard3.pce` | 256 KB | 시스템 카드 3.0 — 사실상 모든 CD 게임 구동. |
+| 오디세이² / 비디오팩 | `bios/videopac/o2rom.bin` | 1 KB | o2em 코어용 o2rom 시스템 BIOS. |
+| 코모도어 64 | `bios/c64/basic.bin`, `bios/c64/kernal.bin`, `bios/c64/chargen.bin` | 8 / 8 / 4 KB | C64 시스템 롬 3종 (© Commodore). |
+| 타이거 Game.com | `bios/gamecom/internal.bin`, `bios/gamecom/external.bin` | 4 / 256 KB | 내부 OS + 외부/커널 롬 (© Tiger). |
+
+> 브라우저 코어가 SD 저장명과 다른 파일명을 찾을 수 있는데(예: 콜레코비전 코어는
+> 같은 바이트를 `colecovision.rom`으로 요구), 앱이 자동으로 매핑해 줍니다. 원본
+> 목록은 [`frontend/src/bios.js`](frontend/src/bios.js)에 있습니다.
+
 ## 📸 스크린샷
 
 *([라이브 데모](https://jshsakura.github.io/game-and-what/) — 샘플 데이터)*

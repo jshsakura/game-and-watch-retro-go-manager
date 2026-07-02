@@ -1,6 +1,8 @@
-import React from "react";
-import { Gamepad2, Keyboard, Power, Info, ListOrdered, HardDrive, Rocket } from "lucide-react";
+import React, { useState } from "react";
+import { Gamepad2, Keyboard, Power, Info, ListOrdered, HardDrive, Rocket, Cpu, Copy, Check } from "lucide-react";
 import { useT } from "../i18n.jsx";
+import { SystemIcon } from "../components.jsx";
+import { BIOS_CATALOG } from "../bios.js";
 
 // Steps to prepare the SD with this tool
 const STEPS = [
@@ -65,6 +67,26 @@ function GithubMark({ size = 15 }) {
   );
 }
 
+// A copyable SD path chip — one click copies the exact `bios/…` path so users
+// can paste it into the Extra (추가파일) tab's target-folder field without typos.
+function CopyPath({ path }) {
+  const t = useT();
+  const [copied, setCopied] = useState(false);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(path);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1200);
+    } catch (_) { /* clipboard blocked — the text is still selectable */ }
+  };
+  return (
+    <button type="button" className="bios-path" onClick={copy} title={t("Copy path")}>
+      <span className="bios-path-text">/{path}</span>
+      {copied ? <Check size={12} strokeWidth={3} aria-hidden /> : <Copy size={12} strokeWidth={2.5} aria-hidden />}
+    </button>
+  );
+}
+
 function Combo({ combo }) {
   const keys = combo.split("+").map((k) => k.trim());
   return (
@@ -103,6 +125,34 @@ export default function HelpTab() {
             <div className="help-row" key={k}>
               <span className="help-combo"><kbd className="keycap">{t(k)}</kbd></span>
               <span className="help-action">{t(v)}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* BIOS / 시스템 롬 */}
+      <div className="help-section">
+        <div className="help-head"><Cpu size={14} strokeWidth={2.5} aria-hidden /> {t("BIOS / System ROMs")}</div>
+        <div className="muted bios-intro">
+          {t("A few systems need a copyrighted BIOS we can't bundle. Upload each file in the Extra (추가파일) tab at the exact SD path below — click a path to copy it. It then ships in the SD ZIP at that path, where both the device firmware and the in-browser player load it.")}
+        </div>
+        <div className="bios-list">
+          {BIOS_CATALOG.map((b) => (
+            <div className="bios-group" key={b.key}>
+              <div className="bios-group-head">
+                <SystemIcon dirname={b.key} size={22} />
+                <span className="bios-sys">{t(b.label)}</span>
+                {b.tag && <span className="bios-tag">{t(b.tag)}</span>}
+              </div>
+              <div className="bios-files">
+                {b.files.map((f) => (
+                  <div className="bios-file" key={f.sdPath}>
+                    <CopyPath path={f.sdPath} />
+                    <span className="bios-size">{f.size}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bios-note">{t(b.note)}</div>
             </div>
           ))}
         </div>

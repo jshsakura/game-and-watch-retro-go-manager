@@ -4,13 +4,20 @@ import { getExtra, uploadExtra, deleteExtra, extraDownloadUrl, formatBytes } fro
 import { Dropzone } from "../components.jsx";
 import { useToast } from "../toast.jsx";
 import { useT } from "../i18n.jsx";
+import { BIOS_CATALOG } from "../bios.js";
+
+// Distinct BIOS target folders (bios/nes, bios/coleco, …) derived from the shared
+// catalog — offered as one-click example chips so users don't guess the path.
+const BIOS_FOLDERS = [
+  ...new Set(BIOS_CATALOG.flatMap((b) => b.files.map((f) => f.sdPath.replace(/\/[^/]+$/, "")))),
+];
 
 // Arbitrary passthrough files → SD root verbatim. Pick a target folder (e.g.
 // bios/nes) and the files land at <folder>/<name> in the SD ZIP.
 export default function ExtraTab({ onChanged }) {
   const toast = useToast();
   const t = useT();
-  const [folder, setFolder] = useState("bios/nes");
+  const [folder, setFolder] = useState("");
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -50,7 +57,7 @@ export default function ExtraTab({ onChanged }) {
   return (
     <div className="stack">
       <div className="muted">
-        <FolderPlus size={13} aria-hidden /> {t("Upload any file by")} <b>{t("setting an SD path")}</b>{t("and it goes into the SD ZIP as-is. (FDS:")} <b>bios/nes</b> {t("in")} <b>disksys.rom</b>)
+        <FolderPlus size={13} aria-hidden /> {t("Upload passthrough files — BIOS / system ROMs, configs, anything. Set the target SD folder and the file ships in the SD ZIP verbatim at that path. See the BIOS list in the INFO (정보) tab for each system's exact path.")}
       </div>
 
       <label className="field-label">{t("Target folder (SD path)")}</label>
@@ -61,10 +68,23 @@ export default function ExtraTab({ onChanged }) {
           className="path-input"
           value={folder}
           spellCheck={false}
-          placeholder="bios/nes"
+          placeholder={t("e.g. bios/nes — leave empty for the SD root")}
           onChange={(e) => setFolder(e.target.value)}
         />
         <span className="path-trail">/…</span>
+      </div>
+      <div className="extra-examples">
+        <span className="extra-examples-label">{t("BIOS folders:")}</span>
+        {BIOS_FOLDERS.map((f) => (
+          <button
+            type="button"
+            key={f}
+            className={`extra-chip ${dir === f ? "on" : ""}`}
+            onClick={() => setFolder(f)}
+          >
+            {f}
+          </button>
+        ))}
       </div>
       <div className="muted path-hint">{t("Leave empty to save to the SD root.")}</div>
 
